@@ -13,6 +13,7 @@ class JournalViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
 
 class IssueViewSet(viewsets.ModelViewSet):
+    queryset = Issue.objects.all()  # Required for router basename
     serializer_class = IssueSerializer
     
     def get_queryset(self):

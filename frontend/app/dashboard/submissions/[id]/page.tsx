@@ -240,48 +240,110 @@ export default function MySubmissionDetailPage() {
                             <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>Manuscript File</h3>
 
                             {submission.manuscript_file ? (
-                                <>
-                                    <div style={{
-                                        width: '100%',
-                                        height: '500px',
-                                        border: '1px solid #e5e5e5',
-                                        borderRadius: '8px',
-                                        overflow: 'hidden',
-                                        marginBottom: '1rem',
-                                        background: '#f9fafb'
-                                    }}>
-                                        <iframe
-                                            src={`http://localhost:8000${submission.manuscript_file}`}
-                                            style={{ width: '100%', height: '100%', border: 'none' }}
-                                            title="Manuscript PDF"
-                                        />
-                                    </div>
+                                (() => {
+                                    const fileUrl = `http://localhost:8000${submission.manuscript_file}`
+                                    const isPdf = submission.manuscript_file.toLowerCase().endsWith('.pdf')
+                                    const isWord = submission.manuscript_file.toLowerCase().endsWith('.doc') || submission.manuscript_file.toLowerCase().endsWith('.docx')
 
-                                    <div style={{ display: 'flex', gap: '1rem' }}>
-                                        <a
-                                            href={`http://localhost:8000${submission.manuscript_file}`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn btn-primary"
-                                        >
-                                            📄 Open in New Tab
-                                        </a>
-                                        <a
-                                            href={`http://localhost:8000${submission.manuscript_file}`}
-                                            download
-                                            style={{
-                                                padding: '0.75rem 1.5rem',
-                                                border: '1px solid #1e3a5f',
-                                                color: '#1e3a5f',
-                                                borderRadius: '8px',
-                                                textDecoration: 'none',
-                                                fontWeight: 500
-                                            }}
-                                        >
-                                            ⬇️ Download
-                                        </a>
-                                    </div>
-                                </>
+                                    return (
+                                        <div style={{ background: '#f9fafb', borderRadius: '12px', overflow: 'hidden' }}>
+                                            {/* File Header */}
+                                            <div style={{
+                                                padding: '1rem 1.5rem',
+                                                background: 'white',
+                                                borderBottom: '1px solid #e5e5e5',
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                                alignItems: 'center'
+                                            }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                                    <div style={{
+                                                        width: '40px',
+                                                        height: '40px',
+                                                        borderRadius: '8px',
+                                                        background: isPdf ? '#dc2626' : '#2563eb',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        color: 'white',
+                                                        fontSize: '0.75rem',
+                                                        fontWeight: 700
+                                                    }}>
+                                                        {isPdf ? 'PDF' : isWord ? 'DOC' : 'FILE'}
+                                                    </div>
+                                                    <div>
+                                                        <div style={{ fontWeight: 500, color: '#1a1a1a' }}>Manuscript</div>
+                                                        <div style={{ fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase' }}>
+                                                            {isPdf ? 'PDF' : isWord ? 'Word' : 'Document'}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                                    <a
+                                                        href={fileUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        style={{
+                                                            padding: '0.5rem 1rem',
+                                                            border: '1px solid #1e3a5f',
+                                                            color: '#1e3a5f',
+                                                            borderRadius: '6px',
+                                                            textDecoration: 'none',
+                                                            fontSize: '0.875rem',
+                                                            fontWeight: 500
+                                                        }}
+                                                    >
+                                                        Open in New Tab
+                                                    </a>
+                                                    <a
+                                                        href={fileUrl}
+                                                        download
+                                                        style={{
+                                                            padding: '0.5rem 1rem',
+                                                            background: '#1e3a5f',
+                                                            color: 'white',
+                                                            borderRadius: '6px',
+                                                            textDecoration: 'none',
+                                                            fontSize: '0.875rem',
+                                                            fontWeight: 500
+                                                        }}
+                                                    >
+                                                        Download
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            {/* File Preview */}
+                                            <div style={{ minHeight: '400px' }}>
+                                                {isPdf ? (
+                                                    <iframe
+                                                        src={fileUrl}
+                                                        style={{ width: '100%', height: '500px', border: 'none' }}
+                                                        title="PDF Viewer"
+                                                    />
+                                                ) : isWord ? (
+                                                    <div style={{ padding: '3rem', textAlign: 'center' }}>
+                                                        <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📝</div>
+                                                        <h4 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>Word Document</h4>
+                                                        <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '400px', margin: '0 auto 1.5rem' }}>
+                                                            Word documents cannot be previewed directly. Please download to view.
+                                                        </p>
+                                                        <a href={fileUrl} download className="btn btn-primary">
+                                                            📥 Download Word File
+                                                        </a>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{ padding: '3rem', textAlign: 'center' }}>
+                                                        <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📎</div>
+                                                        <p style={{ color: '#6b7280', marginBottom: '1rem' }}>Download to view</p>
+                                                        <a href={fileUrl} download className="btn btn-primary">Download</a>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )
+                                })()
                             ) : (
                                 <p style={{ color: '#6b7280' }}>No manuscript file uploaded</p>
                             )}
