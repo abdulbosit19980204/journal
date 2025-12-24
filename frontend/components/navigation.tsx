@@ -112,7 +112,12 @@ export default function Navigation() {
           {/* Auth */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             {isLoggedIn ? (
-              <Link href="/dashboard" className="btn btn-primary">Dashboard</Link>
+              <>
+                <Link href="/admin" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
+                  Admin
+                </Link>
+                <Link href="/dashboard" className="btn btn-primary">Dashboard</Link>
+              </>
             ) : (
               <>
                 <Link href="/auth/login" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
