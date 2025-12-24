@@ -43,12 +43,12 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      
+
       {/* Main Nav */}
       <nav style={{ borderBottom: '1px solid #e5e5e5' }}>
-        <div className="container" style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
+        <div className="container" style={{
+          display: 'flex',
+          justifyContent: 'space-between',
           alignItems: 'center',
           height: '70px'
         }}>
@@ -70,9 +70,9 @@ export default function Navigation() {
               AJ
             </div>
             <div>
-              <div style={{ 
-                fontSize: '1.25rem', 
-                fontWeight: 700, 
+              <div style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
                 color: '#1e3a5f',
                 fontFamily: "'Playfair Display', serif"
               }}>
@@ -89,6 +89,7 @@ export default function Navigation() {
             {[
               { href: "/", label: "Home" },
               { href: "/journals", label: "Journals" },
+              { href: "/articles", label: "Published" },
               { href: "/pricing", label: "Pricing" },
             ].map((item) => (
               <Link

@@ -148,9 +148,9 @@ export default function DashboardPage() {
                                                 </span>
                                             </td>
                                             <td style={{ padding: '1rem 1.5rem' }}>
-                                                <button style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem', background: 'none', border: 'none', cursor: 'pointer' }}>
+                                                <Link href={`/dashboard/submissions/${sub.id}`} style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem' }}>
                                                     View Details
-                                                </button>
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))}

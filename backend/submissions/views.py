@@ -5,24 +5,56 @@ from django.utils import timezone
 from .models import Article
 
 class ArticleSerializer(serializers.ModelSerializer):
+    author_name = serializers.SerializerMethodField()
+    
     class Meta:
         model = Article
         fields = '__all__'
-        read_only_fields = ('author', 'status', 'submitted_at', 'created_at', 'updated_at')
+        read_only_fields = ('author', 'submitted_at', 'created_at', 'updated_at')
+    
+    def get_author_name(self, obj):
+        return obj.author.get_full_name() or obj.author.username if obj.author else None
 
 class SubmissionViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
-        # Authors see own, Editors see journal's
         user = self.request.user
+        status_filter = self.request.query_params.get('status')
+        
+        # Public: show published articles
+        if status_filter == 'PUBLISHED':
+            return Article.objects.filter(status='PUBLISHED')
+        
+        # List: authors see their own
         if self.action == 'list':
-            return Article.objects.filter(author=user)
+            if user.is_authenticated:
+                return Article.objects.filter(author=user)
+            return Article.objects.filter(status='PUBLISHED')
+        
         return Article.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, status='SUBMITTED', submitted_at=timezone.now())
+
+    def partial_update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        # Authors can only update their own submissions in certain statuses
+        if instance.author == request.user and instance.status in ['DRAFT', 'SUBMITTED']:
+            allowed_fields = ['title', 'abstract', 'keywords', 'status']
+            data = {k: v for k, v in request.data.items() if k in allowed_fields}
+            # Only allow withdrawal status change
+            if 'status' in data and data['status'] != 'WITHDRAWN':
+                del data['status']
+            serializer = self.get_serializer(instance, data=data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
+        # Editors can update any field
+        elif request.user.is_staff:
+            return super().partial_update(request, *args, **kwargs)
+        return Response({'error': 'Not authorized'}, status=status.HTTP_403_FORBIDDEN)
 
     @action(detail=True, methods=['post'])
     def withdraw(self, request, pk=None):
@@ -33,5 +65,7 @@ class SubmissionViewSet(viewsets.ModelViewSet):
         if article.status in ['PUBLISHED', 'ACCEPTED']:
              return Response({'error': 'Cannot withdraw processed article'}, status=status.HTTP_400_BAD_REQUEST)
              
-        article.delete() # Or set status to WITHDRAWN
+        article.status = 'WITHDRAWN'
+        article.save()
         return Response({'status': 'Withdrawn'})
+
