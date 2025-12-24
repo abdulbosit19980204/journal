@@ -12,21 +12,13 @@ export default function DashboardPage() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [userRes, subRes] = await Promise.all([
-                    api.get("/auth/me/"),
-                    api.get("/submissions/")
-                ])
+        Promise.all([api.get("/auth/me/"), api.get("/submissions/")])
+            .then(([userRes, subRes]) => {
                 setUser(userRes.data)
                 setSubmissions(subRes.data)
-            } catch (err) {
-                router.push("/auth/login")
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchData()
+            })
+            .catch(() => router.push("/auth/login"))
+            .finally(() => setLoading(false))
     }, [router])
 
     const handleLogout = () => {
@@ -37,112 +29,126 @@ export default function DashboardPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
-                <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-[var(--text-muted)]">Loading your dashboard...</p>
-                </div>
+            <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="spinner" />
             </div>
         )
     }
 
-    const statusColors: Record<string, string> = {
-        DRAFT: 'bg-gray-100 text-gray-800',
-        SUBMITTED: 'bg-blue-100 text-blue-800',
-        UNDER_REVIEW: 'bg-purple-100 text-purple-800',
-        ACCEPTED: 'bg-green-100 text-green-800',
-        REJECTED: 'bg-red-100 text-red-800',
-        PUBLISHED: 'bg-amber-100 text-amber-800',
+    const statusColors: Record<string, { bg: string; text: string }> = {
+        DRAFT: { bg: '#f3f4f6', text: '#374151' },
+        SUBMITTED: { bg: '#dbeafe', text: '#1e40af' },
+        UNDER_REVIEW: { bg: '#e0e7ff', text: '#3730a3' },
+        ACCEPTED: { bg: '#d1fae5', text: '#065f46' },
+        REJECTED: { bg: '#fee2e2', text: '#991b1b' },
+        PUBLISHED: { bg: '#fef3c7', text: '#92400e' },
     }
 
     return (
-        <div className="min-h-screen bg-[var(--background)]">
-            <div className="max-w-7xl mx-auto px-4 py-8">
+        <main style={{ background: '#faf9f6', minHeight: '100vh' }}>
+            <div className="container" style={{ padding: '2rem 1rem' }}>
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
                     <div>
-                        <h1 className="text-3xl font-bold text-[var(--primary)]">
-                            Welcome back, {user?.first_name || user?.username}!
+                        <h1 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#1e3a5f', fontFamily: "'Playfair Display', serif" }}>
+                            Welcome, {user?.first_name || user?.username}!
                         </h1>
-                        <p className="text-[var(--text-muted)] mt-1">Manage your submissions and track their progress</p>
+                        <p style={{ color: '#6b7280' }}>Manage your submissions and track progress</p>
                     </div>
-                    <div className="flex gap-3">
-                        <Link href="/dashboard/author/submit" className="btn-primary">
-                            + New Submission
-                        </Link>
-                        <button onClick={handleLogout} className="px-4 py-2 border border-gray-200 rounded-lg text-[var(--text-secondary)] hover:bg-gray-50 transition">
-                            Sign Out
-                        </button>
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                        <Link href="/dashboard/author/submit" className="btn btn-primary">+ New Submission</Link>
+                        <button onClick={handleLogout} style={{
+                            padding: '0.75rem 1.25rem',
+                            border: '1px solid #e5e5e5',
+                            borderRadius: '8px',
+                            background: 'white',
+                            cursor: 'pointer',
+                            fontSize: '0.875rem'
+                        }}>Sign Out</button>
                     </div>
                 </div>
 
-                {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                {/* Stats */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
                     {[
-                        { label: 'Total Submissions', value: submissions.length, color: 'var(--primary)' },
-                        { label: 'Under Review', value: submissions.filter(s => s.status === 'UNDER_REVIEW' || s.status === 'SUBMITTED').length, color: '#6366f1' },
+                        { label: 'Total', value: submissions.length, color: '#1e3a5f' },
+                        { label: 'In Review', value: submissions.filter(s => ['SUBMITTED', 'UNDER_REVIEW'].includes(s.status)).length, color: '#6366f1' },
                         { label: 'Accepted', value: submissions.filter(s => s.status === 'ACCEPTED').length, color: '#059669' },
                         { label: 'Published', value: submissions.filter(s => s.status === 'PUBLISHED').length, color: '#d97706' },
                     ].map((stat, i) => (
-                        <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                            <div className="text-sm text-[var(--text-muted)] mb-2">{stat.label}</div>
-                            <div className="text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</div>
+                        <div key={i} className="card" style={{ padding: '1.5rem' }}>
+                            <div style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '0.5rem' }}>{stat.label}</div>
+                            <div style={{ fontSize: '2rem', fontWeight: 700, color: stat.color }}>{stat.value}</div>
                         </div>
                     ))}
                 </div>
 
                 {/* Quick Actions */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <Link href="/dashboard/author/submit" className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition group">
-                        <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white text-xl mb-4">📄</div>
-                        <h3 className="font-bold text-[var(--primary)] mb-2 group-hover:text-[var(--primary-light)]">Submit Article</h3>
-                        <p className="text-[var(--text-muted)] text-sm">Upload a new manuscript for review</p>
-                    </Link>
-                    <Link href="/journals" className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition group">
-                        <div className="w-12 h-12 rounded-lg bg-[var(--secondary)] flex items-center justify-center text-white text-xl mb-4">📚</div>
-                        <h3 className="font-bold text-[var(--primary)] mb-2 group-hover:text-[var(--primary-light)]">Browse Journals</h3>
-                        <p className="text-[var(--text-muted)] text-sm">Explore our journal collection</p>
-                    </Link>
-                    <Link href="/pricing" className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition group">
-                        <div className="w-12 h-12 rounded-lg bg-[#059669] flex items-center justify-center text-white text-xl mb-4">💎</div>
-                        <h3 className="font-bold text-[var(--primary)] mb-2 group-hover:text-[var(--primary-light)]">Upgrade Plan</h3>
-                        <p className="text-[var(--text-muted)] text-sm">Get more publishing benefits</p>
-                    </Link>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+                    {[
+                        { icon: '📄', title: 'Submit Article', desc: 'Upload a new manuscript', href: '/dashboard/author/submit', color: '#1e3a5f' },
+                        { icon: '📚', title: 'Browse Journals', desc: 'Explore our collection', href: '/journals', color: '#c9a227' },
+                        { icon: '💎', title: 'Upgrade Plan', desc: 'Get more benefits', href: '/pricing', color: '#059669' },
+                    ].map((item, i) => (
+                        <Link key={i} href={item.href} className="card" style={{ padding: '1.5rem', display: 'block', textDecoration: 'none' }}>
+                            <div style={{
+                                width: '48px',
+                                height: '48px',
+                                borderRadius: '10px',
+                                background: item.color,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '1.25rem',
+                                marginBottom: '1rem'
+                            }}>{item.icon}</div>
+                            <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.25rem' }}>{item.title}</h3>
+                            <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>{item.desc}</p>
+                        </Link>
+                    ))}
                 </div>
 
                 {/* Submissions Table */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div className="px-6 py-4 border-b border-gray-100">
-                        <h2 className="text-xl font-bold text-[var(--primary)]">My Submissions</h2>
+                <div className="card">
+                    <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #e5e5e5' }}>
+                        <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', fontFamily: "'Playfair Display', serif" }}>My Submissions</h2>
                     </div>
                     {submissions.length > 0 ? (
-                        <div className="overflow-x-auto">
-                            <table className="w-full">
-                                <thead className="bg-gray-50 text-left">
-                                    <tr>
-                                        <th className="px-6 py-3 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">Title</th>
-                                        <th className="px-6 py-3 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">Date</th>
-                                        <th className="px-6 py-3 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">Status</th>
-                                        <th className="px-6 py-3 text-xs font-medium text-[var(--text-muted)] uppercase tracking-wider">Actions</th>
+                        <div style={{ overflowX: 'auto' }}>
+                            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                                <thead>
+                                    <tr style={{ background: '#f9fafb', textAlign: 'left' }}>
+                                        <th style={{ padding: '0.75rem 1.5rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500, textTransform: 'uppercase' }}>Title</th>
+                                        <th style={{ padding: '0.75rem 1.5rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500, textTransform: 'uppercase' }}>Date</th>
+                                        <th style={{ padding: '0.75rem 1.5rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500, textTransform: 'uppercase' }}>Status</th>
+                                        <th style={{ padding: '0.75rem 1.5rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500, textTransform: 'uppercase' }}>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-100">
+                                <tbody>
                                     {submissions.map((sub) => (
-                                        <tr key={sub.id} className="hover:bg-gray-50 transition">
-                                            <td className="px-6 py-4">
-                                                <div className="font-medium text-[var(--text-primary)]">{sub.title}</div>
-                                                <div className="text-sm text-[var(--text-muted)]">Journal #{sub.journal}</div>
+                                        <tr key={sub.id} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                            <td style={{ padding: '1rem 1.5rem' }}>
+                                                <div style={{ fontWeight: 500, color: '#1a1a1a' }}>{sub.title}</div>
+                                                <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>Journal #{sub.journal}</div>
                                             </td>
-                                            <td className="px-6 py-4 text-sm text-[var(--text-muted)]">
+                                            <td style={{ padding: '1rem 1.5rem', color: '#6b7280', fontSize: '0.875rem' }}>
                                                 {new Date(sub.submitted_at || sub.created_at).toLocaleDateString()}
                                             </td>
-                                            <td className="px-6 py-4">
-                                                <span className={`badge ${statusColors[sub.status] || 'bg-gray-100 text-gray-800'}`}>
+                                            <td style={{ padding: '1rem 1.5rem' }}>
+                                                <span style={{
+                                                    display: 'inline-block',
+                                                    padding: '0.25rem 0.75rem',
+                                                    borderRadius: '9999px',
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: 600,
+                                                    background: statusColors[sub.status]?.bg || '#f3f4f6',
+                                                    color: statusColors[sub.status]?.text || '#374151'
+                                                }}>
                                                     {sub.status}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4">
-                                                <button className="text-[var(--primary)] hover:underline text-sm font-medium">
+                                            <td style={{ padding: '1rem 1.5rem' }}>
+                                                <button style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem', background: 'none', border: 'none', cursor: 'pointer' }}>
                                                     View Details
                                                 </button>
                                             </td>
@@ -152,17 +158,15 @@ export default function DashboardPage() {
                             </table>
                         </div>
                     ) : (
-                        <div className="text-center py-12">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center text-2xl">📝</div>
-                            <h3 className="text-lg font-medium text-[var(--text-primary)] mb-2">No submissions yet</h3>
-                            <p className="text-[var(--text-muted)] mb-4">Start your publishing journey today</p>
-                            <Link href="/dashboard/author/submit" className="btn-primary">
-                                Submit Your First Article
-                            </Link>
+                        <div style={{ textAlign: 'center', padding: '4rem' }}>
+                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📝</div>
+                            <h3 style={{ fontWeight: 600, marginBottom: '0.5rem' }}>No submissions yet</h3>
+                            <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>Start your publishing journey today</p>
+                            <Link href="/dashboard/author/submit" className="btn btn-primary">Submit Your First Article</Link>
                         </div>
                     )}
                 </div>
             </div>
-        </div>
+        </main>
     )
 }

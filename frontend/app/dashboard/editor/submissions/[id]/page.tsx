@@ -13,100 +13,68 @@ export default function ReviewSubmissionPage() {
     const [processing, setProcessing] = useState(false)
 
     useEffect(() => {
-        const fetchSubmission = async () => {
-            try {
-                const res = await api.get(`/submissions/${id}/`)
-                setSubmission(res.data)
-            } catch (err) {
-                console.error(err)
-            } finally {
-                setLoading(false)
-            }
-        }
-        if (id) fetchSubmission()
+        if (id) api.get(`/submissions/${id}/`).then(res => setSubmission(res.data)).catch(console.error).finally(() => setLoading(false))
     }, [id])
 
     const handleDecision = async (status: 'ACCEPTED' | 'REJECTED') => {
         setProcessing(true)
         try {
             await api.patch(`/submissions/${id}/`, { status })
-            router.push("/dashboard/editor?updated=true")
-        } catch (err) {
-            console.error(err)
-            alert("Failed to update status")
-        } finally {
-            setProcessing(false)
-        }
+            router.push("/dashboard/editor")
+        } catch { alert("Failed to update") }
+        finally { setProcessing(false) }
     }
 
-    if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
-                <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-[var(--text-muted)]">Loading submission...</p>
-                </div>
-            </div>
-        )
-    }
+    if (loading) return <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><div className="spinner" /></div>
+    if (!submission) return <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>Not Found</h2>
+        <Link href="/dashboard/editor" style={{ color: '#1e3a5f' }}>← Back</Link>
+    </div>
 
-    if (!submission) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
-                <div className="text-center">
-                    <h2 className="text-2xl font-bold text-[var(--primary)] mb-2">Submission Not Found</h2>
-                    <Link href="/dashboard/editor" className="text-[var(--primary)] hover:underline">← Back to Dashboard</Link>
-                </div>
-            </div>
-        )
-    }
-
-    const statusColors: Record<string, string> = {
-        DRAFT: 'bg-gray-100 text-gray-800',
-        SUBMITTED: 'bg-blue-100 text-blue-800',
-        UNDER_REVIEW: 'bg-purple-100 text-purple-800',
-        ACCEPTED: 'bg-green-100 text-green-800',
-        REJECTED: 'bg-red-100 text-red-800',
-        PUBLISHED: 'bg-amber-100 text-amber-800',
+    const statusColors: Record<string, { bg: string; text: string }> = {
+        SUBMITTED: { bg: '#dbeafe', text: '#1e40af' },
+        UNDER_REVIEW: { bg: '#e0e7ff', text: '#3730a3' },
+        ACCEPTED: { bg: '#d1fae5', text: '#065f46' },
+        REJECTED: { bg: '#fee2e2', text: '#991b1b' },
     }
 
     return (
-        <div className="min-h-screen bg-[var(--background)]">
-            {/* Header */}
-            <div className="gradient-primary text-white py-8">
-                <div className="max-w-5xl mx-auto px-4">
-                    <Link href="/dashboard/editor" className="text-white/80 hover:text-white mb-4 inline-block">
-                        ← Back to Dashboard
-                    </Link>
-                    <h1 className="text-3xl font-bold">Review Submission</h1>
+        <main style={{ background: '#faf9f6', minHeight: '100vh' }}>
+            <section style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)', color: 'white', padding: '2rem 0' }}>
+                <div className="container">
+                    <Link href="/dashboard/editor" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>← Back to Dashboard</Link>
+                    <h1 style={{ fontSize: '1.75rem', fontWeight: 700, marginTop: '0.5rem', fontFamily: "'Playfair Display', serif" }}>Review Submission</h1>
                 </div>
-            </div>
+            </section>
 
-            <div className="max-w-5xl mx-auto px-4 py-8">
-                <div className="grid lg:grid-cols-3 gap-8">
-                    {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-6">
-                        {/* Title & Abstract */}
-                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                            <div className="flex items-start justify-between mb-4">
-                                <h2 className="text-2xl font-bold text-[var(--primary)]">{submission.title}</h2>
-                                <span className={`badge ${statusColors[submission.status]}`}>
+            <div className="container" style={{ padding: '2rem 1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+                    {/* Main */}
+                    <div>
+                        <div className="card" style={{ padding: '2rem', marginBottom: '1.5rem' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1.5rem' }}>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', fontFamily: "'Playfair Display', serif" }}>{submission.title}</h2>
+                                <span style={{
+                                    padding: '0.25rem 0.75rem',
+                                    borderRadius: '9999px',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 600,
+                                    background: statusColors[submission.status]?.bg || '#f3f4f6',
+                                    color: statusColors[submission.status]?.text || '#374151'
+                                }}>
                                     {submission.status.replace('_', ' ')}
                                 </span>
                             </div>
-                            <div className="prose prose-gray max-w-none">
-                                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Abstract</h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed">{submission.abstract}</p>
-                            </div>
+                            <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.75rem' }}>Abstract</h3>
+                            <p style={{ color: '#4a4a4a', lineHeight: 1.7 }}>{submission.abstract}</p>
                         </div>
 
-                        {/* Keywords */}
                         {submission.keywords && (
-                            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3">Keywords</h3>
-                                <div className="flex flex-wrap gap-2">
+                            <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+                                <h3 style={{ fontWeight: 600, marginBottom: '0.75rem' }}>Keywords</h3>
+                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                                     {submission.keywords.split(',').map((kw: string, i: number) => (
-                                        <span key={i} className="px-3 py-1 bg-gray-100 text-[var(--text-secondary)] rounded-full text-sm">
+                                        <span key={i} style={{ padding: '0.25rem 0.75rem', background: '#f3f4f6', borderRadius: '9999px', fontSize: '0.875rem', color: '#4a4a4a' }}>
                                             {kw.trim()}
                                         </span>
                                     ))}
@@ -114,97 +82,72 @@ export default function ReviewSubmissionPage() {
                             </div>
                         )}
 
-                        {/* Manuscript Download */}
-                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                            <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-4">Manuscript File</h3>
+                        <div className="card" style={{ padding: '1.5rem' }}>
+                            <h3 style={{ fontWeight: 600, marginBottom: '1rem' }}>Manuscript File</h3>
                             {submission.manuscript_file ? (
-                                <a
-                                    href={`http://localhost:8000${submission.manuscript_file}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition"
-                                >
-                                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-xl">📄</div>
-                                    <div className="flex-1">
-                                        <div className="font-medium text-[var(--primary)]">Download Manuscript</div>
-                                        <div className="text-sm text-[var(--text-muted)]">PDF Document</div>
+                                <a href={`http://localhost:8000${submission.manuscript_file}`} target="_blank" rel="noopener noreferrer"
+                                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid #e5e5e5', borderRadius: '8px', textDecoration: 'none' }}>
+                                    <div style={{ width: '48px', height: '48px', background: '#fee2e2', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📄</div>
+                                    <div>
+                                        <div style={{ fontWeight: 500, color: '#1e3a5f' }}>Download Manuscript</div>
+                                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>PDF Document</div>
                                     </div>
-                                    <span className="text-[var(--primary)]">↓</span>
                                 </a>
-                            ) : (
-                                <p className="text-[var(--text-muted)]">No manuscript file uploaded</p>
-                            )}
+                            ) : <p style={{ color: '#6b7280' }}>No file uploaded</p>}
                         </div>
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-6">
-                        {/* Metadata */}
-                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                            <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-4">Details</h3>
-                            <dl className="space-y-3 text-sm">
-                                <div className="flex justify-between">
-                                    <dt className="text-[var(--text-muted)]">Submission ID</dt>
-                                    <dd className="font-medium">#{submission.id}</dd>
-                                </div>
-                                <div className="flex justify-between">
-                                    <dt className="text-[var(--text-muted)]">Author</dt>
-                                    <dd className="font-medium">{submission.author_name || `Author #${submission.author}`}</dd>
-                                </div>
-                                <div className="flex justify-between">
-                                    <dt className="text-[var(--text-muted)]">Journal</dt>
-                                    <dd className="font-medium">#{submission.journal}</dd>
-                                </div>
-                                <div className="flex justify-between">
-                                    <dt className="text-[var(--text-muted)]">Language</dt>
-                                    <dd className="font-medium uppercase">{submission.language}</dd>
-                                </div>
-                                <div className="flex justify-between">
-                                    <dt className="text-[var(--text-muted)]">Submitted</dt>
-                                    <dd className="font-medium">{new Date(submission.submitted_at || submission.created_at).toLocaleDateString()}</dd>
-                                </div>
+                    <div>
+                        <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+                            <h3 style={{ fontWeight: 600, marginBottom: '1rem' }}>Details</h3>
+                            <dl style={{ fontSize: '0.875rem' }}>
+                                {[
+                                    { label: 'ID', value: `#${submission.id}` },
+                                    { label: 'Author', value: `#${submission.author}` },
+                                    { label: 'Journal', value: `#${submission.journal}` },
+                                    { label: 'Language', value: submission.language?.toUpperCase() },
+                                    { label: 'Date', value: new Date(submission.submitted_at || submission.created_at).toLocaleDateString() },
+                                ].map((d, i) => (
+                                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
+                                        <dt style={{ color: '#6b7280' }}>{d.label}</dt>
+                                        <dd style={{ fontWeight: 500 }}>{d.value}</dd>
+                                    </div>
+                                ))}
                             </dl>
                         </div>
 
-                        {/* Decision Panel */}
-                        {(submission.status === 'SUBMITTED' || submission.status === 'UNDER_REVIEW') && (
-                            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                                <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-4">Make Decision</h3>
-                                <div className="space-y-3">
-                                    <button
-                                        onClick={() => handleDecision('ACCEPTED')}
-                                        disabled={processing}
-                                        className="w-full py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition disabled:opacity-50"
-                                    >
-                                        ✓ Accept Article
-                                    </button>
-                                    <button
-                                        onClick={() => handleDecision('REJECTED')}
-                                        disabled={processing}
-                                        className="w-full py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition disabled:opacity-50"
-                                    >
-                                        ✗ Reject Article
-                                    </button>
-                                </div>
+                        {['SUBMITTED', 'UNDER_REVIEW'].includes(submission.status) && (
+                            <div className="card" style={{ padding: '1.5rem' }}>
+                                <h3 style={{ fontWeight: 600, marginBottom: '1rem' }}>Make Decision</h3>
+                                <button onClick={() => handleDecision('ACCEPTED')} disabled={processing}
+                                    style={{ width: '100%', padding: '0.875rem', borderRadius: '8px', background: '#059669', color: 'white', border: 'none', fontWeight: 600, cursor: 'pointer', marginBottom: '0.75rem', opacity: processing ? 0.7 : 1 }}>
+                                    ✓ Accept
+                                </button>
+                                <button onClick={() => handleDecision('REJECTED')} disabled={processing}
+                                    style={{ width: '100%', padding: '0.875rem', borderRadius: '8px', background: '#dc2626', color: 'white', border: 'none', fontWeight: 600, cursor: 'pointer', opacity: processing ? 0.7 : 1 }}>
+                                    ✗ Reject
+                                </button>
                             </div>
                         )}
 
-                        {/* Already Decided */}
-                        {(submission.status === 'ACCEPTED' || submission.status === 'REJECTED') && (
-                            <div className={`rounded-xl p-6 ${submission.status === 'ACCEPTED' ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-                                <div className="text-center">
-                                    <div className={`text-4xl mb-2 ${submission.status === 'ACCEPTED' ? 'text-green-600' : 'text-red-600'}`}>
-                                        {submission.status === 'ACCEPTED' ? '✓' : '✗'}
-                                    </div>
-                                    <h3 className={`font-bold ${submission.status === 'ACCEPTED' ? 'text-green-800' : 'text-red-800'}`}>
-                                        Article {submission.status.toLowerCase()}
-                                    </h3>
+                        {['ACCEPTED', 'REJECTED'].includes(submission.status) && (
+                            <div style={{
+                                padding: '1.5rem',
+                                borderRadius: '12px',
+                                textAlign: 'center',
+                                background: submission.status === 'ACCEPTED' ? '#d1fae5' : '#fee2e2',
+                                border: `1px solid ${submission.status === 'ACCEPTED' ? '#a7f3d0' : '#fecaca'}`
+                            }}>
+                                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{submission.status === 'ACCEPTED' ? '✓' : '✗'}</div>
+                                <div style={{ fontWeight: 600, color: submission.status === 'ACCEPTED' ? '#065f46' : '#991b1b' }}>
+                                    {submission.status.toLowerCase()}
                                 </div>
                             </div>
                         )}
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }
