@@ -47,3 +47,30 @@ class Invoice(models.Model):
 
     def __str__(self):
         return f"Invoice #{self.id} - {self.amount} {self.currency}"
+
+
+class SubscriptionHistory(models.Model):
+    """Tracks all subscription changes for a user"""
+    ACTION_CHOICES = (
+        ('SUBSCRIBED', 'Subscribed'),
+        ('RENEWED', 'Renewed'),
+        ('UPGRADED', 'Upgraded'),
+        ('DOWNGRADED', 'Downgraded'),
+        ('CANCELLED', 'Cancelled'),
+        ('EXPIRED', 'Expired'),
+    )
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='subscription_history')
+    plan = models.ForeignKey(SubscriptionPlan, on_delete=models.SET_NULL, null=True)
+    action = models.CharField(max_length=20, choices=ACTION_CHOICES)
+    amount_paid = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    invoice = models.ForeignKey(Invoice, on_delete=models.SET_NULL, null=True, blank=True)
+    notes = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name_plural = 'Subscription histories'
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.action} - {self.plan.name if self.plan else 'N/A'}"

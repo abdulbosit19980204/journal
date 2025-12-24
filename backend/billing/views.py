@@ -2,8 +2,8 @@ from rest_framework import viewsets, permissions, status, views
 from rest_framework.response import Response
 from django.utils import timezone
 from datetime import timedelta
-from .models import SubscriptionPlan, UserSubscription, Invoice
-from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer
+from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory
+from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer, SubscriptionHistorySerializer
 
 class PlanViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = SubscriptionPlan.objects.filter(is_active=True)
@@ -19,6 +19,13 @@ class MySubscriptionView(views.APIView):
             return Response({'status': 'No active subscription'}, status=404)
         return Response(UserSubscriptionSerializer(sub).data)
 
+class SubscriptionHistoryView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        history = SubscriptionHistory.objects.filter(user=request.user)
+        return Response(SubscriptionHistorySerializer(history, many=True).data)
+
 class SubscribeView(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -29,12 +36,23 @@ class SubscribeView(views.APIView):
         except SubscriptionPlan.DoesNotExist:
             return Response({'error': 'Plan not found'}, status=404)
 
+        # Check existing subscription for upgrade/downgrade tracking
+        existing_sub = UserSubscription.objects.filter(user=request.user).first()
+        action = 'SUBSCRIBED'
+        if existing_sub and existing_sub.plan:
+            if existing_sub.plan.price < plan.price:
+                action = 'UPGRADED'
+            elif existing_sub.plan.price > plan.price:
+                action = 'DOWNGRADED'
+            else:
+                action = 'RENEWED'
+
         # Create Invoice
         invoice = Invoice.objects.create(
             user=request.user,
             amount=plan.price,
             description=f"Subscription to {plan.name}",
-            status='PENDING' # In real app, pending payment
+            status='PENDING'
         )
         
         # MOCK PAYMENT: Auto-approve for demo
@@ -53,4 +71,14 @@ class SubscribeView(views.APIView):
             }
         )
 
-        return Response({'status': 'Subscribed successfully', 'invoice_id': invoice.id})
+        # Create History Record
+        SubscriptionHistory.objects.create(
+            user=request.user,
+            plan=plan,
+            action=action,
+            amount_paid=plan.price,
+            invoice=invoice,
+            notes=f"Subscribed to {plan.name} plan"
+        )
+
+        return Response({'status': 'Subscribed successfully', 'invoice_id': invoice.id, 'action': action})
