@@ -35,105 +35,150 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left side - Decorative */}
-      <div className="hidden lg:flex lg:w-1/2 gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
+    <div style={{ minHeight: '100vh', display: 'flex' }}>
+      {/* Left Panel */}
+      <div style={{
+        width: '50%',
+        background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
+        color: 'white',
+        padding: '4rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '12px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '2rem'
+        }}>
+          <span style={{ color: '#c9a227', fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Playfair Display', serif" }}>AJ</span>
         </div>
-        <div className="relative z-10 flex flex-col justify-center p-16 text-white">
-          <div className="mb-8">
-            <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-              <span className="text-[var(--secondary)] text-3xl font-bold font-serif">AJ</span>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
+          Welcome Back
+        </h1>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.6 }}>
+          Continue your research journey with American Journal Platform.
+        </p>
+        <div style={{ marginTop: '3rem' }}>
+          {['Access your submissions', 'Track review progress', 'Manage publications'].map((item, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <div style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                background: 'rgba(255,255,255,0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>✓</div>
+              <span style={{ opacity: 0.9 }}>{item}</span>
             </div>
-            <h1 className="text-4xl font-bold mb-4 font-serif">Welcome Back</h1>
-            <p className="text-xl opacity-80 font-serif">
-              Continue your research journey with American Journal Platform.
-            </p>
-          </div>
-          <div className="space-y-4 mt-12">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">✓</div>
-              <span className="opacity-90">Access your submissions</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">✓</div>
-              <span className="opacity-90">Track review progress</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">✓</div>
-              <span className="opacity-90">Manage your publications</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Right side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-[var(--background)]">
-        <div className="w-full max-w-md">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-[var(--primary)] mb-2">Sign In</h2>
-            <p className="text-[var(--text-muted)]">
-              Don't have an account?{" "}
-              <Link href="/auth/register" className="text-[var(--primary)] font-medium hover:underline">
-                Create one
-              </Link>
+      {/* Right Panel - Form */}
+      <div style={{
+        width: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        background: '#faf9f6'
+      }}>
+        <div style={{ width: '100%', maxWidth: '400px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
+              Sign In
+            </h2>
+            <p style={{ color: '#6b7280' }}>
+              Don&apos;t have an account?{" "}
+              <Link href="/auth/register" style={{ color: '#1e3a5f', fontWeight: 500 }}>Create one</Link>
             </p>
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 text-sm">
+            <div style={{
+              background: '#fee2e2',
+              border: '1px solid #fecaca',
+              color: '#991b1b',
+              padding: '0.75rem 1rem',
+              borderRadius: '8px',
+              marginBottom: '1.5rem',
+              fontSize: '0.875rem'
+            }}>
               {error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Username</label>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#1a1a1a', marginBottom: '0.5rem' }}>
+                Username
+              </label>
               <input
                 {...register("username")}
                 type="text"
                 autoComplete="username"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
+                className="input"
                 placeholder="Enter your username"
+                style={{
+                  width: '100%',
+                  padding: '0.75rem 1rem',
+                  border: '1px solid #e5e5e5',
+                  borderRadius: '8px',
+                  fontSize: '1rem'
+                }}
               />
-              {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>}
+              {errors.username && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.username.message}</p>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Password</label>
+            <div style={{ marginBottom: '1.25rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#1a1a1a', marginBottom: '0.5rem' }}>
+                Password
+              </label>
               <input
                 {...register("password")}
                 type="password"
                 autoComplete="current-password"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
+                className="input"
                 placeholder="Enter your password"
+                style={{
+                  width: '100%',
+                  padding: '0.75rem 1rem',
+                  border: '1px solid #e5e5e5',
+                  borderRadius: '8px',
+                  fontSize: '1rem'
+                }}
               />
-              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
-            </div>
-
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" className="rounded border-gray-300" />
-                <span className="text-[var(--text-muted)]">Remember me</span>
-              </label>
-              <a href="#" className="text-[var(--primary)] font-medium hover:underline">Forgot password?</a>
+              {errors.password && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.password.message}</p>}
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn-primary py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn btn-primary"
+              style={{
+                width: '100%',
+                padding: '0.875rem',
+                fontSize: '1rem',
+                marginTop: '0.5rem',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.7 : 1
+              }}
             >
               {isSubmitting ? "Signing in..." : "Sign In"}
             </button>
           </form>
 
-          <div className="mt-8 text-center text-xs text-[var(--text-muted)]">
-            By signing in, you agree to our{" "}
-            <a href="#" className="underline">Terms of Service</a> and{" "}
-            <a href="#" className="underline">Privacy Policy</a>
-          </div>
+          <p style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.75rem', color: '#6b7280' }}>
+            By signing in, you agree to our Terms of Service and Privacy Policy
+          </p>
         </div>
       </div>
     </div>

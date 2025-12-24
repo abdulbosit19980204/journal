@@ -9,119 +9,120 @@ export default function JournalsPage() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const fetchJournals = async () => {
-            try {
-                const res = await api.get("/journals/")
-                setJournals(res.data)
-            } catch (err) {
-                console.error(err)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchJournals()
+        api.get("/journals/").then(res => setJournals(res.data)).catch(console.error).finally(() => setLoading(false))
     }, [])
+
+    const colors = ['#dc2626', '#2563eb', '#059669', '#7c3aed', '#ea580c', '#0891b2']
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
-                <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-[var(--text-muted)]">Loading journals...</p>
-                </div>
+            <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="spinner" />
             </div>
         )
     }
 
-    const journalColors = ['#dc2626', '#2563eb', '#059669', '#7c3aed', '#ea580c', '#0891b2']
-
     return (
-        <div className="min-h-screen bg-[var(--background)]">
+        <main>
             {/* Hero */}
-            <section className="gradient-primary text-white py-16">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center">
-                        <div className="ornament mb-4">
-                            <span className="text-[var(--secondary)]">◆</span>
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Journals</h1>
-                        <p className="text-xl opacity-80 max-w-2xl mx-auto">
-                            Explore our collection of peer-reviewed academic journals across various disciplines
-                        </p>
+            <section style={{
+                background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
+                color: 'white',
+                padding: '4rem 0',
+                textAlign: 'center'
+            }}>
+                <div className="container">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                        <div style={{ width: '60px', height: '1px', background: '#c9a227' }} />
+                        <span style={{ color: '#c9a227' }}>◆</span>
+                        <div style={{ width: '60px', height: '1px', background: '#c9a227' }} />
                     </div>
-                </div>
-            </section>
-
-            {/* Filters */}
-            <section className="bg-white border-b border-gray-100 py-4 sticky top-[136px] z-40">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-wrap gap-4 items-center justify-between">
-                        <div className="flex gap-2">
-                            <button className="px-4 py-2 bg-[var(--primary)] text-white rounded-lg text-sm font-medium">All Journals</button>
-                            <button className="px-4 py-2 bg-gray-100 text-[var(--text-secondary)] rounded-lg text-sm font-medium hover:bg-gray-200 transition">Open Access</button>
-                            <button className="px-4 py-2 bg-gray-100 text-[var(--text-secondary)] rounded-lg text-sm font-medium hover:bg-gray-200 transition">Subscription</button>
-                        </div>
-                        <div className="text-sm text-[var(--text-muted)]">
-                            Showing {journals.length} journals
-                        </div>
-                    </div>
+                    <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
+                        Our Journals
+                    </h1>
+                    <p style={{ fontSize: '1.25rem', opacity: 0.8, maxWidth: '600px', margin: '0 auto' }}>
+                        Explore our collection of peer-reviewed academic journals
+                    </p>
                 </div>
             </section>
 
             {/* Journals Grid */}
-            <section className="py-12 paper-texture">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <section style={{ padding: '4rem 0', background: '#faf9f6' }}>
+                <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
                         {journals.map((journal, i) => (
-                            <article key={journal.id} className="bg-white rounded-xl shadow-lg overflow-hidden card-hover border border-gray-100 group">
-                                <div className="h-2" style={{ background: journalColors[i % journalColors.length] }} />
-                                <div className="p-6">
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className="w-14 h-14 rounded-lg flex items-center justify-center text-white text-xl font-bold" style={{ background: journalColors[i % journalColors.length] }}>
+                            <div key={journal.id} className="card">
+                                <div style={{ height: '4px', background: colors[i % colors.length] }} />
+                                <div style={{ padding: '1.5rem' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
+                                        <div style={{
+                                            width: '50px',
+                                            height: '50px',
+                                            borderRadius: '10px',
+                                            background: colors[i % colors.length],
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            fontWeight: 700
+                                        }}>
                                             {journal.name_en?.substring(0, 2).toUpperCase()}
                                         </div>
-                                        <span className={`badge ${journal.is_paid ? 'bg-amber-100 text-amber-800' : 'bg-green-100 text-green-800'}`}>
+                                        <span className={`badge ${journal.is_paid ? 'badge-paid' : 'badge-open'}`}>
                                             {journal.is_paid ? 'Subscription' : 'Open Access'}
                                         </span>
                                     </div>
 
-                                    <h2 className="text-xl font-bold text-[var(--primary)] mb-2 group-hover:text-[var(--primary-light)] transition">
+                                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
                                         {journal.name_en}
-                                    </h2>
+                                    </h3>
 
-                                    <p className="text-[var(--text-secondary)] text-sm mb-4 line-clamp-3">
-                                        {journal.description_en}
+                                    <p style={{ color: '#4a4a4a', fontSize: '0.9rem', marginBottom: '1rem', lineHeight: 1.6 }}>
+                                        {journal.description_en || 'Peer-reviewed journal focusing on cutting-edge research.'}
                                     </p>
 
                                     {journal.is_paid && (
-                                        <div className="flex items-center gap-2 mb-4 text-sm">
-                                            <span className="text-[var(--text-muted)]">Publication Fee:</span>
-                                            <span className="font-semibold text-[var(--primary)]">${journal.price_per_page}/page</span>
-                                        </div>
+                                        <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '1rem' }}>
+                                            <strong style={{ color: '#1e3a5f' }}>${journal.price_per_page}</strong> per page
+                                        </p>
                                     )}
 
-                                    <div className="flex gap-3 pt-4 border-t border-gray-100">
-                                        <Link href={`/journals/${journal.slug}`} className="flex-1 text-center py-2 border border-[var(--primary)] text-[var(--primary)] rounded-lg text-sm font-medium hover:bg-[var(--primary)] hover:text-white transition">
-                                            View Journal
+                                    <div style={{ display: 'flex', gap: '0.75rem', paddingTop: '1rem', borderTop: '1px solid #e5e5e5' }}>
+                                        <Link
+                                            href={`/journals/${journal.slug}`}
+                                            style={{
+                                                flex: 1,
+                                                textAlign: 'center',
+                                                padding: '0.625rem',
+                                                border: '1px solid #1e3a5f',
+                                                color: '#1e3a5f',
+                                                borderRadius: '6px',
+                                                fontSize: '0.875rem',
+                                                fontWeight: 500
+                                            }}
+                                        >
+                                            View
                                         </Link>
-                                        <Link href="/dashboard/author/submit" className="flex-1 text-center py-2 bg-[var(--primary)] text-white rounded-lg text-sm font-medium hover:bg-[var(--primary-light)] transition">
-                                            Submit Article
+                                        <Link
+                                            href="/dashboard/author/submit"
+                                            className="btn btn-primary"
+                                            style={{ flex: 1, textAlign: 'center', padding: '0.625rem', fontSize: '0.875rem' }}
+                                        >
+                                            Submit
                                         </Link>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
                         ))}
                     </div>
 
                     {journals.length === 0 && (
-                        <div className="text-center py-16">
-                            <div className="w-20 h-20 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center text-3xl">📚</div>
-                            <h3 className="text-2xl font-bold text-[var(--primary)] mb-2">No Journals Found</h3>
-                            <p className="text-[var(--text-muted)]">Check back later for new journals.</p>
+                        <div style={{ textAlign: 'center', padding: '4rem' }}>
+                            <p style={{ color: '#6b7280', fontSize: '1.1rem' }}>No journals found. Check back later.</p>
                         </div>
                     )}
                 </div>
             </section>
-        </div>
+        </main>
     )
 }
