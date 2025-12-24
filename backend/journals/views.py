@@ -5,6 +5,7 @@ from .serializers import JournalSerializer, IssueSerializer
 class JournalViewSet(viewsets.ModelViewSet):
     queryset = Journal.objects.all()
     serializer_class = JournalSerializer
+    lookup_field = 'slug'  # Allow lookup by slug instead of id
     
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
@@ -12,10 +13,17 @@ class JournalViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
 
 class IssueViewSet(viewsets.ModelViewSet):
-    queryset = Issue.objects.all()
     serializer_class = IssueSerializer
+    
+    def get_queryset(self):
+        queryset = Issue.objects.all()
+        journal_id = self.request.query_params.get('journal')
+        if journal_id:
+            queryset = queryset.filter(journal_id=journal_id)
+        return queryset
     
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
-        return [permissions.IsAdminUser()] # Only Admins/Editors can create issues for now
+        return [permissions.IsAdminUser()]
+

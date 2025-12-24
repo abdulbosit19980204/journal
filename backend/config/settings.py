@@ -147,3 +147,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
+# Allow all origins in development
+CORS_ALLOW_ALL_ORIGINS = DEBUG
