@@ -10,7 +10,7 @@ import api from "@/lib/api"
 
 const schema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
-  email: z.string().email("Invalid email address"),
+  email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
   first_name: z.string().optional(),
   last_name: z.string().optional(),
@@ -30,142 +30,156 @@ export default function RegisterPage() {
       await api.post("/auth/register/", data)
       router.push("/auth/login?registered=true")
     } catch (err: any) {
-      console.error(err)
-      if (err.response && err.response.data) {
-        const errorData = err.response.data
-        const firstError = Object.values(errorData)[0]
-        setError(Array.isArray(firstError) ? firstError[0] : String(firstError))
-      } else {
-        setError("Registration failed. Please try again.")
-      }
+      const msg = err.response?.data ? Object.values(err.response.data)[0] : "Registration failed"
+      setError(Array.isArray(msg) ? msg[0] : String(msg))
     }
   }
 
+  const inputStyle = {
+    width: '100%',
+    padding: '0.75rem 1rem',
+    border: '1px solid #e5e5e5',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    background: 'white'
+  }
+
   return (
-    <div className="min-h-screen flex">
-      {/* Left side - Decorative */}
-      <div className="hidden lg:flex lg:w-1/2 gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"}} />
+    <div style={{ minHeight: '100vh', display: 'flex' }}>
+      {/* Left Panel */}
+      <div style={{
+        width: '50%',
+        background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
+        color: 'white',
+        padding: '4rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: '12px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '2rem'
+        }}>
+          <span style={{ color: '#c9a227', fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Playfair Display', serif" }}>AJ</span>
         </div>
-        <div className="relative z-10 flex flex-col justify-center p-16 text-white">
-          <div className="mb-8">
-            <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-              <span className="text-[var(--secondary)] text-3xl font-bold font-serif">AJ</span>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
+          Join Our Community
+        </h1>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.6 }}>
+          Start your publishing journey with American Journal Platform.
+        </p>
+        <div style={{ marginTop: '3rem' }}>
+          {[
+            { icon: '📄', text: 'Submit unlimited articles' },
+            { icon: '🔬', text: 'Get peer-reviewed feedback' },
+            { icon: '🌍', text: 'Reach global audience' }
+          ].map((item, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                background: 'rgba(255,255,255,0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.25rem'
+              }}>{item.icon}</div>
+              <span style={{ opacity: 0.9 }}>{item.text}</span>
             </div>
-            <h1 className="text-4xl font-bold mb-4 font-serif">Join Our Community</h1>
-            <p className="text-xl opacity-80 font-serif">
-              Start your publishing journey with American Journal Platform.
-            </p>
-          </div>
-          <div className="space-y-4 mt-12">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[var(--secondary)]">📄</div>
-              <span className="opacity-90">Submit unlimited articles</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[var(--secondary)]">🔬</div>
-              <span className="opacity-90">Get peer-reviewed feedback</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[var(--secondary)]">🌍</div>
-              <span className="opacity-90">Reach global audience</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Right side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-[var(--background)]">
-        <div className="w-full max-w-md">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-[var(--primary)] mb-2">Create Account</h2>
-            <p className="text-[var(--text-muted)]">
+      {/* Right Panel */}
+      <div style={{
+        width: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '2rem',
+        background: '#faf9f6'
+      }}>
+        <div style={{ width: '100%', maxWidth: '420px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
+              Create Account
+            </h2>
+            <p style={{ color: '#6b7280' }}>
               Already have an account?{" "}
-              <Link href="/auth/login" className="text-[var(--primary)] font-medium hover:underline">
-                Sign in
-              </Link>
+              <Link href="/auth/login" style={{ color: '#1e3a5f', fontWeight: 500 }}>Sign in</Link>
             </p>
           </div>
-          
+
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 text-sm">
+            <div style={{
+              background: '#fee2e2',
+              border: '1px solid #fecaca',
+              color: '#991b1b',
+              padding: '0.75rem 1rem',
+              borderRadius: '8px',
+              marginBottom: '1.5rem',
+              fontSize: '0.875rem'
+            }}>
               {error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
               <div>
-                <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">First Name</label>
-                <input
-                  {...register("first_name")}
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
-                  placeholder="John"
-                />
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>First Name</label>
+                <input {...register("first_name")} placeholder="John" style={inputStyle} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Last Name</label>
-                <input
-                  {...register("last_name")}
-                  type="text"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
-                  placeholder="Doe"
-                />
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Last Name</label>
+                <input {...register("last_name")} placeholder="Doe" style={inputStyle} />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Username</label>
-              <input
-                {...register("username")}
-                type="text"
-                autoComplete="username"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
-                placeholder="johndoe"
-              />
-              {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>}
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Email</label>
-              <input
-                {...register("email")}
-                type="email"
-                autoComplete="email"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
-                placeholder="john@example.com"
-              />
-              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Username *</label>
+              <input {...register("username")} placeholder="johndoe" autoComplete="username" style={inputStyle} />
+              {errors.username && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.username.message}</p>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">Password</label>
-              <input
-                {...register("password")}
-                type="password"
-                autoComplete="new-password"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition bg-white"
-                placeholder="••••••••"
-              />
-              {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Email *</label>
+              <input {...register("email")} type="email" placeholder="john@example.com" autoComplete="email" style={inputStyle} />
+              {errors.email && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.email.message}</p>}
+            </div>
+
+            <div style={{ marginBottom: '1.5rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Password *</label>
+              <input {...register("password")} type="password" placeholder="••••••••" autoComplete="new-password" style={inputStyle} />
+              {errors.password && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.password.message}</p>}
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn-primary py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              className="btn btn-primary"
+              style={{
+                width: '100%',
+                padding: '0.875rem',
+                fontSize: '1rem',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.7 : 1
+              }}
             >
               {isSubmitting ? "Creating account..." : "Create Account"}
             </button>
           </form>
 
-          <div className="mt-8 text-center text-xs text-[var(--text-muted)]">
-            By creating an account, you agree to our{" "}
-            <a href="#" className="underline">Terms of Service</a> and{" "}
-            <a href="#" className="underline">Privacy Policy</a>
-          </div>
+          <p style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.75rem', color: '#6b7280' }}>
+            By creating an account, you agree to our Terms and Privacy Policy
+          </p>
         </div>
       </div>
     </div>
