@@ -73,7 +73,7 @@ export default function Navigation() {
                 color: '#1e3a5f',
                 fontFamily: "'Playfair Display', serif"
               }}>
-                American Journal
+                Central Asian Journal
               </div>
               <div style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '-2px' }} className="hidden-mobile">
                 Excellence in Research

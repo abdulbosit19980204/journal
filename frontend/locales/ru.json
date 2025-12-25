@@ -32,12 +32,16 @@
     "publish": "Публикация",
     "get_published": "Публикуйтесь",
     "ready_to_publish": "Готовы к публикации?",
-    "join_researchers": "Присоединяйтесь к тысячам исследователей, которые доверяют American Journal Platform",
+    "join_researchers": "Присоединяйтесь к тысячам исследователей, которые доверяют Central Asian Journal Platform",
     "create_account": "Создать бесплатный аккаунт",
     "loading_journals": "Загрузка журналов...",
     "no_journals": "Журналы пока недоступны. Проверьте позже!",
     "view_all_journals": "Смотреть все журналы",
-    "learn_more": "Подробнее"
+    "learn_more": "Подробнее",
+    "get_started": "Начать",
+    "explore_journals": "Ознакомиться с журналами",
+    "search_placeholder": "Поиск статей, авторов, ключевых слов...",
+    "features_title": "Наши возможности"
   },
   "auth": {
     "login_title": "Добро пожаловать",

@@ -3,7 +3,7 @@ from django.db import models
 
 class User(AbstractUser):
     """
-    Custom User model for American Journal Platform.
+    Custom User model for Central Asian Journal Platform.
     Using Django's built-in groups for Author/Editor roles.
     """
     is_verified = models.BooleanField(default=False)

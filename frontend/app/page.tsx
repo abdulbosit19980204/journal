@@ -253,7 +253,7 @@ export default function Home() {
                 <div style={{ width: '40px', height: '40px', background: '#1e3a5f', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span style={{ color: '#c9a227', fontWeight: 700 }}>AJ</span>
                 </div>
-                <span style={{ fontWeight: 600 }}>American Journal</span>
+                <span style={{ fontWeight: 600 }}>Central Asian Journal</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', lineHeight: 1.6 }}>
                 {t('footer.description')}
@@ -277,7 +277,7 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '2rem', paddingTop: '2rem', textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem' }}>
-            © {new Date().getFullYear()} American Journal Platform. {t('footer.copyright')}
+            © {new Date().getFullYear()} Central Asian Journal Platform. {t('footer.copyright')}
           </div>
         </div>
       </footer>

@@ -187,7 +187,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'American Journal API',
+    'TITLE': 'Central Asian Journal API',
     'VERSION': '1.0.0',
 }
 
