@@ -70,14 +70,14 @@ export default function BillingBalancePage() {
 
     return (
         <main style={{ background: '#faf9f6', minHeight: '100vh', padding: '2rem 0' }}>
-            <div className="container" style={{ maxWidth: '900px' }}>
+            <div className="container" style={{ maxWidth: '1000px' }}>
                 <div style={{ marginBottom: '2rem' }}>
                     <h1 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', fontFamily: "'Playfair Display', serif", marginBottom: '0.5rem' }}>
                         {t('billing.title')}
                     </h1>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: '2rem' }}>
                     {/* Left: Balance & Card Info */}
                     <div>
                         <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem', background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)', color: 'white' }}>
@@ -95,18 +95,13 @@ export default function BillingBalancePage() {
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_number')}</div>
                                 <div style={{
                                     fontWeight: 700,
-                                    fontSize: '1.1rem',
-                                    letterSpacing: '0.5px',
+                                    fontSize: '1.25rem',
+                                    letterSpacing: '1px',
                                     marginBottom: '0.75rem',
                                     color: '#1e3a5f',
-                                    wordBreak: 'break-all',
-                                    whiteSpace: 'nowrap',
-                                    display: 'flex',
-                                    justifyContent: 'space-between'
+                                    fontFamily: 'monospace'
                                 }}>
-                                    {config?.card_number?.split(' ').map((part: string, i: number) => (
-                                        <span key={i}>{part}</span>
-                                    ))}
+                                    {config?.card_number?.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim()}
                                 </div>
 
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_holder')}</div>
