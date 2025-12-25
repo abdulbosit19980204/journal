@@ -197,3 +197,12 @@ CORS_ALLOWED_ORIGINS = [
 
 # Allow all origins in development
 CORS_ALLOW_ALL_ORIGINS = DEBUG
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
