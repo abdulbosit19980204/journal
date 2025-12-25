@@ -1,0 +1,106 @@
+INFO 2025-12-25 18:29:38,690 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-25 18:29:51,911 log Unauthorized: /api/journals/
+WARNING 2025-12-25 18:29:51,911 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 18:29:51,912 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+WARNING 2025-12-25 18:29:51,912 log "GET /api/journals/ HTTP/1.1" 401 172
+INFO 2025-12-25 18:29:52,251 log "GET /admin/journals/journal/ HTTP/1.1" 200 17402
+INFO 2025-12-25 18:29:52,266 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:29:52,271 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+WARNING 2025-12-25 18:29:52,320 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 18:29:52,322 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 18:29:52,324 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:29:52,325 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:29:52,327 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 18:29:53,923 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:29:53,924 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:29:59,617 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:29:59,623 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:30:07,299 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 18:30:07,422 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:30:07,428 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:30:07,429 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:30:07,439 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:30:14,219 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+INFO 2025-12-25 18:30:14,226 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+WARNING 2025-12-25 18:30:14,542 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 18:30:14,543 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 18:32:03,110 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+INFO 2025-12-25 18:32:03,118 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+WARNING 2025-12-25 18:32:03,124 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 18:32:03,124 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 18:32:04,097 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+INFO 2025-12-25 18:32:04,105 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+WARNING 2025-12-25 18:32:04,112 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 18:32:04,113 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+WARNING 2025-12-25 18:32:28,608 log Unauthorized: /api/submissions/3/
+WARNING 2025-12-25 18:32:28,609 log "GET /api/submissions/3/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:32:28,612 log Unauthorized: /api/submissions/3/
+WARNING 2025-12-25 18:32:28,613 log "GET /api/submissions/3/ HTTP/1.1" 401 172
+INFO 2025-12-25 18:32:33,668 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:32:33,675 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:32:36,341 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:32:36,348 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:32:44,665 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 18:32:44,669 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 18:32:44,678 log "GET /api/issues/?journal=2 HTTP/1.1" 200 2
+INFO 2025-12-25 18:32:44,684 log "GET /api/issues/?journal=2 HTTP/1.1" 200 2
+INFO 2025-12-25 18:32:48,584 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:32:48,588 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:32:49,939 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 18:32:49,947 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 18:32:49,956 log "GET /api/issues/?journal=1 HTTP/1.1" 200 441
+INFO 2025-12-25 18:32:49,962 log "GET /api/issues/?journal=1 HTTP/1.1" 200 441
+INFO 2025-12-25 18:32:57,249 log "GET /api/issues/2/ HTTP/1.1" 200 202
+INFO 2025-12-25 18:32:57,256 log "GET /api/issues/2/ HTTP/1.1" 200 202
+INFO 2025-12-25 18:32:57,266 log "GET /api/submissions/?issue=2&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 18:32:57,271 log "GET /api/submissions/?issue=2&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 18:32:59,395 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 18:32:59,401 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 18:32:59,409 log "GET /api/issues/?journal=1 HTTP/1.1" 200 441
+INFO 2025-12-25 18:32:59,416 log "GET /api/issues/?journal=1 HTTP/1.1" 200 441
+INFO 2025-12-25 18:33:00,229 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:00,236 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:00,249 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:00,256 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:01,839 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:01,846 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:05,310 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:05,320 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:07,725 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:33:07,730 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:33:11,602 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:11,611 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:13,822 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:33:13,824 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:33:13,839 log "GET /api/submissions/1/ HTTP/1.1" 200 509
+INFO 2025-12-25 18:33:13,847 log "GET /api/submissions/1/ HTTP/1.1" 200 509
+INFO 2025-12-25 18:33:19,084 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:19,091 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:20,965 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:20,972 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:33:20,975 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:33:20,980 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:34:43,248 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:34:43,251 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:34:59,150 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:34:59,152 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:34:59,165 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:34:59,165 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:35:11,325 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:35:11,329 log "OPTIONS /api/submissions/?status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 18:35:11,330 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 18:35:11,330 log "OPTIONS /api/submissions/?status=PUBLISHED HTTP/1.1" 200 0
+WARNING 2025-12-25 18:35:11,334 log Unauthorized: /api/journals/
+WARNING 2025-12-25 18:35:11,336 log Unauthorized: /api/journals/
+WARNING 2025-12-25 18:35:11,338 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 18:35:11,338 log "GET /api/journals/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:35:11,339 log "GET /api/journals/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:35:11,342 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 18:35:11,342 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+WARNING 2025-12-25 18:35:11,343 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+INFO 2025-12-25 18:35:12,287 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:35:12,288 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:36:27,836 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:36:27,839 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:36:27,843 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:36:27,845 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511

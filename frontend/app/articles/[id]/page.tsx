@@ -80,9 +80,10 @@ export default function ArticleDetailPage() {
                             <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
                                 {t('articles.abstract')}
                             </h2>
-                            <p style={{ color: '#4a4a4a', lineHeight: 1.8, fontSize: '1.05rem' }}>
-                                {article.abstract}
-                            </p>
+                            <div
+                                style={{ color: '#4a4a4a', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'serif' }}
+                                dangerouslySetInnerHTML={{ __html: article.abstract }}
+                            />
                         </div>
 
                         {/* Keywords */}

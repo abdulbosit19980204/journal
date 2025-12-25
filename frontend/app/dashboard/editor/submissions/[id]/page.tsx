@@ -68,7 +68,10 @@ export default function ReviewSubmissionPage() {
                                 </span>
                             </div>
                             <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.75rem' }}>{t('submissions.abstract')}</h3>
-                            <p style={{ color: '#4a4a4a', lineHeight: 1.7 }}>{submission.abstract}</p>
+                            <div
+                                style={{ color: '#4a4a4a', lineHeight: 1.7 }}
+                                dangerouslySetInnerHTML={{ __html: submission.abstract }}
+                            />
                         </div>
 
                         {submission.keywords && (

@@ -79,7 +79,7 @@ export default function PublishedArticlesPage() {
                                             </h2>
 
                                             <p style={{ color: '#4a4a4a', lineHeight: 1.7, marginBottom: '1rem' }}>
-                                                {article.abstract}
+                                                {article.abstract?.replace(/<[^>]+>/g, '').substring(0, 300)}...
                                             </p>
 
                                             {article.keywords && (

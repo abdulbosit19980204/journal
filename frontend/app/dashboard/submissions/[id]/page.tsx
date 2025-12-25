@@ -161,7 +161,10 @@ export default function MySubmissionDetailPage() {
                                         style={{ ...inputStyle, resize: 'vertical' }}
                                     />
                                 ) : (
-                                    <p style={{ color: '#4a4a4a', lineHeight: 1.7 }}>{submission.abstract}</p>
+                                    <div
+                                        style={{ color: '#4a4a4a', lineHeight: 1.7 }}
+                                        dangerouslySetInnerHTML={{ __html: submission.abstract }}
+                                    />
                                 )}
                             </div>
 

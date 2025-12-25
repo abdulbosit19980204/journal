@@ -138,7 +138,7 @@ export default function IssueDetailPage() {
                                             ))}
                                         </div>
                                         <p style={{ color: '#4a4a4a', lineHeight: 1.6, fontSize: '0.95rem', marginBottom: '1rem' }}>
-                                            {article.abstract?.substring(0, 200)}...
+                                            {article.abstract?.replace(/<[^>]+>/g, '').substring(0, 200)}...
                                         </p>
                                         <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                                             {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name}</span>
