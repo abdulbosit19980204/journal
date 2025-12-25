@@ -5,29 +5,22 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { useAuth } from "@/lib/auth-context"
 
 export default function DashboardPage() {
     const { t, tStatus } = useI18n()
     const router = useRouter()
-    const [user, setUser] = useState<any>(null)
+    const { user, logout } = useAuth()
     const [submissions, setSubmissions] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        Promise.all([api.get("/auth/me/"), api.get("/submissions/")])
-            .then(([userRes, subRes]) => {
-                setUser(userRes.data)
-                setSubmissions(subRes.data)
-            })
+        api.get("/submissions/")
+            .then((res) => setSubmissions(res.data))
             .catch(() => router.push("/auth/login"))
             .finally(() => setLoading(false))
     }, [router])
 
-    const handleLogout = () => {
-        localStorage.removeItem("accessToken")
-        localStorage.removeItem("refreshToken")
-        router.push("/auth/login")
-    }
 
     if (loading) {
         return (
@@ -59,7 +52,7 @@ export default function DashboardPage() {
                     </div>
                     <div style={{ display: 'flex', gap: '0.75rem' }}>
                         <Link href="/dashboard/author/submit" className="btn btn-primary">+ {t('dashboard.new_submission')}</Link>
-                        <button onClick={handleLogout} style={{
+                        <button onClick={logout} style={{
                             padding: '0.75rem 1.25rem',
                             border: '1px solid #e5e5e5',
                             borderRadius: '8px',

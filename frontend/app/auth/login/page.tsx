@@ -8,6 +8,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { useAuth } from "@/lib/auth-context"
+import { useEffect } from "react"
 
 const schema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -19,16 +21,22 @@ type FormData = z.infer<typeof schema>
 export default function LoginPage() {
   const { t } = useI18n()
   const router = useRouter()
+  const { user, login } = useAuth()
   const [error, setError] = useState("")
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
 
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard")
+    }
+  }, [user, router])
+
   const onSubmit = async (data: FormData) => {
     try {
       const res = await api.post("/auth/token/", data)
-      localStorage.setItem("accessToken", res.data.access)
-      localStorage.setItem("refreshToken", res.data.refresh)
+      await login({ access: res.data.access, refresh: res.data.refresh })
 
       const params = new URLSearchParams(window.location.search)
       const nextUrl = params.get('next') || "/dashboard"

@@ -8,6 +8,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { useAuth } from "@/lib/auth-context"
+import { useEffect } from "react"
 
 const schema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
@@ -22,10 +24,17 @@ type FormData = z.infer<typeof schema>
 export default function RegisterPage() {
   const { t } = useI18n()
   const router = useRouter()
+  const { user } = useAuth()
   const [error, setError] = useState("")
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
+
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard")
+    }
+  }, [user, router])
 
   const onSubmit = async (data: FormData) => {
     try {
