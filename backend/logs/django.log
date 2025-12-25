@@ -2740,3 +2740,89 @@ WARNING 2025-12-25 21:07:50,617 log Not Found: /
 WARNING 2025-12-25 21:07:50,617 log "GET / HTTP/1.1" 404 179
 WARNING 2025-12-25 21:07:50,643 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2025-12-25 21:07:50,643 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+INFO 2025-12-25 21:08:25,337 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-25 21:08:25,788 log Not Found: /
+WARNING 2025-12-25 21:08:25,789 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:25,808 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:08:25,809 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:26,787 log Not Found: /
+WARNING 2025-12-25 21:08:26,788 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:26,805 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:08:26,805 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+INFO 2025-12-25 21:08:37,717 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-25 21:08:40,070 log Not Found: /
+WARNING 2025-12-25 21:08:40,071 log "GET / HTTP/1.1" 404 179
+INFO 2025-12-25 21:08:45,756 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:08:45,791 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:08:45,792 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,802 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:08:45,803 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:08:45,805 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:08:45,807 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:08:45,807 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,807 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,807 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,809 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:08:45,809 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,810 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,830 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:08:45,831 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:08:45,832 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:08:45,833 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:08:45,834 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,834 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,835 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:45,835 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,504 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:08:50,505 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:08:50,505 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:08:50,506 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:08:50,507 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:08:50,508 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,508 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,508 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,509 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,509 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:08:50,522 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:08:50,522 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+INFO 2025-12-25 21:09:36,960 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:09:36,994 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:09:36,994 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,006 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:09:37,007 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:09:37,007 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:09:37,008 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,008 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,009 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,010 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:09:37,011 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:09:37,012 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,012 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,047 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:09:37,047 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,052 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:09:37,053 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:09:37,054 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:09:37,055 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,055 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:37,056 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:50,636 log Not Found: /
+WARNING 2025-12-25 21:09:50,637 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:09:50,664 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:09:50,665 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+INFO 2025-12-25 21:10:07,839 autoreload D:\coding\journal\backend\config\settings.py changed, reloading.
+INFO 2025-12-25 21:10:08,178 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:10:38,645 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:10:40,554 log "GET /admin/ HTTP/1.1" 200 17227
+INFO 2025-12-25 21:10:40,731 log "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2025-12-25 21:10:40,748 log "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-12-25 21:10:40,749 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-12-25 21:10:40,750 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2025-12-25 21:10:40,750 log "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-12-25 21:10:40,751 log "GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+INFO 2025-12-25 21:10:40,754 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-12-25 21:10:40,759 log "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-12-25 21:10:40,759 log "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+WARNING 2025-12-25 21:10:46,037 log Not Found: /
+WARNING 2025-12-25 21:10:46,038 log "GET / HTTP/1.1" 404 3951
+INFO 2025-12-25 21:10:49,158 log "GET /admin/ HTTP/1.1" 200 17227
