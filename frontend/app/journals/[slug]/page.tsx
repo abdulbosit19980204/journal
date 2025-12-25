@@ -11,7 +11,10 @@ export default function JournalDetailPage() {
     const { slug } = useParams()
     const [journal, setJournal] = useState<any>(null)
     const [issues, setIssues] = useState<any[]>([])
+    const [filteredIssues, setFilteredIssues] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
+    const [searchQuery, setSearchQuery] = useState("")
+    const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc')
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,6 +23,7 @@ export default function JournalDetailPage() {
                 setJournal(res.data)
                 const issuesRes = await api.get(`/issues/?journal=${res.data.id}`)
                 setIssues(issuesRes.data)
+                setFilteredIssues(issuesRes.data.sort((a: any, b: any) => b.year - a.year))
             } catch (err) {
                 console.error(err)
             } finally {
@@ -28,6 +32,28 @@ export default function JournalDetailPage() {
         }
         if (slug) fetchData()
     }, [slug])
+
+    // Filter & Sort Issues
+    useEffect(() => {
+        if (!issues.length) return
+
+        let result = [...issues]
+
+        if (searchQuery) {
+            result = result.filter(issue =>
+                issue.year.toString().includes(searchQuery) ||
+                issue.volume.toString().includes(searchQuery) ||
+                issue.number.toString().includes(searchQuery)
+            )
+        }
+
+        result.sort((a, b) => {
+            if (sortOrder === 'desc') return b.year - a.year
+            return a.year - b.year
+        })
+
+        setFilteredIssues(result)
+    }, [searchQuery, sortOrder, issues])
 
     // Get localized name/description based on current locale
     const getLocalizedField = (obj: any, field: string) => {
@@ -120,12 +146,28 @@ export default function JournalDetailPage() {
 
                         {/* Issues */}
                         <div className="card">
-                            <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #e5e5e5' }}>
+                            <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                                 <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f' }}>{t('journals.published_issues')}</h2>
+                                <div style={{ display: 'flex', gap: '1rem' }}>
+                                    <input
+                                        placeholder={t('admin.search') + "..."}
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #e5e5e5' }}
+                                    />
+                                    <select
+                                        value={sortOrder}
+                                        onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #e5e5e5' }}
+                                    >
+                                        <option value="desc">Newest First</option>
+                                        <option value="asc">Oldest First</option>
+                                    </select>
+                                </div>
                             </div>
-                            {issues.length > 0 ? (
+                            {filteredIssues.length > 0 ? (
                                 <div>
-                                    {issues.map((issue) => (
+                                    {filteredIssues.map((issue) => (
                                         <div key={issue.id} style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #f3f4f6', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             <div>
                                                 <h3 style={{ fontWeight: 600, color: '#1e3a5f' }}>{t('journals.volume')} {issue.volume}, {t('journals.issue')} {issue.number}</h3>

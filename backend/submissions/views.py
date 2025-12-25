@@ -1,4 +1,4 @@
-from rest_framework import serializers, viewsets, permissions, status
+from rest_framework import serializers, viewsets, permissions, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.utils import timezone
@@ -19,23 +19,37 @@ class SubmissionViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', 'abstract', 'keywords']
+
     def get_queryset(self):
         user = self.request.user
+        queryset = Article.objects.all()
+
+        # Filters
         status_filter = self.request.query_params.get('status')
+        issue_id = self.request.query_params.get('issue')
         
+        if status_filter:
+            queryset = queryset.filter(status=status_filter)
+        
+        if issue_id:
+            queryset = queryset.filter(issue_id=issue_id)
+            
         # Public: show published articles
         if status_filter == 'PUBLISHED':
-            return Article.objects.filter(status='PUBLISHED')
+            return queryset.filter(status='PUBLISHED')
         
-        # List: authors see their own
+        # List: authors see their own, admins see all
         if self.action == 'list':
             if user.is_staff or user.is_superuser:
-                return Article.objects.all()
+                return queryset
             if user.is_authenticated:
-                return Article.objects.filter(author=user)
-            return Article.objects.filter(status='PUBLISHED')
-        
-        return Article.objects.all()
+                return queryset.filter(author=user)
+            # Public fallback
+            return queryset.filter(status='PUBLISHED')
+            
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, status='SUBMITTED', submitted_at=timezone.now())
