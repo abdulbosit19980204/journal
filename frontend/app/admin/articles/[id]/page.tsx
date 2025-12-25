@@ -12,6 +12,8 @@ export default function AdminArticleDetailPage() {
     const [journal, setJournal] = useState<any>(null)
     const [loading, setLoading] = useState(true)
     const [processing, setProcessing] = useState(false)
+    const [showRejectInput, setShowRejectInput] = useState(false)
+    const [rejectionReason, setRejectionReason] = useState("")
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,9 +38,13 @@ export default function AdminArticleDetailPage() {
     const handleStatusChange = async (newStatus: string) => {
         setProcessing(true)
         try {
-            await api.patch(`/submissions/${id}/`, { status: newStatus })
+            await api.patch(`/submissions/${id}/`, {
+                status: newStatus,
+                rejection_reason: newStatus === 'REJECTED' ? rejectionReason : null
+            })
             setArticle({ ...article, status: newStatus })
             alert(`Article status changed to ${newStatus}`)
+            setShowRejectInput(false)
         } catch (err) {
             alert("Failed to update status")
         } finally {
@@ -118,8 +124,34 @@ export default function AdminArticleDetailPage() {
 
                             <div style={{ marginBottom: '1.5rem' }}>
                                 <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Abstract</h3>
-                                <p style={{ color: '#4a4a4a', lineHeight: 1.7 }}>{article.abstract || 'No abstract provided.'}</p>
+                                <div
+                                    style={{ color: '#4a4a4a', lineHeight: 1.7 }}
+                                    dangerouslySetInnerHTML={{ __html: article.abstract || 'No abstract provided.' }}
+                                />
                             </div>
+
+                            {/* Rejection Reason Input */}
+                            {showRejectInput && (
+                                <div style={{ marginBottom: '1.5rem', padding: '1rem', background: '#fee2e2', borderRadius: '8px', border: '1px solid #fecaca' }}>
+                                    <h4 style={{ fontWeight: 600, color: '#991b1b', marginBottom: '0.5rem' }}>Reason for Rejection</h4>
+                                    <textarea
+                                        value={rejectionReason}
+                                        onChange={(e) => setRejectionReason(e.target.value)}
+                                        placeholder="Please explain why this article is being rejected..."
+                                        style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid #e5e5e5', minHeight: '100px', marginBottom: '1rem' }}
+                                    />
+                                    <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                                        <button onClick={() => setShowRejectInput(false)}
+                                            style={{ padding: '0.5rem 1rem', background: 'white', border: '1px solid #e5e5e5', borderRadius: '6px', cursor: 'pointer' }}>
+                                            Cancel
+                                        </button>
+                                        <button onClick={() => handleStatusChange('REJECTED')} disabled={processing || !rejectionReason.trim()}
+                                            style={{ padding: '0.5rem 1rem', background: '#dc2626', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer', opacity: !rejectionReason.trim() ? 0.5 : 1 }}>
+                                            Confirm Rejection
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
 
                             <div>
                                 <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Keywords</h3>
@@ -222,13 +254,13 @@ export default function AdminArticleDetailPage() {
                                     </button>
                                 )}
 
-                                {['SUBMITTED', 'UNDER_REVIEW'].includes(article.status) && (
+                                {['SUBMITTED', 'UNDER_REVIEW'].includes(article.status) && !showRejectInput && (
                                     <>
                                         <button onClick={() => handleStatusChange('ACCEPTED')} disabled={processing}
                                             style={{ width: '100%', padding: '0.75rem', background: '#059669', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
                                             ✓ Accept Article
                                         </button>
-                                        <button onClick={() => handleStatusChange('REJECTED')} disabled={processing}
+                                        <button onClick={() => setShowRejectInput(true)} disabled={processing}
                                             style={{ width: '100%', padding: '0.75rem', background: '#dc2626', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
                                             ✗ Reject Article
                                         </button>

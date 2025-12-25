@@ -35,6 +35,7 @@ class Issue(models.Model):
     year = models.IntegerField()
     published_at = models.DateField(blank=True, null=True)
     cover_image = models.ImageField(upload_to='issues/covers/', blank=True, null=True)
+    file = models.FileField(upload_to='issues/files/', blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DRAFT')
 
     class Meta:

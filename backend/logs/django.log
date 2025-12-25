@@ -104,3 +104,1569 @@ INFO 2025-12-25 18:36:27,836 log "GET /api/journals/ HTTP/1.1" 200 649
 INFO 2025-12-25 18:36:27,839 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
 INFO 2025-12-25 18:36:27,843 log "GET /api/journals/ HTTP/1.1" 200 649
 INFO 2025-12-25 18:36:27,845 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:36:52,260 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:36:52,262 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:36:52,811 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:36:52,815 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:36:54,020 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:36:54,027 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:37:00,019 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 18:37:00,101 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:37:00,111 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:37:00,115 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:37:00,124 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:37:05,511 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+INFO 2025-12-25 18:37:05,518 log "GET /api/submissions/3/ HTTP/1.1" 200 628
+WARNING 2025-12-25 18:37:05,844 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 18:37:05,844 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 18:37:15,972 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:37:15,983 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:37:15,983 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:37:15,992 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:38:58,157 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 18:39:23,010 log "GET /admin/journals/journal/ HTTP/1.1" 200 17402
+WARNING 2025-12-25 18:39:23,059 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+INFO 2025-12-25 18:39:23,060 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 18:39:23,061 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 18:39:23,062 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:39:23,063 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:39:23,497 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:23,507 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:23,507 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:39:23,516 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:39:25,809 log "GET /admin/journals/issue/ HTTP/1.1" 200 18046
+INFO 2025-12-25 18:39:25,845 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 18:39:25,858 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 18:39:25,858 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:39:25,864 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 18:39:25,865 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:39:52,967 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:52,969 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:39:52,972 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:52,975 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:39:58,366 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:58,373 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:39:58,373 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:39:58,381 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:01,888 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:01,895 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:11,368 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:40:11,376 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:40:11,376 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:11,388 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:13,697 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:40:13,706 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:40:13,706 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:13,707 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:13,715 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:40:13,721 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:13,728 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:40:13,729 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:15,600 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:15,600 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:15,610 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:15,613 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:19,609 log "PATCH /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:28,656 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:28,657 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:40:34,084 log "PATCH /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:36,786 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:36,793 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:40:36,808 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:40:36,814 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:41:33,573 log "PATCH /api/submissions/2/ HTTP/1.1" 200 556
+WARNING 2025-12-25 18:42:47,942 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 18:42:47,943 log Unauthorized: /api/journals/
+WARNING 2025-12-25 18:42:47,944 log "GET /api/submissions/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:42:47,944 log "GET /api/journals/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:42:47,949 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 18:42:47,951 log Unauthorized: /api/journals/
+WARNING 2025-12-25 18:42:47,952 log "GET /api/submissions/ HTTP/1.1" 401 172
+WARNING 2025-12-25 18:42:47,952 log "GET /api/journals/ HTTP/1.1" 401 172
+INFO 2025-12-25 18:42:48,250 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:42:48,252 log "GET /api/submissions/ HTTP/1.1" 200 511
+INFO 2025-12-25 18:42:50,440 log "GET /api/submissions/ HTTP/1.1" 200 511
+INFO 2025-12-25 18:42:50,440 log "GET /api/journals/ HTTP/1.1" 200 649
+WARNING 2025-12-25 18:42:58,575 log Unauthorized: /api/auth/me/
+WARNING 2025-12-25 18:42:58,580 log "GET /api/auth/me/ HTTP/1.1" 401 58
+WARNING 2025-12-25 18:42:58,584 log Unauthorized: /api/auth/me/
+INFO 2025-12-25 18:42:58,584 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:42:58,585 log "GET /api/plans/ HTTP/1.1" 200 463
+WARNING 2025-12-25 18:42:58,585 log "GET /api/auth/me/ HTTP/1.1" 401 58
+INFO 2025-12-25 18:42:58,588 log "GET /api/submissions/ HTTP/1.1" 200 511
+INFO 2025-12-25 18:42:58,600 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:42:58,600 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:42:58,602 log "GET /api/submissions/ HTTP/1.1" 200 511
+INFO 2025-12-25 18:43:05,662 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 18:43:05,738 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:05,744 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:05,752 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:05,760 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:22,036 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:22,046 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:22,046 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:22,052 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:26,220 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:26,227 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:29,348 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:29,356 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:43:29,361 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:29,364 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:29,365 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:43:29,372 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:43:29,373 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:29,379 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:33,651 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:33,651 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:33,661 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:33,664 log "GET /api/submissions/ HTTP/1.1" 200 1697
+INFO 2025-12-25 18:43:37,781 log "PATCH /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:39,549 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:39,557 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:39,569 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:39,575 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:43:41,956 log "GET /api/submissions/2/ HTTP/1.1" 200 556
+INFO 2025-12-25 18:43:41,976 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:44:16,469 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:44:16,470 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:44:16,480 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:44:16,480 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:44:18,621 autoreload D:\coding\journal\backend\journals\models.py changed, reloading.
+INFO 2025-12-25 18:44:19,308 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 18:44:19,704 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:44:19,709 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 511
+INFO 2025-12-25 18:44:20,995 autoreload D:\coding\journal\backend\submissions\models.py changed, reloading.
+INFO 2025-12-25 18:44:21,608 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 18:44:22,236 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:44:22,236 log "GET /api/auth/me/ HTTP/1.1" 200 124
+ERROR 2025-12-25 18:44:22,238 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:44:22,242 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:44:22,245 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:44:22,248 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:44:22,257 log "GET /api/submissions/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:22,263 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:44:22,265 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:44:22,269 log "GET /api/submissions/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:26,504 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:44:26,508 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:44:26,508 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 18:44:26,508 log "GET /api/plans/ HTTP/1.1" 200 463
+ERROR 2025-12-25 18:44:26,511 log "GET /api/submissions/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:32,662 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:44:32,666 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:44:32,682 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:44:32,682 log "GET /api/submissions/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:32,686 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+ERROR 2025-12-25 18:44:32,691 log "GET /api/submissions/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:49,849 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+ERROR 2025-12-25 18:44:49,854 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+ERROR 2025-12-25 18:44:49,859 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+ERROR 2025-12-25 18:44:49,865 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+INFO 2025-12-25 18:44:51,774 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 18:44:51,780 log "GET /api/plans/ HTTP/1.1" 200 463
+ERROR 2025-12-25 18:44:53,576 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:44:53,579 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:44:53,586 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+INFO 2025-12-25 18:44:53,586 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:44:53,592 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+ERROR 2025-12-25 18:44:53,597 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+INFO 2025-12-25 18:45:04,359 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 18:45:04,365 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+ERROR 2025-12-25 18:45:04,378 log Internal Server Error: /api/issues/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: journals_issue.file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: journals_issue.file
+ERROR 2025-12-25 18:45:04,382 log "GET /api/issues/?journal=2 HTTP/1.1" 500 145
+ERROR 2025-12-25 18:45:04,388 log Internal Server Error: /api/issues/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: journals_issue.file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: journals_issue.file
+ERROR 2025-12-25 18:45:04,394 log "GET /api/issues/?journal=2 HTTP/1.1" 500 145
+INFO 2025-12-25 18:45:20,749 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:45:20,754 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:45:22,230 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:45:22,233 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:45:22,242 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+INFO 2025-12-25 18:45:22,244 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:45:22,246 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+ERROR 2025-12-25 18:45:22,249 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+ERROR 2025-12-25 18:45:50,602 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.rejection_reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.rejection_reason
+INFO 2025-12-25 18:45:50,602 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 18:45:50,607 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 145
+ERROR 2025-12-25 18:45:52,134 log Internal Server Error: /admin/journals/issue/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: journals_issue.file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 2121, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ~~~^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: journals_issue.file
+ERROR 2025-12-25 18:45:52,143 log "GET /admin/journals/issue/ HTTP/1.1" 500 145
+ERROR 2025-12-25 18:45:53,661 log Internal Server Error: /admin/journals/issue/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: journals_issue.file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 2121, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ~~~^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: journals_issue.file
+ERROR 2025-12-25 18:45:53,665 log "GET /admin/journals/issue/ HTTP/1.1" 500 145
+INFO 2025-12-25 18:46:06,911 log "GET /api/docs/ HTTP/1.1" 200 4653
+INFO 2025-12-25 18:46:07,099 log "GET /api/schema/ HTTP/1.1" 200 79879
+WARNING 2025-12-25 18:46:11,596 log Not Found: /api/redoc
+WARNING 2025-12-25 18:46:11,597 log "GET /api/redoc HTTP/1.1" 404 179
+INFO 2025-12-25 18:46:14,802 log "GET /api/ HTTP/1.1" 200 5401
+WARNING 2025-12-25 18:46:14,836 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-12-25 18:46:14,836 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,851 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-12-25 18:46:14,852 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-12-25 18:46:14,855 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-12-25 18:46:14,857 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,857 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,858 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-12-25 18:46:14,859 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-12-25 18:46:14,860 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,860 log "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,861 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-12-25 18:46:14,862 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,863 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,868 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-12-25 18:46:14,870 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-12-25 18:46:14,871 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-12-25 18:46:14,872 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-12-25 18:46:14,873 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,873 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,874 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:14,874 log "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:46:16,230 log "GET /api/ HTTP/1.1" 200 5401
+WARNING 2025-12-25 18:46:16,278 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-12-25 18:46:16,279 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,282 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-12-25 18:46:16,283 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-12-25 18:46:16,284 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-12-25 18:46:16,285 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-12-25 18:46:16,286 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-12-25 18:46:16,287 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-12-25 18:46:16,288 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,288 log "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,289 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,289 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,290 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,290 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,302 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-12-25 18:46:16,303 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-12-25 18:46:16,304 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-12-25 18:46:16,305 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-12-25 18:46:16,305 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,306 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,306 log "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:16,307 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+ERROR 2025-12-25 18:46:20,353 log Internal Server Error: /api/issues/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: journals_issue.file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: journals_issue.file
+ERROR 2025-12-25 18:46:20,358 log "GET /api/issues/ HTTP/1.1" 500 145
+INFO 2025-12-25 18:46:23,648 log "GET /api/ HTTP/1.1" 200 5401
+WARNING 2025-12-25 18:46:23,703 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-12-25 18:46:23,703 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,718 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-12-25 18:46:23,719 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-12-25 18:46:23,720 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-12-25 18:46:23,720 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-12-25 18:46:23,721 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-12-25 18:46:23,722 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-12-25 18:46:23,723 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,724 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,724 log "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,725 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,725 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,727 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-12-25 18:46:23,727 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-12-25 18:46:23,728 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,729 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-12-25 18:46:23,731 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-12-25 18:46:23,732 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,732 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,733 log "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:23,733 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:46:25,486 log "GET /api/ HTTP/1.1" 200 5401
+WARNING 2025-12-25 18:46:25,515 log Not Found: /static/rest_framework/css/bootstrap.min.css
+WARNING 2025-12-25 18:46:25,516 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,527 log Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+WARNING 2025-12-25 18:46:25,528 log Not Found: /static/rest_framework/css/prettify.css
+WARNING 2025-12-25 18:46:25,528 log Not Found: /static/rest_framework/css/default.css
+WARNING 2025-12-25 18:46:25,529 log Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+WARNING 2025-12-25 18:46:25,530 log Not Found: /static/rest_framework/js/ajax-form.js
+WARNING 2025-12-25 18:46:25,531 log Not Found: /static/rest_framework/js/csrf.js
+WARNING 2025-12-25 18:46:25,532 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,532 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,533 log "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,533 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,534 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,534 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,538 log Not Found: /static/rest_framework/js/bootstrap.min.js
+WARNING 2025-12-25 18:46:25,538 log Not Found: /static/rest_framework/js/prettify-min.js
+WARNING 2025-12-25 18:46:25,539 log Not Found: /static/rest_framework/js/default.js
+WARNING 2025-12-25 18:46:25,540 log Not Found: /static/rest_framework/js/load-ajax-form.js
+WARNING 2025-12-25 18:46:25,541 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,541 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,542 log "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+WARNING 2025-12-25 18:46:25,542 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+INFO 2025-12-25 18:47:06,061 autoreload Watching for file changes with StatReloader

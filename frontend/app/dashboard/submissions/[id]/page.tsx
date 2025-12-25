@@ -390,7 +390,15 @@ export default function MySubmissionDetailPage() {
                                     <p style={{ color: '#059669' }}>{t('submissions.msg_accepted')}</p>
                                 )}
                                 {submission.status === 'REJECTED' && (
-                                    <p style={{ color: '#dc2626' }}>{t('submissions.msg_rejected')}</p>
+                                    <>
+                                        <p style={{ color: '#dc2626' }}>{t('submissions.msg_rejected')}</p>
+                                        {submission.rejection_reason && (
+                                            <div style={{ marginTop: '1rem', padding: '1rem', background: 'white', borderRadius: '8px', border: '1px solid #fca5a5' }}>
+                                                <div style={{ fontWeight: 600, color: '#991b1b', marginBottom: '0.25rem' }}>Reason for Rejection:</div>
+                                                <p style={{ color: '#7f1d1d' }}>{submission.rejection_reason}</p>
+                                            </div>
+                                        )}
+                                    </>
                                 )}
                                 {submission.status === 'PUBLISHED' && (
                                     <p style={{ color: '#d97706' }}>{t('submissions.msg_published')}</p>

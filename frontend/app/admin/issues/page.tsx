@@ -14,8 +14,8 @@ export default function AdminIssuesPage() {
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState<number | null>(null)
-  const [formData, setFormData] = useState({
-    journal: '', volume: 1, number: 1, year: new Date().getFullYear(), status: 'DRAFT'
+  const [formData, setFormData] = useState<any>({
+    journal: '', volume: 1, number: 1, year: new Date().getFullYear(), status: 'DRAFT', file: null
   })
 
   useEffect(() => {
@@ -40,10 +40,20 @@ export default function AdminIssuesPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
+      const data = new FormData()
+      data.append('journal', formData.journal)
+      data.append('volume', formData.volume)
+      data.append('number', formData.number)
+      data.append('year', formData.year)
+      data.append('status', formData.status)
+      if (formData.file) data.append('file', formData.file)
+
+      const config = { headers: { 'Content-Type': 'multipart/form-data' } }
+
       if (editingId) {
-        await api.patch(`/issues/${editingId}/`, formData)
+        await api.patch(`/issues/${editingId}/`, data, config)
       } else {
-        await api.post("/issues/", formData)
+        await api.post("/issues/", data, config)
       }
       fetchData()
       resetForm()
@@ -145,6 +155,10 @@ export default function AdminIssuesPage() {
                     <option value="DRAFT">{tStatus('DRAFT')}</option>
                     <option value="PUBLISHED">{tStatus('PUBLISHED')}</option>
                   </select>
+                </div>
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Full Issue PDF</label>
+                  <input type="file" onChange={(e) => setFormData({ ...formData, file: e.target.files?.[0] })} accept=".pdf" style={{ width: '100%', fontSize: '0.9rem' }} />
                 </div>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <button type="submit" className="btn btn-primary">{t('common.save')}</button>

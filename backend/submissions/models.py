@@ -25,6 +25,7 @@ class Article(models.Model):
     manuscript_file = models.FileField(upload_to='submissions/manuscripts/') # PDF/DOCX
     page_count = models.IntegerField(default=0)
     language = models.CharField(max_length=10, default='en', choices=(('uz','Uzbek'),('ru','Russian'),('en','English')))
+    rejection_reason = models.TextField(blank=True, null=True)
     
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DRAFT')
     
