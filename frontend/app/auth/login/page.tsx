@@ -29,7 +29,10 @@ export default function LoginPage() {
       const res = await api.post("/auth/token/", data)
       localStorage.setItem("accessToken", res.data.access)
       localStorage.setItem("refreshToken", res.data.refresh)
-      router.push("/dashboard")
+
+      const params = new URLSearchParams(window.location.search)
+      const nextUrl = params.get('next') || "/dashboard"
+      router.push(nextUrl)
     } catch (err: any) {
       console.error(err)
       setError(t('auth.login_error'))

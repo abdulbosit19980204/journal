@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import dynamic from "next/dynamic"
+import "react-quill/dist/quill.snow.css"
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 export default function SubmitArticlePage() {
     const { t, locale } = useI18n()
@@ -14,6 +18,9 @@ export default function SubmitArticlePage() {
     const { register, handleSubmit, watch, formState: { isSubmitting } } = useForm()
     const [file, setFile] = useState<File | null>(null)
     const [error, setError] = useState("")
+
+    // Custom state for abstract as it is rich text
+    const [abstract, setAbstract] = useState("")
 
     useEffect(() => {
         api.get("/journals/").then((res) => setJournals(res.data))
@@ -25,7 +32,7 @@ export default function SubmitArticlePage() {
         setError("")
         const formData = new FormData()
         formData.append("title", data.title)
-        formData.append("abstract", data.abstract)
+        formData.append("abstract", abstract) // Use state
         formData.append("journal", data.journal)
         formData.append("language", data.language || "en")
         formData.append("keywords", data.keywords || "")
@@ -110,7 +117,7 @@ export default function SubmitArticlePage() {
                                                 position: 'relative'
                                             }}>
                                                 <input type="radio" value={j.id} {...register("journal", { required: true })} style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }} />
-                                                
+
                                                 <div style={{ height: '140px', background: '#f3f4f6', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                                     {j.cover_image ? (
                                                         <img src={j.cover_image} alt={getJournalName(j)} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '0.5rem' }} />
@@ -146,7 +153,13 @@ export default function SubmitArticlePage() {
                                     </div>
                                     <div style={{ marginBottom: '1.25rem' }}>
                                         <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>{t('submissions.abstract')} *</label>
-                                        <textarea {...register("abstract", { required: true })} rows={6} placeholder={t('submissions.placeholder_abstract')} style={{ ...inputStyle, resize: 'vertical' }} />
+                                        <ReactQuill
+                                            theme="snow"
+                                            value={abstract}
+                                            onChange={setAbstract}
+                                            placeholder={t('submissions.placeholder_abstract')}
+                                            style={{ background: 'white', marginBottom: '1rem' }}
+                                        />
                                     </div>
                                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
                                         <div>

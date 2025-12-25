@@ -9,6 +9,7 @@ export default function Navigation() {
   const pathname = usePathname()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t, locale } = useI18n()
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export default function Navigation() {
       </div>
 
       {/* Main Nav */}
-      <nav style={{ borderBottom: '1px solid #e5e5e5' }}>
+      <nav style={{ borderBottom: '1px solid #e5e5e5', position: 'relative' }}>
         <div className="container" style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -74,14 +75,14 @@ export default function Navigation() {
               }}>
                 American Journal
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '-2px' }}>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '-2px' }} className="hidden-mobile">
                 Excellence in Research
               </div>
             </div>
           </Link>
 
-          {/* Nav Links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          {/* Desktop Nav Links */}
+          <div className="desktop-menu" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {[
               { href: "/", label: t("nav.home") },
               { href: "/journals", label: t("nav.journals") },
@@ -105,8 +106,8 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Auth */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          {/* Desktop Auth */}
+          <div className="desktop-menu" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             {isLoggedIn ? (
               <>
                 <Link href="/admin" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
@@ -125,8 +126,88 @@ export default function Navigation() {
               </>
             )}
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              color: '#1e3a5f'
+            }}
+          >
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </button>
         </div>
+
+        {/* Mobile Dropdown */}
+        {isMobileMenuOpen && (
+          <div style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            background: 'white',
+            borderBottom: '1px solid #e5e5e5',
+            padding: '1rem',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            zIndex: 49
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {[
+                { href: "/", label: t("nav.home") },
+                { href: "/journals", label: t("nav.journals") },
+                { href: "/articles", label: t("nav.articles") },
+                { href: "/pricing", label: t("nav.pricing") },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                    color: pathname === item.href ? '#1e3a5f' : '#4a4a4a',
+                    padding: '0.5rem 0'
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <hr style={{ border: 'none', borderTop: '1px solid #e5e5e5' }} />
+              {isLoggedIn ? (
+                <>
+                  <Link href="/admin" onClick={() => setIsMobileMenuOpen(false)} style={{ fontSize: '1rem', fontWeight: 500, color: '#4a4a4a' }}>
+                    {t("nav.admin")}
+                  </Link>
+                  <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="btn btn-primary" style={{ textAlign: 'center' }}>{t("nav.dashboard")}</Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/auth/login" onClick={() => setIsMobileMenuOpen(false)} style={{ fontSize: '1rem', fontWeight: 500, color: '#4a4a4a' }}>
+                    {t("nav.login")}
+                  </Link>
+                  <Link href="/auth/register" onClick={() => setIsMobileMenuOpen(false)} className="btn btn-primary" style={{ textAlign: 'center' }}>
+                    {t("nav.register")}
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
+
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .desktop-menu { display: none !important; }
+          .mobile-menu-btn { display: block !important; }
+          .hidden-mobile { display: none; }
+        }
+      `}</style>
     </header>
   )
 }
