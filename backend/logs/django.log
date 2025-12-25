@@ -6488,3 +6488,43 @@ INFO 2025-12-25 22:42:10,785 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
 INFO 2025-12-25 22:42:10,787 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
 INFO 2025-12-25 22:42:10,787 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 284
 INFO 2025-12-25 22:42:10,796 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:42:25,058 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:42:25,058 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 284
+INFO 2025-12-25 22:42:25,059 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:42:25,064 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:42:54,942 log "OPTIONS /api/admin-receipts/adjust-balance/ HTTP/1.1" 200 0
+ERROR 2025-12-25 22:42:54,966 log Internal Server Error: /api/admin-receipts/adjust-balance/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 124, in adjust_balance
+    user.balance += float(amount)
+TypeError: unsupported operand type(s) for +=: 'decimal.Decimal' and 'float'
+ERROR 2025-12-25 22:42:54,971 log "POST /api/admin-receipts/adjust-balance/ HTTP/1.1" 500 22158
+INFO 2025-12-25 22:42:58,118 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 284
+INFO 2025-12-25 22:42:58,121 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:42:58,121 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:42:58,125 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:42:58,459 log "GET /media/profiles/photo_2025-04-04_09-38-11.jpg HTTP/1.1" 304 0
+INFO 2025-12-25 22:43:16,677 log "GET /media/receipts/cudpunlht56ksubgj0fg.jpg HTTP/1.1" 200 360391
+INFO 2025-12-25 22:43:38,363 log "OPTIONS /api/admin-receipts/4/approve/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:43:38,404 log "POST /api/admin-receipts/4/approve/ HTTP/1.1" 200 42
+INFO 2025-12-25 22:43:38,417 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 285
+INFO 2025-12-25 22:43:38,417 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 70
+INFO 2025-12-25 22:43:38,423 log "GET /api/admin-receipts/ HTTP/1.1" 200 1546
