@@ -4,14 +4,15 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function AnalyticsDashboardPage() {
+    const { t, tStatus, locale } = useI18n()
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [stats, setStats] = useState<any>(null)
     const [articles, setArticles] = useState<any[]>([])
     const [journals, setJournals] = useState<any[]>([])
-    const [period, setPeriod] = useState('month')
 
     useEffect(() => {
         fetchData()
@@ -27,7 +28,6 @@ export default function AnalyticsDashboardPage() {
             setArticles(articlesRes.data)
             setJournals(journalsRes.data)
 
-            // Calculate stats
             const submissions = articlesRes.data
             const now = new Date()
             const thisMonth = submissions.filter((s: any) => {
@@ -42,7 +42,7 @@ export default function AnalyticsDashboardPage() {
                 accepted: submissions.filter((s: any) => s.status === 'ACCEPTED').length,
                 rejected: submissions.filter((s: any) => s.status === 'REJECTED').length,
                 pending: submissions.filter((s: any) => ['SUBMITTED', 'UNDER_REVIEW'].includes(s.status)).length,
-                avgReviewTime: '3.2 days', // Mock
+                avgReviewTime: '3.2',
                 acceptRate: submissions.length > 0
                     ? Math.round((submissions.filter((s: any) => s.status === 'ACCEPTED' || s.status === 'PUBLISHED').length / submissions.length) * 100)
                     : 0,
@@ -54,17 +54,22 @@ export default function AnalyticsDashboardPage() {
         }
     }
 
+    const getJournalName = (journal: any) => {
+        if (!journal) return ''
+        return journal[`name_${locale}`] || journal.name_en
+    }
+
     // Group submissions by status for chart
     const statusData = [
-        { label: 'Published', value: stats?.published || 0, color: '#d97706' },
-        { label: 'Accepted', value: stats?.accepted || 0, color: '#059669' },
-        { label: 'Pending', value: stats?.pending || 0, color: '#6366f1' },
-        { label: 'Rejected', value: stats?.rejected || 0, color: '#dc2626' },
+        { label: tStatus('PUBLISHED'), value: stats?.published || 0, color: '#d97706' },
+        { label: tStatus('ACCEPTED'), value: stats?.accepted || 0, color: '#059669' },
+        { label: t('dashboard.pending'), value: stats?.pending || 0, color: '#6366f1' },
+        { label: tStatus('REJECTED'), value: stats?.rejected || 0, color: '#dc2626' },
     ]
 
     // Group by journal
     const journalStats = journals.map(j => ({
-        name: j.name_en,
+        name: getJournalName(j),
         count: articles.filter(a => a.journal === j.id).length
     })).sort((a, b) => b.count - a.count).slice(0, 5)
 
@@ -77,7 +82,7 @@ export default function AnalyticsDashboardPage() {
             return ad.getMonth() === d.getMonth() && ad.getFullYear() === d.getFullYear()
         }).length
         return {
-            month: d.toLocaleString('default', { month: 'short' }),
+            month: d.toLocaleString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US', { month: 'short' }),
             count
         }
     })
@@ -90,11 +95,11 @@ export default function AnalyticsDashboardPage() {
         <main style={{ background: '#faf9f6', minHeight: '100vh' }}>
             <section style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)', color: 'white', padding: '2rem 0' }}>
                 <div className="container">
-                    <Link href="/admin" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>← Back to Admin</Link>
+                    <Link href="/admin" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>← {t('admin.back_to_dashboard')}</Link>
                     <h1 style={{ fontSize: '1.75rem', fontWeight: 700, marginTop: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-                        Analytics Dashboard
+                        {t('admin.analytics_title')}
                     </h1>
-                    <p style={{ opacity: 0.8, marginTop: '0.25rem' }}>Platform performance overview</p>
+                    <p style={{ opacity: 0.8, marginTop: '0.25rem' }}>{t('admin.platform_overview')}</p>
                 </div>
             </section>
 
@@ -102,10 +107,10 @@ export default function AnalyticsDashboardPage() {
                 {/* Key Metrics */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
                     {[
-                        { label: 'Total Submissions', value: stats?.totalSubmissions || 0, icon: '📄', color: '#1e3a5f' },
-                        { label: 'This Month', value: stats?.thisMonth || 0, icon: '📅', color: '#6366f1', suffix: ' new' },
-                        { label: 'Acceptance Rate', value: stats?.acceptRate || 0, icon: '✓', color: '#059669', suffix: '%' },
-                        { label: 'Avg Review Time', value: stats?.avgReviewTime || 'N/A', icon: '⏱️', color: '#d97706' },
+                        { label: t('dashboard.total_submissions'), value: stats?.totalSubmissions || 0, icon: '📄', color: '#1e3a5f' },
+                        { label: t('admin.this_month'), value: stats?.thisMonth || 0, icon: '📅', color: '#6366f1', suffix: '' },
+                        { label: t('admin.acceptance_rate'), value: stats?.acceptRate || 0, icon: '✓', color: '#059669', suffix: '%' },
+                        { label: t('admin.avg_review_time'), value: stats?.avgReviewTime || 'N/A', icon: '⏱️', color: '#d97706', suffix: '' },
                     ].map((stat, i) => (
                         <div key={i} className="card" style={{ padding: '1.5rem' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
@@ -124,7 +129,7 @@ export default function AnalyticsDashboardPage() {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
                     {/* Status Distribution Chart */}
                     <div className="card" style={{ padding: '1.5rem' }}>
-                        <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>Submission Status</h3>
+                        <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>{t('admin.submission_status')}</h3>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                             {/* Simple Donut Chart */}
                             <div style={{ position: 'relative', width: '120px', height: '120px' }}>
@@ -177,7 +182,7 @@ export default function AnalyticsDashboardPage() {
 
                     {/* Top Journals */}
                     <div className="card" style={{ padding: '1.5rem' }}>
-                        <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>Top Journals</h3>
+                        <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>{t('admin.top_journals')}</h3>
                         {journalStats.length > 0 ? (
                             <div>
                                 {journalStats.map((j, i) => (
@@ -198,14 +203,14 @@ export default function AnalyticsDashboardPage() {
                                 ))}
                             </div>
                         ) : (
-                            <p style={{ color: '#6b7280' }}>No data available</p>
+                            <p style={{ color: '#6b7280' }}>{t('journals.no_journals')}</p>
                         )}
                     </div>
                 </div>
 
                 {/* Monthly Trend */}
                 <div className="card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
-                    <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>Submission Trend (Last 6 Months)</h3>
+                    <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>{t('admin.submission_trend')}</h3>
                     <div style={{ display: 'flex', alignItems: 'flex-end', gap: '1rem', height: '200px' }}>
                         {monthlyData.map((m, i) => {
                             const maxCount = Math.max(...monthlyData.map(d => d.count), 1)
@@ -231,15 +236,15 @@ export default function AnalyticsDashboardPage() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
                     <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#059669' }}>{stats?.published || 0}</div>
-                        <div style={{ color: '#6b7280' }}>Published Articles</div>
+                        <div style={{ color: '#6b7280' }}>{tStatus('PUBLISHED')}</div>
                     </div>
                     <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#1e3a5f' }}>{journals.length}</div>
-                        <div style={{ color: '#6b7280' }}>Active Journals</div>
+                        <div style={{ color: '#6b7280' }}>{t('admin.journals')}</div>
                     </div>
                     <div className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#6366f1' }}>{stats?.pending || 0}</div>
-                        <div style={{ color: '#6b7280' }}>Pending Review</div>
+                        <div style={{ color: '#6b7280' }}>{t('admin.pending_review')}</div>
                     </div>
                 </div>
             </div>

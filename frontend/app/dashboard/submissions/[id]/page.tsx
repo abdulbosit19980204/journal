@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function MySubmissionDetailPage() {
+    const { t, tStatus, locale } = useI18n()
     const { id } = useParams()
     const router = useRouter()
     const [submission, setSubmission] = useState<any>(null)
@@ -38,23 +40,23 @@ export default function MySubmissionDetailPage() {
             await api.patch(`/submissions/${id}/`, formData)
             setSubmission({ ...submission, ...formData })
             setEditing(false)
-            alert("Submission updated successfully!")
+            alert(t('submissions.submission_updated'))
         } catch (err) {
-            alert("Failed to update submission")
+            alert(t('submissions.update_failed'))
         } finally {
             setProcessing(false)
         }
     }
 
     const handleCancel = async () => {
-        if (!confirm("Are you sure you want to withdraw this submission? This action cannot be undone.")) return
+        if (!confirm(t('submissions.withdraw_confirm'))) return
 
         setProcessing(true)
         try {
             await api.patch(`/submissions/${id}/`, { status: 'WITHDRAWN' })
             router.push("/dashboard?withdrawn=true")
         } catch (err) {
-            alert("Failed to withdraw submission")
+            alert(t('submissions.withdraw_failed'))
         } finally {
             setProcessing(false)
         }
@@ -80,8 +82,8 @@ export default function MySubmissionDetailPage() {
     if (!submission) {
         return (
             <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>Submission Not Found</h2>
-                <Link href="/dashboard" style={{ color: '#1e3a5f' }}>← Back to Dashboard</Link>
+                <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('common.not_found')}</h2>
+                <Link href="/dashboard" style={{ color: '#1e3a5f' }}>← {t('admin.back_to_dashboard')}</Link>
             </div>
         )
     }
@@ -109,10 +111,10 @@ export default function MySubmissionDetailPage() {
             }}>
                 <div className="container">
                     <Link href="/dashboard" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>
-                        ← Back to Dashboard
+                        ← {t('admin.back_to_dashboard')}
                     </Link>
                     <h1 style={{ fontSize: '1.75rem', fontWeight: 700, marginTop: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-                        My Submission
+                        {t('submissions.my_submission')}
                     </h1>
                 </div>
             </section>
@@ -145,12 +147,12 @@ export default function MySubmissionDetailPage() {
                                     whiteSpace: 'nowrap',
                                     marginLeft: '1rem'
                                 }}>
-                                    {submission.status}
+                                    {tStatus(submission.status)}
                                 </span>
                             </div>
 
                             <div style={{ marginBottom: '1.5rem' }}>
-                                <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Abstract</h3>
+                                <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>{t('submissions.abstract')}</h3>
                                 {editing ? (
                                     <textarea
                                         value={formData.abstract}
@@ -164,7 +166,7 @@ export default function MySubmissionDetailPage() {
                             </div>
 
                             <div>
-                                <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Keywords</h3>
+                                <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>{t('submissions.keywords')}</h3>
                                 {editing ? (
                                     <input
                                         value={formData.keywords}
@@ -200,7 +202,7 @@ export default function MySubmissionDetailPage() {
                                                 className="btn btn-primary"
                                                 style={{ opacity: processing ? 0.7 : 1 }}
                                             >
-                                                {processing ? 'Saving...' : 'Save Changes'}
+                                                {processing ? t('common.loading') : t('submissions.save_changes')}
                                             </button>
                                             <button
                                                 onClick={() => setEditing(false)}
@@ -212,7 +214,7 @@ export default function MySubmissionDetailPage() {
                                                     cursor: 'pointer'
                                                 }}
                                             >
-                                                Cancel
+                                                {t('common.cancel')}
                                             </button>
                                         </>
                                     ) : (
@@ -228,7 +230,7 @@ export default function MySubmissionDetailPage() {
                                                 fontWeight: 500
                                             }}
                                         >
-                                            ✏️ Edit Submission
+                                            ✏️ {t('submissions.edit_submission')}
                                         </button>
                                     )}
                                 </div>
@@ -237,7 +239,7 @@ export default function MySubmissionDetailPage() {
 
                         {/* Manuscript File Viewer */}
                         <div className="card" style={{ padding: '2rem' }}>
-                            <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>Manuscript File</h3>
+                            <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>{t('submissions.manuscript')}</h3>
 
                             {submission.manuscript_file ? (
                                 (() => {
@@ -272,7 +274,7 @@ export default function MySubmissionDetailPage() {
                                                         {isPdf ? 'PDF' : isWord ? 'DOC' : 'FILE'}
                                                     </div>
                                                     <div>
-                                                        <div style={{ fontWeight: 500, color: '#1a1a1a' }}>Manuscript</div>
+                                                        <div style={{ fontWeight: 500, color: '#1a1a1a' }}>{t('submissions.manuscript')}</div>
                                                         <div style={{ fontSize: '0.75rem', color: '#6b7280', textTransform: 'uppercase' }}>
                                                             {isPdf ? 'PDF' : isWord ? 'Word' : 'Document'}
                                                         </div>
@@ -294,7 +296,7 @@ export default function MySubmissionDetailPage() {
                                                             fontWeight: 500
                                                         }}
                                                     >
-                                                        Open in New Tab
+                                                        {t('common.open_new_tab')}
                                                     </a>
                                                     <a
                                                         href={fileUrl}
@@ -309,7 +311,7 @@ export default function MySubmissionDetailPage() {
                                                             fontWeight: 500
                                                         }}
                                                     >
-                                                        Download
+                                                        {t('common.download')}
                                                     </a>
                                                 </div>
                                             </div>
@@ -327,17 +329,17 @@ export default function MySubmissionDetailPage() {
                                                         <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📝</div>
                                                         <h4 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>Word Document</h4>
                                                         <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '400px', margin: '0 auto 1.5rem' }}>
-                                                            Word documents cannot be previewed directly. Please download to view.
+                                                            {t('submissions.word_doc_warning')}
                                                         </p>
                                                         <a href={fileUrl} download className="btn btn-primary">
-                                                            📥 Download Word File
+                                                            📥 {t('submissions.download_word')}
                                                         </a>
                                                     </div>
                                                 ) : (
                                                     <div style={{ padding: '3rem', textAlign: 'center' }}>
                                                         <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📎</div>
-                                                        <p style={{ color: '#6b7280', marginBottom: '1rem' }}>Download to view</p>
-                                                        <a href={fileUrl} download className="btn btn-primary">Download</a>
+                                                        <p style={{ color: '#6b7280', marginBottom: '1rem' }}>{t('submissions.view_download')}</p>
+                                                        <a href={fileUrl} download className="btn btn-primary">{t('common.download')}</a>
                                                     </div>
                                                 )}
                                             </div>
@@ -345,7 +347,7 @@ export default function MySubmissionDetailPage() {
                                     )
                                 })()
                             ) : (
-                                <p style={{ color: '#6b7280' }}>No manuscript file uploaded</p>
+                                <p style={{ color: '#6b7280' }}>{t('submissions.no_file')}</p>
                             )}
                         </div>
                     </div>
@@ -354,14 +356,14 @@ export default function MySubmissionDetailPage() {
                     <div>
                         {/* Details */}
                         <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
-                            <h3 style={{ fontWeight: 600, marginBottom: '1rem', color: '#1e3a5f' }}>Details</h3>
+                            <h3 style={{ fontWeight: 600, marginBottom: '1rem', color: '#1e3a5f' }}>{t('submissions.details')}</h3>
                             <dl style={{ fontSize: '0.875rem' }}>
                                 {[
                                     { label: 'ID', value: `#${submission.id}` },
-                                    { label: 'Journal', value: `#${submission.journal}` },
-                                    { label: 'Language', value: submission.language?.toUpperCase() || 'EN' },
-                                    { label: 'Submitted', value: new Date(submission.submitted_at || submission.created_at).toLocaleDateString() },
-                                    { label: 'Last Updated', value: new Date(submission.updated_at || submission.created_at).toLocaleDateString() },
+                                    { label: t('submissions.journal'), value: `#${submission.journal}` },
+                                    { label: t('submissions.language'), value: submission.language?.toUpperCase() || 'EN' },
+                                    { label: t('submissions.submitted_at'), value: new Date(submission.submitted_at || submission.created_at).toLocaleDateString(locale) },
+                                    { label: t('submissions.last_updated'), value: new Date(submission.updated_at || submission.created_at).toLocaleDateString(locale) },
                                 ].map((d, i) => (
                                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
                                         <dt style={{ color: '#6b7280' }}>{d.label}</dt>
@@ -373,22 +375,22 @@ export default function MySubmissionDetailPage() {
 
                         {/* Status Info */}
                         <div className="card" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
-                            <h3 style={{ fontWeight: 600, marginBottom: '1rem', color: '#1e3a5f' }}>Status Timeline</h3>
+                            <h3 style={{ fontWeight: 600, marginBottom: '1rem', color: '#1e3a5f' }}>{t('submissions.status_timeline')}</h3>
                             <div style={{ fontSize: '0.875rem', color: '#4a4a4a' }}>
                                 {submission.status === 'SUBMITTED' && (
-                                    <p>Your submission is waiting for editor review. You will be notified once a decision is made.</p>
+                                    <p>{t('submissions.waiting_review')}</p>
                                 )}
                                 {submission.status === 'UNDER_REVIEW' && (
-                                    <p>Your submission is currently being reviewed by our editorial team.</p>
+                                    <p>{t('submissions.currently_reviewing')}</p>
                                 )}
                                 {submission.status === 'ACCEPTED' && (
-                                    <p style={{ color: '#059669' }}>🎉 Congratulations! Your article has been accepted for publication.</p>
+                                    <p style={{ color: '#059669' }}>{t('submissions.msg_accepted')}</p>
                                 )}
                                 {submission.status === 'REJECTED' && (
-                                    <p style={{ color: '#dc2626' }}>Unfortunately, your submission was not accepted. You may submit a revised version.</p>
+                                    <p style={{ color: '#dc2626' }}>{t('submissions.msg_rejected')}</p>
                                 )}
                                 {submission.status === 'PUBLISHED' && (
-                                    <p style={{ color: '#d97706' }}>📚 Your article has been published and is now available to readers.</p>
+                                    <p style={{ color: '#d97706' }}>{t('submissions.msg_published')}</p>
                                 )}
                             </div>
                         </div>
@@ -396,9 +398,9 @@ export default function MySubmissionDetailPage() {
                         {/* Withdraw Button */}
                         {canWithdraw && (
                             <div className="card" style={{ padding: '1.5rem', background: '#fef2f2', border: '1px solid #fecaca' }}>
-                                <h3 style={{ fontWeight: 600, marginBottom: '0.75rem', color: '#991b1b' }}>Danger Zone</h3>
+                                <h3 style={{ fontWeight: 600, marginBottom: '0.75rem', color: '#991b1b' }}>{t('admin.danger_zone')}</h3>
                                 <p style={{ fontSize: '0.875rem', color: '#7f1d1d', marginBottom: '1rem' }}>
-                                    Withdraw your submission if you made an error or want to cancel.
+                                    {t('submissions.danger_zone_text')}
                                 </p>
                                 <button
                                     onClick={handleCancel}
@@ -415,7 +417,7 @@ export default function MySubmissionDetailPage() {
                                         opacity: processing ? 0.7 : 1
                                     }}
                                 >
-                                    {processing ? 'Processing...' : '🗑️ Withdraw Submission'}
+                                    {processing ? t('common.loading') : `🗑️ ${t('submissions.withdraw_submission')}`}
                                 </button>
                             </div>
                         )}

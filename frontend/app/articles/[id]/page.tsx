@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function ArticleDetailPage() {
+    const { t, tStatus, locale } = useI18n()
     const { id } = useParams()
     const [article, setArticle] = useState<any>(null)
     const [loading, setLoading] = useState(true)
@@ -30,8 +32,8 @@ export default function ArticleDetailPage() {
     if (!article) {
         return (
             <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-                <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>Article Not Found</h2>
-                <Link href="/articles" style={{ color: '#1e3a5f' }}>← Back to Articles</Link>
+                <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.not_found')}</h2>
+                <Link href="/articles" style={{ color: '#1e3a5f' }}>← {t('articles.back_to_articles')}</Link>
             </div>
         )
     }
@@ -46,7 +48,7 @@ export default function ArticleDetailPage() {
             }}>
                 <div className="container" style={{ maxWidth: '900px' }}>
                     <Link href="/articles" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>
-                        ← Back to Published Articles
+                        ← {t('articles.back_to_published')}
                     </Link>
                     <div style={{ marginTop: '1rem' }}>
                         <span style={{
@@ -57,14 +59,14 @@ export default function ArticleDetailPage() {
                             fontSize: '0.75rem',
                             fontWeight: 600
                         }}>
-                            PUBLISHED
+                            {tStatus(article.status)}
                         </span>
                     </div>
                     <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginTop: '1rem', fontFamily: "'Playfair Display', serif", lineHeight: 1.2 }}>
                         {article.title}
                     </h1>
                     <div style={{ marginTop: '1.5rem', opacity: 0.9, fontSize: '0.9rem' }}>
-                        By Author #{article.author} • Journal #{article.journal} • {new Date(article.updated_at || article.created_at).toLocaleDateString()}
+                        {t('articles.by')} #{article.author} • {t('articles.published_in')} #{article.journal} • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
                     </div>
                 </div>
             </section>
@@ -76,7 +78,7 @@ export default function ArticleDetailPage() {
                         {/* Abstract */}
                         <div style={{ marginBottom: '2rem' }}>
                             <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
-                                Abstract
+                                {t('articles.abstract')}
                             </h2>
                             <p style={{ color: '#4a4a4a', lineHeight: 1.8, fontSize: '1.05rem' }}>
                                 {article.abstract}
@@ -86,7 +88,7 @@ export default function ArticleDetailPage() {
                         {/* Keywords */}
                         {article.keywords && (
                             <div style={{ marginBottom: '2rem' }}>
-                                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.75rem' }}>Keywords</h3>
+                                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.75rem' }}>{t('articles.keywords')}</h3>
                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                                     {article.keywords.split(',').map((kw: string, i: number) => (
                                         <span key={i} style={{
@@ -105,7 +107,7 @@ export default function ArticleDetailPage() {
 
                         {/* PDF Viewer / Download */}
                         <div style={{ borderTop: '1px solid #e5e5e5', paddingTop: '2rem' }}>
-                            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>Full Article</h3>
+                            <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.full_article')}</h3>
 
                             {article.manuscript_file ? (
                                 <>
@@ -132,11 +134,11 @@ export default function ArticleDetailPage() {
                                         className="btn btn-primary"
                                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
                                     >
-                                        📄 Download PDF
+                                        📄 {t('articles.download_pdf')}
                                     </a>
                                 </>
                             ) : (
-                                <p style={{ color: '#6b7280' }}>Full article PDF is not available.</p>
+                                <p style={{ color: '#6b7280' }}>{t('articles.pdf_not_available')}</p>
                             )}
                         </div>
                     </div>

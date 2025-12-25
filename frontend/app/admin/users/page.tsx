@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function AdminUsersPage() {
+    const { t } = useI18n()
     const router = useRouter()
     const [users, setUsers] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
@@ -22,7 +24,6 @@ export default function AdminUsersPage() {
         } catch (err: any) {
             if (err.response?.status === 401) router.push("/auth/login")
             else if (err.response?.status === 403) {
-                // API might not exist, show message
                 setUsers([])
             }
         } finally {
@@ -36,7 +37,7 @@ export default function AdminUsersPage() {
             await api.patch(`/auth/users/${userId}/`, { [field]: value })
             setUsers(users.map(u => u.id === userId ? { ...u, [field]: value } : u))
         } catch (err) {
-            alert("Failed to update user")
+            alert(t('common.error'))
         } finally {
             setProcessing(null)
         }
@@ -50,9 +51,9 @@ export default function AdminUsersPage() {
         <main style={{ background: '#faf9f6', minHeight: '100vh' }}>
             <section style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)', color: 'white', padding: '2rem 0' }}>
                 <div className="container">
-                    <Link href="/admin" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>← Back to Admin</Link>
+                    <Link href="/admin" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.875rem' }}>← {t('admin.back_to_dashboard')}</Link>
                     <h1 style={{ fontSize: '1.75rem', fontWeight: 700, marginTop: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-                        User Management
+                        {t('admin.user_management')}
                     </h1>
                 </div>
             </section>
@@ -63,11 +64,11 @@ export default function AdminUsersPage() {
                         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                             <thead>
                                 <tr style={{ background: '#f9fafb', textAlign: 'left' }}>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>USER</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>EMAIL</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>VERIFIED</th>
+                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('auth.username').toUpperCase()}</th>
+                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('auth.email').toUpperCase()}</th>
+                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('admin.verify_user').toUpperCase()}</th>
                                     <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>STAFF</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>ACTIONS</th>
+                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('common.actions').toUpperCase()}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,7 +90,7 @@ export default function AdminUsersPage() {
                                                 background: user.is_verified ? '#d1fae5' : '#fee2e2',
                                                 color: user.is_verified ? '#065f46' : '#991b1b'
                                             }}>
-                                                {user.is_verified ? 'Verified' : 'Unverified'}
+                                                {user.is_verified ? '✓' : '✗'}
                                             </span>
                                         </td>
                                         <td style={{ padding: '1rem' }}>
@@ -101,7 +102,7 @@ export default function AdminUsersPage() {
                                                 background: user.is_staff ? '#dbeafe' : '#f3f4f6',
                                                 color: user.is_staff ? '#1e40af' : '#374151'
                                             }}>
-                                                {user.is_staff ? 'Staff' : 'User'}
+                                                {user.is_staff ? '✓' : '✗'}
                                             </span>
                                         </td>
                                         <td style={{ padding: '1rem' }}>
@@ -109,18 +110,18 @@ export default function AdminUsersPage() {
                                                 {!user.is_staff ? (
                                                     <button onClick={() => handleRoleChange(user.id, 'is_staff', true)} disabled={processing === user.id}
                                                         style={{ padding: '0.35rem 0.75rem', background: '#1e3a5f', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}>
-                                                        Make Staff
+                                                        {t('admin.make_staff')}
                                                     </button>
                                                 ) : (
                                                     <button onClick={() => handleRoleChange(user.id, 'is_staff', false)} disabled={processing === user.id}
                                                         style={{ padding: '0.35rem 0.75rem', background: '#6b7280', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}>
-                                                        Remove Staff
+                                                        {t('admin.remove_staff')}
                                                     </button>
                                                 )}
                                                 {!user.is_verified && (
                                                     <button onClick={() => handleRoleChange(user.id, 'is_verified', true)} disabled={processing === user.id}
                                                         style={{ padding: '0.35rem 0.75rem', background: '#059669', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}>
-                                                        Verify
+                                                        {t('admin.verify_user')}
                                                     </button>
                                                 )}
                                             </div>
@@ -134,10 +135,10 @@ export default function AdminUsersPage() {
                     <div className="card" style={{ padding: '3rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>👥</div>
                         <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>
-                            User Management
+                            {t('admin.user_management')}
                         </h2>
                         <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '400px', margin: '0 auto 1.5rem' }}>
-                            User management API endpoint is not available. Please add the endpoint or use Django Admin for now.
+                            {t('admin.contact_admin')}
                         </p>
                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <a
@@ -146,15 +147,8 @@ export default function AdminUsersPage() {
                                 rel="noopener noreferrer"
                                 className="btn btn-primary"
                             >
-                                Open Django Admin → Users
+                                Django Admin →
                             </a>
-                        </div>
-
-                        <div style={{ marginTop: '2rem', padding: '1rem', background: '#fef3c7', borderRadius: '8px', textAlign: 'left' }}>
-                            <h4 style={{ fontWeight: 600, color: '#92400e', marginBottom: '0.5rem' }}>Note for Developers</h4>
-                            <p style={{ fontSize: '0.875rem', color: '#92400e' }}>
-                                To enable user management, add a UserViewSet in the backend with appropriate permissions.
-                            </p>
                         </div>
                     </div>
                 )}

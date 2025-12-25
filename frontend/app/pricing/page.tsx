@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function PricingPage() {
+  const { t, locale } = useI18n()
   const router = useRouter()
   const [plans, setPlans] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -21,16 +23,48 @@ export default function PricingPage() {
       router.push("/dashboard")
     } catch (err: any) {
       if (err.response?.status === 401) router.push("/auth/login")
-      else alert("Subscription failed")
+      else alert(t('billing.payment_failed'))
     } finally {
       setSubscribing(null)
     }
   }
 
-  const features: Record<string, string[]> = {
-    "basic-researcher": ["1 article/month", "Standard review", "Email support"],
-    "professional-author": ["5 articles/month", "Priority review", "AI assistant", "Analytics"],
-    "institution-unlimited": ["Unlimited articles", "Express review (48h)", "Dedicated manager", "API access"]
+  // Localized features
+  const features: Record<string, Record<string, string[]>> = {
+    "basic-researcher": {
+      en: ["1 article/month", "Standard review", "Email support"],
+      uz: ["Oyiga 1 ta maqola", "Standart tekshiruv", "Email yordam"],
+      ru: ["1 статья/месяц", "Стандартная проверка", "Email поддержка"]
+    },
+    "professional-author": {
+      en: ["5 articles/month", "Priority review", "AI assistant", "Analytics"],
+      uz: ["Oyiga 5 ta maqola", "Tezkor tekshiruv", "AI yordamchi", "Analitika"],
+      ru: ["5 статей/месяц", "Приоритетная проверка", "AI помощник", "Аналитика"]
+    },
+    "institution-unlimited": {
+      en: ["Unlimited articles", "Express review (48h)", "Dedicated manager", "API access"],
+      uz: ["Cheksiz maqolalar", "Tezkor tekshiruv (48s)", "Shaxsiy menejer", "API kirish"],
+      ru: ["Безлимитные статьи", "Экспресс проверка (48ч)", "Персональный менеджер", "API доступ"]
+    }
+  }
+
+  // Localized FAQ
+  const faqData: Record<string, { q: string; a: string }[]> = {
+    en: [
+      { q: "Can I change my plan later?", a: "Yes, upgrade or downgrade anytime. Changes take effect immediately." },
+      { q: "What payment methods do you accept?", a: "Credit cards, PayPal, Click, and Payme." },
+      { q: "Is there a refund policy?", a: "30-day money-back guarantee for all paid plans." },
+    ],
+    uz: [
+      { q: "Keyinroq tarifni o'zgartira olamanmi?", a: "Ha, istalgan vaqtda yangilash yoki pasaytirish mumkin. O'zgarishlar darhol kuchga kiradi." },
+      { q: "Qaysi to'lov usullarini qabul qilasiz?", a: "Kredit kartalar, PayPal, Click va Payme." },
+      { q: "Pulni qaytarish siyosati bormi?", a: "Barcha pullik tariflar uchun 30 kunlik kafolat." },
+    ],
+    ru: [
+      { q: "Могу ли я изменить тариф позже?", a: "Да, можете повысить или понизить в любое время. Изменения вступают в силу немедленно." },
+      { q: "Какие способы оплаты вы принимаете?", a: "Кредитные карты, PayPal, Click и Payme." },
+      { q: "Есть ли политика возврата?", a: "30-дневная гарантия возврата для всех платных тарифов." },
+    ]
   }
 
   if (loading) {
@@ -57,10 +91,10 @@ export default function PricingPage() {
             <div style={{ width: '60px', height: '1px', background: '#c9a227' }} />
           </div>
           <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
-            Simple, Transparent Pricing
+            {t('pricing.title')}
           </h1>
           <p style={{ fontSize: '1.25rem', opacity: 0.8 }}>
-            Choose the plan that fits your publishing needs
+            {t('pricing.subtitle')}
           </p>
         </div>
       </section>
@@ -71,7 +105,7 @@ export default function PricingPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
             {plans.map((plan, i) => {
               const isPopular = plan.slug === 'professional-author'
-              const planFeatures = features[plan.slug] || []
+              const planFeatures = features[plan.slug]?.[locale] || features[plan.slug]?.en || []
 
               return (
                 <div key={plan.id} className="card" style={{
@@ -92,7 +126,7 @@ export default function PricingPage() {
                       padding: '0.35rem 0.75rem',
                       borderRadius: '0 8px 0 8px'
                     }}>
-                      POPULAR
+                      {t('pricing.popular')}
                     </div>
                   )}
 
@@ -104,7 +138,7 @@ export default function PricingPage() {
                       <span style={{ fontSize: '3rem', fontWeight: 700, color: '#1e3a5f' }}>
                         ${parseFloat(plan.price).toFixed(0)}
                       </span>
-                      <span style={{ color: '#6b7280' }}>/mo</span>
+                      <span style={{ color: '#6b7280' }}>{t('pricing.per_month')}</span>
                     </div>
 
                     <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
@@ -132,7 +166,7 @@ export default function PricingPage() {
                         border: 'none'
                       }}
                     >
-                      {subscribing === plan.id ? 'Processing...' : plan.price === '0.00' ? 'Get Started Free' : 'Subscribe Now'}
+                      {subscribing === plan.id ? t('common.loading') : t('pricing.subscribe')}
                     </button>
                   </div>
                 </div>
@@ -146,14 +180,10 @@ export default function PricingPage() {
       <section style={{ padding: '4rem 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '700px' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', textAlign: 'center', marginBottom: '2rem', fontFamily: "'Playfair Display', serif" }}>
-            Frequently Asked Questions
+            FAQ
           </h2>
 
-          {[
-            { q: "Can I change my plan later?", a: "Yes, upgrade or downgrade anytime. Changes take effect immediately." },
-            { q: "What payment methods do you accept?", a: "Credit cards, PayPal, Click, and Payme." },
-            { q: "Is there a refund policy?", a: "30-day money-back guarantee for all paid plans." },
-          ].map((faq, i) => (
+          {(faqData[locale] || faqData.en).map((faq, i) => (
             <div key={i} className="card" style={{ padding: '1.5rem', marginBottom: '1rem' }}>
               <h3 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>{faq.q}</h3>
               <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>{faq.a}</p>
