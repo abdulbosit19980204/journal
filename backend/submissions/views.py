@@ -29,6 +29,8 @@ class SubmissionViewSet(viewsets.ModelViewSet):
         
         # List: authors see their own
         if self.action == 'list':
+            if user.is_staff or user.is_superuser:
+                return Article.objects.all()
             if user.is_authenticated:
                 return Article.objects.filter(author=user)
             return Article.objects.filter(status='PUBLISHED')
