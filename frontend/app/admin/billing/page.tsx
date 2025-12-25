@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { resolveMediaUrl } from "@/lib/utils"
+import { toast } from "sonner"
+import Swal from "sweetalert2"
 
 export default function AdminBillingPage() {
     const { t } = useI18n()
@@ -37,28 +39,49 @@ export default function AdminBillingPage() {
     }, [])
 
     const handleAction = async (id: number, action: 'approve' | 'reject') => {
-        const notes = prompt(`Enter ${action} notes (optional):`) || ""
+        const { value: notes, isDismissed } = await Swal.fire({
+            title: `${action.toUpperCase()} Action`,
+            input: 'text',
+            inputLabel: `Enter ${action} notes (optional):`,
+            inputPlaceholder: 'Type your notes here...',
+            showCancelButton: true,
+            confirmButtonColor: action === 'approve' ? '#10b981' : '#ef4444',
+            cancelButtonColor: '#6b7280',
+            confirmButtonText: action.charAt(0).toUpperCase() + action.slice(1)
+        })
+
+        if (isDismissed) return
+
         setProcessing(id)
         try {
-            await api.post(`/admin-receipts/${id}/${action}/`, { admin_notes: notes })
+            await api.post(`/admin-receipts/${id}/${action}/`, { admin_notes: notes || "" })
+            toast.success(`Receipt ${action}ed successfully`)
             await fetchData()
         } catch (err: any) {
-            alert(err.response?.data?.error || "Action failed")
+            toast.error(err.response?.data?.error || "Action failed")
         } finally {
             setProcessing(null)
         }
     }
 
     const handleAdjustBalance = async (userId: number) => {
-        const amount = prompt("Enter amount to add (use negative for deduction):")
-        if (amount === null || isNaN(parseFloat(amount))) return
+        const { value: amount, isDismissed } = await Swal.fire({
+            title: 'Adjust User Balance',
+            input: 'number',
+            inputLabel: 'Enter amount to add (use negative for deduction):',
+            inputPlaceholder: '0.00',
+            showCancelButton: true,
+            confirmButtonColor: '#6366f1',
+        })
+
+        if (isDismissed || amount === null || isNaN(parseFloat(amount))) return
 
         try {
             await api.post("/admin-receipts/adjust-balance/", { user_id: userId, amount: parseFloat(amount) })
-            alert("Balance adjusted!")
+            toast.success("Balance adjusted successfully!")
             await fetchData()
         } catch (err: any) {
-            alert("Adjustment failed")
+            toast.error("Adjustment failed")
         }
     }
 

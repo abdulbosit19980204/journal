@@ -5,6 +5,7 @@ import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { useAuth } from "@/lib/auth-context"
 import { resolveMediaUrl } from "@/lib/utils"
+import { toast } from "sonner"
 
 export default function BillingBalancePage() {
     const { t, locale } = useI18n()
@@ -37,7 +38,7 @@ export default function BillingBalancePage() {
     const handleUpload = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!fileInputRef.current?.files?.[0] || !amount) {
-            alert("Please fill all fields")
+            toast.error("Please fill all fields")
             return
         }
 
@@ -50,16 +51,16 @@ export default function BillingBalancePage() {
             await api.post("/receipts/", formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             })
-            
-            alert(t('billing.receipt_success'))
+
+            toast.success(t('billing.receipt_success'))
             setAmount("")
             if (fileInputRef.current) fileInputRef.current.value = ""
-            
+
             // Refresh receipts list
             const res = await api.get("/receipts/")
             setReceipts(res.data)
         } catch (err) {
-            alert("Failed to upload receipt")
+            toast.error("Failed to upload receipt")
         } finally {
             setUploading(false)
         }
@@ -86,14 +87,14 @@ export default function BillingBalancePage() {
 
                         <div className="card" style={{ padding: '1.5rem' }}>
                             <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>{t('billing.card_info')}</h3>
-                            
+
                             <div style={{ background: '#f9fafb', padding: '1rem', borderRadius: '8px', border: '1px solid #e5e5e5', marginBottom: '1rem' }}>
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.bank_name')}</div>
                                 <div style={{ fontWeight: 600, marginBottom: '0.75rem' }}>{config?.bank_name}</div>
-                                
+
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_number')}</div>
                                 <div style={{ fontWeight: 700, fontSize: '1.25rem', letterSpacing: '1px', marginBottom: '0.75rem', color: '#1e3a5f' }}>{config?.card_number}</div>
-                                
+
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_holder')}</div>
                                 <div style={{ fontWeight: 600 }}>{config?.card_holder}</div>
                             </div>
@@ -113,20 +114,20 @@ export default function BillingBalancePage() {
                             <form onSubmit={handleUpload}>
                                 <div style={{ marginBottom: '1rem' }}>
                                     <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>{t('billing.amount')} ($)</label>
-                                    <input 
-                                        type="number" 
-                                        value={amount} 
-                                        onChange={(e) => setAmount(e.target.value)} 
-                                        className="input" 
+                                    <input
+                                        type="number"
+                                        value={amount}
+                                        onChange={(e) => setAmount(e.target.value)}
+                                        className="input"
                                         placeholder="0.00"
                                         required
                                     />
                                 </div>
                                 <div style={{ marginBottom: '1.5rem' }}>
                                     <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>{t('billing.receipt_file')}</label>
-                                    <input 
-                                        type="file" 
-                                        ref={fileInputRef} 
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
                                         accept="image/*"
                                         style={{ width: '100%', fontSize: '0.875rem' }}
                                         required

@@ -6,6 +6,8 @@ import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { useAuth } from "@/lib/auth-context"
 import Link from "next/link"
+import { toast } from "sonner"
+import Swal from "sweetalert2"
 
 export default function PricingPage() {
   const { t, locale } = useI18n()
@@ -27,7 +29,12 @@ export default function PricingPage() {
 
     const plan = plans.find(p => p.id === planId)
     if (parseFloat(user.balance) < parseFloat(plan?.price || "0")) {
-      alert(t('billing.insufficient_balance'))
+      Swal.fire({
+        title: t('billing.insufficient_balance'),
+        icon: 'warning',
+        confirmButtonColor: '#1e3a5f',
+        confirmButtonText: t('common.ok')
+      })
       router.push("/profile/billing")
       return
     }
@@ -36,9 +43,10 @@ export default function PricingPage() {
     try {
       await api.post("/billing/subscribe/", { plan_id: planId })
       await refreshUser()
+      toast.success(t('pricing.subscribe_success') || "Subscribed successfully!")
       router.push("/dashboard")
     } catch (err: any) {
-      alert(err.response?.data?.error || t('billing.payment_failed'))
+      toast.error(err.response?.data?.error || t('billing.payment_failed'))
     } finally {
       setSubscribing(null)
     }

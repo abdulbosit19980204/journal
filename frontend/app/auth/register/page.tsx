@@ -10,6 +10,7 @@ import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { useAuth } from "@/lib/auth-context"
 import { useEffect } from "react"
+import { toast } from "sonner"
 
 const schema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
@@ -42,7 +43,9 @@ export default function RegisterPage() {
       router.push("/auth/login?registered=true")
     } catch (err: any) {
       const msg = err.response?.data ? Object.values(err.response.data)[0] : t('auth.register_error')
-      setError(Array.isArray(msg) ? msg[0] : String(msg))
+      const errorMsg = Array.isArray(msg) ? msg[0] : String(msg)
+      setError(errorMsg)
+      toast.error(errorMsg)
     }
   }
 

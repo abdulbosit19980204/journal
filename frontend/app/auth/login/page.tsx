@@ -10,6 +10,7 @@ import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { useAuth } from "@/lib/auth-context"
 import { useEffect } from "react"
+import { toast } from "sonner"
 
 const schema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -43,7 +44,9 @@ export default function LoginPage() {
       router.push(nextUrl)
     } catch (err: any) {
       console.error(err)
-      setError(t('auth.login_error'))
+      const errorMsg = t('auth.login_error')
+      setError(errorMsg)
+      toast.error(errorMsg)
     }
   }
 
