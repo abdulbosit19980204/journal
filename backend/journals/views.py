@@ -26,7 +26,7 @@ class IssueViewSet(viewsets.ModelViewSet):
         return queryset
     
     def get_permissions(self):
-        if self.action in ['list', 'retrieve']:
+        if self.action in ['list', 'retrieve', 'years']:
             return [permissions.AllowAny()]
         return [permissions.IsAdminUser()]
     @action(detail=False, methods=['get'])
