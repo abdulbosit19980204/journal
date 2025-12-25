@@ -114,6 +114,7 @@ class WalletTransaction(models.Model):
         ('TOP_UP', 'Top Up'),
         ('SUBSCRIPTION', 'Subscription Payment'),
         ('ADJUSTMENT', 'Manual Adjustment'),
+        ('PUBLISH_FEE', 'Publication Fee'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='wallet_transactions')
     amount = models.DecimalField(max_digits=12, decimal_places=2)

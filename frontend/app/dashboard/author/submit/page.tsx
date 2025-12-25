@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { useAuth } from "@/lib/auth-context"
 import dynamic from "next/dynamic"
 import "react-quill-new/dist/quill.snow.css"
 
@@ -21,13 +22,35 @@ export default function SubmitArticlePage() {
     const [error, setError] = useState("")
 
     // Custom state for abstract as it is rich text
+    const { user } = useAuth()
     const [abstract, setAbstract] = useState("")
+    const [cost, setCost] = useState<number | null>(null)
+
+    const selectedJournalId = watch("journal")
+    const pageCount = watch("page_count") || 0
 
     useEffect(() => {
         api.get("/journals/").then((res) => setJournals(res.data))
     }, [])
 
-    const selectedJournal = watch("journal")
+    useEffect(() => {
+        const journal = journals.find(j => j.id == selectedJournalId)
+        if (!journal) {
+            setCost(null)
+            return
+        }
+
+        const sub = user?.subscription
+        const limitReached = sub && sub.is_active && sub.plan_id && sub.plan_name !== 'Free' ? false : true // Simple check for now
+        // Actual logic depends on articles_used_this_month which isn't in user object yet.
+        // I should probably rely on backend error for limits, but I'll show estimate.
+
+        if (journal.is_paid) {
+            setCost(journal.price_per_page * pageCount)
+        } else {
+            setCost(0)
+        }
+    }, [selectedJournalId, pageCount, journals, user])
 
     const onSubmit = async (data: any) => {
         setError("")
@@ -35,6 +58,7 @@ export default function SubmitArticlePage() {
         formData.append("title", data.title)
         formData.append("abstract", abstract) // Use state
         formData.append("journal", data.journal)
+        formData.append("page_count", data.page_count || 0)
         formData.append("language", data.language || "en")
         formData.append("keywords", data.keywords || "")
         if (file) formData.append("manuscript_file", file)
@@ -43,7 +67,11 @@ export default function SubmitArticlePage() {
             await api.post("/submissions/", formData, { headers: { "Content-Type": "multipart/form-data" } })
             router.push("/dashboard?submitted=true")
         } catch (err: any) {
-            setError(err.response?.data?.detail || t('submissions.submit_failed'))
+            if (err.response?.status === 402) {
+                setError(err.response.data.message)
+            } else {
+                setError(err.response?.data?.detail || t('submissions.submit_failed'))
+            }
         }
     }
 
@@ -109,11 +137,11 @@ export default function SubmitArticlePage() {
                                         {journals.map((j) => (
                                             <label key={j.id} style={{
                                                 display: 'block',
-                                                border: selectedJournal == j.id ? '2px solid #1e3a5f' : '1px solid #e5e5e5',
+                                                border: selectedJournalId == j.id ? '2px solid #1e3a5f' : '1px solid #e5e5e5',
                                                 borderRadius: '12px',
                                                 cursor: 'pointer',
                                                 overflow: 'hidden',
-                                                background: selectedJournal == j.id ? '#f0f7ff' : 'white',
+                                                background: selectedJournalId == j.id ? '#f0f7ff' : 'white',
                                                 transition: 'all 0.2s',
                                                 position: 'relative'
                                             }}>
@@ -137,8 +165,8 @@ export default function SubmitArticlePage() {
                                         ))}
                                     </div>
                                     <div style={{ marginTop: '2rem', textAlign: 'right' }}>
-                                        <button type="button" onClick={() => selectedJournal && setStep(2)} disabled={!selectedJournal}
-                                            className="btn btn-primary" style={{ opacity: selectedJournal ? 1 : 0.5 }}>
+                                        <button type="button" onClick={() => selectedJournalId && setStep(2)} disabled={!selectedJournalId}
+                                            className="btn btn-primary" style={{ opacity: selectedJournalId ? 1 : 0.5 }}>
                                             {t('common.continue')} →
                                         </button>
                                     </div>
@@ -162,7 +190,7 @@ export default function SubmitArticlePage() {
                                             style={{ background: 'white', marginBottom: '1rem' }}
                                         />
                                     </div>
-                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.25rem' }}>
                                         <div>
                                             <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>{t('submissions.keywords')}</label>
                                             <input {...register("keywords")} placeholder="research, science" style={inputStyle} />
@@ -174,6 +202,10 @@ export default function SubmitArticlePage() {
                                                 <option value="uz">O&apos;zbek</option>
                                                 <option value="ru">Русский</option>
                                             </select>
+                                        </div>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>{t('submissions.page_count')} *</label>
+                                            <input type="number" {...register("page_count", { required: true, min: 1 })} placeholder="1" style={inputStyle} />
                                         </div>
                                     </div>
                                     <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
@@ -208,6 +240,50 @@ export default function SubmitArticlePage() {
                                             )}
                                         </label>
                                     </div>
+
+                                    {/* Cost/Usage Info */}
+                                    {selectedJournalId && (
+                                        <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                                            {(() => {
+                                                const journal = journals.find(j => j.id == selectedJournalId)
+                                                if (!journal) return null
+                                                
+                                                const sub = user?.subscription
+                                                // Note: we'd need the plan limit from another source or by fetching plans, 
+                                                // but we can show "Using subscription" or "Per-page fee"
+                                                
+                                                if (sub && sub.is_active && sub.plan_name !== 'Free') {
+                                                    return (
+                                                        <div>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                                                                <span style={{ fontWeight: 600, color: '#1e3a5f' }}>{t('billing.current_subscription')}</span>
+                                                                <span style={{ fontWeight: 700, color: '#10b981' }}>{sub.plan_name}</span>
+                                                            </div>
+                                                            <div style={{ fontSize: '0.875rem', color: '#64748b' }}>
+                                                                {t('billing.articles_used') || 'Articles used this month'}: {sub.articles_used_this_month}
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                                
+                                                if (journal.is_paid && cost! > 0) {
+                                                    return (
+                                                        <div>
+                                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                                <span style={{ fontWeight: 600, color: '#475569' }}>{t('billing.publication_fee')}</span>
+                                                                <span style={{ fontWeight: 700, color: '#1e3a5f', fontSize: '1.25rem' }}>${cost?.toFixed(2)}</span>
+                                                            </div>
+                                                            <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>
+                                                                {t('billing.pay_per_page_hint') || 'This amount will be deducted from your balance upon submission.'}
+                                                            </p>
+                                                        </div>
+                                                    )
+                                                }
+                                                return <div style={{ color: '#059669', fontWeight: 600 }}>{t('journals.free')}</div>
+                                            })()}
+                                        </div>
+                                    )}
+
                                     <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
                                         <button type="button" onClick={() => setStep(2)} style={{ padding: '0.75rem 1.5rem', border: '1px solid #e5e5e5', borderRadius: '8px', background: 'white', cursor: 'pointer' }}>← {t('common.back')}</button>
                                         <button type="submit" disabled={!file || isSubmitting} className="btn btn-primary" style={{ opacity: file && !isSubmitting ? 1 : 0.5 }}>

@@ -4,6 +4,9 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.utils import timezone
 from .models import Article
+from journals.models import Journal
+from billing.models import UserSubscription, WalletTransaction
+from decimal import Decimal
 
 class ArticleSerializer(serializers.ModelSerializer):
     author_name = serializers.SerializerMethodField()
@@ -94,6 +97,65 @@ class SubmissionViewSet(viewsets.ModelViewSet):
             return queryset.filter(status='PUBLISHED')
             
         return queryset
+
+    def create(self, request, *args, **kwargs):
+        user = request.user
+        journal_id = request.data.get('journal')
+        page_count = request.data.get('page_count', 0)
+        
+        try:
+            page_count = int(page_count)
+        except (ValueError, TypeError):
+            page_count = 0
+
+        journal = Journal.objects.get(id=journal_id)
+        
+        # 1. Check if user has an active subscription
+        subscription = UserSubscription.objects.filter(user=user, is_active=True, end_date__gt=timezone.now()).first()
+        
+        needs_payment = False
+        cost = Decimal('0.00')
+
+        if subscription and subscription.plan:
+            # Check limits
+            if subscription.plan.article_limit > 0: # 0 means unlimited
+                if subscription.articles_used_this_month >= subscription.plan.article_limit:
+                    needs_payment = True
+                    cost = journal.price_per_page * page_count
+            else:
+                # Unlimited plan
+                pass
+        else:
+            # Free user or expired sub
+            needs_payment = True
+            cost = journal.price_per_page * page_count
+
+        if needs_payment and cost > 0:
+            if user.balance < cost:
+                return Response({
+                    'error': 'INSUFFICIENT_BALANCE',
+                    'message': f'Insufficient balance. This publication costs ${cost}, but your balance is ${user.balance}.',
+                    'cost': str(cost),
+                    'balance': str(user.balance)
+                }, status=status.HTTP_402_PAYMENT_REQUIRED)
+            
+            # Deduct balance
+            user.balance -= cost
+            user.save()
+            
+            # Record transaction
+            WalletTransaction.objects.create(
+                user=user,
+                amount=-cost,
+                transaction_type='PUBLISH_FEE',
+                description=f"Publication fee for article in {journal.name_en}"
+            )
+        elif not needs_payment and subscription:
+            # Increment usage for plan
+            subscription.articles_used_this_month += 1
+            subscription.save()
+
+        return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, status='SUBMITTED', submitted_at=timezone.now())

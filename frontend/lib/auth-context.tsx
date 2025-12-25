@@ -19,6 +19,7 @@ interface User {
         plan_name: string
         start_date: string
         end_date: string
+        articles_used_this_month: number
         is_active: boolean
     } | null
 }

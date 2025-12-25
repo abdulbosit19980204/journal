@@ -10,7 +10,7 @@ class UserSubscriptionSerializer(serializers.ModelSerializer):
     plan_id = serializers.IntegerField(source='plan.id', read_only=True)
     class Meta:
         model = UserSubscription
-        fields = ('id', 'plan_id', 'plan_name', 'start_date', 'end_date', 'is_active')
+        fields = ('id', 'plan_id', 'plan_name', 'start_date', 'end_date', 'articles_used_this_month', 'is_active')
 
 class UserSerializer(serializers.ModelSerializer):
     subscription = UserSubscriptionSerializer(read_only=True)
