@@ -3736,3 +3736,30 @@ INFO 2025-12-25 21:44:17,438 log "GET /api/submissions/?status=PUBLISHED&author_
 INFO 2025-12-25 21:44:19,300 log "OPTIONS /api/submissions/?status=PUBLISHED&author_name=aa HTTP/1.1" 200 0
 INFO 2025-12-25 21:44:19,306 log "GET /api/submissions/?status=PUBLISHED&author_name=aa HTTP/1.1" 200 2
 INFO 2025-12-25 21:44:21,493 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:46:31,085 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 21:46:31,085 log "GET /api/journals/ HTTP/1.1" 200 649
+WARNING 2025-12-25 21:46:31,369 log Unauthorized: /api/issues/years/
+WARNING 2025-12-25 21:46:31,370 log "GET /api/issues/years/ HTTP/1.1" 401 58
+INFO 2025-12-25 21:46:31,372 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:46:32,341 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:46:32,342 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+WARNING 2025-12-25 21:47:42,952 log Unauthorized: /api/issues/years/
+WARNING 2025-12-25 21:47:42,957 log "GET /api/issues/years/ HTTP/1.1" 401 58
+INFO 2025-12-25 21:47:42,958 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:47:42,961 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 21:47:42,963 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:47:43,877 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:47:43,877 log "GET /api/issues/years/ HTTP/1.1" 200 6
+WARNING 2025-12-25 21:47:43,911 log Unauthorized: /api/issues/years/
+WARNING 2025-12-25 21:47:43,913 log "GET /api/issues/years/ HTTP/1.1" 401 58
+INFO 2025-12-25 21:47:43,913 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:47:45,335 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:47:45,336 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:48:11,582 log "OPTIONS /api/submissions/?status=PUBLISHED&search=admin HTTP/1.1" 200 0
+INFO 2025-12-25 21:48:11,589 log "GET /api/submissions/?status=PUBLISHED&search=admin HTTP/1.1" 200 714
+INFO 2025-12-25 21:48:20,520 log "OPTIONS /api/submissions/?status=PUBLISHED&search=abdu HTTP/1.1" 200 0
+INFO 2025-12-25 21:48:20,534 log "GET /api/submissions/?status=PUBLISHED&search=abdu HTTP/1.1" 200 1386
+INFO 2025-12-25 21:48:26,091 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:48:28,805 log "OPTIONS /api/submissions/?status=PUBLISHED&search=sizlar HTTP/1.1" 200 0
+INFO 2025-12-25 21:48:28,813 log "GET /api/submissions/?status=PUBLISHED&search=sizlar HTTP/1.1" 200 2
+INFO 2025-12-25 21:48:31,933 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
