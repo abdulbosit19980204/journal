@@ -90,130 +90,162 @@ export default function JournalsPage() {
                         {filteredJournals.map((journal, i) => {
                             const journalName = getLocalizedField(journal, 'name')
                             const journalDesc = getLocalizedField(journal, 'description')
-                            
+
                             return (
-                                <div key={journal.id} className="card" style={{ 
-                                    overflow: 'hidden', 
-                                    display: 'flex', 
+                                <div key={journal.id} className="card" style={{
+                                    position: 'relative',
+                                    height: '450px',
+                                    overflow: 'hidden',
+                                    display: 'flex',
                                     flexDirection: 'column',
-                                    transition: 'all 0.3s ease',
+                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                     border: 'none',
-                                    boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-                                    borderRadius: '16px',
-                                    height: '100%'
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                                    borderRadius: '20px',
+                                    background: '#1e3a5f'
                                 }}>
-                                    {/* Cover Image */}
-                                    <div style={{ 
-                                        height: '240px', 
-                                        position: 'relative', 
-                                        background: '#f9fafb',
-                                        overflow: 'hidden'
+                                    {/* Full Cover Image */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        zIndex: 0
                                     }}>
                                         {journal.cover_image ? (
                                             <img
                                                 src={journal.cover_image}
                                                 alt={journalName}
-                                                style={{ 
-                                                    width: '100%', 
-                                                    height: '100%', 
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
                                                     objectFit: 'cover'
                                                 }}
                                             />
                                         ) : (
-                                            <div style={{ 
-                                                width: '100%', 
-                                                height: '100%', 
+                                            <div style={{
+                                                width: '100%',
+                                                height: '100%',
                                                 background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
-                                                color: 'white',
-                                                fontSize: '3rem',
-                                                fontWeight: 700,
+                                                color: 'rgba(255,255,255,0.2)',
+                                                fontSize: '6rem',
+                                                fontWeight: 900,
                                                 fontFamily: "'Playfair Display', serif"
                                             }}>
                                                 {journalName?.substring(0, 2).toUpperCase()}
                                             </div>
                                         )}
-                                        
-                                        {/* Badge Overlay */}
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: '1rem',
-                                            right: '1rem',
-                                            zIndex: 2
-                                        }}>
-                                            <span className={`badge ${journal.is_paid ? 'badge-paid' : 'badge-open'}`} style={{
-                                                boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-                                                padding: '0.4rem 0.8rem',
-                                                backdropFilter: 'blur(4px)',
-                                                background: journal.is_paid ? 'rgba(201, 162, 39, 0.9)' : 'rgba(16, 185, 129, 0.9)',
-                                                color: 'white',
-                                                border: 'none'
-                                            }}>
-                                                {journal.is_paid ? t('journals.subscription') : t('journals.open_access')}
-                                            </span>
-                                        </div>
                                     </div>
 
-                                    <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                        <h3 style={{ 
-                                            fontSize: '1.25rem', 
-                                            fontWeight: 700, 
-                                            color: '#1e3a5f', 
+                                    {/* Dark Gradient Overlay */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)',
+                                        zIndex: 1
+                                    }} />
+
+                                    {/* Content Overlay */}
+                                    <div style={{
+                                        position: 'relative',
+                                        zIndex: 2,
+                                        height: '100%',
+                                        padding: '1.75rem',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'flex-end',
+                                        color: 'white'
+                                    }}>
+                                        {/* Price Badge */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '1.5rem',
+                                            right: '1.5rem',
+                                        }}>
+                                            <div style={{
+                                                padding: '0.5rem 1rem',
+                                                background: 'rgba(255, 255, 255, 0.2)',
+                                                backdropFilter: 'blur(10px)',
+                                                borderRadius: '12px',
+                                                border: '1px solid rgba(255,255,255,0.3)',
+                                                fontSize: '0.9rem',
+                                                fontWeight: 700,
+                                                color: 'white'
+                                            }}>
+                                                {journal.is_paid ? (
+                                                    <span>${journal.price_per_page}</span>
+                                                ) : (
+                                                    <span style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                                        <span style={{ textDecoration: 'line-through', opacity: 0.6, fontSize: '0.8rem' }}>$10</span>
+                                                        <span style={{ color: '#10b981' }}>$0</span>
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <h3 style={{
+                                            fontSize: '1.4rem',
+                                            fontWeight: 700,
                                             marginBottom: '0.75rem',
                                             fontFamily: "'Playfair Display', serif",
-                                            lineHeight: 1.3
+                                            lineHeight: 1.2,
+                                            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                                         }}>
                                             {journalName}
                                         </h3>
-                                        <div 
+                                        <div
                                             className="rich-text"
-                                            style={{ 
-                                                fontSize: '0.9rem', 
-                                                marginBottom: '1.5rem', 
-                                                minHeight: '60px',
-                                                color: '#6b7280',
-                                                lineHeight: 1.6,
-                                                flex: 1
+                                            style={{
+                                                fontSize: '0.9rem',
+                                                marginBottom: '1.5rem',
+                                                color: 'rgba(255,255,255,0.8)',
+                                                lineHeight: 1.5,
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 2,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden'
                                             }}
-                                            dangerouslySetInnerHTML={{ __html: (journalDesc?.replace(/<[^>]+>/g, '').substring(0, 120) || t('journals.no_journals')) + '...' }}
+                                            dangerouslySetInnerHTML={{ __html: (journalDesc?.replace(/<[^>]+>/g, '') || t('journals.no_journals')) }}
                                         />
 
-                                        {journal.is_paid && (
-                                            <p style={{ fontSize: '0.9rem', color: '#1e3a5f', marginBottom: '1.5rem', fontWeight: 600 }}>
-                                                ${journal.price_per_page} <span style={{ color: '#6b7280', fontWeight: 400 }}>{t('journals.per_page')}</span>
-                                            </p>
-                                        )}
-
-                                        <div style={{ display: 'flex', gap: '0.75rem', paddingTop: '1.25rem', borderTop: '1px solid #f3f4f6' }}>
+                                        <div style={{ display: 'flex', gap: '0.75rem' }}>
                                             <Link
                                                 href={`/journals/${journal.slug}`}
                                                 style={{
-                                                    flex: 1,
+                                                    flex: 1.2,
                                                     textAlign: 'center',
                                                     padding: '0.75rem',
-                                                    border: '1.5px solid #1e3a5f',
-                                                    color: '#1e3a5f',
+                                                    background: '#c9a227',
+                                                    color: 'white',
                                                     borderRadius: '8px',
                                                     fontSize: '0.875rem',
-                                                    fontWeight: 600,
+                                                    fontWeight: 700,
                                                     textDecoration: 'none',
-                                                    transition: 'all 0.2s ease'
+                                                    textShadow: '0 1px 2px rgba(0,0,0,0.2)'
                                                 }}
                                             >
                                                 {t('journals.view_issues')}
                                             </Link>
                                             <Link
                                                 href="/dashboard/author/submit"
-                                                className="btn btn-primary"
-                                                style={{ 
-                                                    flex: 1, 
-                                                    textAlign: 'center', 
-                                                    padding: '0.75rem', 
+                                                className="btn btn-secondary"
+                                                style={{
+                                                    flex: 1,
+                                                    textAlign: 'center',
+                                                    padding: '0.75rem',
                                                     fontSize: '0.875rem',
                                                     borderRadius: '8px',
-                                                    boxShadow: '0 4px 12px rgba(30, 58, 95, 0.2)'
+                                                    background: 'rgba(255,255,255,0.1)',
+                                                    border: '1px solid rgba(255,255,255,0.3)',
+                                                    backdropFilter: 'blur(5px)',
+                                                    color: 'white'
                                                 }}
                                             >
                                                 {t('journals.submit_article')}

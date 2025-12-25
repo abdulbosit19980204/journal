@@ -132,21 +132,25 @@ export default function Home() {
               
               return (
                 <div key={journal.id} className="card" style={{ 
+                  position: 'relative',
+                  height: '400px',
                   overflow: 'hidden', 
                   display: 'flex', 
                   flexDirection: 'column',
-                  transition: 'all 0.3s ease',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   border: 'none',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-                  borderRadius: '16px',
-                  height: '100%'
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+                  borderRadius: '20px',
+                  background: '#1e3a5f'
                 }}>
-                  {/* Cover Image */}
+                  {/* Full Cover Image */}
                   <div style={{ 
-                    height: '220px', 
-                    position: 'relative', 
-                    background: '#f9fafb',
-                    overflow: 'hidden'
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 0
                   }}>
                     {journal.cover_image ? (
                       <img
@@ -156,7 +160,6 @@ export default function Home() {
                           width: '100%', 
                           height: '100%', 
                           objectFit: 'cover',
-                          transition: 'transform 0.5s ease'
                         }}
                       />
                     ) : (
@@ -167,70 +170,104 @@ export default function Home() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: 'white',
-                        fontSize: '3rem',
-                        fontWeight: 700,
+                        color: 'rgba(255,255,255,0.2)',
+                        fontSize: '6rem',
+                        fontWeight: 900,
                         fontFamily: "'Playfair Display', serif"
                       }}>
                         {journalName?.substring(0, 2).toUpperCase()}
                       </div>
                     )}
-                    
-                    {/* Badge Overlay */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '1rem',
-                      right: '1rem',
-                      zIndex: 2
-                    }}>
-                      <span className={`badge ${journal.is_paid ? 'badge-paid' : 'badge-open'}`} style={{
-                        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-                        padding: '0.4rem 0.8rem',
-                        backdropFilter: 'blur(4px)',
-                        background: journal.is_paid ? 'rgba(201, 162, 39, 0.9)' : 'rgba(16, 185, 129, 0.9)',
-                        color: 'white',
-                        border: 'none'
-                      }}>
-                        {journal.is_paid ? t('journals.subscription') : t('journals.open_access')}
-                      </span>
-                    </div>
                   </div>
 
-                  <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  {/* Dark Gradient Overlay */}
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.9) 100%)',
+                    zIndex: 1
+                  }} />
+
+                  {/* Content Overlay */}
+                  <div style={{ 
+                    position: 'relative',
+                    zIndex: 2,
+                    height: '100%',
+                    padding: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    color: 'white'
+                  }}>
+                    {/* Badge / Price */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '1.5rem',
+                      right: '1.5rem',
+                    }}>
+                      <div style={{
+                        padding: '0.5rem 1rem',
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(10px)',
+                        borderRadius: '12px',
+                        border: '1px solid rgba(255,255,255,0.3)',
+                        fontSize: '0.9rem',
+                        fontWeight: 700,
+                        color: 'white',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                      }}>
+                        {journal.is_paid ? (
+                          <span>${journal.price_per_page}</span>
+                        ) : (
+                          <span style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                            <span style={{ textDecoration: 'line-through', opacity: 0.6, fontSize: '0.8rem' }}>$10</span>
+                            <span style={{ color: '#10b981' }}>$0</span>
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
                     <h3 style={{ 
-                      fontSize: '1.25rem', 
+                      fontSize: '1.5rem', 
                       fontWeight: 700, 
-                      color: '#1e3a5f', 
                       marginBottom: '0.75rem',
                       fontFamily: "'Playfair Display', serif",
-                      lineHeight: 1.3
+                      lineHeight: 1.2,
+                      textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                     }}>
                       {journalName}
                     </h3>
+                    
                     <p style={{ 
-                      color: '#6b7280', 
-                      fontSize: '0.9rem', 
+                      color: 'rgba(255,255,255,0.8)', 
+                      fontSize: '0.95rem', 
                       marginBottom: '1.5rem', 
-                      lineHeight: 1.6,
-                      flex: 1
+                      lineHeight: 1.5,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden'
                     }}>
-                      {journalDesc?.replace(/<[^>]+>/g, '').substring(0, 100) || t('journals.no_journals')}...
+                      {journalDesc?.replace(/<[^>]+>/g, '') || t('journals.no_journals')}
                     </p>
                     
-                    <div style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid #f3f4f6', paddingTop: '1rem' }}>
-                      <Link href={`/journals/${journal.slug}`} style={{ 
-                        color: '#1e3a5f', 
-                        fontWeight: 600, 
-                        fontSize: '0.875rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        textDecoration: 'none'
-                      }}>
-                        {t('home.learn_more')}
-                        <span style={{ fontSize: '1.2rem' }}>→</span>
-                      </Link>
-                    </div>
+                    <Link href={`/journals/${journal.slug}`} style={{ 
+                      background: '#c9a227',
+                      color: 'white',
+                      padding: '0.75rem 1.5rem',
+                      borderRadius: '10px',
+                      fontWeight: 700,
+                      fontSize: '0.9rem',
+                      textDecoration: 'none',
+                      textAlign: 'center',
+                      transition: 'background 0.2s ease',
+                      display: 'inline-block'
+                    }}>
+                      {t('home.learn_more')}
+                    </Link>
                   </div>
                 </div>
               )
