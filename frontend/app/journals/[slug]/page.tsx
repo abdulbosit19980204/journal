@@ -146,52 +146,90 @@ export default function JournalDetailPage() {
                             />
                         </div>
 
-                        {/* Issues */}
-                        <div className="card">
-                            <div style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #e5e5e5', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-                                <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f' }}>{t('journals.published_issues')}</h2>
+                        <div className="card" style={{ border: 'none', background: 'transparent', boxShadow: 'none' }}>
+                            <div style={{ padding: '0 0 1.5rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', fontFamily: "'Playfair Display', serif" }}>{t('journals.published_issues')}</h2>
                                 <div style={{ display: 'flex', gap: '1rem' }}>
                                     <input
                                         placeholder={t('admin.search') + "..."}
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
-                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #e5e5e5' }}
+                                        style={{ padding: '0.625rem 1rem', borderRadius: '8px', border: '1px solid #e5e5e5', fontSize: '0.875rem', outline: 'none' }}
                                     />
                                     <select
                                         value={sortOrder}
                                         onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
-                                        style={{ padding: '0.5rem', borderRadius: '4px', border: '1px solid #e5e5e5' }}
+                                        style={{ padding: '0.625rem 1rem', borderRadius: '8px', border: '1px solid #e5e5e5', fontSize: '0.875rem', outline: 'none', background: 'white' }}
                                     >
                                         <option value="desc">Newest First</option>
                                         <option value="asc">Oldest First</option>
                                     </select>
                                 </div>
                             </div>
+
                             {filteredIssues.length > 0 ? (
-                                <div>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
                                     {filteredIssues.map((issue) => (
-                                        <div key={issue.id} style={{ padding: '1.25rem 1.5rem', borderBottom: '1px solid #f3f4f6', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                            <div>
-                                                <h3 style={{ fontWeight: 600, color: '#1e3a5f' }}>{t('journals.volume')} {issue.volume}, {t('journals.issue')} {issue.number}</h3>
-                                                <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>{issue.year}</p>
+                                        <div key={issue.id} className="card" style={{
+                                            overflow: 'hidden',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            transition: 'all 0.3s ease',
+                                            border: 'none',
+                                            boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+                                            borderRadius: '12px'
+                                        }}>
+                                            <div style={{ height: '200px', background: '#f3f4f6', position: 'relative' }}>
+                                                {issue.cover_image ? (
+                                                    <img
+                                                        src={issue.cover_image}
+                                                        alt={`Vol ${issue.volume}, No ${issue.number}`}
+                                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                    />
+                                                ) : (
+                                                    <div style={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        background: 'linear-gradient(135deg, #2d5a8c 0%, #1e3a5f 100%)',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        color: 'white',
+                                                        fontSize: '1.5rem',
+                                                        fontWeight: 700
+                                                    }}>
+                                                        VOL {issue.volume}<br />NO {issue.number}
+                                                    </div>
+                                                )}
                                             </div>
-                                            <Link href={`/journals/${slug}/issue/${issue.id}`} style={{
-                                                padding: '0.5rem 1rem',
-                                                border: '1px solid #1e3a5f',
-                                                color: '#1e3a5f',
-                                                borderRadius: '6px',
-                                                fontSize: '0.875rem',
-                                                fontWeight: 500
-                                            }}>
-                                                {t('journals.view_issue')}
-                                            </Link>
+                                            <div style={{ padding: '1.25rem' }}>
+                                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem' }}>
+                                                    {t('journals.volume')} {issue.volume}, {t('journals.issue')} {issue.number}
+                                                </h3>
+                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                    <span style={{ color: '#6b7280', fontSize: '0.875rem', fontWeight: 500 }}>
+                                                        📅 {issue.year}
+                                                    </span>
+                                                    <Link href={`/journals/${slug}/issue/${issue.id}`} style={{
+                                                        padding: '0.5rem 1rem',
+                                                        background: '#1e3a5f',
+                                                        color: 'white',
+                                                        borderRadius: '6px',
+                                                        fontSize: '0.875rem',
+                                                        fontWeight: 600,
+                                                        textDecoration: 'none'
+                                                    }}>
+                                                        {t('journals.view_issue')}
+                                                    </Link>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
                             ) : (
-                                <div style={{ padding: '3rem', textAlign: 'center' }}>
-                                    <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📋</div>
-                                    <p style={{ color: '#6b7280' }}>{t('journals.no_issues')}</p>
+                                <div className="card" style={{ padding: '4rem', textAlign: 'center' }}>
+                                    <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📋</div>
+                                    <p style={{ color: '#6b7280', fontSize: '1.1rem' }}>{t('journals.no_issues')}</p>
                                 </div>
                             )}
                         </div>

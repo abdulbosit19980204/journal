@@ -127,45 +127,110 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {journals.length > 0 ? journals.map((journal, i) => {
-              const colors = ['#dc2626', '#2563eb', '#059669']
+              const journalName = getLocalizedField(journal, 'name')
+              const journalDesc = getLocalizedField(journal, 'description')
+              
               return (
-                <div key={journal.id} className="card" style={{ overflow: 'hidden' }}>
-                  {/* Cover Image or Placeholder */}
-                  {journal.cover_image ? (
-                    <div style={{ height: '120px', overflow: 'hidden' }}>
+                <div key={journal.id} className="card" style={{ 
+                  overflow: 'hidden', 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  transition: 'all 0.3s ease',
+                  border: 'none',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+                  borderRadius: '16px',
+                  height: '100%'
+                }}>
+                  {/* Cover Image */}
+                  <div style={{ 
+                    height: '220px', 
+                    position: 'relative', 
+                    background: '#f9fafb',
+                    overflow: 'hidden'
+                  }}>
+                    {journal.cover_image ? (
                       <img
                         src={journal.cover_image}
-                        alt={getLocalizedField(journal, 'name')}
-                        style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '0.25rem', background: '#f3f4f6' }}
+                        alt={journalName}
+                        style={{ 
+                          width: '100%', 
+                          height: '100%', 
+                          objectFit: 'cover',
+                          transition: 'transform 0.5s ease'
+                        }}
                       />
-                    </div>
-                  ) : (
-                    <div style={{ height: '4px', background: colors[i % colors.length] }} />
-                  )}
-                  <div style={{ padding: '1.5rem' }}>
+                    ) : (
+                      <div style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        fontSize: '3rem',
+                        fontWeight: 700,
+                        fontFamily: "'Playfair Display', serif"
+                      }}>
+                        {journalName?.substring(0, 2).toUpperCase()}
+                      </div>
+                    )}
+                    
+                    {/* Badge Overlay */}
                     <div style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '10px',
-                      background: colors[i % colors.length],
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white',
-                      fontWeight: 700,
-                      marginBottom: '1rem'
+                      position: 'absolute',
+                      top: '1rem',
+                      right: '1rem',
+                      zIndex: 2
                     }}>
-                      {getLocalizedField(journal, 'name')?.substring(0, 2).toUpperCase()}
+                      <span className={`badge ${journal.is_paid ? 'badge-paid' : 'badge-open'}`} style={{
+                        boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                        padding: '0.4rem 0.8rem',
+                        backdropFilter: 'blur(4px)',
+                        background: journal.is_paid ? 'rgba(201, 162, 39, 0.9)' : 'rgba(16, 185, 129, 0.9)',
+                        color: 'white',
+                        border: 'none'
+                      }}>
+                        {journal.is_paid ? t('journals.subscription') : t('journals.open_access')}
+                      </span>
                     </div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>
-                      {getLocalizedField(journal, 'name')}
+                  </div>
+
+                  <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <h3 style={{ 
+                      fontSize: '1.25rem', 
+                      fontWeight: 700, 
+                      color: '#1e3a5f', 
+                      marginBottom: '0.75rem',
+                      fontFamily: "'Playfair Display', serif",
+                      lineHeight: 1.3
+                    }}>
+                      {journalName}
                     </h3>
-                    <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem', lineHeight: 1.6 }}>
-                      {getLocalizedField(journal, 'description')?.substring(0, 100) || t('journals.no_journals')}...
+                    <p style={{ 
+                      color: '#6b7280', 
+                      fontSize: '0.9rem', 
+                      marginBottom: '1.5rem', 
+                      lineHeight: 1.6,
+                      flex: 1
+                    }}>
+                      {journalDesc?.replace(/<[^>]+>/g, '').substring(0, 100) || t('journals.no_journals')}...
                     </p>
-                    <Link href={`/journals/${journal.slug}`} style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem' }}>
-                      {t('home.learn_more')} →
-                    </Link>
+                    
+                    <div style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid #f3f4f6', paddingTop: '1rem' }}>
+                      <Link href={`/journals/${journal.slug}`} style={{ 
+                        color: '#1e3a5f', 
+                        fontWeight: 600, 
+                        fontSize: '0.875rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        textDecoration: 'none'
+                      }}>
+                        {t('home.learn_more')}
+                        <span style={{ fontSize: '1.2rem' }}>→</span>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )

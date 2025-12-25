@@ -76,7 +76,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
             }
         }
 
-        return typeof value === 'string' ? value : key
+        return typeof value === 'string' ? value : ""
     }
 
     // Translate status codes (DRAFT, SUBMITTED, etc.)

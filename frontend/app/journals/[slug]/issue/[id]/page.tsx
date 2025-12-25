@@ -170,11 +170,16 @@ export default function IssueDetailPage() {
                     Articles in this Issue
                 </h2>
 
-                {/* Articles List */}
                 <div style={{ display: 'grid', gap: '1.5rem' }}>
                     {filteredArticles.length > 0 ? (
                         filteredArticles.map((article) => (
-                            <div key={article.id} className="card" style={{ padding: '2rem' }}>
+                            <div key={article.id} className="card" style={{ 
+                                padding: '1.5rem 2rem', 
+                                border: 'none', 
+                                boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
+                                borderRadius: '12px',
+                                transition: 'transform 0.2s ease'
+                            }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '2rem' }}>
                                     <div style={{ flex: 1 }}>
                                         <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>

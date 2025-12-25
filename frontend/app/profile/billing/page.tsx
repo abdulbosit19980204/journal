@@ -93,14 +93,29 @@ export default function BillingBalancePage() {
                                 <div style={{ fontWeight: 600, marginBottom: '0.75rem' }}>{config?.bank_name}</div>
 
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_number')}</div>
-                                <div style={{ fontWeight: 700, fontSize: '1.25rem', letterSpacing: '1px', marginBottom: '0.75rem', color: '#1e3a5f' }}>{config?.card_number}</div>
+                                <div style={{
+                                    fontWeight: 700,
+                                    fontSize: '1.1rem',
+                                    letterSpacing: '0.5px',
+                                    marginBottom: '0.75rem',
+                                    color: '#1e3a5f',
+                                    wordBreak: 'break-all',
+                                    whiteSpace: 'nowrap',
+                                    display: 'flex',
+                                    justifyContent: 'space-between'
+                                }}>
+                                    {config?.card_number?.split(' ').map((part: string, i: number) => (
+                                        <span key={i}>{part}</span>
+                                    ))}
+                                </div>
 
                                 <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.25rem' }}>{t('billing.card_holder')}</div>
                                 <div style={{ fontWeight: 600 }}>{config?.card_holder}</div>
                             </div>
 
-                            <div style={{ fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.5 }}>
-                                <strong>{t('billing.instructions')}</strong>: {config?.[`instructions_${locale}`] || config?.instructions_en}
+                            <div style={{ fontSize: '0.85rem', color: '#4b5563', lineHeight: 1.6, background: '#fffbeb', padding: '0.75rem', borderRadius: '6px', borderLeft: '3px solid #f59e0b' }}>
+                                <strong style={{ color: '#92400e', display: 'block', marginBottom: '0.25rem' }}>{t('billing.instructions')}</strong>
+                                {config?.[`instructions_${locale}`] || config?.instructions_en}
                             </div>
                         </div>
 
