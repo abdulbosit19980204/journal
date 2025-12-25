@@ -6,6 +6,9 @@ from .models import Article
 
 class ArticleSerializer(serializers.ModelSerializer):
     author_name = serializers.SerializerMethodField()
+    journal_name = serializers.SerializerMethodField()
+    journal_slug = serializers.SerializerMethodField()
+    issue_info = serializers.SerializerMethodField()
     
     class Meta:
         model = Article
@@ -14,6 +17,22 @@ class ArticleSerializer(serializers.ModelSerializer):
     
     def get_author_name(self, obj):
         return obj.author.get_full_name() or obj.author.username if obj.author else None
+
+    def get_journal_name(self, obj):
+        return obj.journal.name_en if obj.journal else None
+
+    def get_journal_slug(self, obj):
+        return obj.journal.slug if obj.journal else None
+
+    def get_issue_info(self, obj):
+        if obj.issue:
+            return {
+                "id": obj.issue.id,
+                "volume": obj.issue.volume,
+                "number": obj.issue.number,
+                "year": obj.issue.year
+            }
+        return None
 
 class SubmissionViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer

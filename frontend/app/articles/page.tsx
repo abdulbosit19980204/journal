@@ -110,7 +110,22 @@ export default function PublishedArticlesPage() {
                                             )}
 
                                             <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name || `#${article.author}`}</span> • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name || `#${article.author}`}</span>
+                                                {article.journal_name && (
+                                                    <span style={{ marginLeft: '0.5rem' }}>
+                                                        • {t('articles.published_in')}{' '}
+                                                        <Link 
+                                                            href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
+                                                            style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 500 }}
+                                                        >
+                                                            {article.journal_name}
+                                                            {article.issue_info && `, Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})`}
+                                                        </Link>
+                                                    </span>
+                                                )}
+                                                <span style={{ marginLeft: '0.5rem' }}>
+                                                    • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                                                </span>
                                             </div>
                                         </div>
 

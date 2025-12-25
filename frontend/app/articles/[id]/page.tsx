@@ -66,7 +66,22 @@ export default function ArticleDetailPage() {
                         {article.title}
                     </h1>
                     <div style={{ marginTop: '1.5rem', opacity: 0.9, fontSize: '0.9rem' }}>
-                        {t('articles.by')} <span style={{ fontWeight: 600 }}>{article.author_name || `#${article.author}`}</span> • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                        {t('articles.by')} <span style={{ fontWeight: 600 }}>{article.author_name || `#${article.author}`}</span>
+                        {article.journal_name && (
+                            <span style={{ marginLeft: '0.5rem' }}>
+                                • {t('articles.published_in')}{' '}
+                                <Link 
+                                    href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
+                                    style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 600 }}
+                                >
+                                    {article.journal_name}
+                                    {article.issue_info && `, Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})`}
+                                </Link>
+                            </span>
+                        )}
+                        <span style={{ marginLeft: '0.5rem' }}>
+                            • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                        </span>
                     </div>
                 </div>
             </section>
