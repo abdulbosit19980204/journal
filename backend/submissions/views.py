@@ -1,3 +1,4 @@
+from django.db import models
 from rest_framework import serializers, viewsets, permissions, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -39,7 +40,7 @@ class SubmissionViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     filter_backends = [filters.SearchFilter]
-    search_fields = ['title', 'abstract', 'keywords']
+    search_fields = ['title', 'abstract', 'keywords', 'author__username', 'author__first_name', 'author__last_name']
 
     def get_queryset(self):
         user = self.request.user
@@ -48,16 +49,40 @@ class SubmissionViewSet(viewsets.ModelViewSet):
         # Filters
         status_filter = self.request.query_params.get('status')
         issue_id = self.request.query_params.get('issue')
+        journal_id = self.request.query_params.get('journal')
+        author_id = self.request.query_params.get('author')
+        author_name = self.request.query_params.get('author_name')
+        lang = self.request.query_params.get('language')
+        year = self.request.query_params.get('year')
         
         if status_filter:
             queryset = queryset.filter(status=status_filter)
         
         if issue_id:
             queryset = queryset.filter(issue_id=issue_id)
+
+        if journal_id:
+            queryset = queryset.filter(journal_id=journal_id)
+            
+        if author_id:
+            queryset = queryset.filter(author_id=author_id)
+
+        if author_name:
+            queryset = queryset.filter(
+                models.Q(author__first_name__icontains=author_name) |
+                models.Q(author__last_name__icontains=author_name) |
+                models.Q(author__username__icontains=author_name)
+            )
+            
+        if lang:
+            queryset = queryset.filter(language=lang)
+            
+        if year:
+            queryset = queryset.filter(issue__year=year)
             
         # Public: show published articles
         if status_filter == 'PUBLISHED':
-            return queryset.filter(status='PUBLISHED')
+            return queryset.filter(status='PUBLISHED').order_by('-submitted_at')
         
         # List: authors see their own, admins see all
         if self.action == 'list':

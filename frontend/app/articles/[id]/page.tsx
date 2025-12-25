@@ -5,6 +5,7 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { resolveMediaUrl } from "@/lib/utils"
 
 export default function ArticleDetailPage() {
     const { t, tStatus, locale } = useI18n()
@@ -70,7 +71,7 @@ export default function ArticleDetailPage() {
                         {article.journal_name && (
                             <span style={{ marginLeft: '0.5rem' }}>
                                 • {t('articles.published_in')}{' '}
-                                <Link 
+                                <Link
                                     href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
                                     style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 600 }}
                                 >
@@ -147,9 +148,10 @@ export default function ArticleDetailPage() {
                                     </p>
 
                                     <a
-                                        href={`http://localhost:8000${article.manuscript_file}`}
+                                        href={resolveMediaUrl(article.manuscript_file)}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        download
                                         className="btn btn-primary"
                                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.875rem 2rem' }}
                                     >

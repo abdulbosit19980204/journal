@@ -4,20 +4,50 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { resolveMediaUrl } from "@/lib/utils"
 
 export default function PublishedArticlesPage() {
     const { t, tStatus, locale } = useI18n()
     const [articles, setArticles] = useState<any[]>([])
+    const [journals, setJournals] = useState<any[]>([])
+    const [years, setYears] = useState<number[]>([])
     const [loading, setLoading] = useState(true)
+    const [initialLoading, setInitialLoading] = useState(true)
+    const [filters, setFilters] = useState({
+        search: "",
+        journal: "",
+        language: "",
+        year: ""
+    })
 
     useEffect(() => {
-        api.get("/submissions/?status=PUBLISHED")
-            .then(res => setArticles(res.data))
-            .catch(console.error)
-            .finally(() => setLoading(false))
+        // Fetch Journals for filter
+        api.get("/journals/").then(res => setJournals(res.data)).catch(console.error)
+        // Fetch Years for filter
+        api.get("/issues/years/").then(res => setYears(res.data)).catch(console.error)
+        setInitialLoading(false)
     }, [])
 
-    if (loading) {
+    useEffect(() => {
+        setLoading(true)
+        const timeoutId = setTimeout(() => {
+            const params = new URLSearchParams()
+            params.append("status", "PUBLISHED")
+            if (filters.search) params.append("search", filters.search)
+            if (filters.journal) params.append("journal", filters.journal)
+            if (filters.language) params.append("language", filters.language)
+            if (filters.year) params.append("year", filters.year)
+
+            api.get(`/submissions/?${params.toString()}`)
+                .then(res => setArticles(res.data))
+                .catch(console.error)
+                .finally(() => setLoading(false))
+        }, 500) // Debounce for 500ms
+
+        return () => clearTimeout(timeoutId)
+    }, [filters])
+
+    if (initialLoading) {
         return (
             <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="spinner" />
@@ -49,9 +79,93 @@ export default function PublishedArticlesPage() {
                 </div>
             </section>
 
-            {/* Articles */}
-            <section style={{ padding: '4rem 0', background: '#faf9f6' }}>
+            {/* Filters & Articles */}
+            <section style={{ padding: '3rem 0', background: '#faf9f6' }}>
                 <div className="container">
+                    {/* Filter Bar */}
+                    <div className="card" style={{ padding: '1.5rem', marginBottom: '2rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', alignItems: 'end' }}>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.6rem' }}>
+                                    {t('articles.search_placeholder')}
+                                </label>
+                                <div style={{ position: 'relative' }}>
+                                    <span style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }}>🔍</span>
+                                    <input
+                                        type="text"
+                                        value={filters.search}
+                                        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+                                        placeholder="Search title..."
+                                        style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.9rem' }}
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.6rem' }}>Journal</label>
+                                <select
+                                    value={filters.journal}
+                                    onChange={(e) => setFilters({ ...filters, journal: e.target.value })}
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.9rem', background: 'white' }}
+                                >
+                                    <option value="">All Journals</option>
+                                    {journals.map(j => (
+                                        <option key={j.id} value={j.id}>{j.name_en}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.6rem' }}>Language</label>
+                                <select
+                                    value={filters.language}
+                                    onChange={(e) => setFilters({ ...filters, language: e.target.value })}
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.9rem', background: 'white' }}
+                                >
+                                    <option value="">All Languages</option>
+                                    <option value="en">English</option>
+                                    <option value="uz">Uzbek</option>
+                                    <option value="ru">Russian</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.6rem' }}>Year</label>
+                                <select
+                                    value={filters.year}
+                                    onChange={(e) => setFilters({ ...filters, year: e.target.value })}
+                                    style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid #e2e8f0', fontSize: '0.9rem', background: 'white' }}
+                                >
+                                    <option value="">All Years</option>
+                                    {years.map(y => (
+                                        <option key={y} value={y}>{y}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
+                                <button
+                                    onClick={() => setFilters({ search: "", journal: "", language: "", year: "" })}
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.75rem',
+                                        background: '#f8fafc',
+                                        border: '1px solid #cbd5e1',
+                                        color: '#475569',
+                                        borderRadius: '8px',
+                                        fontWeight: 600,
+                                        cursor: 'pointer',
+                                        fontSize: '0.9rem',
+                                        transition: 'all 0.2s'
+                                    }}
+                                    onMouseOver={(e) => e.currentTarget.style.background = '#f1f5f9'}
+                                    onMouseOut={(e) => e.currentTarget.style.background = '#f8fafc'}
+                                >
+                                    ✕ Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {loading && <div style={{ textAlign: 'center', marginBottom: '1rem', color: '#1e3a5f', fontWeight: 500, opacity: 0.7 }}>
+                        {t('common.loading')}...
+                    </div>}
                     {articles.length > 0 ? (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             {articles.map((article) => (
@@ -114,7 +228,7 @@ export default function PublishedArticlesPage() {
                                                 {article.journal_name && (
                                                     <span style={{ marginLeft: '0.5rem' }}>
                                                         • {t('articles.published_in')}{' '}
-                                                        <Link 
+                                                        <Link
                                                             href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
                                                             style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 500 }}
                                                         >
@@ -139,9 +253,10 @@ export default function PublishedArticlesPage() {
                                             </Link>
                                             {article.manuscript_file && (
                                                 <a
-                                                    href={`http://localhost:8000${article.manuscript_file}`}
+                                                    href={resolveMediaUrl(article.manuscript_file)}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
+                                                    download
                                                     style={{
                                                         padding: '0.75rem 1.5rem',
                                                         border: '1px solid #1e3a5f',

@@ -5,6 +5,7 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { resolveMediaUrl } from "@/lib/utils"
 
 export default function IssueDetailPage() {
     const { t, locale } = useI18n()
@@ -124,7 +125,7 @@ export default function IssueDetailPage() {
                             </div>
                             <div style={{ display: 'flex', gap: '1rem' }}>
                                 <a
-                                    href={`http://localhost:8000${issue.file}`}
+                                    href={resolveMediaUrl(issue.file)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-primary"
@@ -132,7 +133,7 @@ export default function IssueDetailPage() {
                                     Open Full PDF
                                 </a>
                                 <a
-                                    href={`http://localhost:8000${issue.file}`}
+                                    href={resolveMediaUrl(issue.file)}
                                     download
                                     style={{
                                         padding: '0.75rem 1.5rem',
@@ -157,7 +158,7 @@ export default function IssueDetailPage() {
                             background: 'white'
                         }}>
                             <iframe
-                                src={`http://localhost:8000${issue.file}#toolbar=0`}
+                                src={`${resolveMediaUrl(issue.file)}#toolbar=0`}
                                 style={{ width: '100%', height: '100%', border: 'none' }}
                                 title="Full Issue"
                             />
@@ -217,9 +218,10 @@ export default function IssueDetailPage() {
                                         </Link>
                                         {article.manuscript_file && (
                                             <a
-                                                href={`http://localhost:8000${article.manuscript_file}`}
+                                                href={resolveMediaUrl(article.manuscript_file)}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                download
                                                 style={{
                                                     padding: '0.625rem',
                                                     border: '1px solid #1e3a5f',

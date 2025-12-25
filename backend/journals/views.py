@@ -1,4 +1,6 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, response
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from .models import Journal, Issue
 from .serializers import JournalSerializer, IssueSerializer
 
@@ -27,4 +29,7 @@ class IssueViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return [permissions.AllowAny()]
         return [permissions.IsAdminUser()]
-
+    @action(detail=False, methods=['get'])
+    def years(self, request):
+        years = Issue.objects.order_by('-year').values_list('year', flat=True).distinct()
+        return Response(years)

@@ -3647,3 +3647,92 @@ INFO 2025-12-25 21:40:15,427 autoreload D:\coding\journal\backend\config\setting
 INFO 2025-12-25 21:40:16,084 autoreload Watching for file changes with StatReloader
 INFO 2025-12-25 21:40:17,625 autoreload D:\coding\journal\backend\users\models.py changed, reloading.
 INFO 2025-12-25 21:40:18,161 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:41:57,385 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:41:58,279 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2025-12-25 21:41:58,912 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:42:07,432 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:07,439 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:12,167 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:12,180 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:12,182 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:12,201 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:12,679 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:12,686 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:15,290 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:15,297 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:15,300 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:15,316 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:17,385 log "GET /api/submissions/3/ HTTP/1.1" 200 752
+INFO 2025-12-25 21:42:17,395 log "GET /api/submissions/3/ HTTP/1.1" 200 752
+INFO 2025-12-25 21:42:20,045 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:20,056 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:20,056 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:20,073 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:22,006 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:22,016 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:22,021 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:22,036 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:24,992 log "OPTIONS /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:24,992 log "OPTIONS /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:25,009 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 21:42:25,016 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 21:42:25,016 log "OPTIONS /api/issues/?journal=2 HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:25,027 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 21:42:25,050 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 21:42:26,209 autoreload D:\coding\journal\backend\journals\views.py changed, reloading.
+INFO 2025-12-25 21:42:26,822 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:42:29,316 log "OPTIONS /api/issues/4/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:29,316 log "OPTIONS /api/issues/4/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:29,335 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 21:42:29,341 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 21:42:29,347 log "OPTIONS /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 21:42:29,359 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:42:29,364 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+WARNING 2025-12-25 21:42:44,638 log Unauthorized: /api/issues/years/
+WARNING 2025-12-25 21:42:44,641 log "GET /api/issues/years/ HTTP/1.1" 401 58
+INFO 2025-12-25 21:42:44,646 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:44,650 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:42:56,060 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2025-12-25 21:42:56,390 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-25 21:42:57,549 log Unauthorized: /api/issues/years/
+WARNING 2025-12-25 21:42:57,553 log "GET /api/issues/years/ HTTP/1.1" 401 58
+INFO 2025-12-25 21:42:57,558 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:42:57,560 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:43:08,810 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2025-12-25 21:43:09,137 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:43:15,481 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2025-12-25 21:43:15,824 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:43:31,818 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 21:43:31,824 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:43:32,962 log "OPTIONS /api/issues/years/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:32,962 log "OPTIONS /api/issues/years/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:32,985 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:43:32,994 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:43:32,995 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 21:43:33,003 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:43:33,018 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 21:43:33,036 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:43:36,881 log "OPTIONS /api/submissions/?status=PUBLISHED&search=m HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:36,893 log "GET /api/submissions/?status=PUBLISHED&search=m HTTP/1.1" 200 1467
+INFO 2025-12-25 21:43:39,835 log "OPTIONS /api/submissions/?status=PUBLISHED&search=me HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:39,844 log "GET /api/submissions/?status=PUBLISHED&search=me HTTP/1.1" 200 754
+INFO 2025-12-25 21:43:43,197 log "GET /api/submissions/?status=PUBLISHED&search=m HTTP/1.1" 200 1467
+INFO 2025-12-25 21:43:45,977 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:43:50,137 log "OPTIONS /api/submissions/?status=PUBLISHED&journal=1 HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:50,146 log "GET /api/submissions/?status=PUBLISHED&journal=1 HTTP/1.1" 200 1346
+INFO 2025-12-25 21:43:54,691 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:43:59,133 log "OPTIONS /api/submissions/?status=PUBLISHED&language=uz HTTP/1.1" 200 0
+INFO 2025-12-25 21:43:59,145 log "GET /api/submissions/?status=PUBLISHED&language=uz HTTP/1.1" 200 1467
+INFO 2025-12-25 21:44:02,613 log "OPTIONS /api/submissions/?status=PUBLISHED&language=en HTTP/1.1" 200 0
+INFO 2025-12-25 21:44:02,622 log "GET /api/submissions/?status=PUBLISHED&language=en HTTP/1.1" 200 633
+INFO 2025-12-25 21:44:05,418 log "OPTIONS /api/submissions/?status=PUBLISHED&language=en&year=2025 HTTP/1.1" 200 0
+INFO 2025-12-25 21:44:05,424 log "GET /api/submissions/?status=PUBLISHED&language=en&year=2025 HTTP/1.1" 200 2
+INFO 2025-12-25 21:44:08,156 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:44:09,882 log "OPTIONS /api/submissions/?status=PUBLISHED&year=2025 HTTP/1.1" 200 0
+INFO 2025-12-25 21:44:09,890 log "GET /api/submissions/?status=PUBLISHED&year=2025 HTTP/1.1" 200 714
+INFO 2025-12-25 21:44:14,561 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
+INFO 2025-12-25 21:44:17,421 log "OPTIONS /api/submissions/?status=PUBLISHED&author_name=a HTTP/1.1" 200 0
+INFO 2025-12-25 21:44:17,438 log "GET /api/submissions/?status=PUBLISHED&author_name=a HTTP/1.1" 200 2099
+INFO 2025-12-25 21:44:19,300 log "OPTIONS /api/submissions/?status=PUBLISHED&author_name=aa HTTP/1.1" 200 0
+INFO 2025-12-25 21:44:19,306 log "GET /api/submissions/?status=PUBLISHED&author_name=aa HTTP/1.1" 200 2
+INFO 2025-12-25 21:44:21,493 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 2099
