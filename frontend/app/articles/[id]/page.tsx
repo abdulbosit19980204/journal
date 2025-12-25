@@ -66,7 +66,7 @@ export default function ArticleDetailPage() {
                         {article.title}
                     </h1>
                     <div style={{ marginTop: '1.5rem', opacity: 0.9, fontSize: '0.9rem' }}>
-                        {t('articles.by')} #{article.author} • {t('articles.published_in')} #{article.journal} • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                        {t('articles.by')} <span style={{ fontWeight: 600 }}>{article.author_name || `#${article.author}`}</span> • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
                     </div>
                 </div>
             </section>
@@ -132,7 +132,7 @@ export default function ArticleDetailPage() {
                                     </p>
 
                                     <a
-                                        href={article.manuscript_file}
+                                        href={`http://localhost:8000${article.manuscript_file}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-primary"

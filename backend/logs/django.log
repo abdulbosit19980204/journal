@@ -2988,3 +2988,583 @@ INFO 2025-12-25 21:15:35,993 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200
 INFO 2025-12-25 21:15:36,000 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
 INFO 2025-12-25 21:15:36,013 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
 INFO 2025-12-25 21:15:36,022 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+WARNING 2025-12-25 21:20:33,774 log Unauthorized: /api/issues/3/
+WARNING 2025-12-25 21:20:33,774 log "GET /api/issues/3/ HTTP/1.1" 401 172
+WARNING 2025-12-25 21:20:33,776 log Unauthorized: /api/issues/3/
+WARNING 2025-12-25 21:20:33,777 log "GET /api/issues/3/ HTTP/1.1" 401 172
+INFO 2025-12-25 21:20:34,424 log "GET /api/issues/3/ HTTP/1.1" 200 198
+INFO 2025-12-25 21:20:34,437 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:21:10,012 autoreload D:\coding\journal\backend\submissions\models.py changed, reloading.
+INFO 2025-12-25 21:21:10,536 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:25:28,569 log "GET /api/issues/3/ HTTP/1.1" 200 198
+ERROR 2025-12-25 21:25:28,612 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.page_range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.page_range
+ERROR 2025-12-25 21:25:28,619 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 500 25316
+INFO 2025-12-25 21:25:29,890 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:25:29,899 log "GET /api/journals/ HTTP/1.1" 200 649
+ERROR 2025-12-25 21:25:29,922 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.page_range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.page_range
+ERROR 2025-12-25 21:25:29,927 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 25288
+ERROR 2025-12-25 21:25:29,957 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.page_range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 390, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.page_range
+ERROR 2025-12-25 21:25:29,962 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 500 25288
+INFO 2025-12-25 21:25:33,492 log "GET /admin/ HTTP/1.1" 200 17234
+ERROR 2025-12-25 21:25:40,692 log Internal Server Error: /admin/submissions/article/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.page_range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 2102, in changelist_view
+    media = self.media + formset.media
+                         ^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 521, in media
+    if self.forms:
+       ^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 207, in forms
+    for i in range(self.total_form_count())
+                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 182, in total_form_count
+    initial_forms = self.initial_form_count()
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\models.py", line 718, in initial_form_count
+    return len(self.get_queryset())
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.page_range
+ERROR 2025-12-25 21:25:40,700 log "GET /admin/submissions/article/ HTTP/1.1" 500 222477
+ERROR 2025-12-25 21:25:42,525 log Internal Server Error: /admin/submissions/article/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: submissions_article.page_range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 710, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 247, in inner
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\options.py", line 2102, in changelist_view
+    media = self.media + formset.media
+                         ^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 521, in media
+    if self.forms:
+       ^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 207, in forms
+    for i in range(self.total_form_count())
+                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\formsets.py", line 182, in total_form_count
+    initial_forms = self.initial_form_count()
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\models.py", line 718, in initial_form_count
+    return len(self.get_queryset())
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: submissions_article.page_range
+ERROR 2025-12-25 21:25:42,531 log "GET /admin/submissions/article/ HTTP/1.1" 500 222614
+INFO 2025-12-25 21:27:11,130 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:27:16,260 log "GET /admin/submissions/article/ HTTP/1.1" 200 22830
+INFO 2025-12-25 21:27:16,305 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:27:20,169 log "GET /admin/submissions/article/3/change/ HTTP/1.1" 200 25252
+INFO 2025-12-25 21:27:20,238 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:27:47,601 log "GET /admin/submissions/article/ HTTP/1.1" 200 22830
+INFO 2025-12-25 21:27:47,661 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:27:49,036 log "GET /admin/submissions/article/1/change/ HTTP/1.1" 200 25067
+INFO 2025-12-25 21:27:49,090 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:27:56,429 log "GET /admin/submissions/article/ HTTP/1.1" 200 22830
+INFO 2025-12-25 21:27:56,475 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:28:03,109 log "POST /admin/submissions/article/ HTTP/1.1" 302 0
+INFO 2025-12-25 21:28:03,145 log "GET /admin/submissions/article/ HTTP/1.1" 200 22970
+INFO 2025-12-25 21:28:03,192 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 21:28:12,709 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:28:12,713 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:30:19,721 autoreload D:\coding\journal\backend\users\urls.py changed, reloading.
+INFO 2025-12-25 21:30:20,065 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:30:22,343 autoreload D:\coding\journal\backend\journals\urls.py changed, reloading.
+INFO 2025-12-25 21:30:22,677 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:30:23,947 autoreload D:\coding\journal\backend\submissions\urls.py changed, reloading.
+INFO 2025-12-25 21:30:24,284 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:30:25,557 autoreload D:\coding\journal\backend\billing\urls.py changed, reloading.
+INFO 2025-12-25 21:30:25,882 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:30:40,058 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:30:40,058 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:30:52,094 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:30:52,101 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:30:55,340 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:30:55,346 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:30:58,353 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:30:58,364 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:30:58,364 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:30:58,372 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:31:01,081 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:31:01,086 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:31:03,475 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:31:03,482 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:31:04,306 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:31:04,312 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:31:04,320 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1224
+INFO 2025-12-25 21:31:04,323 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:31:06,881 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:31:06,886 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:31:09,279 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:31:09,284 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:31:09,295 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:31:09,301 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:31:11,563 log "GET /api/issues/3/ HTTP/1.1" 200 198
+INFO 2025-12-25 21:31:11,568 log "GET /api/issues/3/ HTTP/1.1" 200 198
+INFO 2025-12-25 21:31:11,582 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:31:11,586 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:31:43,861 log "GET /api/issues/3/ HTTP/1.1" 200 198
+INFO 2025-12-25 21:31:43,891 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 21:31:51,704 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:31:51,708 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:31:51,723 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:31:51,729 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:31:59,328 log "OPTIONS /api/auth/token/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:31:59,926 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 21:32:00,005 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:00,017 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:00,017 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:00,028 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:06,232 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:06,232 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:06,251 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:32:06,259 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:32:14,184 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,186 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,186 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,189 log "OPTIONS /api/plans/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,191 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,191 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,194 log "OPTIONS /api/journals/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,194 log "OPTIONS /api/plans/ HTTP/1.1" 200 0
+INFO 2025-12-25 21:32:14,207 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:14,209 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:14,214 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:14,220 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:14,227 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:14,231 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:32:14,241 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:14,241 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:32:18,414 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:18,415 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:18,426 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:18,431 log "GET /api/submissions/ HTTP/1.1" 200 2321
+INFO 2025-12-25 21:32:21,348 log "GET /api/submissions/2/ HTTP/1.1" 200 597
+INFO 2025-12-25 21:32:21,355 log "GET /api/submissions/2/ HTTP/1.1" 200 597
+INFO 2025-12-25 21:32:21,365 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:21,375 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:21,380 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:32:21,404 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:32:30,823 log "PATCH /api/submissions/2/ HTTP/1.1" 200 594
+INFO 2025-12-25 21:32:39,691 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:39,705 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:39,707 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:32:39,709 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:32:39,713 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:32:39,720 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:39,728 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:32:39,732 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:32:47,189 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:47,199 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:47,199 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:32:47,211 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:32:49,048 log "GET /api/submissions/2/ HTTP/1.1" 200 594
+INFO 2025-12-25 21:32:49,056 log "GET /api/submissions/2/ HTTP/1.1" 200 594
+INFO 2025-12-25 21:32:49,060 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:49,067 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:49,072 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:32:49,081 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:32:53,972 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:53,980 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:53,983 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:32:53,994 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:32:56,201 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:32:56,210 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:32:57,781 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:57,789 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:32:59,820 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:32:59,825 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 21:32:59,836 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:32:59,843 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:33:02,400 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:33:02,418 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 21:33:02,421 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:33:02,422 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:33:02,428 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:33:02,436 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 21:33:02,437 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:33:02,444 log "GET /api/submissions/ HTTP/1.1" 200 2318
+INFO 2025-12-25 21:33:08,960 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:33:08,966 log "GET /api/submissions/1/ HTTP/1.1" 200 551
+INFO 2025-12-25 21:33:08,972 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:33:08,979 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 21:33:08,984 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:33:09,013 log "GET /api/issues/?journal=1 HTTP/1.1" 200 664
+INFO 2025-12-25 21:33:29,074 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:33:29,082 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:34:33,701 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:34:34,818 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:35:06,318 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:35:06,637 log "OPTIONS /api/submissions/?status=PUBLISHED HTTP/1.1" 200 0
+WARNING 2025-12-25 21:35:06,639 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 21:35:06,639 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+INFO 2025-12-25 21:35:07,771 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819
+INFO 2025-12-25 21:35:08,225 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1819

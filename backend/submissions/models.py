@@ -26,6 +26,7 @@ class Article(models.Model):
     page_count = models.IntegerField(default=0)
     language = models.CharField(max_length=10, default='en', choices=(('uz','Uzbek'),('ru','Russian'),('en','English')))
     rejection_reason = models.TextField(blank=True, null=True)
+    page_range = models.CharField(max_length=50, blank=True, null=True)
     
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='DRAFT')
     

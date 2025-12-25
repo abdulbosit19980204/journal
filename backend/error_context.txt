@@ -1,0 +1,492 @@
+﻿py : Traceback 
+(most recent 
+call last):
+At line:1 
+char:1
++ py manage.py 
+check 2>&1 | 
+Out-File 
+-FilePath error
+_context.txt 
+-Encod ...
++ ~~~~~~~~~~~~~
+~~~~~~~~~~
+    + Category 
+   Info        
+      : NotS   
+ pecified:     
+(Traceback     
+(most rec    
+ent call l    
+ast)::Stri    
+ng) [], Re    
+moteExcept    
+ion
+    + FullyQua 
+   lifiedErro  
+  rId : Nati   
+ veCommandE    
+rror
+ 
+  File "D:\codi
+ng\journal\back
+end\manage.py",
+ line 22, in 
+<module>
+    main()
+    ~~~~^^
+  File "D:\codi
+ng\journal\back
+end\manage.py",
+ line 18, in 
+main
+    execute_fro
+m_command_line(
+sys.argv)
+    ~~~~~~~~~~~
+~~~~~~~~~~~~~~^
+^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\__init__.py
+", line 443, 
+in execute_from
+_command_line
+    utility.exe
+cute()
+    ~~~~~~~~~~~
+~~~~^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\__init__.py
+", line 437, 
+in execute
+    self.fetch_
+command(subcomm
+and).run_from_a
+rgv(self.argv)
+    ~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+~~~^^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\base.py", 
+line 416, in 
+run_from_argv
+    self.execut
+e(*args, 
+**cmd_options)
+    ~~~~~~~~~~~
+~^^^^^^^^^^^^^^
+^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\base.py", 
+line 460, in 
+execute
+    output = se
+lf.handle(*args
+, **options)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\commands\ch
+eck.py", line 
+81, in handle
+    self.check(
+    ~~~~~~~~~~^
+        app_con
+figs=app_config
+s,
+        ^^^^^^^
+^^^^^^^^^^^^^^^
+^^
+    ...<4 
+lines>...
+        databas
+es=options["dat
+abases"],
+        ^^^^^^^
+^^^^^^^^^^^^^^^
+^^^^^^^^^
+    )
+    ^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\managem
+ent\base.py", 
+line 492, in 
+check
+    all_issues 
+= checks.run_ch
+ecks(
+        app_con
+figs=app_config
+s,
+    ...<2 
+lines>...
+        databas
+es=databases,
+    )
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\checks\
+registry.py", 
+line 89, in 
+run_checks
+    new_errors 
+= check(app_con
+figs=app_config
+s, databases=da
+tabases)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\checks\
+urls.py", line 
+16, in check_ur
+l_config
+    return chec
+k_resolver(reso
+lver)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\core\checks\
+urls.py", line 
+26, in 
+check_resolver
+    return 
+check_method()
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\urls\resolve
+rs.py", line 
+541, in check
+    for 
+pattern in self
+.url_patterns:
+               
+    ^^^^^^^^^^^
+^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\utils\functi
+onal.py", line 
+47, in __get__
+    res = insta
+nce.__dict__[se
+lf.name] = self
+.func(instance)
+               
+               
+           ~~~~
+~~~~~^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\urls\resolve
+rs.py", line 
+729, in 
+url_patterns
+    patterns = 
+getattr(self.ur
+lconf_module, 
+"urlpatterns", 
+self.urlconf_mo
+dule)
+               
+        ^^^^^^^
+^^^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\utils\functi
+onal.py", line 
+47, in __get__
+    res = insta
+nce.__dict__[se
+lf.name] = self
+.func(instance)
+               
+               
+           ~~~~
+~~~~~^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\urls\resolve
+rs.py", line 
+722, in 
+urlconf_module
+    return impo
+rt_module(self.
+urlconf_name)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\imp
+ortlib\__init__
+.py", line 88, 
+in 
+import_module
+    return _boo
+tstrap._gcd_imp
+ort(name[level:
+], package, 
+level)
+           ~~~~
+~~~~~~~~~~~~~~~
+~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
+^^^
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1387, 
+in _gcd_import
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1360, 
+in 
+_find_and_load
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1331, 
+in _find_and_lo
+ad_unlocked
+  File 
+"<frozen import
+lib._bootstrap>
+", line 935, 
+in 
+_load_unlocked
+  File 
+"<frozen import
+lib._bootstrap_
+external>", 
+line 1026, in 
+exec_module
+  File 
+"<frozen import
+lib._bootstrap>
+", line 488, 
+in _call_with_f
+rames_removed
+  File "D:\codi
+ng\journal\back
+end\config\urls
+.py", line 31, 
+in <module>
+    
+path('api/', in
+clude('journals
+.urls')),
+               
+  ~~~~~~~^^^^^^
+^^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\urls\conf.py
+", line 39, in 
+include
+    
+urlconf_module 
+= import_module
+(urlconf_module
+)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\imp
+ortlib\__init__
+.py", line 88, 
+in 
+import_module
+    return _boo
+tstrap._gcd_imp
+ort(name[level:
+], package, 
+level)
+           ~~~~
+~~~~~~~~~~~~~~~
+~~~^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
+^^^
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1387, 
+in _gcd_import
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1360, 
+in 
+_find_and_load
+  File 
+"<frozen import
+lib._bootstrap>
+", line 1331, 
+in _find_and_lo
+ad_unlocked
+  File 
+"<frozen import
+lib._bootstrap>
+", line 935, 
+in 
+_load_unlocked
+  File 
+"<frozen import
+lib._bootstrap_
+external>", 
+line 1026, in 
+exec_module
+  File 
+"<frozen import
+lib._bootstrap>
+", line 488, 
+in _call_with_f
+rames_removed
+  File "D:\codi
+ng\journal\back
+end\journals\ur
+ls.py", line 
+8, in <module>
+    
+urlpatterns = 
+router.urls
+               
+   ^^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\rest
+_framework\rout
+ers.py", line 
+77, in urls
+    self._urls 
+= 
+self.get_urls()
+               
+  
+~~~~~~~~~~~~~^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\rest
+_framework\rout
+ers.py", line 
+346, in 
+get_urls
+    urls = form
+at_suffix_patte
+rns(urls)
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\rest
+_framework\urlp
+atterns.py", 
+line 108, in fo
+rmat_suffix_pat
+terns
+    register_co
+nverter(suffix_
+converter, 
+converter_name)
+    ~~~~~~~~~~~
+~~~~~~~^^^^^^^^
+^^^^^^^^^^^^^^^
+^^^^^^^^^^^
+  File "C:\User
+s\BlackTiger\Ap
+pData\Local\Pro
+grams\Python\Py
+thon313\Lib\sit
+e-packages\djan
+go\urls\convert
+ers.py", line 
+57, in register
+_converter
+    raise Value
+Error(f"Convert
+er 
+{type_name!r} 
+is already 
+registered.")
+ValueError: 
+Converter 'drf_
+format_suffix' 
+is already 
+registered.

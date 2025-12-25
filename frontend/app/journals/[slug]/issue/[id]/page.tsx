@@ -112,6 +112,63 @@ export default function IssueDetailPage() {
                     </div>
                 </div>
 
+                {/* Full Issue PDF Viewer */}
+                {issue.file && (
+                    <div className="card" style={{ padding: '2rem', marginBottom: '2.5rem', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                            <div>
+                                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', fontFamily: "'Playfair Display', serif" }}>
+                                    Read Full Issue
+                                </h2>
+                                <p style={{ color: '#64748b', fontSize: '0.875rem' }}>Access the complete printed version of this issue.</p>
+                            </div>
+                            <div style={{ display: 'flex', gap: '1rem' }}>
+                                <a
+                                    href={`http://localhost:8000${issue.file}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-primary"
+                                >
+                                    Open Full PDF
+                                </a>
+                                <a
+                                    href={`http://localhost:8000${issue.file}`}
+                                    download
+                                    style={{
+                                        padding: '0.75rem 1.5rem',
+                                        background: 'white',
+                                        border: '1px solid #1e3a5f',
+                                        color: '#1e3a5f',
+                                        borderRadius: '8px',
+                                        textDecoration: 'none',
+                                        fontWeight: 500
+                                    }}
+                                >
+                                    Download Issue
+                                </a>
+                            </div>
+                        </div>
+                        <div style={{
+                            width: '100%',
+                            height: '600px',
+                            border: '1px solid #e1e8ef',
+                            borderRadius: '12px',
+                            overflow: 'hidden',
+                            background: 'white'
+                        }}>
+                            <iframe
+                                src={`http://localhost:8000${issue.file}#toolbar=0`}
+                                style={{ width: '100%', height: '100%', border: 'none' }}
+                                title="Full Issue"
+                            />
+                        </div>
+                    </div>
+                )}
+
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '1.5rem', fontFamily: "'Playfair Display', serif" }}>
+                    Articles in this Issue
+                </h2>
+
                 {/* Articles List */}
                 <div style={{ display: 'grid', gap: '1.5rem' }}>
                     {filteredArticles.length > 0 ? (
@@ -137,11 +194,20 @@ export default function IssueDetailPage() {
                                                 </span>
                                             ))}
                                         </div>
-                                        <p style={{ color: '#4a4a4a', lineHeight: 1.6, fontSize: '0.95rem', marginBottom: '1rem' }}>
-                                            {article.abstract?.replace(/<[^>]+>/g, '').substring(0, 200)}...
-                                        </p>
-                                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
-                                            {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name}</span>
+                                        <p
+                                            className="rich-text"
+                                            style={{ color: '#4a4a4a', lineHeight: 1.6, fontSize: '0.95rem', marginBottom: '1rem' }}
+                                            dangerouslySetInnerHTML={{ __html: article.abstract?.substring(0, 300) + '...' }}
+                                        />
+                                        <div style={{ fontSize: '0.875rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <div>
+                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name}</span>
+                                            </div>
+                                            {article.page_range && (
+                                                <div style={{ fontStyle: 'italic' }}>
+                                                    Pages: {article.page_range}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
@@ -151,7 +217,7 @@ export default function IssueDetailPage() {
                                         </Link>
                                         {article.manuscript_file && (
                                             <a
-                                                href={article.manuscript_file}
+                                                href={`http://localhost:8000${article.manuscript_file}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 style={{

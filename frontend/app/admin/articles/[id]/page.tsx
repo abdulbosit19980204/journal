@@ -14,6 +14,11 @@ export default function AdminArticleDetailPage() {
     const [processing, setProcessing] = useState(false)
     const [showRejectInput, setShowRejectInput] = useState(false)
     const [rejectionReason, setRejectionReason] = useState("")
+    const [showAcceptInput, setShowAcceptInput] = useState(false)
+    const [issues, setIssues] = useState<any[]>([])
+    const [selectedIssue, setSelectedIssue] = useState("")
+    const [pageRange, setPageRange] = useState("")
+    const [pendingStatus, setPendingStatus] = useState("")
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,6 +30,10 @@ export default function AdminArticleDetailPage() {
                     const journalRes = await api.get(`/journals/`).catch(() => ({ data: [] }))
                     const j = journalRes.data.find((j: any) => j.id === res.data.journal)
                     setJournal(j)
+
+                    // Fetch issues for this journal
+                    const issuesRes = await api.get(`/issues/?journal=${res.data.journal}`)
+                    setIssues(issuesRes.data)
                 }
             } catch (err: any) {
                 if (err.response?.status === 401) router.push("/auth/login")
@@ -40,11 +49,19 @@ export default function AdminArticleDetailPage() {
         try {
             await api.patch(`/submissions/${id}/`, {
                 status: newStatus,
-                rejection_reason: newStatus === 'REJECTED' ? rejectionReason : null
+                rejection_reason: newStatus === 'REJECTED' ? rejectionReason : null,
+                issue: ['ACCEPTED', 'PUBLISHED'].includes(newStatus) ? selectedIssue : article.issue,
+                page_range: ['ACCEPTED', 'PUBLISHED'].includes(newStatus) ? pageRange : article.page_range
             })
-            setArticle({ ...article, status: newStatus })
+            setArticle({ 
+                ...article, 
+                status: newStatus,
+                issue: ['ACCEPTED', 'PUBLISHED'].includes(newStatus) ? selectedIssue : article.issue,
+                page_range: ['ACCEPTED', 'PUBLISHED'].includes(newStatus) ? pageRange : article.page_range
+            })
             alert(`Article status changed to ${newStatus}`)
             setShowRejectInput(false)
+            setShowAcceptInput(false)
         } catch (err) {
             alert("Failed to update status")
         } finally {
@@ -153,6 +170,54 @@ export default function AdminArticleDetailPage() {
                                 </div>
                             )}
 
+                            {/* Acceptance/Publishing Input */}
+                            {showAcceptInput && (
+                                <div style={{ marginBottom: '1.5rem', padding: '1.5rem', background: '#d1fae5', borderRadius: '8px', border: '1px solid #a7f3d0' }}>
+                                    <h4 style={{ fontWeight: 600, color: '#065f46', marginBottom: '1rem' }}>
+                                        {pendingStatus === 'PUBLISHED' ? 'Publishing Details' : 'Acceptance Details'}
+                                    </h4>
+                                    
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#065f46', marginBottom: '0.4rem' }}>Target Issue</label>
+                                            <select 
+                                                value={selectedIssue}
+                                                onChange={(e) => setSelectedIssue(e.target.value)}
+                                                style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #6ee7b7' }}
+                                            >
+                                                <option value="">Select an issue...</option>
+                                                {issues.map(iss => (
+                                                    <option key={iss.id} value={iss.id}>
+                                                        Vol {iss.volume}, No {iss.number} ({iss.year})
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#065f46', marginBottom: '0.4rem' }}>Page Range (e.g. 15-24)</label>
+                                            <input 
+                                                type="text"
+                                                value={pageRange}
+                                                onChange={(e) => setPageRange(e.target.value)}
+                                                placeholder="e.g. 10-25"
+                                                style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #6ee7b7' }}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                                        <button onClick={() => setShowAcceptInput(false)}
+                                            style={{ padding: '0.5rem 1rem', background: 'white', border: '1px solid #6ee7b7', borderRadius: '6px', cursor: 'pointer' }}>
+                                            Cancel
+                                        </button>
+                                        <button onClick={() => handleStatusChange(pendingStatus)} disabled={processing || !selectedIssue}
+                                            style={{ padding: '0.5rem 1rem', background: '#059669', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 600, cursor: 'pointer', opacity: !selectedIssue ? 0.5 : 1 }}>
+                                            Confirm & {pendingStatus === 'PUBLISHED' ? 'Publish' : 'Accept'}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div>
                                 <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Keywords</h3>
                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -256,7 +321,7 @@ export default function AdminArticleDetailPage() {
 
                                 {['SUBMITTED', 'UNDER_REVIEW'].includes(article.status) && !showRejectInput && (
                                     <>
-                                        <button onClick={() => handleStatusChange('ACCEPTED')} disabled={processing}
+                                        <button onClick={() => { setPendingStatus('ACCEPTED'); setShowAcceptInput(true); }} disabled={processing}
                                             style={{ width: '100%', padding: '0.75rem', background: '#059669', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
                                             ✓ Accept Article
                                         </button>
@@ -268,7 +333,7 @@ export default function AdminArticleDetailPage() {
                                 )}
 
                                 {article.status === 'ACCEPTED' && (
-                                    <button onClick={() => handleStatusChange('PUBLISHED')} disabled={processing}
+                                    <button onClick={() => { setPendingStatus('PUBLISHED'); setShowAcceptInput(true); }} disabled={processing}
                                         style={{ width: '100%', padding: '0.75rem', background: '#d97706', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
                                         📚 Publish Article
                                     </button>

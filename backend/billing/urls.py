@@ -1,9 +1,9 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from rest_framework.routers import SimpleRouter
 from .views import PlanViewSet, MySubscriptionView, SubscribeView, SubscriptionHistoryView
 from .payment_views import CreatePaymentView, AvailableGatewaysView, ClickCallbackView, PaymeCallbackView
 
-router = DefaultRouter()
+router = SimpleRouter()
 router.register(r'plans', PlanViewSet)
 
 urlpatterns = [

@@ -78,9 +78,20 @@ export default function PublishedArticlesPage() {
                                                 {article.title}
                                             </h2>
 
-                                            <p style={{ color: '#4a4a4a', lineHeight: 1.7, marginBottom: '1rem' }}>
-                                                {article.abstract?.replace(/<[^>]+>/g, '').substring(0, 300)}...
-                                            </p>
+                                            <div
+                                                className="rich-text"
+                                                style={{
+                                                    color: '#4a4a4a',
+                                                    lineHeight: 1.7,
+                                                    marginBottom: '1rem',
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 3,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden',
+                                                    fontSize: '0.95rem'
+                                                }}
+                                                dangerouslySetInnerHTML={{ __html: article.abstract }}
+                                            />
 
                                             {article.keywords && (
                                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
@@ -99,7 +110,7 @@ export default function PublishedArticlesPage() {
                                             )}
 
                                             <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-                                                {t('articles.by')} #{article.author} • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name || `#${article.author}`}</span> • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
                                             </div>
                                         </div>
 
@@ -113,7 +124,7 @@ export default function PublishedArticlesPage() {
                                             </Link>
                                             {article.manuscript_file && (
                                                 <a
-                                                    href={article.manuscript_file}
+                                                    href={`http://localhost:8000${article.manuscript_file}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     style={{

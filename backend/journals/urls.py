@@ -1,7 +1,7 @@
-from rest_framework.routers import DefaultRouter
+from rest_framework.routers import SimpleRouter
 from .views import JournalViewSet, IssueViewSet
 
-router = DefaultRouter()
+router = SimpleRouter()
 router.register(r'journals', JournalViewSet)
 router.register(r'issues', IssueViewSet)
 
