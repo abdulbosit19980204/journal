@@ -341,7 +341,16 @@
     "payment_success": "Payment successful!",
     "payment_failed": "Payment failed. Please try again."
   },
+  "profile": {
+    "about": "About the Author",
+    "no_bio": "No biography provided.",
+    "published_research": "Published Research",
+    "no_articles": "No published articles found for this author yet.",
+    "not_found": "Profile not found",
+    "back_to_articles": "Back to Articles"
+  },
   "common": {
+    "platform_title": "Scientific Publishing Platform for Central Asia",
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",

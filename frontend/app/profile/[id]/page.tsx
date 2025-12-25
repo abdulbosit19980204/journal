@@ -40,10 +40,18 @@ export default function PublicProfilePage() {
 
     if (!profile) return (
         <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-            <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>Profile not found</h2>
-            <Link href="/articles" className="btn btn-primary">Back to Articles</Link>
+            <h2 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('profile.not_found')}</h2>
+            <Link href="/articles" className="btn btn-primary">{t('profile.back_to_articles')}</Link>
         </div>
     )
+
+    // Helper to strip HTML and decode common entities for preview
+    const stripHtml = (html: string) => {
+        if (!html) return ""
+        const tmp = document.createElement("DIV")
+        tmp.innerHTML = html
+        return tmp.textContent || tmp.innerText || ""
+    }
 
     return (
         <main style={{ background: '#faf9f6', minHeight: '100vh', padding: '4rem 0' }}>
@@ -78,10 +86,10 @@ export default function PublicProfilePage() {
 
                         <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '1.5rem', textAlign: 'left' }}>
                             <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                About the Author
+                                {t('profile.about')}
                             </h3>
                             <p style={{ fontSize: '0.9rem', color: '#4a4a4a', lineHeight: 1.6 }}>
-                                {profile.bio || "No biography provided."}
+                                {profile.bio || t('profile.no_bio')}
                             </p>
                         </div>
                     </aside>
@@ -89,7 +97,7 @@ export default function PublicProfilePage() {
                     {/* Right Side: Publications */}
                     <section>
                         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '2rem', fontFamily: "'Playfair Display', serif" }}>
-                            Published Research ({articles.length})
+                            {t('profile.published_research')} ({articles.length})
                         </h2>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -111,7 +119,7 @@ export default function PublicProfilePage() {
                                             overflow: 'hidden',
                                             marginBottom: '1rem'
                                         }}>
-                                            {article.abstract?.replace(/<[^>]+>/g, '')}
+                                            {stripHtml(article.abstract)}
                                         </p>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.875rem' }}>
                                             <span style={{ color: '#c9a227', fontWeight: 600 }}>
@@ -125,7 +133,7 @@ export default function PublicProfilePage() {
                                 ))
                             ) : (
                                 <p style={{ color: '#6b7280', textAlign: 'center', padding: '4rem', background: 'white', borderRadius: '12px' }}>
-                                    No published articles found for this author yet.
+                                    {t('profile.no_articles')}
                                 </p>
                             )}
                         </div>

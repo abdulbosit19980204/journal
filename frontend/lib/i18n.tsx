@@ -121,22 +121,24 @@ export function LanguageSelector() {
                     key={lang.code}
                     onClick={() => setLocale(lang.code)}
                     style={{
-                        padding: '0.35rem 0.75rem',
+                        padding: '0.35rem 0.5rem',
                         borderRadius: '6px',
                         border: locale === lang.code ? '2px solid #c9a227' : '1px solid rgba(255,255,255,0.3)',
                         background: locale === lang.code ? 'rgba(201,162,39,0.2)' : 'transparent',
                         color: 'white',
                         cursor: 'pointer',
-                        fontSize: '0.8rem',
-                        fontWeight: 500,
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.25rem'
+                        gap: '0.25rem',
+                        minWidth: '45px',
+                        justifyContent: 'center'
                     }}
                     title={lang.name}
                 >
-                    <span>{lang.flag}</span>
-                    <span>{lang.code.toUpperCase()}</span>
+                    <span style={{ fontSize: '1rem' }}>{lang.flag}</span>
+                    <span style={{ textTransform: 'uppercase' }}>{lang.code}</span>
                 </button>
             ))}
         </div>

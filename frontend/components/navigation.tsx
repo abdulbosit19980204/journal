@@ -38,7 +38,7 @@ export default function Navigation() {
         fontSize: '0.875rem'
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ opacity: 0.9 }}>Scientific Publishing Platform for Central Asia</span>
+          <span style={{ opacity: 0.9 }}>{t('common.platform_title') || 'Scientific Publishing Platform for Central Asia'}</span>
           <LanguageSelector />
         </div>
       </div>
@@ -122,14 +122,14 @@ export default function Navigation() {
                     💰 {t("nav.billing")}
                   </Link>
                 )}
-                
+
                 {/* User Dropdown Toggle */}
-                <div 
+                <div
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '0.75rem', 
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
                     cursor: 'pointer',
                     padding: '0.5rem',
                     borderRadius: '8px',
@@ -185,7 +185,7 @@ export default function Navigation() {
                       ⚙️ {t("dashboard.my_profile")}
                     </Link>
                     <hr style={{ margin: '0.5rem 0', border: 'none', borderTop: '1px solid #f3f4f6' }} />
-                    <button 
+                    <button
                       onClick={() => { logout(); setIsProfileOpen(false); }}
                       style={{ width: '100%', textAlign: 'left', padding: '0.75rem 1rem', fontSize: '0.9rem', color: '#dc2626', background: 'none', border: 'none', cursor: 'pointer', borderRadius: '6px' }}
                       className="hover-red"
@@ -240,7 +240,7 @@ export default function Navigation() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {user && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.5rem 0', borderBottom: '1px solid #f3f4f6', marginBottom: '0.5rem' }}>
-                   <div style={{
+                  <div style={{
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
@@ -293,8 +293,8 @@ export default function Navigation() {
                   <Link href="/profile/settings" onClick={() => setIsMobileMenuOpen(false)} style={{ fontSize: '1rem', fontWeight: 500, color: '#4a4a4a' }}>
                     {t("dashboard.my_profile")}
                   </Link>
-                  <button 
-                    onClick={() => { logout(); setIsMobileMenuOpen(false); }} 
+                  <button
+                    onClick={() => { logout(); setIsMobileMenuOpen(false); }}
                     style={{ textAlign: 'left', padding: '0.5rem 0', fontSize: '1rem', fontWeight: 500, color: '#dc2626', background: 'none', border: 'none' }}
                   >
                     {t("nav.logout")}

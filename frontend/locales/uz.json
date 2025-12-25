@@ -8,7 +8,8 @@
     "register": "Ro'yxatdan o'tish",
     "dashboard": "Boshqaruv paneli",
     "admin": "Admin",
-    "logout": "Chiqish"
+    "logout": "Chiqish",
+    "billing": "Hisob-kitob"
   },
   "home": {
     "title": "Central Asian Journal Platformasi",
@@ -340,7 +341,16 @@
     "payment_success": "To'lov muvaffaqiyatli!",
     "payment_failed": "To'lov amalga oshmadi. Qayta urinib ko'ring."
   },
+  "profile": {
+    "about": "Muallif haqida",
+    "no_bio": "Biografiya berilmagan.",
+    "published_research": "Chop etilgan ilmiy ishlar",
+    "no_articles": "Ushbu muallif uchun hali chop etilgan maqolalar topilmadi.",
+    "not_found": "Profil topilmadi",
+    "back_to_articles": "Maqolalarga qaytish"
+  },
   "common": {
+    "platform_title": "O‘rta Osiyo uchun ilmiy nashriyot platformasi",
     "loading": "Yuklanmoqda...",
     "error": "Xatolik",
     "success": "Muvaffaqiyat",
