@@ -317,6 +317,8 @@
     "status_rejected": "Rejected",
     "buy_with_balance": "Buy with Balance",
     "current_subscription": "Current Subscription",
+    "valid_from": "Valid from",
+    "valid_to": "Active until",
     "no_subscription": "No active subscription",
     "subscribe_now": "Subscribe Now",
     "subscription_history": "Subscription History",

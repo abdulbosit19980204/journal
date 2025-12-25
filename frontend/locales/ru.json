@@ -320,6 +320,8 @@
     "status_rejected": "Отклонено",
     "buy_with_balance": "Купить с баланса",
     "current_subscription": "Текущая подписка",
+    "valid_from": "Действителен с",
+    "valid_to": "Действует до",
     "no_subscription": "Нет активной подписки",
     "subscribe_now": "Подписаться сейчас",
     "subscription_history": "История подписки",

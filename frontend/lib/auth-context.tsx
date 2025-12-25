@@ -17,6 +17,7 @@ interface User {
         id: number
         plan_id: number
         plan_name: string
+        start_date: string
         end_date: string
         is_active: boolean
     } | null

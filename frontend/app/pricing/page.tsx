@@ -159,13 +159,19 @@ export default function PricingPage() {
                       left: 0,
                       background: '#10b981',
                       color: 'white',
-                      fontSize: '0.7rem',
+                      fontSize: '0.65rem',
                       fontWeight: 700,
-                      padding: '0.35rem 0.75rem',
+                      padding: '0.35rem 0.6rem',
                       borderRadius: '8px 0 8px 0',
-                      zIndex: 10
+                      zIndex: 10,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '2px'
                     }}>
-                      {t('pricing.current_plan') || 'CURRENT PLAN'}
+                      <span>{t('pricing.current_plan') || 'CURRENT PLAN'}</span>
+                      <span style={{ fontSize: '0.6rem', opacity: 0.9, fontWeight: 500 }}>
+                        {user.subscription?.start_date ? new Date(user.subscription.start_date).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US') : ''} - {user.subscription?.end_date ? new Date(user.subscription.end_date).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US') : ''}
+                      </span>
                     </div>
                   )}
 

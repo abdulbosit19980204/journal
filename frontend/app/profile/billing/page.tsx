@@ -103,6 +103,30 @@ export default function BillingBalancePage() {
                                 <strong>{t('billing.instructions')}</strong>: {config?.[`instructions_${locale}`] || config?.instructions_en}
                             </div>
                         </div>
+
+                        {/* Current Subscription Status */}
+                        <div className="card" style={{ padding: '1.5rem', marginTop: '1.5rem', borderLeft: '4px solid #10b981' }}>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.75rem' }}>{t('billing.current_subscription')}</h3>
+                            {user?.subscription && user.subscription.is_active ? (
+                                <div>
+                                    <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#10b981', marginBottom: '0.5rem' }}>
+                                        {user.subscription.plan_name}
+                                    </div>
+                                    <div style={{ fontSize: '0.875rem', color: '#4b5563' }}>
+                                        <div style={{ marginBottom: '0.25rem' }}>
+                                            <span style={{ color: '#6b7280' }}>{t('billing.valid_from')}:</span> {new Date(user.subscription.start_date).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
+                                        </div>
+                                        <div>
+                                            <span style={{ color: '#6b7280' }}>{t('billing.valid_to')}:</span> {new Date(user.subscription.end_date).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                                    {t('billing.no_subscription')}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* Right: Upload & History */}
@@ -173,9 +197,9 @@ export default function BillingBalancePage() {
                                                         </span>
                                                     </td>
                                                     <td style={{ padding: '1rem 1.5rem', color: '#4b5563' }}>{tr.description}</td>
-                                                    <td style={{ 
-                                                        padding: '1rem 1.5rem', 
-                                                        textAlign: 'right', 
+                                                    <td style={{
+                                                        padding: '1rem 1.5rem',
+                                                        textAlign: 'right',
                                                         fontWeight: 700,
                                                         color: parseFloat(tr.amount) >= 0 ? '#059669' : '#dc2626'
                                                     }}>

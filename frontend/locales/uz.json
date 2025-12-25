@@ -316,6 +316,8 @@
     "status_rejected": "Rad etildi",
     "buy_with_balance": "Balans orqali sotib olish",
     "current_subscription": "Joriy obuna",
+    "valid_from": "Amal qilish muddati",
+    "valid_to": "Gacha",
     "no_subscription": "Faol obuna yo'q",
     "subscribe_now": "Hozir obuna bo'ling",
     "subscription_history": "Obuna tarixi",
