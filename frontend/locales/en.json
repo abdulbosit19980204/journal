@@ -8,7 +8,8 @@
     "register": "Get Started",
     "dashboard": "Dashboard",
     "admin": "Admin",
-    "logout": "Logout"
+    "logout": "Logout",
+    "billing": "Billing & Balance"
   },
   "home": {
     "title": "Central Asian Journal Platform",
@@ -294,7 +295,25 @@
     "update_failed": "Failed to update"
   },
   "billing": {
-    "title": "Billing & Subscription",
+    "title": "Billing & Balance",
+    "balance": "Current Balance",
+    "top_up": "Top Up Balance",
+    "top_up_desc": "Send any amount to the bank card below and upload the receipt (chek). Our admin will verify and update your balance within 24 hours.",
+    "card_info": "Payment Details",
+    "bank_name": "Bank Name",
+    "card_number": "Card Number",
+    "card_holder": "Card Holder",
+    "instructions": "Instructions",
+    "upload_receipt": "Upload Receipt",
+    "receipt_file": "Select Image",
+    "submit_receipt": "Submit for Review",
+    "receipt_success": "Receipt uploaded successfully!",
+    "insufficient_balance": "Insufficient balance. Please top up your account.",
+    "my_receipts": "Transaction History",
+    "status_pending": "Pending",
+    "status_approved": "Approved",
+    "status_rejected": "Rejected",
+    "buy_with_balance": "Buy with Balance",
     "current_subscription": "Current Subscription",
     "no_subscription": "No active subscription",
     "subscribe_now": "Subscribe Now",

@@ -173,6 +173,9 @@ export default function Navigation() {
                     <Link href="/dashboard" onClick={() => setIsProfileOpen(false)} style={{ display: 'block', padding: '0.75rem 1rem', fontSize: '0.9rem', color: '#4b5563', borderRadius: '6px', textDecoration: 'none' }} className="hover-gray">
                       🏠 {t("nav.dashboard")}
                     </Link>
+                    <Link href="/profile/billing" onClick={() => setIsProfileOpen(false)} style={{ display: 'block', padding: '0.75rem 1rem', fontSize: '0.9rem', color: '#4b5563', borderRadius: '6px', textDecoration: 'none' }} className="hover-gray">
+                      💳 {t("nav.billing")}
+                    </Link>
                     <Link href="/profile/settings" onClick={() => setIsProfileOpen(false)} style={{ display: 'block', padding: '0.75rem 1rem', fontSize: '0.9rem', color: '#4b5563', borderRadius: '6px', textDecoration: 'none' }} className="hover-gray">
                       ⚙️ {t("dashboard.my_profile")}
                     </Link>

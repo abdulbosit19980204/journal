@@ -74,3 +74,37 @@ class SubscriptionHistory(models.Model):
     
     def __str__(self):
         return f"{self.user.username} - {self.action} - {self.plan.name if self.plan else 'N/A'}"
+
+class PaymentReceipt(models.Model):
+    STATUS_CHOICES = (
+        ('PENDING', 'Pending'),
+        ('APPROVED', 'Approved'),
+        ('REJECTED', 'Rejected'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receipts')
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    receipt_image = models.ImageField(upload_to='receipts/')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
+    admin_notes = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    processed_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Receipt {self.id} - {self.user.username} (${self.amount})"
+
+class BillingConfig(models.Model):
+    """Stores global billing settings like bank card info"""
+    bank_name = models.CharField(max_length=255, default="Central Bank")
+    card_number = models.CharField(max_length=255)
+    card_holder = models.CharField(max_length=255)
+    instructions_en = models.TextField(blank=True)
+    instructions_uz = models.TextField(blank=True)
+    instructions_ru = models.TextField(blank=True)
+
+    def __str__(self):
+        return "Global Billing Configuration"
+    
+    class Meta:
+        verbose_name = "Billing Configuration"
+        verbose_name_plural = "Billing Configuration"

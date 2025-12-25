@@ -12,6 +12,7 @@ interface User {
     is_staff: boolean
     is_superuser: boolean
     profile_picture: string | null
+    balance: string
 }
 
 interface AuthContextType {

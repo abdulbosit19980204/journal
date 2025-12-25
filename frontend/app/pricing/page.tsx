@@ -4,10 +4,13 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { useAuth } from "@/lib/auth-context"
+import Link from "next/link"
 
 export default function PricingPage() {
   const { t, locale } = useI18n()
   const router = useRouter()
+  const { user, refreshUser } = useAuth()
   const [plans, setPlans] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [subscribing, setSubscribing] = useState<number | null>(null)
@@ -17,13 +20,25 @@ export default function PricingPage() {
   }, [])
 
   const handleSubscribe = async (planId: number) => {
+    if (!user) {
+      router.push("/auth/login?next=/pricing")
+      return
+    }
+
+    const plan = plans.find(p => p.id === planId)
+    if (parseFloat(user.balance) < parseFloat(plan?.price || "0")) {
+      alert(t('billing.insufficient_balance'))
+      router.push("/profile/billing")
+      return
+    }
+
     setSubscribing(planId)
     try {
       await api.post("/billing/subscribe/", { plan_id: planId })
+      await refreshUser()
       router.push("/dashboard")
     } catch (err: any) {
-      if (err.response?.status === 401) router.push("/auth/login")
-      else alert(t('billing.payment_failed'))
+      alert(err.response?.data?.error || t('billing.payment_failed'))
     } finally {
       setSubscribing(null)
     }
@@ -93,9 +108,22 @@ export default function PricingPage() {
           <h1 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
             {t('pricing.title')}
           </h1>
-          <p style={{ fontSize: '1.25rem', opacity: 0.8 }}>
+          <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '2rem' }}>
             {t('pricing.subtitle')}
           </p>
+
+          {user && (
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '1.5rem', background: 'rgba(255,255,255,0.1)', padding: '0.75rem 1.5rem', borderRadius: '50px', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.2)' }}>
+              <div>
+                <span style={{ fontSize: '0.9rem', opacity: 0.8, marginRight: '0.5rem' }}>{t('billing.balance')}:</span>
+                <span style={{ fontWeight: 700, fontSize: '1.1rem' }}>${user.balance}</span>
+              </div>
+              <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.3)' }} />
+              <Link href="/profile/billing" style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem' }}>
+                + {t('billing.top_up')}
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

@@ -10,6 +10,7 @@ class User(AbstractUser):
     bio = models.TextField(blank=True, null=True)
     institution = models.CharField(max_length=255, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def __str__(self):
         return self.username
