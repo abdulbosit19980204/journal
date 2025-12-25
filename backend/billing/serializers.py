@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class SubscriptionPlanSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,4 +38,13 @@ class BillingConfigSerializer(serializers.ModelSerializer):
     class Meta:
         model = BillingConfig
         fields = '__all__'
+
+class AdminPaymentReceiptSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source='user.username', read_only=True)
+    email = serializers.CharField(source='user.email', read_only=True)
+
+    class Meta:
+        model = PaymentReceipt
+        fields = '__all__'
+        read_only_fields = ('user', 'processed_at')
 

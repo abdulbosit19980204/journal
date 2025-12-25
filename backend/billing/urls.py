@@ -1,11 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
-from .views import PlanViewSet, MySubscriptionView, SubscribeView, SubscriptionHistoryView, BillingConfigView, PaymentReceiptViewSet
+from .views import PlanViewSet, MySubscriptionView, SubscribeView, SubscriptionHistoryView, BillingConfigView, PaymentReceiptViewSet, AdminPaymentReceiptViewSet
 from .payment_views import CreatePaymentView, AvailableGatewaysView, ClickCallbackView, PaymeCallbackView
 
 router = SimpleRouter()
 router.register(r'plans', PlanViewSet)
 router.register(r'receipts', PaymentReceiptViewSet, basename='receipt')
+router.register(r'admin-receipts', AdminPaymentReceiptViewSet, basename='admin-receipt')
 
 urlpatterns = [
     path('', include(router.urls)),

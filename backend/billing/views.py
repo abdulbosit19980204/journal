@@ -1,10 +1,14 @@
 from rest_framework import viewsets, permissions, status, views, parsers
 from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+User = get_user_model()
+from rest_framework.decorators import action
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
+from django.db import transaction
 from datetime import timedelta
 from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig
-from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer, SubscriptionHistorySerializer, PaymentReceiptSerializer, BillingConfigSerializer
+from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer, SubscriptionHistorySerializer, PaymentReceiptSerializer, BillingConfigSerializer, AdminPaymentReceiptSerializer
 
 class PlanViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = SubscriptionPlan.objects.filter(is_active=True)
@@ -47,6 +51,83 @@ class PaymentReceiptViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class AdminPaymentReceiptViewSet(viewsets.ModelViewSet):
+    queryset = PaymentReceipt.objects.all().order_by('-created_at')
+    serializer_class = AdminPaymentReceiptSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    @action(detail=True, methods=['post'])
+    def approve(self, request, pk=None):
+        receipt = self.get_object()
+        if receipt.status != 'PENDING':
+            return Response({'error': 'Receipt is already processed'}, status=400)
+
+        with transaction.atomic():
+            receipt.status = 'APPROVED'
+            receipt.processed_at = timezone.now()
+            receipt.admin_notes = request.data.get('admin_notes', '')
+            receipt.save()
+
+            # Update user balance
+            user = receipt.user
+            user.balance += receipt.amount
+            user.save()
+
+        return Response({'status': 'Approved', 'new_balance': user.balance})
+
+    @action(detail=True, methods=['post'])
+    def reject(self, request, pk=None):
+        receipt = self.get_object()
+        if receipt.status != 'PENDING':
+            return Response({'error': 'Receipt is already processed'}, status=400)
+
+        receipt.status = 'REJECTED'
+        receipt.processed_at = timezone.now()
+        receipt.admin_notes = request.data.get('admin_notes', '')
+        receipt.save()
+
+        return Response({'status': 'Rejected'})
+
+    @action(detail=False, methods=['get'])
+    def stats(self, request):
+        import django.db.models as db_models
+        stats = PaymentReceipt.objects.aggregate(
+            total_approved=db_models.Sum('amount', filter=db_models.Q(status='APPROVED')),
+            total_pending=db_models.Sum('amount', filter=db_models.Q(status='PENDING')),
+            total_rejected=db_models.Sum('amount', filter=db_models.Q(status='REJECTED')),
+        )
+        return Response(stats)
+
+    @action(detail=False, methods=['get'])
+    def users_list(self, request):
+        users = User.objects.all().order_by('-balance')
+        data = [{
+            'id': u.id,
+            'username': u.username,
+            'email': u.email,
+            'balance': str(u.balance),
+            'is_staff': u.is_staff
+        } for u in users]
+        return Response(data)
+
+    @action(detail=False, methods=['post'], url_path='adjust-balance')
+    def adjust_balance(self, request):
+        user_id = request.data.get('user_id')
+        amount = request.data.get('amount')
+        notes = request.data.get('notes', 'Manual adjustment')
+
+        if not user_id or amount is None:
+            return Response({'error': 'Missing user_id or amount'}, status=400)
+
+        user = get_object_or_404(User, id=user_id)
+        user.balance += float(amount)
+        user.save()
+
+        # Log in history/invoice if needed?
+        # For now, just direct update as requested for admin ease.
+        
+        return Response({'status': 'Balance adjusted', 'new_balance': user.balance})
 
 class SubscribeView(views.APIView):
     permission_classes = [permissions.IsAuthenticated]

@@ -6240,3 +6240,251 @@ INFO 2025-12-25 22:35:28,766 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2025-12-25 22:35:30,295 log "GET /admin/billing/usersubscription/2/change/ HTTP/1.1" 200 22145
 INFO 2025-12-25 22:35:30,377 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2025-12-25 22:35:37,828 log "GET /admin/billing/usersubscription/ HTTP/1.1" 200 17964
+INFO 2025-12-25 22:37:44,413 log "POST /api/receipts/ HTTP/1.1" 201 211
+INFO 2025-12-25 22:37:45,566 log "GET /api/receipts/ HTTP/1.1" 200 213
+INFO 2025-12-25 22:37:57,429 log "POST /api/receipts/ HTTP/1.1" 201 215
+INFO 2025-12-25 22:37:58,625 log "GET /api/receipts/ HTTP/1.1" 200 429
+INFO 2025-12-25 22:38:11,001 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:38:11,015 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1420
+INFO 2025-12-25 22:38:11,015 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:38:11,023 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1420
+INFO 2025-12-25 22:38:13,714 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:38:13,719 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:38:16,998 log "GET /api/receipts/ HTTP/1.1" 200 429
+INFO 2025-12-25 22:38:16,998 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:17,009 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:17,012 log "GET /api/receipts/ HTTP/1.1" 200 429
+INFO 2025-12-25 22:38:18,604 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:38:18,610 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:38:21,227 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:21,231 log "GET /api/receipts/ HTTP/1.1" 200 429
+INFO 2025-12-25 22:38:21,236 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:21,237 log "GET /api/receipts/ HTTP/1.1" 200 429
+INFO 2025-12-25 22:38:27,851 autoreload D:\coding\journal\backend\billing\serializers.py changed, reloading.
+INFO 2025-12-25 22:38:28,410 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:38:31,756 log "GET /api/submissions/ HTTP/1.1" 200 2
+INFO 2025-12-25 22:38:31,760 log "GET /api/submissions/ HTTP/1.1" 200 2
+INFO 2025-12-25 22:38:36,460 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:38:36,464 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1420
+INFO 2025-12-25 22:38:36,468 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:38:36,473 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1420
+INFO 2025-12-25 22:38:39,176 autoreload D:\coding\journal\backend\billing\views.py changed, reloading.
+INFO 2025-12-25 22:38:39,667 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:38:42,040 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 22:38:42,045 log "GET /api/auth/me/ HTTP/1.1" 200 302
+INFO 2025-12-25 22:38:42,143 log "GET /api/submissions/ HTTP/1.1" 200 2039
+INFO 2025-12-25 22:38:42,154 log "GET /api/submissions/ HTTP/1.1" 200 2039
+INFO 2025-12-25 22:38:42,366 log "GET /media/profiles/photo_2025-12-21_03-43-01.jpg HTTP/1.1" 304 0
+INFO 2025-12-25 22:38:44,828 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:44,831 log "GET /api/receipts/ HTTP/1.1" 200 2
+INFO 2025-12-25 22:38:44,835 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:38:44,837 log "GET /api/receipts/ HTTP/1.1" 200 2
+INFO 2025-12-25 22:38:52,371 log "POST /api/receipts/ HTTP/1.1" 201 231
+INFO 2025-12-25 22:38:53,724 log "GET /api/receipts/ HTTP/1.1" 200 233
+INFO 2025-12-25 22:39:01,757 autoreload D:\coding\journal\backend\billing\urls.py changed, reloading.
+INFO 2025-12-25 22:39:02,238 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:39:05,190 log "POST /api/receipts/ HTTP/1.1" 201 238
+INFO 2025-12-25 22:39:06,812 log "GET /api/receipts/ HTTP/1.1" 200 472
+INFO 2025-12-25 22:39:27,393 log "GET /admin/billing/billingconfig/ HTTP/1.1" 200 15882
+INFO 2025-12-25 22:39:27,492 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 22:39:29,613 log "GET /admin/billing/invoice/ HTTP/1.1" 200 18186
+INFO 2025-12-25 22:39:29,671 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 22:39:31,190 log "GET /admin/billing/paymentreceipt/ HTTP/1.1" 200 19166
+INFO 2025-12-25 22:39:31,246 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-25 22:39:39,211 log "GET /media/profiles/photo_2025-04-04_09-38-11.jpg HTTP/1.1" 304 0
+INFO 2025-12-25 22:39:41,286 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:39:41,286 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:39:41,288 log "GET /api/receipts/ HTTP/1.1" 200 264
+INFO 2025-12-25 22:39:42,731 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:39:42,735 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:39:42,736 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:39:42,736 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:39:42,757 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 68
+INFO 2025-12-25 22:39:42,764 log "GET /api/admin-receipts/ HTTP/1.1" 200 1439
+INFO 2025-12-25 22:39:42,767 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 68
+INFO 2025-12-25 22:39:42,776 log "GET /api/admin-receipts/ HTTP/1.1" 200 1439
+INFO 2025-12-25 22:39:48,057 log "GET /media/receipts/c2a3437c-a69a-4a07-9ac9-f0f1709b4876_LkZqkDH.png HTTP/1.1" 200 193797
+INFO 2025-12-25 22:39:51,721 autoreload D:\coding\journal\backend\billing\views.py changed, reloading.
+INFO 2025-12-25 22:39:52,155 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:40:08,657 log "OPTIONS /api/admin-receipts/5/approve/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:40:08,679 log "POST /api/admin-receipts/5/approve/ HTTP/1.1" 200 41
+INFO 2025-12-25 22:40:08,695 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:40:08,700 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:40:26,651 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:40:26,653 log "GET /api/receipts/ HTTP/1.1" 200 526
+INFO 2025-12-25 22:40:26,653 log "GET /api/auth/me/ HTTP/1.1" 200 304
+INFO 2025-12-25 22:40:27,487 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:40:27,492 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:40:52,351 log "OPTIONS /api/admin-receipts/users_list/ HTTP/1.1" 200 0
+INFO 2025-12-25 22:40:52,368 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:40:52,373 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+ERROR 2025-12-25 22:40:52,380 log Internal Server Error: /api/admin-receipts/users_list/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 102, in users_list
+    users = User.objects.all().order_by('-balance')
+            ^^^^
+NameError: name 'User' is not defined
+ERROR 2025-12-25 22:40:52,383 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 500 22051
+INFO 2025-12-25 22:40:52,929 log "GET /api/auth/me/ HTTP/1.1" 200 304
+INFO 2025-12-25 22:40:52,931 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:40:57,898 log "GET /api/auth/me/ HTTP/1.1" 200 304
+INFO 2025-12-25 22:40:57,898 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:41:02,928 log "GET /api/submissions/ HTTP/1.1" 200 2039
+INFO 2025-12-25 22:41:02,940 log "GET /api/submissions/ HTTP/1.1" 200 2039
+INFO 2025-12-25 22:41:10,557 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:41:10,558 log "GET /api/receipts/ HTTP/1.1" 200 526
+INFO 2025-12-25 22:41:10,567 log "GET /api/receipts/ HTTP/1.1" 200 526
+INFO 2025-12-25 22:41:10,567 log "GET /api/billing/config/ HTTP/1.1" 200 172
+INFO 2025-12-25 22:41:17,131 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:41:17,138 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:41:17,139 log "GET /api/auth/me/ HTTP/1.1" 200 251
+ERROR 2025-12-25 22:41:17,146 log Internal Server Error: /api/admin-receipts/users_list/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 102, in users_list
+    users = User.objects.all().order_by('-balance')
+            ^^^^
+NameError: name 'User' is not defined
+ERROR 2025-12-25 22:41:17,148 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 500 22051
+INFO 2025-12-25 22:41:24,990 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:41:27,464 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:41:27,470 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:41:27,483 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+ERROR 2025-12-25 22:41:27,487 log Internal Server Error: /api/admin-receipts/users_list/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 102, in users_list
+    users = User.objects.all().order_by('-balance')
+            ^^^^
+NameError: name 'User' is not defined
+ERROR 2025-12-25 22:41:27,492 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 500 22051
+INFO 2025-12-25 22:41:53,450 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:41:53,463 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:41:53,469 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:41:53,475 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:41:53,480 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:41:53,488 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:41:53,490 log "GET /api/submissions/ HTTP/1.1" 200 2766
+INFO 2025-12-25 22:41:53,504 log "GET /api/submissions/ HTTP/1.1" 200 2766
+INFO 2025-12-25 22:41:56,584 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+ERROR 2025-12-25 22:41:56,597 log Internal Server Error: /api/admin-receipts/users_list/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 102, in users_list
+    users = User.objects.all().order_by('-balance')
+            ^^^^
+NameError: name 'User' is not defined
+INFO 2025-12-25 22:41:56,598 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+ERROR 2025-12-25 22:41:56,602 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 500 22051
+INFO 2025-12-25 22:41:56,602 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:41:56,622 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+ERROR 2025-12-25 22:41:56,631 log Internal Server Error: /api/admin-receipts/users_list/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\billing\views.py", line 102, in users_list
+    users = User.objects.all().order_by('-balance')
+            ^^^^
+NameError: name 'User' is not defined
+ERROR 2025-12-25 22:41:56,634 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 500 22051
+INFO 2025-12-25 22:42:09,070 autoreload D:\coding\journal\backend\billing\views.py changed, reloading.
+INFO 2025-12-25 22:42:09,570 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 22:42:09,967 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:42:09,982 log "GET /api/submissions/ HTTP/1.1" 200 2766
+INFO 2025-12-25 22:42:09,989 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:42:09,997 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:42:10,003 log "GET /api/auth/me/ HTTP/1.1" 200 251
+INFO 2025-12-25 22:42:10,020 log "GET /api/submissions/ HTTP/1.1" 200 2766
+INFO 2025-12-25 22:42:10,027 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 22:42:10,033 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 22:42:10,775 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:42:10,776 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 284
+INFO 2025-12-25 22:42:10,785 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493
+INFO 2025-12-25 22:42:10,787 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 69
+INFO 2025-12-25 22:42:10,787 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 284
+INFO 2025-12-25 22:42:10,796 log "GET /api/admin-receipts/ HTTP/1.1" 200 1493

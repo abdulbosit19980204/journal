@@ -117,6 +117,11 @@ export default function Navigation() {
                     {t("nav.admin")}
                   </Link>
                 )}
+                {user.is_superuser && (
+                  <Link href="/admin/billing" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
+                    💰 {t("nav.billing")}
+                  </Link>
+                )}
                 
                 {/* User Dropdown Toggle */}
                 <div 
