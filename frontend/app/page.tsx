@@ -212,14 +212,17 @@ export default function Home() {
                     }}>
                       <div style={{
                         padding: '0.5rem 1rem',
-                        background: 'rgba(255, 255, 255, 0.2)',
-                        backdropFilter: 'blur(10px)',
+                        background: 'rgba(0, 0, 0, 0.5)',
+                        backdropFilter: 'blur(12px)',
                         borderRadius: '12px',
-                        border: '1px solid rgba(255,255,255,0.3)',
-                        fontSize: '0.9rem',
-                        fontWeight: 700,
+                        border: '1px solid rgba(255,255,255,0.15)',
+                        fontSize: '0.95rem',
+                        fontWeight: 800,
                         color: 'white',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                        boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
                       }}>
                         {journal.is_paid ? (
                           <span>${journal.price_per_page}</span>
