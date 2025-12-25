@@ -113,7 +113,7 @@ export default function PublishedArticlesPage() {
                                             </Link>
                                             {article.manuscript_file && (
                                                 <a
-                                                    href={`http://localhost:8000${article.manuscript_file}`}
+                                                    href={article.manuscript_file}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     style={{

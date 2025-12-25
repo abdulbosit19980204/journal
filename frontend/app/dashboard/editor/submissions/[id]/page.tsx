@@ -87,7 +87,7 @@ export default function ReviewSubmissionPage() {
                         <div className="card" style={{ padding: '1.5rem' }}>
                             <h3 style={{ fontWeight: 600, marginBottom: '1rem' }}>{t('submissions.manuscript')}</h3>
                             {submission.manuscript_file ? (
-                                <a href={`http://localhost:8000${submission.manuscript_file}`} target="_blank" rel="noopener noreferrer"
+                                <a href={submission.manuscript_file} target="_blank" rel="noopener noreferrer"
                                     style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid #e5e5e5', borderRadius: '8px', textDecoration: 'none' }}>
                                     <div style={{ width: '48px', height: '48px', background: '#fee2e2', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📄</div>
                                     <div>

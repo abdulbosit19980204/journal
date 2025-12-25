@@ -121,14 +121,14 @@ export default function ArticleDetailPage() {
                                         marginBottom: '1rem'
                                     }}>
                                         <iframe
-                                            src={`http://localhost:8000${article.manuscript_file}`}
+                                            src={article.manuscript_file}
                                             style={{ width: '100%', height: '100%', border: 'none' }}
                                             title="Article PDF"
                                         />
                                     </div>
 
                                     <a
-                                        href={`http://localhost:8000${article.manuscript_file}`}
+                                        href={article.manuscript_file}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-primary"

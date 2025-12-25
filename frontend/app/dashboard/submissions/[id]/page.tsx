@@ -243,7 +243,7 @@ export default function MySubmissionDetailPage() {
 
                             {submission.manuscript_file ? (
                                 (() => {
-                                    const fileUrl = `http://localhost:8000${submission.manuscript_file}`
+                                    const fileUrl = submission.manuscript_file
                                     const isPdf = submission.manuscript_file.toLowerCase().endsWith('.pdf')
                                     const isWord = submission.manuscript_file.toLowerCase().endsWith('.doc') || submission.manuscript_file.toLowerCase().endsWith('.docx')
 
