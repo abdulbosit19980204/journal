@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
@@ -8,6 +9,7 @@ import { resolveMediaUrl } from "@/lib/utils"
 
 export default function PublishedArticlesPage() {
     const { t, tStatus, locale } = useI18n()
+    const searchParams = useSearchParams()
     const [articles, setArticles] = useState<any[]>([])
     const [journals, setJournals] = useState<any[]>([])
     const [years, setYears] = useState<number[]>([])
@@ -17,7 +19,8 @@ export default function PublishedArticlesPage() {
         search: "",
         journal: "",
         language: "",
-        year: ""
+        year: "",
+        author: searchParams.get("author") || ""
     })
 
     useEffect(() => {
@@ -37,6 +40,7 @@ export default function PublishedArticlesPage() {
             if (filters.journal) params.append("journal", filters.journal)
             if (filters.language) params.append("language", filters.language)
             if (filters.year) params.append("year", filters.year)
+            if (filters.author) params.append("author", filters.author)
 
             api.get(`/submissions/?${params.toString()}`)
                 .then(res => setArticles(res.data))
@@ -141,7 +145,7 @@ export default function PublishedArticlesPage() {
                             </div>
                             <div>
                                 <button
-                                    onClick={() => setFilters({ search: "", journal: "", language: "", year: "" })}
+                                    onClick={() => setFilters({ search: "", journal: "", language: "", year: "", author: "" })}
                                     style={{
                                         width: '100%',
                                         padding: '0.75rem',
@@ -224,7 +228,14 @@ export default function PublishedArticlesPage() {
                                             )}
 
                                             <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name || `#${article.author}`}</span>
+                                                {t('articles.by')}{' '}
+                                                {article.author_name ? (
+                                                    <Link href={`/profile/${article.author}`} style={{ color: '#1e3a5f', fontWeight: 600, textDecoration: 'none' }} className="hover-gold">
+                                                        {article.author_name}
+                                                    </Link>
+                                                ) : (
+                                                    <span style={{ color: '#1e3a5f', fontWeight: 500 }}>#{article.author}</span>
+                                                )}
                                                 {article.journal_name && (
                                                     <span style={{ marginLeft: '0.5rem' }}>
                                                         • {t('articles.published_in')}{' '}

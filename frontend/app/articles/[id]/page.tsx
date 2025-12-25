@@ -67,7 +67,7 @@ export default function ArticleDetailPage() {
                         {article.title}
                     </h1>
                     <div style={{ marginTop: '1.5rem', opacity: 0.9, fontSize: '0.9rem' }}>
-                        {t('articles.by')} <span style={{ fontWeight: 600 }}>{article.author_name || `#${article.author}`}</span>
+                        {t('articles.by')} <Link href={`/profile/${article.author}`} style={{ fontWeight: 600, color: 'inherit', textDecoration: 'none' }} className="hover-gold">{article.author_name || `#${article.author}`}</Link>
                         {article.journal_name && (
                             <span style={{ marginLeft: '0.5rem' }}>
                                 • {t('articles.published_in')}{' '}

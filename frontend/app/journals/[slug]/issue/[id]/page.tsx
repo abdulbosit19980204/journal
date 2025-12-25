@@ -202,7 +202,7 @@ export default function IssueDetailPage() {
                                         />
                                         <div style={{ fontSize: '0.875rem', color: '#6b7280', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             <div>
-                                                {t('articles.by')} <span style={{ color: '#1e3a5f', fontWeight: 500 }}>{article.author_name}</span>
+                                                {t('articles.by')} <Link href={`/profile/${article.author}`} style={{ color: '#1e3a5f', fontWeight: 600, textDecoration: 'none' }}>{article.author_name}</Link>
                                             </div>
                                             {article.page_range && (
                                                 <div style={{ fontStyle: 'italic' }}>
