@@ -1,11 +1,9 @@
+"use client"
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/navigation";
-
-export const metadata: Metadata = {
-    title: "American Journal Platform",
-    description: "Scientific Publishing Reimagined",
-};
+import { I18nProvider } from "@/lib/i18n";
 
 export default function RootLayout({
     children,
@@ -15,8 +13,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="antialiased">
-                <Navigation />
-                {children}
+                <I18nProvider>
+                    <Navigation />
+                    {children}
+                </I18nProvider>
             </body>
         </html>
     );

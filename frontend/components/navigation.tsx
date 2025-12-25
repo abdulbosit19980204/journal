@@ -3,11 +3,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
+import { useI18n, LanguageSelector } from "@/lib/i18n"
 
 export default function Navigation() {
   const pathname = usePathname()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { t, locale } = useI18n()
 
   useEffect(() => {
     setIsLoggedIn(!!localStorage.getItem('accessToken'))
@@ -34,13 +36,7 @@ export default function Navigation() {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span style={{ opacity: 0.9 }}>Scientific Publishing Platform for Central Asia</span>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <span style={{ cursor: 'pointer' }}>EN</span>
-            <span>|</span>
-            <span style={{ cursor: 'pointer' }}>UZ</span>
-            <span>|</span>
-            <span style={{ cursor: 'pointer' }}>RU</span>
-          </div>
+          <LanguageSelector />
         </div>
       </div>
 
@@ -87,10 +83,10 @@ export default function Navigation() {
           {/* Nav Links */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {[
-              { href: "/", label: "Home" },
-              { href: "/journals", label: "Journals" },
-              { href: "/articles", label: "Published" },
-              { href: "/pricing", label: "Pricing" },
+              { href: "/", label: t("nav.home") },
+              { href: "/journals", label: t("nav.journals") },
+              { href: "/articles", label: t("nav.articles") },
+              { href: "/pricing", label: t("nav.pricing") },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -114,17 +110,17 @@ export default function Navigation() {
             {isLoggedIn ? (
               <>
                 <Link href="/admin" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
-                  Admin
+                  {t("nav.admin")}
                 </Link>
-                <Link href="/dashboard" className="btn btn-primary">Dashboard</Link>
+                <Link href="/dashboard" className="btn btn-primary">{t("nav.dashboard")}</Link>
               </>
             ) : (
               <>
                 <Link href="/auth/login" style={{ fontSize: '0.9rem', fontWeight: 500, color: '#4a4a4a' }}>
-                  Sign In
+                  {t("nav.login")}
                 </Link>
                 <Link href="/auth/register" className="btn btn-primary">
-                  Get Started
+                  {t("nav.register")}
                 </Link>
               </>
             )}

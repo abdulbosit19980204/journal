@@ -7,6 +7,7 @@ import * as z from "zod"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 const schema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
@@ -19,6 +20,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function RegisterPage() {
+  const { t } = useI18n()
   const router = useRouter()
   const [error, setError] = useState("")
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -30,7 +32,7 @@ export default function RegisterPage() {
       await api.post("/auth/register/", data)
       router.push("/auth/login?registered=true")
     } catch (err: any) {
-      const msg = err.response?.data ? Object.values(err.response.data)[0] : "Registration failed"
+      const msg = err.response?.data ? Object.values(err.response.data)[0] : t('auth.register_error')
       setError(Array.isArray(msg) ? msg[0] : String(msg))
     }
   }
@@ -69,32 +71,11 @@ export default function RegisterPage() {
           <span style={{ color: '#c9a227', fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Playfair Display', serif" }}>AJ</span>
         </div>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
-          Join Our Community
+          {t('auth.register_title')}
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.6 }}>
-          Start your publishing journey with American Journal Platform.
+          {t('auth.register_subtitle')}
         </p>
-        <div style={{ marginTop: '3rem' }}>
-          {[
-            { icon: '📄', text: 'Submit unlimited articles' },
-            { icon: '🔬', text: 'Get peer-reviewed feedback' },
-            { icon: '🌍', text: 'Reach global audience' }
-          ].map((item, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.25rem'
-              }}>{item.icon}</div>
-              <span style={{ opacity: 0.9 }}>{item.text}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Right Panel */}
@@ -109,11 +90,11 @@ export default function RegisterPage() {
         <div style={{ width: '100%', maxWidth: '420px' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-              Create Account
+              {t('auth.register_button')}
             </h2>
             <p style={{ color: '#6b7280' }}>
-              Already have an account?{" "}
-              <Link href="/auth/login" style={{ color: '#1e3a5f', fontWeight: 500 }}>Sign in</Link>
+              {t('auth.have_account')}{" "}
+              <Link href="/auth/login" style={{ color: '#1e3a5f', fontWeight: 500 }}>{t('auth.sign_in')}</Link>
             </p>
           </div>
 
@@ -132,32 +113,27 @@ export default function RegisterPage() {
           )}
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>First Name</label>
-                <input {...register("first_name")} placeholder="John" style={inputStyle} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Last Name</label>
-                <input {...register("last_name")} placeholder="Doe" style={inputStyle} />
-              </div>
-            </div>
-
             <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Username *</label>
-              <input {...register("username")} placeholder="johndoe" autoComplete="username" style={inputStyle} />
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>
+                {t('auth.username')} *
+              </label>
+              <input {...register("username")} placeholder={t('auth.username')} autoComplete="username" style={inputStyle} />
               {errors.username && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.username.message}</p>}
             </div>
 
             <div style={{ marginBottom: '1rem' }}>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Email *</label>
-              <input {...register("email")} type="email" placeholder="john@example.com" autoComplete="email" style={inputStyle} />
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>
+                {t('auth.email')} *
+              </label>
+              <input {...register("email")} type="email" placeholder={t('auth.email')} autoComplete="email" style={inputStyle} />
               {errors.email && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.email.message}</p>}
             </div>
 
             <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Password *</label>
-              <input {...register("password")} type="password" placeholder="••••••••" autoComplete="new-password" style={inputStyle} />
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>
+                {t('auth.password')} *
+              </label>
+              <input {...register("password")} type="password" placeholder={t('auth.password')} autoComplete="new-password" style={inputStyle} />
               {errors.password && <p style={{ color: '#dc2626', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.password.message}</p>}
             </div>
 
@@ -173,12 +149,12 @@ export default function RegisterPage() {
                 opacity: isSubmitting ? 0.7 : 1
               }}
             >
-              {isSubmitting ? "Creating account..." : "Create Account"}
+              {isSubmitting ? t('common.loading') : t('auth.register_button')}
             </button>
           </form>
 
           <p style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.75rem', color: '#6b7280' }}>
-            By creating an account, you agree to our Terms and Privacy Policy
+            {t('footer.terms')} & {t('footer.privacy')}
           </p>
         </div>
       </div>

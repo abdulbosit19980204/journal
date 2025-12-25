@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 export default function Home() {
+  const { t, locale } = useI18n()
   const [stats, setStats] = useState({ articles: 0, journals: 0, reviewers: 0, countries: 0 })
   const [journals, setJournals] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -21,8 +23,8 @@ export default function Home() {
         setStats({
           articles: submissionsRes.data.length,
           journals: journalsRes.data.length,
-          reviewers: Math.max(10, journalsRes.data.length * 3), // Estimate
-          countries: Math.max(5, Math.floor(submissionsRes.data.length / 2)) // Estimate
+          reviewers: Math.max(10, journalsRes.data.length * 3),
+          countries: Math.max(5, Math.floor(submissionsRes.data.length / 2))
         })
       } catch (err) {
         console.error(err)
@@ -32,6 +34,12 @@ export default function Home() {
     }
     fetchData()
   }, [])
+
+  // Get localized content based on current locale
+  const getLocalizedField = (obj: any, field: string) => {
+    const localizedKey = `${field}_${locale}`
+    return obj[localizedKey] || obj[`${field}_en`] || ''
+  }
 
   return (
     <main>
@@ -62,15 +70,15 @@ export default function Home() {
           </div>
 
           <h1 style={{ fontSize: '3.5rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif", lineHeight: 1.2 }}>
-            American Journal Platform
+            {t('home.title')}
           </h1>
           <p style={{ fontSize: '1.25rem', opacity: 0.9, maxWidth: '600px', margin: '0 auto 2rem' }}>
-            Advancing knowledge through peer-reviewed academic publishing
+            {t('home.subtitle')}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link href="/dashboard/author/submit" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
-              Submit Article
+              {t('home.submit_article')}
             </Link>
             <Link href="/journals" style={{
               padding: '1rem 2rem',
@@ -79,7 +87,7 @@ export default function Home() {
               color: 'white',
               fontWeight: 500
             }}>
-              Browse Journals
+              {t('home.browse_journals')}
             </Link>
           </div>
         </div>
@@ -90,10 +98,10 @@ export default function Home() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
             {[
-              { value: stats.articles, suffix: '', label: 'Published Articles', icon: '📄' },
-              { value: stats.reviewers, suffix: '+', label: 'Expert Reviewers', icon: '👨‍🔬' },
-              { value: stats.journals, suffix: '', label: 'Active Journals', icon: '📚' },
-              { value: stats.countries, suffix: '+', label: 'Countries', icon: '🌍' },
+              { value: stats.articles, suffix: '', label: t('home.published_articles'), icon: '📄' },
+              { value: stats.reviewers, suffix: '+', label: t('home.expert_reviewers'), icon: '👨‍🔬' },
+              { value: stats.journals, suffix: '', label: t('home.active_journals'), icon: '📚' },
+              { value: stats.countries, suffix: '+', label: t('home.countries'), icon: '🌍' },
             ].map((stat, i) => (
               <div key={i} style={{ textAlign: 'center', padding: '1.5rem' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{stat.icon}</div>
@@ -112,9 +120,9 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-              Featured Journals
+              {t('home.featured_journals')}
             </h2>
-            <p style={{ color: '#6b7280' }}>Explore our most popular publications</p>
+            <p style={{ color: '#6b7280' }}>{t('home.explore_publications')}</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
@@ -122,7 +130,18 @@ export default function Home() {
               const colors = ['#dc2626', '#2563eb', '#059669']
               return (
                 <div key={journal.id} className="card" style={{ overflow: 'hidden' }}>
-                  <div style={{ height: '4px', background: colors[i % colors.length] }} />
+                  {/* Cover Image or Placeholder */}
+                  {journal.cover_image ? (
+                    <div style={{ height: '120px', overflow: 'hidden' }}>
+                      <img
+                        src={`http://localhost:8000${journal.cover_image}`}
+                        alt={getLocalizedField(journal, 'name')}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  ) : (
+                    <div style={{ height: '4px', background: colors[i % colors.length] }} />
+                  )}
                   <div style={{ padding: '1.5rem' }}>
                     <div style={{
                       width: '48px',
@@ -136,30 +155,30 @@ export default function Home() {
                       fontWeight: 700,
                       marginBottom: '1rem'
                     }}>
-                      {journal.name_en?.substring(0, 2).toUpperCase()}
+                      {getLocalizedField(journal, 'name')?.substring(0, 2).toUpperCase()}
                     </div>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>
-                      {journal.name_en}
+                      {getLocalizedField(journal, 'name')}
                     </h3>
                     <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem', lineHeight: 1.6 }}>
-                      {journal.description_en?.substring(0, 100) || 'Peer-reviewed academic journal...'}...
+                      {getLocalizedField(journal, 'description')?.substring(0, 100) || t('journals.no_journals')}...
                     </p>
                     <Link href={`/journals/${journal.slug}`} style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem' }}>
-                      Learn More →
+                      {t('home.learn_more')} →
                     </Link>
                   </div>
                 </div>
               )
             }) : (
               <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
-                {loading ? 'Loading journals...' : 'No journals available yet. Check back soon!'}
+                {loading ? t('home.loading_journals') : t('home.no_journals')}
               </div>
             )}
           </div>
 
           {journals.length > 0 && (
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-              <Link href="/journals" className="btn btn-primary">View All Journals</Link>
+              <Link href="/journals" className="btn btn-primary">{t('home.view_all_journals')}</Link>
             </div>
           )}
         </div>
@@ -170,17 +189,17 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-              How It Works
+              {t('home.how_it_works')}
             </h2>
-            <p style={{ color: '#6b7280' }}>Simple steps to publish your research</p>
+            <p style={{ color: '#6b7280' }}>{t('home.simple_steps')}</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
             {[
-              { step: '1', title: 'Submit', desc: 'Upload your manuscript', icon: '📤' },
-              { step: '2', title: 'Review', desc: 'Peer-review process', icon: '🔍' },
-              { step: '3', title: 'Revise', desc: 'Address feedback', icon: '✏️' },
-              { step: '4', title: 'Publish', desc: 'Get published', icon: '🎉' },
+              { step: '1', title: t('home.submit'), desc: t('home.upload_manuscript'), icon: '📤' },
+              { step: '2', title: t('home.review'), desc: t('home.peer_review_process'), icon: '🔍' },
+              { step: '3', title: t('home.revise'), desc: t('home.address_feedback'), icon: '✏️' },
+              { step: '4', title: t('home.publish'), desc: t('home.get_published'), icon: '🎉' },
             ].map((item, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
                 <div style={{
@@ -214,13 +233,13 @@ export default function Home() {
       }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
-            Ready to Publish?
+            {t('home.ready_to_publish')}
           </h2>
           <p style={{ opacity: 0.9, marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-            Join thousands of researchers who trust American Journal Platform
+            {t('home.join_researchers')}
           </p>
           <Link href="/auth/register" className="btn btn-primary" style={{ background: '#c9a227', color: '#1e3a5f' }}>
-            Create Free Account
+            {t('home.create_account')}
           </Link>
         </div>
       </section>
@@ -237,14 +256,14 @@ export default function Home() {
                 <span style={{ fontWeight: 600 }}>American Journal</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', lineHeight: 1.6 }}>
-                Advancing academic research through quality peer-reviewed publications.
+                {t('footer.description')}
               </p>
             </div>
 
             {[
-              { title: 'Platform', links: [{ label: 'Journals', href: '/journals' }, { label: 'Submit', href: '/dashboard/author/submit' }, { label: 'Pricing', href: '/pricing' }] },
-              { title: 'Company', links: [{ label: 'About', href: '#' }, { label: 'Contact', href: '#' }, { label: 'Careers', href: '#' }] },
-              { title: 'Legal', links: [{ label: 'Terms', href: '#' }, { label: 'Privacy', href: '#' }, { label: 'License', href: '#' }] },
+              { title: t('footer.platform'), links: [{ label: t('nav.journals'), href: '/journals' }, { label: t('home.submit_article'), href: '/dashboard/author/submit' }, { label: t('nav.pricing'), href: '/pricing' }] },
+              { title: t('footer.company'), links: [{ label: t('footer.about'), href: '#' }, { label: t('footer.contact'), href: '#' }, { label: t('footer.careers'), href: '#' }] },
+              { title: t('footer.legal'), links: [{ label: t('footer.terms'), href: '#' }, { label: t('footer.privacy'), href: '#' }, { label: t('footer.license'), href: '#' }] },
             ].map((col, i) => (
               <div key={i}>
                 <h4 style={{ fontWeight: 600, marginBottom: '1rem' }}>{col.title}</h4>
@@ -258,7 +277,7 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '2rem', paddingTop: '2rem', textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem' }}>
-            © {new Date().getFullYear()} American Journal Platform. All rights reserved.
+            © {new Date().getFullYear()} American Journal Platform. {t('footer.copyright')}
           </div>
         </div>
       </footer>

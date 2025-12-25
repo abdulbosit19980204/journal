@@ -7,6 +7,7 @@ import * as z from "zod"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import api from "@/lib/api"
+import { useI18n } from "@/lib/i18n"
 
 const schema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -16,6 +17,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>
 
 export default function LoginPage() {
+  const { t } = useI18n()
   const router = useRouter()
   const [error, setError] = useState("")
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
@@ -30,7 +32,7 @@ export default function LoginPage() {
       router.push("/dashboard")
     } catch (err: any) {
       console.error(err)
-      setError("Invalid username or password")
+      setError(t('auth.login_error'))
     }
   }
 
@@ -59,27 +61,11 @@ export default function LoginPage() {
           <span style={{ color: '#c9a227', fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Playfair Display', serif" }}>AJ</span>
         </div>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
-          Welcome Back
+          {t('auth.login_title')}
         </h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.8, lineHeight: 1.6 }}>
-          Continue your research journey with American Journal Platform.
+          {t('auth.login_subtitle')}
         </p>
-        <div style={{ marginTop: '3rem' }}>
-          {['Access your submissions', 'Track review progress', 'Manage publications'].map((item, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>✓</div>
-              <span style={{ opacity: 0.9 }}>{item}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Right Panel - Form */}
@@ -94,11 +80,11 @@ export default function LoginPage() {
         <div style={{ width: '100%', maxWidth: '400px' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem', fontFamily: "'Playfair Display', serif" }}>
-              Sign In
+              {t('auth.login_button')}
             </h2>
             <p style={{ color: '#6b7280' }}>
-              Don&apos;t have an account?{" "}
-              <Link href="/auth/register" style={{ color: '#1e3a5f', fontWeight: 500 }}>Create one</Link>
+              {t('auth.no_account')}{" "}
+              <Link href="/auth/register" style={{ color: '#1e3a5f', fontWeight: 500 }}>{t('auth.sign_up')}</Link>
             </p>
           </div>
 
@@ -119,14 +105,14 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#1a1a1a', marginBottom: '0.5rem' }}>
-                Username
+                {t('auth.username')}
               </label>
               <input
                 {...register("username")}
                 type="text"
                 autoComplete="username"
                 className="input"
-                placeholder="Enter your username"
+                placeholder={t('auth.username')}
                 style={{
                   width: '100%',
                   padding: '0.75rem 1rem',
@@ -140,14 +126,14 @@ export default function LoginPage() {
 
             <div style={{ marginBottom: '1.25rem' }}>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, color: '#1a1a1a', marginBottom: '0.5rem' }}>
-                Password
+                {t('auth.password')}
               </label>
               <input
                 {...register("password")}
                 type="password"
                 autoComplete="current-password"
                 className="input"
-                placeholder="Enter your password"
+                placeholder={t('auth.password')}
                 style={{
                   width: '100%',
                   padding: '0.75rem 1rem',
@@ -172,12 +158,12 @@ export default function LoginPage() {
                 opacity: isSubmitting ? 0.7 : 1
               }}
             >
-              {isSubmitting ? "Signing in..." : "Sign In"}
+              {isSubmitting ? `${t('common.loading')}` : t('auth.login_button')}
             </button>
           </form>
 
           <p style={{ marginTop: '2rem', textAlign: 'center', fontSize: '0.75rem', color: '#6b7280' }}>
-            By signing in, you agree to our Terms of Service and Privacy Policy
+            {t('footer.terms')} & {t('footer.privacy')}
           </p>
         </div>
       </div>
