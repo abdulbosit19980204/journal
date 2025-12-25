@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { stripHtml } from "@/lib/utils"
 
 export default function Home() {
   const { t, locale } = useI18n()
@@ -252,7 +253,7 @@ export default function Home() {
                       WebkitBoxOrient: 'vertical',
                       overflow: 'hidden'
                     }}>
-                      {journalDesc?.replace(/<[^>]+>/g, '') || t('journals.no_journals')}
+                      {stripHtml(journalDesc) || t('journals.no_journals')}
                     </p>
 
                     <Link href={`/journals/${journal.slug}`} style={{

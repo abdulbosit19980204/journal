@@ -5,7 +5,7 @@ import { useParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
-import { resolveMediaUrl } from "@/lib/utils"
+import { resolveMediaUrl, stripHtml } from "@/lib/utils"
 
 export default function PublicProfilePage() {
     const { t, locale } = useI18n()
@@ -45,13 +45,6 @@ export default function PublicProfilePage() {
         </div>
     )
 
-    // Helper to strip HTML and decode common entities for preview
-    const stripHtml = (html: string) => {
-        if (!html) return ""
-        const tmp = document.createElement("DIV")
-        tmp.innerHTML = html
-        return tmp.textContent || tmp.innerText || ""
-    }
 
     return (
         <main style={{ background: '#faf9f6', minHeight: '100vh', padding: '4rem 0' }}>

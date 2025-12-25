@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import { stripHtml } from "@/lib/utils"
 
 export default function JournalsPage() {
     const { t, locale } = useI18n()
@@ -213,8 +214,9 @@ export default function JournalsPage() {
                                                 WebkitBoxOrient: 'vertical',
                                                 overflow: 'hidden'
                                             }}
-                                            dangerouslySetInnerHTML={{ __html: (journalDesc?.replace(/<[^>]+>/g, '') || t('journals.no_journals')) }}
-                                        />
+                                        >
+                                            {stripHtml(journalDesc) || t('journals.no_journals')}
+                                        </div>
 
                                         <div style={{ display: 'flex', gap: '0.75rem' }}>
                                             <Link
