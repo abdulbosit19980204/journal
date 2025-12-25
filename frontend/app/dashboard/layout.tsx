@@ -35,38 +35,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
     return (
         <div style={{ display: 'flex', minHeight: '100vh', background: '#f3f4f6' }}>
-            {/* Sidebar (Desktop) */}
-            <aside style={{
-                width: '260px',
-                background: 'white',
-                borderRight: '1px solid #e5e5e5',
-                padding: '2rem 1rem',
-                display: 'none', // Hidden on mobile by default, handled by media query usually but here usage of inline styles
-            }} className="desktop-sidebar">
-                <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {menuItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '0.75rem',
-                                padding: '0.75rem 1rem',
-                                borderRadius: '8px',
-                                color: pathname === item.href ? '#1e3a5f' : '#4b5563',
-                                background: pathname === item.href ? '#f0f9ff' : 'transparent',
-                                fontWeight: pathname === item.href ? 600 : 500,
-                                textDecoration: 'none',
-                                transition: 'all 0.2s'
-                            }}
-                        >
-                            <span>{item.icon}</span>
-                            {item.label}
-                        </Link>
-                    ))}
-                </nav>
-            </aside>
+            {/* Sidebar Removed as per user request for cleaner UI */}
+
+            {/* Mobile Sidebar Toggle (Floating) - Also removed as we rely on Top Nav */}
 
             {/* Mobile Sidebar Toggle (Floating) */}
             <div className="mobile-only" style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 50 }}>
