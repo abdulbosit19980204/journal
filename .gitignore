@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+venv/
+env/
+.env
+backend/venv/
+backend/env/
+backend/.env
+frontend/node_modules/
+
+# Python (Backend)
+**/__pycache__/
+*.py[cod]
+*$py.class
+**/.pytest_cache/
+backend/db.sqlite3
+backend/staticfiles/
+backend/media/
+backend/logs/
+
+# Next.js (Frontend)
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+frontend/next-env.d.ts
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.pem
+/C:\Users\BlackTiger\.gemini\antigravity\brain\**

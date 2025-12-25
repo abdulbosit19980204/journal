@@ -81,7 +81,8 @@ export default function ArticleDetailPage() {
                                 {t('articles.abstract')}
                             </h2>
                             <div
-                                style={{ color: '#4a4a4a', lineHeight: 1.8, fontSize: '1.05rem', fontFamily: 'serif' }}
+                                className="rich-text"
+                                style={{ fontSize: '1.05rem', fontFamily: 'serif' }}
                                 dangerouslySetInnerHTML={{ __html: article.abstract }}
                             />
                         </div>

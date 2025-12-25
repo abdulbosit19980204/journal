@@ -124,9 +124,11 @@ export default function JournalsPage() {
                                         </span>
                                     </div>
 
-                                    <p style={{ color: '#4a4a4a', fontSize: '0.9rem', marginBottom: '1rem', lineHeight: 1.6, minHeight: '60px' }}>
-                                        {getLocalizedField(journal, 'description')?.substring(0, 120) || t('journals.no_journals')}...
-                                    </p>
+                                    <div 
+                                        className="rich-text"
+                                        style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '60px' }}
+                                        dangerouslySetInnerHTML={{ __html: (getLocalizedField(journal, 'description')?.replace(/<[^>]+>/g, '').substring(0, 120) || t('journals.no_journals')) + '...' }}
+                                    />
 
                                     {journal.is_paid && (
                                         <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '1rem' }}>

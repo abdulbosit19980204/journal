@@ -4,6 +4,11 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
+import dynamic from "next/dynamic"
+import "react-quill-new/dist/quill.snow.css"
+
+// @ts-ignore
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false })
 
 export default function AdminJournalsPage() {
     const router = useRouter()
@@ -124,9 +129,14 @@ export default function AdminJournalsPage() {
                                         <input value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })} required style={inputStyle} />
                                     </div>
                                 </div>
-                                <div style={{ marginBottom: '1rem' }}>
+                                <div style={{ marginBottom: '1.5rem' }}>
                                     <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Description (EN)</label>
-                                    <textarea value={formData.description_en} onChange={(e) => setFormData({ ...formData, description_en: e.target.value })} rows={3} style={{ ...inputStyle, resize: 'vertical' }} />
+                                    <ReactQuill
+                                        theme="snow"
+                                        value={formData.description_en}
+                                        onChange={(val) => setFormData({ ...formData, description_en: val })}
+                                        style={{ background: 'white', marginBottom: '1rem' }}
+                                    />
                                 </div>
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
                                     <div>
@@ -136,6 +146,26 @@ export default function AdminJournalsPage() {
                                     <div>
                                         <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Name (RU)</label>
                                         <input value={formData.name_ru} onChange={(e) => setFormData({ ...formData, name_ru: e.target.value })} style={inputStyle} />
+                                    </div>
+                                </div>
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                                    <div>
+                                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Description (UZ)</label>
+                                        <ReactQuill
+                                            theme="snow"
+                                            value={formData.description_uz}
+                                            onChange={(val) => setFormData({ ...formData, description_uz: val })}
+                                            style={{ background: 'white', marginBottom: '1rem' }}
+                                        />
+                                    </div>
+                                    <div>
+                                        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 500, marginBottom: '0.5rem' }}>Description (RU)</label>
+                                        <ReactQuill
+                                            theme="snow"
+                                            value={formData.description_ru}
+                                            onChange={(val) => setFormData({ ...formData, description_ru: val })}
+                                            style={{ background: 'white', marginBottom: '1rem' }}
+                                        />
                                     </div>
                                 </div>
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>

@@ -139,9 +139,11 @@ export default function JournalDetailPage() {
                             <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem', fontFamily: "'Playfair Display', serif" }}>
                                 {t('journals.about_journal')}
                             </h2>
-                            <p style={{ color: '#4a4a4a', lineHeight: 1.7 }}>
-                                {journalDescription || 'A peer-reviewed academic journal focusing on cutting-edge research and scholarly discourse.'}
-                            </p>
+                            <div
+                                className="rich-text"
+                                style={{ fontSize: '1.05rem' }}
+                                dangerouslySetInnerHTML={{ __html: journalDescription || 'A peer-reviewed academic journal focusing on cutting-edge research and scholarly discourse.' }}
+                            />
                         </div>
 
                         {/* Issues */}

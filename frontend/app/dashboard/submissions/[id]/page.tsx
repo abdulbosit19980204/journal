@@ -5,6 +5,11 @@ import { useParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
+import dynamic from "next/dynamic"
+import "react-quill-new/dist/quill.snow.css"
+
+// @ts-ignore
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false })
 
 export default function MySubmissionDetailPage() {
     const { t, tStatus, locale } = useI18n()
@@ -154,15 +159,15 @@ export default function MySubmissionDetailPage() {
                             <div style={{ marginBottom: '1.5rem' }}>
                                 <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>{t('submissions.abstract')}</h3>
                                 {editing ? (
-                                    <textarea
+                                    <ReactQuill
+                                        theme="snow"
                                         value={formData.abstract}
-                                        onChange={(e) => setFormData({ ...formData, abstract: e.target.value })}
-                                        rows={6}
-                                        style={{ ...inputStyle, resize: 'vertical' }}
+                                        onChange={(val) => setFormData({ ...formData, abstract: val })}
+                                        style={{ background: 'white', marginBottom: '1rem' }}
                                     />
                                 ) : (
                                     <div
-                                        style={{ color: '#4a4a4a', lineHeight: 1.7 }}
+                                        className="rich-text"
                                         dangerouslySetInnerHTML={{ __html: submission.abstract }}
                                     />
                                 )}

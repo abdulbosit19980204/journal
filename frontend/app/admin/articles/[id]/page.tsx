@@ -125,7 +125,7 @@ export default function AdminArticleDetailPage() {
                             <div style={{ marginBottom: '1.5rem' }}>
                                 <h3 style={{ fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>Abstract</h3>
                                 <div
-                                    style={{ color: '#4a4a4a', lineHeight: 1.7 }}
+                                    className="rich-text"
                                     dangerouslySetInnerHTML={{ __html: article.abstract || 'No abstract provided.' }}
                                 />
                             </div>

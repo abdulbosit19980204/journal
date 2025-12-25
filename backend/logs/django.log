@@ -1778,3 +1778,965 @@ INFO 2025-12-25 18:52:10,232 log "GET /api/submissions/?status=PUBLISHED HTTP/1.
 INFO 2025-12-25 18:52:10,232 log "GET /api/journals/ HTTP/1.1" 200 649
 INFO 2025-12-25 18:52:10,243 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
 INFO 2025-12-25 18:52:10,243 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:52:57,183 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:52:57,190 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:52:59,879 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:52:59,880 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 18:52:59,889 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 18:52:59,890 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+WARNING 2025-12-25 19:16:54,413 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 19:16:54,414 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+WARNING 2025-12-25 19:16:54,416 log Unauthorized: /api/submissions/
+WARNING 2025-12-25 19:16:54,416 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 401 172
+INFO 2025-12-25 19:16:54,690 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:16:55,945 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:16:55,950 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:16:58,753 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:16:58,755 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:16:58,761 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:16:58,765 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:17:17,569 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 19:17:18,233 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+INFO 2025-12-25 19:17:18,241 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+WARNING 2025-12-25 19:17:18,556 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 19:17:18,556 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 19:17:27,355 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 19:17:27,404 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:27,413 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:27,413 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:27,421 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:29,713 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:29,714 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:29,714 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:29,714 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:29,728 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:29,728 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:29,730 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:29,730 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:31,675 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:31,680 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:17:31,686 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:17:31,686 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:31,692 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:31,695 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:17:31,697 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:17:31,701 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:31,762 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:31,768 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:31,768 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:17:31,775 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:17:49,217 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:17:49,223 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:17:52,084 log "OPTIONS /api/submissions/?status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:52,084 log "OPTIONS /api/submissions/?status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:52,095 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:17:52,101 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:17:54,426 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:54,429 log "OPTIONS /api/submissions/1/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:17:54,438 log "GET /api/submissions/1/ HTTP/1.1" 200 533
+INFO 2025-12-25 19:17:54,445 log "GET /api/submissions/1/ HTTP/1.1" 200 533
+WARNING 2025-12-25 19:17:57,360 log Not Found: /media/submissions/manuscripts/Zakazlarni_yuklash_qanday_yuklanadi_yqMSzVh.docx
+WARNING 2025-12-25 19:17:57,360 log "GET /media/submissions/manuscripts/Zakazlarni_yuklash_qanday_yuklanadi_yqMSzVh.docx HTTP/1.1" 404 179
+WARNING 2025-12-25 19:17:57,461 log Not Found: /favicon.ico
+WARNING 2025-12-25 19:17:57,462 log "GET /favicon.ico HTTP/1.1" 404 179
+WARNING 2025-12-25 19:18:00,922 log Not Found: /media/submissions/manuscripts/Zakazlarni_yuklash_qanday_yuklanadi_yqMSzVh.docx
+WARNING 2025-12-25 19:18:00,923 log "GET /media/submissions/manuscripts/Zakazlarni_yuklash_qanday_yuklanadi_yqMSzVh.docx HTTP/1.1" 404 179
+INFO 2025-12-25 19:18:06,813 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:18:06,820 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:18:18,682 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:18,687 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:18:18,691 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:18,694 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 535
+INFO 2025-12-25 19:18:22,506 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:22,506 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:18:22,508 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:18:22,511 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:22,521 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:22,524 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:18:22,527 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:22,532 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:18:22,608 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:22,616 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:18:22,618 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:22,624 log "GET /api/submissions/ HTTP/1.1" 200 1188
+INFO 2025-12-25 19:18:27,453 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:27,458 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:18:41,444 log "POST /api/submissions/ HTTP/1.1" 201 481
+INFO 2025-12-25 19:18:41,495 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:41,498 log "GET /api/submissions/ HTTP/1.1" 200 1670
+INFO 2025-12-25 19:18:41,498 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:18:41,508 log "GET /api/submissions/ HTTP/1.1" 200 1670
+INFO 2025-12-25 19:18:52,100 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2025-12-25 19:18:52,177 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:18:52,183 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:18:52,190 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:18:52,198 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:19:01,695 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+INFO 2025-12-25 19:19:01,701 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+WARNING 2025-12-25 19:19:02,013 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 19:19:02,013 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 19:19:06,458 log "OPTIONS /api/submissions/3/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:19:06,458 log "OPTIONS /api/submissions/3/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:19:06,471 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+INFO 2025-12-25 19:19:06,471 log "GET /api/submissions/3/ HTTP/1.1" 200 652
+WARNING 2025-12-25 19:19:06,480 log Not Found: /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf
+WARNING 2025-12-25 19:19:06,480 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5.pdf HTTP/1.1" 404 179
+INFO 2025-12-25 19:19:07,725 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:19:07,729 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:19:07,730 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:07,738 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:19:07,741 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:19:07,749 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:07,750 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:19:07,759 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:19:09,716 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:09,725 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:19:09,726 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:09,732 log "GET /api/submissions/ HTTP/1.1" 200 2251
+INFO 2025-12-25 19:19:15,209 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:16,546 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:17,850 log "PATCH /api/submissions/3/ HTTP/1.1" 200 651
+INFO 2025-12-25 19:19:18,663 log "PATCH /api/submissions/3/ HTTP/1.1" 200 652
+INFO 2025-12-25 19:19:20,190 log "OPTIONS /api/submissions/4/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:19:20,207 log "PATCH /api/submissions/4/ HTTP/1.1" 200 480
+INFO 2025-12-25 19:19:22,405 log "GET /api/submissions/4/ HTTP/1.1" 200 480
+INFO 2025-12-25 19:19:22,412 log "GET /api/submissions/4/ HTTP/1.1" 200 480
+INFO 2025-12-25 19:19:22,427 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:22,434 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:27,248 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:19:27,251 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:27,259 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:27,259 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:19:30,845 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:30,847 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:19:33,248 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:34,549 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:34,549 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:19:35,969 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:35,973 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:19:37,726 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:37,733 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:37,742 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:37,746 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:40,317 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:43,161 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:19:47,894 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:19:47,902 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:19:58,692 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:58,704 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:19:58,704 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:19:58,714 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:20:01,671 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:20:01,677 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:20:01,688 log "GET /api/issues/?journal=2 HTTP/1.1" 200 2
+INFO 2025-12-25 19:20:01,694 log "GET /api/issues/?journal=2 HTTP/1.1" 200 2
+INFO 2025-12-25 19:20:03,804 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:20:03,811 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:20:04,998 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:20:05,009 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:05,009 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:20:05,013 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:20:05,015 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:20:05,023 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:05,027 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:20:05,033 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:20:10,191 log "OPTIONS /api/issues/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:20:10,192 log "OPTIONS /api/issues/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:20:10,195 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:10,202 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:10,208 log "GET /api/issues/ HTTP/1.1" 200 465
+INFO 2025-12-25 19:20:10,215 log "GET /api/issues/ HTTP/1.1" 200 465
+INFO 2025-12-25 19:20:33,195 log "POST /api/issues/ HTTP/1.1" 201 190
+INFO 2025-12-25 19:20:33,205 log "GET /api/issues/ HTTP/1.1" 200 656
+INFO 2025-12-25 19:20:33,207 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:54,949 log "POST /api/issues/ HTTP/1.1" 201 205
+INFO 2025-12-25 19:20:54,957 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:20:54,959 log "GET /api/issues/ HTTP/1.1" 200 862
+INFO 2025-12-25 19:20:59,579 log "GET /admin/journals/issue/ HTTP/1.1" 200 18934
+WARNING 2025-12-25 19:20:59,630 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 19:20:59,631 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 19:20:59,633 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 19:20:59,642 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 19:20:59,642 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 19:20:59,748 log Not Found: /favicon.ico
+WARNING 2025-12-25 19:20:59,748 log "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-12-25 19:21:07,134 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:07,137 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:07,138 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:07,146 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:07,776 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:07,787 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:07,788 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:07,795 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:10,276 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:10,285 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:11,340 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:21:11,340 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:11,340 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:11,348 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:21:11,351 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:11,351 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:11,354 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:11,362 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:11,431 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:11,437 log "GET /api/auth/me/ HTTP/1.1" 200 175
+INFO 2025-12-25 19:21:11,437 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:11,446 log "GET /api/submissions/ HTTP/1.1" 200 1669
+INFO 2025-12-25 19:21:16,057 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:16,057 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:16,062 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:16,069 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:24,060 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:24,066 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:25,978 log "OPTIONS /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:25,979 log "OPTIONS /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:25,987 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:21:25,990 log "OPTIONS /api/issues/?journal=2 HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:25,997 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:21:26,000 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 19:21:26,006 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 19:21:27,716 log "OPTIONS /api/issues/4/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:27,717 log "OPTIONS /api/issues/4/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:27,725 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 19:21:27,731 log "OPTIONS /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:27,732 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 19:21:27,738 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 19:21:27,742 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 19:21:29,908 log "GET /api/issues/4/ HTTP/1.1" 200 205
+INFO 2025-12-25 19:21:29,932 log "GET /api/submissions/?issue=4&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 19:21:31,841 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:31,842 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:31,849 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:31,851 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:21:36,584 log "OPTIONS /api/journals/yoshlar_plyus/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:36,585 log "OPTIONS /api/journals/yoshlar_plyus/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:36,594 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 19:21:36,597 log "OPTIONS /api/issues/?journal=1 HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:36,602 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 19:21:36,605 log "GET /api/issues/?journal=1 HTTP/1.1" 200 656
+INFO 2025-12-25 19:21:36,611 log "GET /api/issues/?journal=1 HTTP/1.1" 200 656
+INFO 2025-12-25 19:21:44,052 log "OPTIONS /api/issues/3/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:44,052 log "OPTIONS /api/issues/3/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:44,061 log "GET /api/issues/3/ HTTP/1.1" 200 190
+INFO 2025-12-25 19:21:44,064 log "OPTIONS /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 0
+INFO 2025-12-25 19:21:44,068 log "GET /api/issues/3/ HTTP/1.1" 200 190
+INFO 2025-12-25 19:21:44,071 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 19:21:44,075 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 2
+INFO 2025-12-25 19:21:49,357 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 19:21:49,364 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 200 296
+INFO 2025-12-25 19:21:49,367 log "GET /api/issues/?journal=1 HTTP/1.1" 200 656
+INFO 2025-12-25 19:21:49,374 log "GET /api/issues/?journal=1 HTTP/1.1" 200 656
+INFO 2025-12-25 19:21:52,140 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:21:52,144 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:46:46,741 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:46:46,748 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:46:47,821 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:46:47,828 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:46:50,922 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:46:50,931 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:46:50,932 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:46:50,938 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:04,944 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:04,949 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:08,178 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:47:08,186 log "GET /api/journals/tabia_kuzgusi/ HTTP/1.1" 200 350
+INFO 2025-12-25 19:47:08,187 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 19:47:08,194 log "GET /api/issues/?journal=2 HTTP/1.1" 200 207
+INFO 2025-12-25 19:47:11,520 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:11,520 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:11,530 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:11,530 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:12,516 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:12,522 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:47:13,435 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:13,441 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:19,478 log "GET /api/submissions/1/ HTTP/1.1" 200 533
+INFO 2025-12-25 19:47:19,483 log "GET /api/submissions/1/ HTTP/1.1" 200 533
+INFO 2025-12-25 19:47:22,525 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:47:22,534 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:48:32,299 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,299 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,299 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,300 log "OPTIONS /api/plans/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,301 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,306 log "OPTIONS /api/plans/ HTTP/1.1" 200 0
+INFO 2025-12-25 19:48:32,314 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:48:32,315 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:48:32,318 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:32,322 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:48:32,326 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:48:32,329 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:48:32,332 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:32,340 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:48:38,066 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:38,072 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:39,923 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:48:39,933 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:39,937 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:48:39,938 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:48:39,947 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:48:39,947 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:48:39,953 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:48:39,962 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:25,956 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:25,965 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:25,965 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:25,974 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:27,365 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:27,372 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:27,376 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:27,380 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:27,386 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:27,386 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:27,391 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:27,399 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:28,403 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:28,410 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:28,414 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:28,425 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:32,232 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:32,237 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:34,054 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:34,061 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:34,067 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:34,067 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:49:34,076 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:34,076 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:34,088 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:34,093 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:45,975 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:45,980 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:45,985 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:49:45,990 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:49:53,148 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:49:55,766 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:55,771 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:49:57,753 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:49:57,762 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:00,833 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:00,839 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:01,545 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:01,548 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:01,553 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:01,559 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:03,357 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:03,363 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:03,364 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:03,370 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:03,377 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:03,377 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:03,380 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:03,396 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:10,197 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:10,203 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:10,213 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:10,220 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:12,597 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:15,876 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:15,884 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:17,833 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:17,839 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:20,571 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:20,581 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:20,582 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:20,593 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:50:22,974 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:22,988 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:22,988 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:22,993 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:23,002 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:23,008 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:23,008 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:23,018 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:30,322 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:30,330 log "GET /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:30,336 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:30,342 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:33,613 log "PATCH /api/submissions/2/ HTTP/1.1" 200 580
+INFO 2025-12-25 19:50:38,021 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:38,031 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:38,031 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:38,034 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:38,039 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:38,042 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:38,052 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:38,058 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:41,823 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:41,830 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:50:41,830 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:50:41,836 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:46,756 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:50:46,756 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:46,768 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:50:46,771 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:51:02,197 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:51:02,200 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:02,206 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:51:02,211 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:51:02,212 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:51:02,216 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:02,218 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:51:02,229 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:51:03,042 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:03,052 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:03,052 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:51:03,061 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:51:03,646 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:03,653 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:05,416 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:51:05,424 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:05,424 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:51:05,434 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 19:51:05,437 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:05,437 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:51:05,449 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:51:05,458 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 19:51:11,144 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:11,152 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:51:11,155 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:11,162 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:51:14,772 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:14,776 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:18,879 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:18,887 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:28,318 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:28,325 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:51:28,325 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:51:28,335 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:53:54,231 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:53:54,235 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:53:56,902 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:53:56,911 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:53:57,980 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:53:57,986 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 19:54:01,087 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:54:01,090 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 19:54:01,095 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 19:54:01,099 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 20:17:07,114 log "GET /admin/journals/issue/ HTTP/1.1" 200 18934
+WARNING 2025-12-25 20:17:07,147 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:07,147 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,161 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:07,163 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:07,165 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,166 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:07,168 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:07,170 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:07,170 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,171 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,172 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,173 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,175 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 20:17:07,177 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:07,179 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 20:17:07,183 log Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-12-25 20:17:07,185 log Not Found: /static/admin/js/core.js
+WARNING 2025-12-25 20:17:07,186 log Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-12-25 20:17:07,186 log Not Found: /static/admin/js/actions.js
+WARNING 2025-12-25 20:17:07,187 log Not Found: /static/admin/js/urlify.js
+WARNING 2025-12-25 20:17:07,189 log Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-12-25 20:17:07,190 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,190 log "GET /static/admin/js/core.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,191 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,191 log "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,191 log "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,192 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,196 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 20:17:07,196 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,215 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:07,216 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:07,216 log Not Found: /static/admin/js/filters.js
+WARNING 2025-12-25 20:17:07,218 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:07,219 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,219 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,220 log "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,220 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:07,226 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:07,227 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:08,290 log "GET /admin/journals/issue/ HTTP/1.1" 200 18934
+WARNING 2025-12-25 20:17:08,312 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:08,312 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,314 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:08,315 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:08,316 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:08,317 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:08,317 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 20:17:08,320 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,320 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,321 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,321 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,322 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:08,325 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 20:17:08,336 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:08,342 log Not Found: /static/admin/js/urlify.js
+WARNING 2025-12-25 20:17:08,338 log Not Found: /static/admin/js/core.js
+WARNING 2025-12-25 20:17:08,339 log Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-12-25 20:17:08,341 log Not Found: /static/admin/js/actions.js
+WARNING 2025-12-25 20:17:08,337 log Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-12-25 20:17:08,343 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,344 log "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,344 log "GET /static/admin/js/core.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,344 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,345 log "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,345 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,361 log Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-12-25 20:17:08,362 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 20:17:08,363 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,363 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,378 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:08,379 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,380 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:08,381 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,387 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:08,388 log Not Found: /static/admin/js/filters.js
+WARNING 2025-12-25 20:17:08,389 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:08,390 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,390 log "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:08,391 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:09,054 log "GET /admin/journals/issue/ HTTP/1.1" 200 18934
+WARNING 2025-12-25 20:17:09,077 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:09,078 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,088 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:09,089 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:09,091 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:09,093 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:09,094 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 20:17:09,095 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,095 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,096 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,098 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,098 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,099 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:09,100 log Not Found: /static/admin/js/jquery.init.js
+INFO 2025-12-25 20:17:09,103 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 20:17:09,103 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,104 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,111 log Not Found: /static/admin/js/core.js
+WARNING 2025-12-25 20:17:09,112 log "GET /static/admin/js/core.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,113 log Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-12-25 20:17:09,114 log Not Found: /static/admin/js/actions.js
+WARNING 2025-12-25 20:17:09,115 log Not Found: /static/admin/js/urlify.js
+WARNING 2025-12-25 20:17:09,115 log Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-12-25 20:17:09,116 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 20:17:09,118 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:09,119 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,119 log "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,120 log "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,120 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,121 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,122 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,129 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:09,130 log Not Found: /static/admin/js/filters.js
+WARNING 2025-12-25 20:17:09,131 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:09,132 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,132 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:09,133 log "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:26,195 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 20:17:43,802 log "GET /admin/journals/issue/ HTTP/1.1" 200 18934
+WARNING 2025-12-25 20:17:43,825 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:43,826 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:43,828 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:43,829 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,829 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,830 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:17:43,831 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,833 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 20:17:43,834 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:43,835 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:43,836 log Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-12-25 20:17:43,838 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,838 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,839 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,841 log Not Found: /static/admin/js/core.js
+WARNING 2025-12-25 20:17:43,841 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,842 log Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-12-25 20:17:43,843 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,845 log Not Found: /static/admin/js/actions.js
+WARNING 2025-12-25 20:17:43,847 log Not Found: /static/admin/js/urlify.js
+WARNING 2025-12-25 20:17:43,848 log "GET /static/admin/js/core.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,851 log Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-12-25 20:17:43,851 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,851 log "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,852 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 20:17:43,852 log "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,855 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,857 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:43,858 log Not Found: /static/admin/css/changelists.css
+INFO 2025-12-25 20:17:43,858 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 20:17:43,859 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,859 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,860 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,866 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:43,868 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:43,869 log Not Found: /static/admin/js/filters.js
+WARNING 2025-12-25 20:17:43,869 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,869 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:43,870 log "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:47,102 log Not Found: /admin/journals/i
+WARNING 2025-12-25 20:17:47,103 log "GET /admin/journals/i HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:51,341 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:17:51,371 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:51,372 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,384 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:51,385 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:51,386 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:51,387 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:17:51,387 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,388 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,388 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,388 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,391 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:51,391 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,416 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:51,418 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:51,418 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,420 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:17:51,420 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:51,421 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:52,668 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:17:52,689 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:52,690 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,699 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:52,700 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:52,701 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:52,702 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:17:52,703 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,703 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,703 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,704 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,715 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:52,715 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,746 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:52,747 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:52,748 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:17:52,749 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:52,749 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,750 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,750 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:52,751 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:17:53,166 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:17:53,186 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:17:53,186 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,192 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:17:53,192 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:17:53,193 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:53,195 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:17:53,195 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,197 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:17:53,197 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,197 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,198 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,199 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,220 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:17:53,221 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:17:53,232 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:17:53,232 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:18:13,193 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 20:18:19,063 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:18:19,090 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:18:19,091 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,095 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:18:19,097 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:18:19,098 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:18:19,099 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,099 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,100 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,108 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:18:19,111 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:18:19,111 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,112 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,129 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:18:19,130 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,131 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:18:19,132 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:18:19,759 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:18:19,788 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:18:19,788 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,798 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:18:19,799 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:18:19,800 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:18:19,801 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:18:19,803 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:18:19,804 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,804 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,805 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,805 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,805 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,824 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:18:19,825 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:18:19,954 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:18:19,983 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:18:19,983 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,993 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:18:19,994 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:18:19,995 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:18:19,996 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:18:19,997 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:18:19,999 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:19,999 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,000 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,000 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,000 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,019 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:18:20,020 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:18:20,021 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:18:20,022 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:18:20,022 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,023 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,023 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:18:20,023 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:18:47,362 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:18:47,367 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 20:18:48,099 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 20:18:48,109 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1188
+INFO 2025-12-25 20:18:49,087 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 20:18:49,097 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:18:49,099 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 20:18:49,106 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 20:18:49,109 log "GET /api/auth/me/ HTTP/1.1" 200 124
+INFO 2025-12-25 20:18:49,115 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:18:49,125 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 20:18:49,128 log "GET /api/submissions/ HTTP/1.1" 200 2250
+INFO 2025-12-25 20:18:53,071 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:18:53,077 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:19:34,448 log "OPTIONS /api/journals/1/ HTTP/1.1" 200 0
+WARNING 2025-12-25 20:19:34,456 log Not Found: /api/journals/1/
+WARNING 2025-12-25 20:19:34,456 log "PATCH /api/journals/1/ HTTP/1.1" 404 48
+WARNING 2025-12-25 20:19:37,177 log Not Found: /api/journals/1/
+WARNING 2025-12-25 20:19:37,178 log "PATCH /api/journals/1/ HTTP/1.1" 404 48
+INFO 2025-12-25 20:19:41,506 log "GET /api/journals/ HTTP/1.1" 200 649
+INFO 2025-12-25 20:19:49,256 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:19:49,303 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:49,304 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,316 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:49,318 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:49,319 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:49,321 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:49,321 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,323 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:49,324 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,324 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,324 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,325 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:49,337 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:49,337 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:49,996 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:19:50,042 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:50,042 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,045 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:50,046 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:50,047 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:50,048 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:50,049 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:50,050 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,050 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,051 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,051 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,051 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,066 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:50,067 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:50,288 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:19:50,309 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:50,310 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,317 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:50,318 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:50,320 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:50,321 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:50,321 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,322 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,322 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,322 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,331 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:50,332 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,359 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:50,359 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:50,605 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:19:50,631 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:50,631 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,637 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:50,637 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:50,638 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:50,639 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:50,640 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,641 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,641 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,642 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,653 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:50,654 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,725 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:50,726 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:50,727 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:50,728 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:50,729 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,729 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,730 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:50,730 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:51,523 log "GET /admin/journals/journal/ HTTP/1.1" 200 17402
+WARNING 2025-12-25 20:19:51,583 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:51,584 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,591 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:51,593 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,608 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:51,609 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,613 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:19:51,614 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,616 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:51,617 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,620 log Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-12-25 20:19:51,621 log "GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,625 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:51,626 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:51,635 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-25 20:19:51,637 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:51,638 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,640 log Not Found: /static/admin/css/changelists.css
+WARNING 2025-12-25 20:19:51,641 log "GET /static/admin/css/changelists.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,642 log Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-12-25 20:19:51,643 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,645 log Not Found: /static/admin/js/core.js
+WARNING 2025-12-25 20:19:51,646 log "GET /static/admin/js/core.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,648 log Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-12-25 20:19:51,648 log "GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,650 log Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-12-25 20:19:51,651 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,655 log Not Found: /static/admin/js/actions.js
+WARNING 2025-12-25 20:19:51,656 log "GET /static/admin/js/actions.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,657 log Not Found: /static/admin/js/urlify.js
+WARNING 2025-12-25 20:19:51,658 log "GET /static/admin/js/urlify.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,660 log Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-12-25 20:19:51,661 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,663 log Not Found: /static/admin/img/search.svg
+WARNING 2025-12-25 20:19:51,663 log "GET /static/admin/img/search.svg HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,665 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:51,666 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,668 log Not Found: /static/admin/img/icon-no.svg
+WARNING 2025-12-25 20:19:51,669 log "GET /static/admin/img/icon-no.svg HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,671 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:51,671 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,673 log Not Found: /static/admin/js/filters.js
+WARNING 2025-12-25 20:19:51,674 log "GET /static/admin/js/filters.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:51,771 log Not Found: /favicon.ico
+WARNING 2025-12-25 20:19:51,771 log "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-12-25 20:19:52,410 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 20:19:52,438 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 20:19:52,439 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,456 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 20:19:52,457 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 20:19:52,458 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 20:19:52,460 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 20:19:52,461 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 20:19:52,462 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,462 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,462 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,463 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,463 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 20:19:52,480 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 20:19:52,481 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 21:06:15,265 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:06:15,304 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:06:15,305 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,309 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:06:15,311 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:15,312 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:15,314 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:15,314 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,315 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,317 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:06:15,317 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,318 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,318 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,379 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:06:15,380 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:15,380 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:15,382 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:15,383 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,383 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,383 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:15,384 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+INFO 2025-12-25 21:06:17,100 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:06:17,116 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:06:17,117 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:06:17,119 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:06:17,120 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:17,121 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:17,123 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:17,124 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,124 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,125 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,125 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,126 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,126 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,154 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:06:17,154 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,164 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:17,165 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:17,167 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:17,168 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,168 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:17,169 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+INFO 2025-12-25 21:06:39,648 autoreload Watching for file changes with StatReloader
+INFO 2025-12-25 21:06:41,823 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:06:41,850 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:06:41,850 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,865 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:06:41,866 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:41,867 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:06:41,869 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:41,870 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,871 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:41,872 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,872 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,873 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,873 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,892 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:41,893 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:06:41,894 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:41,894 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 21:06:42,398 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:06:42,429 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:06:42,429 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,441 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:06:42,442 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,446 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:06:42,448 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:42,449 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:42,450 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:42,450 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,450 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,451 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,451 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,468 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:42,469 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:06:42,470 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,470 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+INFO 2025-12-25 21:06:42,697 log "GET /admin/ HTTP/1.1" 200 17227
+WARNING 2025-12-25 21:06:42,729 log Not Found: /static/admin/css/base.css
+WARNING 2025-12-25 21:06:42,730 log "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,741 log Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-12-25 21:06:42,742 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:42,743 log Not Found: /static/admin/js/theme.js
+WARNING 2025-12-25 21:06:42,744 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:42,746 log Not Found: /static/admin/css/responsive.css
+WARNING 2025-12-25 21:06:42,747 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,747 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,748 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,748 log "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,749 log "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,768 log Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-12-25 21:06:42,769 log Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-12-25 21:06:42,770 log Not Found: /static/admin/css/dashboard.css
+WARNING 2025-12-25 21:06:42,771 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,771 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:42,771 log "GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:44,886 log Not Found: /
+WARNING 2025-12-25 21:06:44,887 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:46,704 log Not Found: /
+WARNING 2025-12-25 21:06:46,705 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:47,696 log Not Found: /
+WARNING 2025-12-25 21:06:47,697 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:06:48,842 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:06:48,842 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+WARNING 2025-12-25 21:07:50,617 log Not Found: /
+WARNING 2025-12-25 21:07:50,617 log "GET / HTTP/1.1" 404 179
+WARNING 2025-12-25 21:07:50,643 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-25 21:07:50,643 log "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
