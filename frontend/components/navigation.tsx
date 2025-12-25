@@ -64,7 +64,7 @@ export default function Navigation() {
               fontWeight: 700,
               fontSize: '1.25rem'
             }}>
-              AJ
+              CAJ
             </div>
             <div>
               <div style={{

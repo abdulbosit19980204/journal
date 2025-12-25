@@ -251,7 +251,7 @@ export default function Home() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
                 <div style={{ width: '40px', height: '40px', background: '#1e3a5f', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ color: '#c9a227', fontWeight: 700 }}>AJ</span>
+                  <span style={{ color: '#c9a227', fontWeight: 700 }}>CAJ</span>
                 </div>
                 <span style={{ fontWeight: 600 }}>Central Asian Journal</span>
               </div>
