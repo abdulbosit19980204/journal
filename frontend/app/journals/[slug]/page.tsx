@@ -170,58 +170,116 @@ export default function JournalDetailPage() {
                             {filteredIssues.length > 0 ? (
                                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
                                     {filteredIssues.map((issue) => (
-                                        <div key={issue.id} className="card" style={{
-                                            overflow: 'hidden',
-                                            display: 'flex',
+                                        <div key={issue.id} className="card" style={{ 
+                                            position: 'relative',
+                                            height: '400px',
+                                            overflow: 'hidden', 
+                                            display: 'flex', 
                                             flexDirection: 'column',
-                                            transition: 'all 0.3s ease',
+                                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                             border: 'none',
-                                            boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-                                            borderRadius: '12px'
+                                            boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+                                            borderRadius: '16px',
+                                            background: '#1e3a5f'
                                         }}>
-                                            <div style={{ height: '200px', background: '#f3f4f6', position: 'relative' }}>
+                                            {/* Full Cover Image with Top Alignment */}
+                                            <div style={{ 
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                zIndex: 0
+                                            }}>
                                                 {issue.cover_image ? (
-                                                    <img
-                                                        src={issue.cover_image}
+                                                    <img 
+                                                        src={issue.cover_image} 
                                                         alt={`Vol ${issue.volume}, No ${issue.number}`}
-                                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                        style={{ 
+                                                            width: '100%', 
+                                                            height: '100%', 
+                                                            objectFit: 'cover',
+                                                            objectPosition: 'top'
+                                                        }}
                                                     />
                                                 ) : (
-                                                    <div style={{
-                                                        width: '100%',
-                                                        height: '100%',
+                                                    <div style={{ 
+                                                        width: '100%', 
+                                                        height: '100%', 
                                                         background: 'linear-gradient(135deg, #2d5a8c 0%, #1e3a5f 100%)',
                                                         display: 'flex',
                                                         alignItems: 'center',
                                                         justifyContent: 'center',
-                                                        color: 'white',
-                                                        fontSize: '1.5rem',
-                                                        fontWeight: 700
+                                                        color: 'rgba(255,255,255,0.2)',
+                                                        fontSize: '4rem',
+                                                        fontWeight: 900,
+                                                        textAlign: 'center'
                                                     }}>
-                                                        VOL {issue.volume}<br />NO {issue.number}
+                                                        VOL {issue.volume}<br/>NO {issue.number}
                                                     </div>
                                                 )}
                                             </div>
-                                            <div style={{ padding: '1.25rem' }}>
-                                                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.5rem' }}>
-                                                    {t('journals.volume')} {issue.volume}, {t('journals.issue')} {issue.number}
-                                                </h3>
-                                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                                    <span style={{ color: '#6b7280', fontSize: '0.875rem', fontWeight: 500 }}>
+
+                                            {/* Dark Gradient Overlay */}
+                                            <div style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                background: 'linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.85) 100%)',
+                                                zIndex: 1
+                                            }} />
+
+                                            {/* Content Overlay */}
+                                            <div style={{ 
+                                                position: 'relative',
+                                                zIndex: 2,
+                                                height: '100%',
+                                                padding: '1.5rem',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: 'flex-end',
+                                                color: 'white'
+                                            }}>
+                                                <div style={{ marginBottom: '0.5rem' }}>
+                                                    <span style={{ 
+                                                        background: 'rgba(255,255,255,0.2)', 
+                                                        padding: '0.25rem 0.6rem', 
+                                                        borderRadius: '6px', 
+                                                        fontSize: '0.75rem', 
+                                                        fontWeight: 700,
+                                                        backdropFilter: 'blur(5px)',
+                                                        border: '1px solid rgba(255,255,255,0.2)'
+                                                    }}>
                                                         📅 {issue.year}
                                                     </span>
-                                                    <Link href={`/journals/${slug}/issue/${issue.id}`} style={{
-                                                        padding: '0.5rem 1rem',
-                                                        background: '#1e3a5f',
-                                                        color: 'white',
-                                                        borderRadius: '6px',
-                                                        fontSize: '0.875rem',
-                                                        fontWeight: 600,
-                                                        textDecoration: 'none'
-                                                    }}>
-                                                        {t('journals.view_issue')}
-                                                    </Link>
                                                 </div>
+                                                <h3 style={{ 
+                                                    fontSize: '1.25rem', 
+                                                    fontWeight: 700, 
+                                                    color: 'white', 
+                                                    marginBottom: '1rem',
+                                                    fontFamily: "'Playfair Display', serif",
+                                                    textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                                                }}>
+                                                    {t('journals.volume')} {issue.volume}, {t('journals.issue')} {issue.number}
+                                                </h3>
+                                                
+                                                <Link href={`/journals/${slug}/issue/${issue.id}`} style={{
+                                                    padding: '0.75rem',
+                                                    background: '#c9a227',
+                                                    color: 'white',
+                                                    borderRadius: '8px',
+                                                    fontSize: '0.875rem',
+                                                    fontWeight: 700,
+                                                    textDecoration: 'none',
+                                                    textAlign: 'center',
+                                                    transition: 'all 0.2s ease',
+                                                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                                                }}>
+                                                    {t('journals.view_issue')}
+                                                </Link>
                                             </div>
                                         </div>
                                     ))}

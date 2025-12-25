@@ -129,13 +129,13 @@ export default function Home() {
             {journals.length > 0 ? journals.map((journal, i) => {
               const journalName = getLocalizedField(journal, 'name')
               const journalDesc = getLocalizedField(journal, 'description')
-              
+
               return (
-                <div key={journal.id} className="card" style={{ 
+                <div key={journal.id} className="card" style={{
                   position: 'relative',
                   height: '400px',
-                  overflow: 'hidden', 
-                  display: 'flex', 
+                  overflow: 'hidden',
+                  display: 'flex',
                   flexDirection: 'column',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                   border: 'none',
@@ -144,7 +144,7 @@ export default function Home() {
                   background: '#1e3a5f'
                 }}>
                   {/* Full Cover Image */}
-                  <div style={{ 
+                  <div style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
@@ -156,16 +156,17 @@ export default function Home() {
                       <img
                         src={journal.cover_image}
                         alt={journalName}
-                        style={{ 
-                          width: '100%', 
-                          height: '100%', 
+                        style={{
+                          width: '100%',
+                          height: '100%',
                           objectFit: 'cover',
+                          objectPosition: 'top'
                         }}
                       />
                     ) : (
-                      <div style={{ 
-                        width: '100%', 
-                        height: '100%', 
+                      <div style={{
+                        width: '100%',
+                        height: '100%',
                         background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
                         display: 'flex',
                         alignItems: 'center',
@@ -192,7 +193,7 @@ export default function Home() {
                   }} />
 
                   {/* Content Overlay */}
-                  <div style={{ 
+                  <div style={{
                     position: 'relative',
                     zIndex: 2,
                     height: '100%',
@@ -230,9 +231,9 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <h3 style={{ 
-                      fontSize: '1.5rem', 
-                      fontWeight: 700, 
+                    <h3 style={{
+                      fontSize: '1.5rem',
+                      fontWeight: 700,
                       marginBottom: '0.75rem',
                       fontFamily: "'Playfair Display', serif",
                       lineHeight: 1.2,
@@ -240,11 +241,11 @@ export default function Home() {
                     }}>
                       {journalName}
                     </h3>
-                    
-                    <p style={{ 
-                      color: 'rgba(255,255,255,0.8)', 
-                      fontSize: '0.95rem', 
-                      marginBottom: '1.5rem', 
+
+                    <p style={{
+                      color: 'rgba(255,255,255,0.8)',
+                      fontSize: '0.95rem',
+                      marginBottom: '1.5rem',
                       lineHeight: 1.5,
                       display: '-webkit-box',
                       WebkitLineClamp: 2,
@@ -253,8 +254,8 @@ export default function Home() {
                     }}>
                       {journalDesc?.replace(/<[^>]+>/g, '') || t('journals.no_journals')}
                     </p>
-                    
-                    <Link href={`/journals/${journal.slug}`} style={{ 
+
+                    <Link href={`/journals/${journal.slug}`} style={{
                       background: '#c9a227',
                       color: 'white',
                       padding: '0.75rem 1.5rem',
