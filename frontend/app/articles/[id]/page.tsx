@@ -110,33 +110,36 @@ export default function ArticleDetailPage() {
                             <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.full_article')}</h3>
 
                             {article.manuscript_file ? (
-                                <>
-                                    {/* PDF Embed */}
-                                    <div style={{
-                                        width: '100%',
-                                        height: '600px',
-                                        border: '1px solid #e5e5e5',
-                                        borderRadius: '8px',
-                                        overflow: 'hidden',
-                                        marginBottom: '1rem'
-                                    }}>
-                                        <iframe
-                                            src={article.manuscript_file}
-                                            style={{ width: '100%', height: '100%', border: 'none' }}
-                                            title="Article PDF"
-                                        />
-                                    </div>
+                                <div style={{
+                                    border: '1px solid #e5e5e5',
+                                    borderRadius: '12px',
+                                    padding: '2rem',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    background: '#f9fafb',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📄</div>
+                                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>
+                                        {t('articles.download_full_text')}
+                                    </h3>
+                                    <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '400px' }}>
+                                        {t('articles.download_desc')}
+                                    </p>
 
                                     <a
                                         href={article.manuscript_file}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-primary"
-                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', padding: '0.875rem 2rem' }}
                                     >
-                                        📄 {t('articles.download_pdf')}
+                                        <span>📥</span>
+                                        {t('articles.download_file')}
                                     </a>
-                                </>
+                                </div>
                             ) : (
                                 <p style={{ color: '#6b7280' }}>{t('articles.pdf_not_available')}</p>
                             )}

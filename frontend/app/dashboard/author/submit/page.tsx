@@ -97,19 +97,31 @@ export default function SubmitArticlePage() {
                             {step === 1 && (
                                 <>
                                     <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1.5rem' }}>{t('submissions.select_journal')}</h2>
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem' }}>
                                         {journals.map((j) => (
                                             <label key={j.id} style={{
-                                                display: 'flex', alignItems: 'start', gap: '1rem', padding: '1rem',
+                                                display: 'block',
                                                 border: selectedJournal == j.id ? '2px solid #1e3a5f' : '1px solid #e5e5e5',
+                                                borderRadius: '12px',
+                                                cursor: 'pointer',
+                                                overflow: 'hidden',
                                                 background: selectedJournal == j.id ? '#f0f7ff' : 'white',
-                                                borderRadius: '10px', cursor: 'pointer'
+                                                transition: 'all 0.2s',
+                                                position: 'relative'
                                             }}>
-                                                <input type="radio" value={j.id} {...register("journal", { required: true })} style={{ marginTop: '4px' }} />
-                                                <div>
-                                                    <div style={{ fontWeight: 600, color: '#1e3a5f' }}>{getJournalName(j)}</div>
-                                                    <div style={{ fontSize: '0.875rem', color: '#6b7280', marginTop: '0.25rem' }}>{getJournalDescription(j)}</div>
-                                                    <span className={`badge ${j.is_paid ? 'badge-paid' : 'badge-open'}`} style={{ marginTop: '0.5rem' }}>
+                                                <input type="radio" value={j.id} {...register("journal", { required: true })} style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }} />
+                                                
+                                                <div style={{ height: '140px', background: '#f3f4f6', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                                    {j.cover_image ? (
+                                                        <img src={j.cover_image} alt={getJournalName(j)} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '0.5rem' }} />
+                                                    ) : (
+                                                        <span style={{ fontSize: '2rem', fontWeight: 700, color: '#d1d5db' }}>{getJournalName(j)?.substring(0, 2).toUpperCase()}</span>
+                                                    )}
+                                                </div>
+
+                                                <div style={{ padding: '1rem' }}>
+                                                    <div style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.25rem', lineHeight: 1.3 }}>{getJournalName(j)}</div>
+                                                    <span className={`badge ${j.is_paid ? 'badge-paid' : 'badge-open'}`} style={{ fontSize: '0.75rem' }}>
                                                         {j.is_paid ? `$${j.price_per_page}/${t('submissions.page')}` : t('journals.free')}
                                                     </span>
                                                 </div>

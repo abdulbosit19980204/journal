@@ -95,7 +95,7 @@ export default function JournalsPage() {
                                         <img
                                             src={journal.cover_image}
                                             alt={getLocalizedField(journal, 'name')}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                            style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '0.5rem', background: '#f3f4f6' }}
                                         />
                                     </div>
                                 ) : (

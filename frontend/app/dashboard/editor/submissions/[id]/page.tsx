@@ -87,14 +87,22 @@ export default function ReviewSubmissionPage() {
                         <div className="card" style={{ padding: '1.5rem' }}>
                             <h3 style={{ fontWeight: 600, marginBottom: '1rem' }}>{t('submissions.manuscript')}</h3>
                             {submission.manuscript_file ? (
-                                <a href={submission.manuscript_file} target="_blank" rel="noopener noreferrer"
-                                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid #e5e5e5', borderRadius: '8px', textDecoration: 'none' }}>
-                                    <div style={{ width: '48px', height: '48px', background: '#fee2e2', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>📄</div>
-                                    <div>
-                                        <div style={{ fontWeight: 500, color: '#1e3a5f' }}>{t('admin.download_manuscript')}</div>
-                                        <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>{t('admin.pdf_document')}</div>
+                                <div style={{
+                                    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem',
+                                    padding: '2rem', background: '#f9fafb', borderRadius: '12px', border: '1px solid #e5e5e5'
+                                }}>
+                                    <div style={{ fontSize: '2.5rem' }}>📄</div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <h4 style={{ fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>{t('admin.review_manuscript')}</h4>
+                                        <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '1.5rem', maxWidth: '300px' }}>
+                                            {t('admin.download_to_review')}
+                                        </p>
+                                        <a href={submission.manuscript_file} target="_blank" rel="noopener noreferrer"
+                                            className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                                            📥 {t('admin.download_file')}
+                                        </a>
                                     </div>
-                                </a>
+                                </div>
                             ) : <p style={{ color: '#6b7280' }}>{t('submissions.no_file')}</p>}
                         </div>
                     </div>
