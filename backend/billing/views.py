@@ -224,6 +224,41 @@ class TransactionHistoryView(views.APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
-        transactions = WalletTransaction.objects.filter(user=request.user).order_by('-created_at')
-        serializer = WalletTransactionSerializer(transactions, many=True)
-        return Response(serializer.data)
+        user = request.user
+        
+        # 1. Fetch WalletTransactions (Completed balance movements)
+        wallets = WalletTransaction.objects.filter(user=user).order_by('-created_at')
+        
+        # 2. Fetch PaymentReceipts that are NOT Approved (already in WalletTransaction)
+        # or show all but label them. Actually, Approved ones are duplicated if we show both.
+        # Let's show: All WalletTransactions + Pending/Rejected Receipts.
+        receipts = PaymentReceipt.objects.filter(user=user).exclude(status='APPROVED').order_by('-created_at')
+        
+        history = []
+        
+        # Normalize WalletTransactions
+        for tx in wallets:
+            history.append({
+                'id': f"TRX-{tx.id}",
+                'amount': str(tx.amount),
+                'type': tx.transaction_type,
+                'description': tx.description,
+                'status': 'COMPLETED',
+                'created_at': tx.created_at
+            })
+            
+        # Normalize Receipts
+        for rc in receipts:
+            history.append({
+                'id': f"RCP-{rc.id}",
+                'amount': str(rc.amount),
+                'type': 'TOP_UP',
+                'description': "Balance Top-Up (Verification)",
+                'status': rc.status,
+                'created_at': rc.created_at
+            })
+            
+        # Sort by date
+        history.sort(key=lambda x: x['created_at'], reverse=True)
+        
+        return Response(history)
