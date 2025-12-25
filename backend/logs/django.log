@@ -7193,3 +7193,8 @@ INFO 2025-12-25 23:06:47,587 log "GET /api/billing/transactions/ HTTP/1.1" 200 6
 INFO 2025-12-25 23:06:47,587 log "GET /api/auth/me/ HTTP/1.1" 200 489
 INFO 2025-12-25 23:07:04,740 log "GET /api/plans/ HTTP/1.1" 200 463
 INFO 2025-12-25 23:07:04,745 log "GET /api/plans/ HTTP/1.1" 200 463
+INFO 2025-12-25 23:07:27,172 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 23:07:27,175 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2025-12-25 23:07:27,177 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 23:07:27,188 log "GET /api/journals/ HTTP/1.1" 200 754
+INFO 2025-12-25 23:07:27,679 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 1420
