@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import dynamic from "next/dynamic"
-import "react-quill/dist/quill.snow.css"
+import "react-quill-new/dist/quill.snow.css"
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
+// @ts-ignore
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false })
 
 export default function SubmitArticlePage() {
     const { t, locale } = useI18n()
