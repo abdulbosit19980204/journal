@@ -310,6 +310,8 @@
     "receipt_success": "Receipt uploaded successfully!",
     "insufficient_balance": "Insufficient balance. Please top up your account.",
     "my_receipts": "Transaction History",
+    "transaction_type": "Type",
+    "description": "Description",
     "status_pending": "Pending",
     "status_approved": "Approved",
     "status_rejected": "Rejected",

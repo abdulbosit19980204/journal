@@ -13,6 +13,13 @@ interface User {
     is_superuser: boolean
     profile_picture: string | null
     balance: string
+    subscription: {
+        id: number
+        plan_id: number
+        plan_name: string
+        end_date: string
+        is_active: boolean
+    } | null
 }
 
 interface AuthContextType {

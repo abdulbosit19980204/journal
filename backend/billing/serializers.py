@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig
+from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig, WalletTransaction
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -48,3 +48,8 @@ class AdminPaymentReceiptSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('user', 'processed_at')
 
+
+class WalletTransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WalletTransaction
+        fields = ['id', 'amount', 'transaction_type', 'description', 'created_at']

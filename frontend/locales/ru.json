@@ -313,6 +313,8 @@
     "receipt_success": "Чек успешно загружен!",
     "insufficient_balance": "Недостаточно средств. Пожалуйста, пополните баланс.",
     "my_receipts": "История транзакций",
+    "transaction_type": "Тип",
+    "description": "Описание",
     "status_pending": "Ожидание",
     "status_approved": "Одобрено",
     "status_rejected": "Отклонено",

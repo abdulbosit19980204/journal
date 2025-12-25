@@ -2,13 +2,14 @@ from rest_framework import viewsets, permissions, status, views, parsers
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from decimal import Decimal
 from rest_framework.decorators import action
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.db import transaction
 from datetime import timedelta
-from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig
-from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer, SubscriptionHistorySerializer, PaymentReceiptSerializer, BillingConfigSerializer, AdminPaymentReceiptSerializer
+from .models import SubscriptionPlan, UserSubscription, Invoice, SubscriptionHistory, PaymentReceipt, BillingConfig, WalletTransaction
+from .serializers import SubscriptionPlanSerializer, UserSubscriptionSerializer, InvoiceSerializer, SubscriptionHistorySerializer, PaymentReceiptSerializer, BillingConfigSerializer, AdminPaymentReceiptSerializer, WalletTransactionSerializer
 
 class PlanViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = SubscriptionPlan.objects.filter(is_active=True)
@@ -74,6 +75,15 @@ class AdminPaymentReceiptViewSet(viewsets.ModelViewSet):
             user.balance += receipt.amount
             user.save()
 
+            # Record unified transaction
+            WalletTransaction.objects.create(
+                user=user,
+                amount=receipt.amount,
+                transaction_type='TOP_UP',
+                description=f"Balance top-up via receipt #{receipt.id}",
+                receipt=receipt
+            )
+
         return Response({'status': 'Approved', 'new_balance': user.balance})
 
     @action(detail=True, methods=['post'])
@@ -121,8 +131,17 @@ class AdminPaymentReceiptViewSet(viewsets.ModelViewSet):
             return Response({'error': 'Missing user_id or amount'}, status=400)
 
         user = get_object_or_404(User, id=user_id)
-        user.balance += float(amount)
+        amount_val = Decimal(str(amount))
+        user.balance += amount_val
         user.save()
+
+        # Record unified transaction
+        WalletTransaction.objects.create(
+            user=user,
+            amount=amount_val,
+            transaction_type='ADJUSTMENT',
+            description=notes
+        )
 
         # Log in history/invoice if needed?
         # For now, just direct update as requested for admin ease.
@@ -186,8 +205,25 @@ class SubscribeView(views.APIView):
             notes=f"Subscribed to {plan.name} plan via balance"
         )
 
+        # Record unified transaction
+        WalletTransaction.objects.create(
+            user=user,
+            amount=-plan.price, # Negative for deduction
+            transaction_type='SUBSCRIPTION',
+            description=f"Subscription to {plan.name}",
+            invoice=invoice
+        )
+
         return Response({
             'status': 'Subscribed successfully',
             'new_balance': user.balance,
             'action': action
         })
+
+class TransactionHistoryView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        transactions = WalletTransaction.objects.filter(user=request.user).order_by('-created_at')
+        serializer = WalletTransactionSerializer(transactions, many=True)
+        return Response(serializer.data)

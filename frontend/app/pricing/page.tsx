@@ -141,16 +141,35 @@ export default function PricingPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
             {plans.map((plan, i) => {
               const isPopular = plan.slug === 'professional-author'
+              const isCurrent = user?.subscription?.plan_id === plan.id && user?.subscription?.is_active
               const planFeatures = features[plan.slug]?.[locale] || features[plan.slug]?.en || []
 
               return (
                 <div key={plan.id} className="card" style={{
                   position: 'relative',
-                  transform: isPopular ? 'scale(1.05)' : 'none',
-                  boxShadow: isPopular ? '0 20px 50px rgba(30, 58, 95, 0.2)' : undefined,
-                  border: isPopular ? '2px solid #c9a227' : '1px solid #e5e5e5'
+                  transform: isCurrent ? 'scale(1.02)' : isPopular ? 'scale(1.05)' : 'none',
+                  boxShadow: isCurrent ? '0 10px 40px rgba(5, 150, 105, 0.2)' : isPopular ? '0 20px 50px rgba(30, 58, 95, 0.2)' : undefined,
+                  border: isCurrent ? '3px solid #10b981' : isPopular ? '2px solid #c9a227' : '1px solid #e5e5e5',
+                  transition: 'all 0.3s ease'
                 }}>
-                  {isPopular && (
+                  {isCurrent && (
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      background: '#10b981',
+                      color: 'white',
+                      fontSize: '0.7rem',
+                      fontWeight: 700,
+                      padding: '0.35rem 0.75rem',
+                      borderRadius: '8px 0 8px 0',
+                      zIndex: 10
+                    }}>
+                      {t('pricing.current_plan') || 'CURRENT PLAN'}
+                    </div>
+                  )}
+
+                  {isPopular && !isCurrent && (
                     <div style={{
                       position: 'absolute',
                       top: 0,
@@ -188,21 +207,21 @@ export default function PricingPage() {
 
                     <button
                       onClick={() => handleSubscribe(plan.id)}
-                      disabled={subscribing === plan.id}
+                      disabled={subscribing === plan.id || isCurrent}
                       style={{
                         width: '100%',
                         padding: '0.875rem',
                         borderRadius: '8px',
                         fontWeight: 600,
                         fontSize: '0.9rem',
-                        cursor: subscribing === plan.id ? 'not-allowed' : 'pointer',
-                        opacity: subscribing === plan.id ? 0.7 : 1,
-                        background: isPopular ? '#c9a227' : '#1e3a5f',
-                        color: isPopular ? '#1e3a5f' : 'white',
+                        cursor: (subscribing === plan.id || isCurrent) ? 'not-allowed' : 'pointer',
+                        opacity: (subscribing === plan.id || isCurrent) ? 0.7 : 1,
+                        background: isCurrent ? '#10b981' : isPopular ? '#c9a227' : '#1e3a5f',
+                        color: isCurrent ? 'white' : isPopular ? '#1e3a5f' : 'white',
                         border: 'none'
                       }}
                     >
-                      {subscribing === plan.id ? t('common.loading') : t('pricing.subscribe')}
+                      {subscribing === plan.id ? t('common.loading') : isCurrent ? (t('pricing.active') || 'Active') : t('pricing.subscribe')}
                     </button>
                   </div>
                 </div>

@@ -309,6 +309,8 @@
     "receipt_success": "Chek muvaffaqiyatli yuklandi!",
     "insufficient_balance": "Mablag' yetarli emas. Iltimos, balansni to'ldiring.",
     "my_receipts": "O'tkazmalar tarixi",
+    "transaction_type": "Turi",
+    "description": "Tavsif",
     "status_pending": "Kutilmoqda",
     "status_approved": "Tasdiqlandi",
     "status_rejected": "Rad etildi",

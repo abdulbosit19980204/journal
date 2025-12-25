@@ -11,7 +11,7 @@ export default function BillingBalancePage() {
     const { t, locale } = useI18n()
     const { user, refreshUser } = useAuth()
     const [config, setConfig] = useState<any>(null)
-    const [receipts, setReceipts] = useState<any[]>([])
+    const [transactions, setTransactions] = useState<any[]>([])
     const [amount, setAmount] = useState("")
     const [loading, setLoading] = useState(true)
     const [uploading, setUploading] = useState(false)
@@ -20,12 +20,12 @@ export default function BillingBalancePage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [configRes, receiptsRes] = await Promise.all([
+                const [configRes, transRes] = await Promise.all([
                     api.get("/billing/config/"),
-                    api.get("/receipts/")
+                    api.get("/billing/transactions/")
                 ])
                 setConfig(configRes.data)
-                setReceipts(receiptsRes.data)
+                setTransactions(transRes.data)
             } catch (err) {
                 console.error(err)
             } finally {
@@ -56,9 +56,9 @@ export default function BillingBalancePage() {
             setAmount("")
             if (fileInputRef.current) fileInputRef.current.value = ""
 
-            // Refresh receipts list
-            const res = await api.get("/receipts/")
-            setReceipts(res.data)
+            // Refresh transaction history
+            const res = await api.get("/billing/transactions/")
+            setTransactions(res.data)
         } catch (err) {
             toast.error("Failed to upload receipt")
         } finally {
@@ -143,33 +143,43 @@ export default function BillingBalancePage() {
                             <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid #f3f4f6' }}>
                                 <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f' }}>{t('billing.my_receipts')}</h3>
                             </div>
-                            <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
-                                {receipts.length > 0 ? (
+                            <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                                {transactions.length > 0 ? (
                                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
                                         <thead>
                                             <tr style={{ textAlign: 'left', background: '#f9fafb', color: '#6b7280' }}>
-                                                <th style={{ padding: '0.75rem 1.5rem' }}>{t('billing.amount')}</th>
-                                                <th style={{ padding: '0.75rem 1.5rem' }}>{t('billing.status')}</th>
-                                                <th style={{ padding: '0.75rem 1.5rem' }}>Check</th>
+                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.date')}</th>
+                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.transaction_type')}</th>
+                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.description')}</th>
+                                                <th style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>{t('billing.amount')}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {receipts.map((r) => (
-                                                <tr key={r.id} style={{ borderTop: '1px solid #f3f4f6' }}>
-                                                    <td style={{ padding: '0.75rem 1.5rem', fontWeight: 600 }}>${r.amount}</td>
-                                                    <td style={{ padding: '0.75rem 1.5rem' }}>
+                                            {transactions.map((tr) => (
+                                                <tr key={tr.id} style={{ borderTop: '1px solid #f3f4f6' }}>
+                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                        {new Date(tr.created_at).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
+                                                    </td>
+                                                    <td style={{ padding: '1rem 1.5rem' }}>
                                                         <span style={{
-                                                            fontSize: '0.75rem',
-                                                            padding: '0.2rem 0.5rem',
+                                                            fontSize: '0.7rem',
+                                                            fontWeight: 600,
+                                                            padding: '0.25rem 0.5rem',
                                                             borderRadius: '4px',
-                                                            background: r.status === 'APPROVED' ? '#d1fae5' : r.status === 'REJECTED' ? '#fee2e2' : '#f3f4f6',
-                                                            color: r.status === 'APPROVED' ? '#065f46' : r.status === 'REJECTED' ? '#991b1b' : '#374151'
+                                                            background: tr.transaction_type === 'TOP_UP' ? '#dcfce7' : tr.transaction_type === 'SUBSCRIPTION' ? '#fee2e2' : '#fef3c7',
+                                                            color: tr.transaction_type === 'TOP_UP' ? '#166534' : tr.transaction_type === 'SUBSCRIPTION' ? '#991b1b' : '#92400e'
                                                         }}>
-                                                            {t(`billing.status_${r.status.toLowerCase()}`)}
+                                                            {tr.transaction_type.replace('_', ' ')}
                                                         </span>
                                                     </td>
-                                                    <td style={{ padding: '0.75rem 1.5rem' }}>
-                                                        <a href={resolveMediaUrl(r.receipt_image)} target="_blank" rel="noreferrer" style={{ color: '#1e3a5f' }}>View</a>
+                                                    <td style={{ padding: '1rem 1.5rem', color: '#4b5563' }}>{tr.description}</td>
+                                                    <td style={{ 
+                                                        padding: '1rem 1.5rem', 
+                                                        textAlign: 'right', 
+                                                        fontWeight: 700,
+                                                        color: parseFloat(tr.amount) >= 0 ? '#059669' : '#dc2626'
+                                                    }}>
+                                                        {parseFloat(tr.amount) >= 0 ? '+' : ''}{tr.amount}
                                                     </td>
                                                 </tr>
                                             ))}

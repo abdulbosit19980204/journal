@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
-from .views import PlanViewSet, MySubscriptionView, SubscribeView, SubscriptionHistoryView, BillingConfigView, PaymentReceiptViewSet, AdminPaymentReceiptViewSet
+from .views import PlanViewSet, MySubscriptionView, SubscribeView, SubscriptionHistoryView, BillingConfigView, PaymentReceiptViewSet, AdminPaymentReceiptViewSet, TransactionHistoryView
 from .payment_views import CreatePaymentView, AvailableGatewaysView, ClickCallbackView, PaymeCallbackView
 
 router = SimpleRouter()
@@ -14,6 +14,7 @@ urlpatterns = [
     path('billing/subscribe/', SubscribeView.as_view(), name='subscribe'),
     path('billing/history/', SubscriptionHistoryView.as_view(), name='subscription-history'),
     path('billing/config/', BillingConfigView.as_view(), name='billing-config'),
+    path('billing/transactions/', TransactionHistoryView.as_view(), name='transaction-history'),
     # Payment endpoints
     path('billing/payment/create/', CreatePaymentView.as_view(), name='create-payment'),
     path('billing/payment/gateways/', AvailableGatewaysView.as_view(), name='available-gateways'),
