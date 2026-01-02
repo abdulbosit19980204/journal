@@ -201,7 +201,8 @@
     "back_to_published": "Chop etilgan maqolalarga qaytish",
     "full_article": "To'liq maqola",
     "pdf_not_available": "To'liq maqola PDF formatida mavjud emas.",
-    "not_found": "Maqola topilmadi"
+    "not_found": "Maqola topilmadi",
+    "search_filters": "Qidiruv filtrlari"
   },
   "pricing": {
     "title": "Narxlar rejalari",
@@ -381,7 +382,9 @@
     "open_new_tab": "Yangi oynada ochish",
     "copy": "Nusxalash",
     "continue": "Davom etish",
-    "share": "Ulashish"
+    "share": "Ulashish",
+    "list": "Ro'yxat",
+    "cards": "Kartalar"
   },
   "footer": {
     "platform": "Platforma",

@@ -144,7 +144,7 @@ export default function PublishedArticlesPage() {
                         textDecoration: 'none',
                         fontSize: '0.85rem'
                     }}>
-                        {t('common.view_details')} 📜
+                        {t('articles.read_more')} 📜
                     </Link>
                 </div>
             </div>
@@ -350,7 +350,8 @@ export default function PublishedArticlesPage() {
                                                     WebkitLineClamp: 3,
                                                     WebkitBoxOrient: 'vertical',
                                                     overflow: 'hidden',
-                                                    fontSize: '0.95rem'
+                                                    fontSize: '0.95rem',
+                                                    height: '4.9rem'
                                                 }}
                                                 dangerouslySetInnerHTML={{ __html: article.abstract }}
                                             />

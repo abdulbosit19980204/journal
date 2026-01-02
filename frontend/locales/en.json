@@ -201,7 +201,8 @@
     "back_to_published": "Back to Published Articles",
     "full_article": "Full Article",
     "pdf_not_available": "Full article PDF is not available.",
-    "not_found": "Article Not Found"
+    "not_found": "Article Not Found",
+    "search_filters": "Search Filters"
   },
   "pricing": {
     "title": "Pricing Plans",
@@ -381,7 +382,9 @@
     "open_new_tab": "Open in New Tab",
     "copy": "Copy",
     "continue": "Continue",
-    "share": "Share"
+    "share": "Share",
+    "list": "List",
+    "cards": "Cards"
   },
   "footer": {
     "platform": "Platform",
