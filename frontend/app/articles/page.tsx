@@ -5,10 +5,11 @@ import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
-import { resolveMediaUrl } from "@/lib/utils"
+import { resolveMediaUrl, stripHtml } from "@/lib/utils"
 
 export default function PublishedArticlesPage() {
     const { t, tStatus, locale } = useI18n()
+    const [viewMode, setViewMode] = useState<'list' | 'card'>('list')
     const searchParams = useSearchParams()
     const [articles, setArticles] = useState<any[]>([])
     const [journals, setJournals] = useState<any[]>([])
@@ -51,6 +52,105 @@ export default function PublishedArticlesPage() {
         return () => clearTimeout(timeoutId)
     }, [filters])
 
+    const AncientArticleCard = ({ article }: { article: any }) => {
+        return (
+            <div style={{
+                background: '#fdf6e3',
+                padding: '2.5rem',
+                borderRadius: '8px',
+                border: '1px solid #dcd3b6',
+                boxShadow: '0 10px 25px rgba(0,0,0,0.05), inset 0 0 50px rgba(139, 124, 91, 0.05)',
+                position: 'relative',
+                overflow: 'hidden',
+                minHeight: '400px',
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'all 0.3s ease'
+            }} className="ancient-card">
+                <div style={{
+                    position: 'absolute',
+                    top: '1.5rem',
+                    right: '1.5rem',
+                    opacity: 0.1,
+                    fontSize: '4rem',
+                    pointerEvents: 'none',
+                    transform: 'rotate(15deg)'
+                }}>
+                    ✒️
+                </div>
+
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '4px',
+                    background: 'repeating-linear-gradient(90deg, #c9a227, #c9a227 10px, transparent 10px, transparent 20px)'
+                }} />
+
+                <div style={{ marginBottom: '1rem' }}>
+                    <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px',
+                        color: '#8b7c5b'
+                    }}>
+                        {article.journal_name}
+                    </span>
+                </div>
+
+                <h2 style={{
+                    fontSize: '1.3rem',
+                    fontWeight: 700,
+                    color: '#2c1810',
+                    marginBottom: '1rem',
+                    fontFamily: "'Playfair Display', serif",
+                    lineHeight: 1.3
+                }}>
+                    {article.title}
+                </h2>
+
+                <div
+                    style={{
+                        fontSize: '0.9rem',
+                        color: '#5d4037',
+                        lineHeight: 1.6,
+                        marginBottom: '1.5rem',
+                        flex: 1,
+                        display: '-webkit-box',
+                        WebkitLineClamp: 4,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                        fontStyle: 'italic'
+                    }}
+                    dangerouslySetInnerHTML={{ __html: stripHtml(article.abstract) }}
+                />
+
+                <div style={{
+                    borderTop: '1px solid rgba(139, 124, 91, 0.2)',
+                    paddingTop: '1.25rem',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'end'
+                }}>
+                    <div style={{ fontSize: '0.8rem', color: '#8b7c5b' }}>
+                        <strong style={{ display: 'block', color: '#5d4037', marginBottom: '0.2rem' }}>{article.author_name}</strong>
+                        {article.issue_info ? `Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})` : article.year}
+                    </div>
+                    <Link href={`/articles/${article.id}`} style={{
+                        color: '#c9a227',
+                        fontWeight: 700,
+                        textDecoration: 'none',
+                        fontSize: '0.85rem'
+                    }}>
+                        {t('common.view_details')} 📜
+                    </Link>
+                </div>
+            </div>
+        )
+    }
+
     if (initialLoading) {
         return (
             <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -60,7 +160,31 @@ export default function PublishedArticlesPage() {
     }
 
     return (
-        <main>
+        <main style={{ background: '#faf9f6', minHeight: '100vh' }}>
+            <style jsx>{`
+                .view-toggle-btn {
+                    padding: 0.5rem 1rem;
+                    background: white;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    font-weight: 600;
+                    color: #64748b;
+                    transition: all 0.2s;
+                }
+                .view-toggle-btn.active {
+                    background: #1e3a5f;
+                    color: white;
+                    border-color: #1e3a5f;
+                }
+                .ancient-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 60px rgba(139, 124, 91, 0.1);
+                }
+            `}</style>
             {/* Hero */}
             <section style={{
                 background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%)',
@@ -88,6 +212,25 @@ export default function PublishedArticlesPage() {
                 <div className="container">
                     {/* Filter Bar */}
                     <div className="card" style={{ padding: '1.5rem', marginBottom: '2rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                            <h2 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f' }}>
+                                {t('articles.search_filters')}
+                            </h2>
+                            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                <button
+                                    className={`view-toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
+                                    onClick={() => setViewMode('list')}
+                                >
+                                    ☰ {t('common.list') || 'List'}
+                                </button>
+                                <button
+                                    className={`view-toggle-btn ${viewMode === 'card' ? 'active' : ''}`}
+                                    onClick={() => setViewMode('card')}
+                                >
+                                    🎴 {t('common.cards') || 'Cards'}
+                                </button>
+                            </div>
+                        </div>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', alignItems: 'end' }}>
                             <div>
                                 <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.6rem' }}>
@@ -171,7 +314,8 @@ export default function PublishedArticlesPage() {
                         {t('common.loading')}...
                     </div>}
                     {articles.length > 0 ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        viewMode === 'list' ? (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                             {articles.map((article) => (
                                 <article key={article.id} className="card" style={{ padding: '2rem' }}>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '2rem' }}>
@@ -286,6 +430,13 @@ export default function PublishedArticlesPage() {
                                 </article>
                             ))}
                         </div>
+                        ) : (
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '2rem' }}>
+                                {articles.map((article) => (
+                                    <AncientArticleCard key={article.id} article={article} />
+                                ))}
+                            </div>
+                        )
                     ) : (
                         <div style={{ textAlign: 'center', padding: '4rem' }}>
                             <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>📚</div>
