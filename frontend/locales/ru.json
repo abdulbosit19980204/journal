@@ -206,7 +206,12 @@
     "full_article": "Полная статья",
     "pdf_not_available": "Полный текст статьи в PDF недоступен.",
     "not_found": "Статья не найдена",
-    "search_filters": "Фильтры поиска"
+    "search_filters": "Фильтры поиска",
+    "download_full_text": "Скачать полный текст",
+    "download_desc": "Скачайте полный текст статьи в формате PDF для чтения офлайн.",
+    "download_file": "Скачать файл",
+    "read_online": "Читать онлайн",
+    "full_text_view": "Просмотр полного текста"
   },
   "pricing": {
     "title": "Тарифные планы",

@@ -202,7 +202,12 @@
     "full_article": "To'liq maqola",
     "pdf_not_available": "To'liq maqola PDF formatida mavjud emas.",
     "not_found": "Maqola topilmadi",
-    "search_filters": "Qidiruv filtrlari"
+    "search_filters": "Qidiruv filtrlari",
+    "download_full_text": "To'liq matnni yuklab olish",
+    "download_desc": "Oflayn o'qish uchun to'liq maqolani PDF formatida yuklab oling.",
+    "download_file": "Faylni yuklab olish",
+    "read_online": "Onlayn o'qish",
+    "full_text_view": "To'liq matnni ko'rish"
   },
   "pricing": {
     "title": "Narxlar rejalari",

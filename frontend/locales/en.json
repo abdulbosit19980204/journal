@@ -202,7 +202,12 @@
     "full_article": "Full Article",
     "pdf_not_available": "Full article PDF is not available.",
     "not_found": "Article Not Found",
-    "search_filters": "Search Filters"
+    "search_filters": "Search Filters",
+    "download_full_text": "Download Full Text",
+    "download_desc": "Get the full article in PDF format to read offline.",
+    "download_file": "Download File",
+    "read_online": "Read Online",
+    "full_text_view": "Full Text View"
   },
   "pricing": {
     "title": "Pricing Plans",

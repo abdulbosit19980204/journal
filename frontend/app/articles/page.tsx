@@ -341,20 +341,20 @@ export default function PublishedArticlesPage() {
                                             </h2>
 
                                             <div
-                                                className="rich-text"
                                                 style={{
                                                     color: '#4a4a4a',
-                                                    lineHeight: 1.7,
+                                                    lineHeight: '1.6',
                                                     marginBottom: '1rem',
                                                     display: '-webkit-box',
                                                     WebkitLineClamp: 3,
                                                     WebkitBoxOrient: 'vertical',
                                                     overflow: 'hidden',
                                                     fontSize: '0.95rem',
-                                                    height: '4.9rem'
+                                                    height: '4.6rem' // 3 lines * 1.6 * 0.95 ~= 4.56 + padding
                                                 }}
-                                                dangerouslySetInnerHTML={{ __html: article.abstract }}
-                                            />
+                                            >
+                                                {stripHtml(article.abstract)}
+                                            </div>
 
                                             {article.keywords && (
                                                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
