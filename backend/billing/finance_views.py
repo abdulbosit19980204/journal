@@ -16,45 +16,39 @@ class FinanceDashboardView(APIView):
     
     def get(self, request):
         """Get overview statistics for finance dashboard"""
-        now = timezone.now()
-        current_month_start = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-        current_year_start = now.replace(month=1, day=1, hour=0, minute=0, second=0, microsecond=0)
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
         
-        # Total revenue (all completed transactions with positive amounts - TOP_UP type)
-        total_revenue = WalletTransaction.objects.filter(
+        # Base querysets
+        tx_qs = WalletTransaction.objects.all()
+        rc_qs = PaymentReceipt.objects.all()
+        
+        if start_date:
+            tx_qs = tx_qs.filter(created_at__gte=start_date)
+            rc_qs = rc_qs.filter(created_at__gte=start_date)
+        if end_date:
+            tx_qs = tx_qs.filter(created_at__lte=end_date)
+            rc_qs = rc_qs.filter(created_at__lte=end_date)
+
+        # Total revenue (TOP_UP type)
+        total_revenue = tx_qs.filter(
             transaction_type='TOP_UP',
             amount__gt=0
         ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
         
-        # Monthly revenue
-        monthly_revenue = WalletTransaction.objects.filter(
-            transaction_type='TOP_UP',
-            amount__gt=0,
-            created_at__gte=current_month_start
-        ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-        
-        # Yearly revenue
-        yearly_revenue = WalletTransaction.objects.filter(
-            transaction_type='TOP_UP',
-            amount__gt=0,
-            created_at__gte=current_year_start
-        ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-        
-        # Pending top-ups (from PaymentReceipt)
-        pending_topups = PaymentReceipt.objects.filter(
+        # Pending top-ups
+        pending_topups = rc_qs.filter(
             status='PENDING'
         ).aggregate(
             count=Count('id'),
             amount=Sum('amount')
         )
         
-        # Active subscriptions (users with balance > 0)
+        # Users with balance (Not date-filtered as it's a current state)
         users_with_balance = User.objects.filter(balance__gt=0).count()
         
         return Response({
             'total_revenue': str(total_revenue),
-            'monthly_revenue': str(monthly_revenue),
-            'yearly_revenue': str(yearly_revenue),
             'pending_topups_count': pending_topups['count'] or 0,
             'pending_topups_amount': str(pending_topups['amount'] or Decimal('0')),
             'users_with_balance': users_with_balance
@@ -65,43 +59,55 @@ class RevenueTrendView(APIView):
     permission_classes = [IsFinanceAdmin]
     
     def get(self, request):
-        """Get monthly revenue trend for last 12 months"""
-        now = timezone.now()
-        trends = []
+        """Get monthly revenue trend"""
+        # For trend we usually want a longer period, but respect filters if provided
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
         
-        for i in range(11, -1, -1):
-            month_start = (now.replace(day=1) - timedelta(days=i*30)).replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-            month_end = (month_start + timedelta(days=32)).replace(day=1) - timedelta(seconds=1)
+        qs = WalletTransaction.objects.filter(transaction_type='TOP_UP', amount__gt=0)
+        
+        if start_date:
+            qs = qs.filter(created_at__gte=start_date)
+        if end_date:
+            qs = qs.filter(created_at__lte=end_date)
             
-            revenue = WalletTransaction.objects.filter(
-                transaction_type='TOP_UP',
-                amount__gt=0,
-                created_at__gte=month_start,
-                created_at__lte=month_end
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
-            
-            trends.append({
-                'month': month_start.strftime('%Y-%m'),
-                'revenue': str(revenue)
+        # Group by month and sum
+        from django.db.models.functions import TruncMonth
+        trends = qs.annotate(month=TruncMonth('created_at')).values('month').annotate(
+            revenue=Sum('amount')
+        ).order_by('month')
+        
+        data = []
+        for item in trends:
+            data.append({
+                'month': item['month'].strftime('%Y-%m'),
+                'revenue': str(item['revenue'])
             })
         
-        return Response(trends)
+        return Response(data)
 
 
 class TopUsersView(APIView):
     permission_classes = [IsFinanceAdmin]
     
     def get(self, request):
-        """Get top 10 users by balance"""
+        """Get top 10 users by balance and activity in period"""
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
+        
+        # Top users by current balance (independent of date)
         top_users = User.objects.filter(balance__gt=0).order_by('-balance')[:10]
         
         data = []
         for user in top_users:
-            # Calculate total spent (sum of all negative transactions)
-            total_spent = WalletTransaction.objects.filter(
-                user=user,
-                amount__lt=0
-            ).aggregate(total=Sum('amount'))['total'] or Decimal('0')
+            # Spent logic respect dates
+            spent_qs = WalletTransaction.objects.filter(user=user, amount__lt=0)
+            if start_date:
+                spent_qs = spent_qs.filter(created_at__gte=start_date)
+            if end_date:
+                spent_qs = spent_qs.filter(created_at__lte=end_date)
+                
+            total_spent = spent_qs.aggregate(total=Sum('amount'))['total'] or Decimal('0')
             
             data.append({
                 'id': user.id,
@@ -119,7 +125,16 @@ class TransactionBreakdownView(APIView):
     
     def get(self, request):
         """Get transaction breakdown by type"""
-        breakdown = WalletTransaction.objects.values('transaction_type').annotate(
+        start_date = request.query_params.get('start_date')
+        end_date = request.query_params.get('end_date')
+        
+        qs = WalletTransaction.objects.all()
+        if start_date:
+            qs = qs.filter(created_at__gte=start_date)
+        if end_date:
+            qs = qs.filter(created_at__lte=end_date)
+            
+        breakdown = qs.values('transaction_type').annotate(
             count=Count('id'),
             total=Sum('amount')
         )

@@ -132,7 +132,10 @@ export default function AdminDashboardPage() {
                         { title: t('admin.issues'), desc: t('admin.issue_management'), href: '/admin/issues', icon: '📰', color: '#6366f1', count: null },
                         { title: t('admin.users'), desc: t('admin.user_management'), href: '/admin/users', icon: '👥', color: '#dc2626', count: null },
                         { title: t('admin.analytics'), desc: t('admin.platform_overview'), href: '/admin/analytics', icon: '📊', color: '#d97706', count: null },
-                        ...(user?.is_finance_admin ? [{ title: 'Finance', desc: 'Financial management & statistics', href: '/admin/finance', icon: '💰', color: '#c9a227', count: null }] : []),
+                        ...(user?.is_finance_admin || user?.is_superuser ? [
+                            { title: 'Billing', desc: 'Confirm payments & verify receipts', href: '/admin/billing', icon: '💳', color: '#10b981', count: null },
+                            { title: 'Finance', desc: 'Financial management & statistics', href: '/admin/finance', icon: '💰', color: '#c9a227', count: null }
+                        ] : []),
                     ].map((item, i) => (
                         <Link key={i} href={item.href} className="card" style={{ padding: '1.5rem', textDecoration: 'none', display: 'block' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>

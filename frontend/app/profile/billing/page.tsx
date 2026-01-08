@@ -15,6 +15,7 @@ export default function BillingBalancePage() {
     const [amount, setAmount] = useState("")
     const [loading, setLoading] = useState(true)
     const [uploading, setUploading] = useState(false)
+    const [searchTerm, setSearchTerm] = useState("")
     const fileInputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
@@ -34,6 +35,13 @@ export default function BillingBalancePage() {
         }
         fetchData()
     }, [])
+
+    const filteredTransactions = transactions.filter(tr => 
+        tr.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tr.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tr.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tr.status.toLowerCase().includes(searchTerm.toLowerCase())
+    )
 
     const handleUpload = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -140,7 +148,7 @@ export default function BillingBalancePage() {
                     </div>
 
                     {/* Right: Upload & History */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: 0 }}>
                         <div className="card" style={{ padding: '1.5rem' }}>
                             <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '0.5rem' }}>{t('billing.top_up')}</h3>
                             <p style={{ fontSize: '0.875rem', color: '#6b7280', marginBottom: '1.5rem' }}>{t('billing.top_up_desc')}</p>
@@ -173,27 +181,40 @@ export default function BillingBalancePage() {
                             </form>
                         </div>
 
-                        <div className="card">
-                            <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid #f3f4f6' }}>
+                        <div className="card" style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+                            <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid #f3f4f6', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f' }}>{t('billing.my_receipts')}</h3>
+                                <input 
+                                    type="text" 
+                                    placeholder="Qidirsh..." 
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    style={{ 
+                                        padding: '0.4rem 0.75rem', 
+                                        fontSize: '0.8rem', 
+                                        borderRadius: '6px', 
+                                        border: '1px solid #e5e7eb',
+                                        width: '150px'
+                                    }} 
+                                />
                             </div>
-                            <div style={{ overflowX: 'auto', overflowY: 'auto', maxHeight: '600px' }}>
-                                {transactions.length > 0 ? (
-                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
+                            <div style={{ overflowX: 'auto', width: '100%' }}>
+                                {filteredTransactions.length > 0 ? (
+                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem', minWidth: '950px', tableLayout: 'fixed' }}>
                                         <thead>
-                                            <tr style={{ textAlign: 'left', background: '#f9fafb', color: '#6b7280' }}>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.transaction_id')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.date')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.transaction_type')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.status')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.description')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600, textAlign: 'right' }}>{t('billing.amount')}</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600, textAlign: 'center' }}>Proof</th>
-                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>Actions</th>
+                                            <tr style={{ textAlign: 'left', background: '#f9fafb', color: '#6b7280', borderBottom: '1px solid #f3f4f6' }}>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '120px' }}>{t('billing.transaction_id')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '100px' }}>{t('billing.date')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '120px' }}>{t('billing.transaction_type')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '100px' }}>{t('billing.status')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '200px' }}>{t('billing.description')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', textAlign: 'right', width: '100px' }}>{t('billing.amount')}</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', textAlign: 'center', width: '80px' }}>Proof</th>
+                                                <th style={{ padding: '0.875rem 1rem', fontWeight: 700, fontSize: '0.7rem', textTransform: 'uppercase', width: '150px' }}>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {transactions.map((tr) => (
+                                            {filteredTransactions.map((tr) => (
                                                 <tr key={tr.id} style={{ borderTop: '1px solid #f3f4f6' }}>
                                                     <td style={{ padding: '0.75rem 1rem', fontFamily: 'monospace', fontSize: '0.7rem', color: '#6b7280' }}>{tr.id}</td>
                                                     <td style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>
@@ -225,7 +246,9 @@ export default function BillingBalancePage() {
                                                             {t(`billing.status_${tr.status.toLowerCase()}`)}
                                                         </span>
                                                     </td>
-                                                    <td style={{ padding: '0.75rem 1rem', color: '#4b5563', maxWidth: '250px' }}>{tr.description}</td>
+                                                    <td style={{ padding: '0.75rem 1rem', color: '#4b5563', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={tr.description}>
+                                                        {tr.description}
+                                                    </td>
                                                     <td style={{
                                                         padding: '0.75rem 1rem',
                                                         textAlign: 'right',
@@ -257,8 +280,8 @@ export default function BillingBalancePage() {
                                                     </td>
                                                     <td style={{ padding: '0.75rem 1rem' }}>
                                                         {tr.admin_note && (
-                                                            <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
-                                                                <div style={{ fontStyle: 'italic', maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={tr.admin_note}>"{tr.admin_note}"</div>
+                                                            <div style={{ fontSize: '0.7rem', color: '#6b7280', maxHeight: '50px', overflowY: 'auto' }}>
+                                                                <div style={{ fontStyle: 'italic', maxWidth: '100%', wordBreak: 'break-word' }}>"{tr.admin_note}"</div>
                                                             </div>
                                                         )}
                                                     </td>

@@ -244,7 +244,9 @@ class TransactionHistoryView(views.APIView):
                 'type': tx.transaction_type,
                 'description': tx.description,
                 'status': 'COMPLETED',
-                'created_at': tx.created_at
+                'created_at': tx.created_at,
+                'receipt_image': tx.receipt.receipt_image.url if tx.receipt and tx.receipt.receipt_image else None,
+                'admin_note': tx.receipt.admin_notes if tx.receipt else None
             })
             
         # Normalize Receipts
@@ -255,7 +257,9 @@ class TransactionHistoryView(views.APIView):
                 'type': 'TOP_UP',
                 'description': "Balance Top-Up (Verification)",
                 'status': rc.status,
-                'created_at': rc.created_at
+                'created_at': rc.created_at,
+                'receipt_image': rc.receipt_image.url if rc.receipt_image else None,
+                'admin_note': rc.admin_notes
             })
             
         # Sort by date

@@ -13,20 +13,41 @@ export default function FinanceDashboardPage() {
     const [topUsers, setTopUsers] = useState<any[]>([])
     const [breakdown, setBreakdown] = useState<any[]>([])
     const [loading, setLoading] = useState(true)
+    const [filters, setFilters] = useState({
+        range: 'all', // 'month', 'year', 'all', 'custom'
+        start_date: '',
+        end_date: ''
+    })
 
     useEffect(() => {
-        if (!user?.is_finance_admin) {
+        if (!user?.is_finance_admin && !user?.is_superuser) {
             router.push('/admin')
             return
         }
 
         const fetchData = async () => {
+            setLoading(true)
             try {
+                const params: any = {}
+
+                if (filters.range === 'month') {
+                    const start = new Date()
+                    start.setDate(1)
+                    params.start_date = start.toISOString().split('T')[0]
+                } else if (filters.range === 'year') {
+                    const start = new Date()
+                    start.setMonth(0, 1)
+                    params.start_date = start.toISOString().split('T')[0]
+                } else if (filters.range === 'custom') {
+                    if (filters.start_date) params.start_date = filters.start_date
+                    if (filters.end_date) params.end_date = filters.end_date
+                }
+
                 const [dashRes, trendRes, usersRes, breakdownRes] = await Promise.all([
-                    api.get('/finance/dashboard/'),
-                    api.get('/finance/revenue-trend/'),
-                    api.get('/finance/top-users/'),
-                    api.get('/finance/transaction-breakdown/')
+                    api.get('/finance/dashboard/', { params }),
+                    api.get('/finance/revenue-trend/', { params }),
+                    api.get('/finance/top-users/', { params }),
+                    api.get('/finance/transaction-breakdown/', { params })
                 ])
                 setDashboard(dashRes.data)
                 setRevenueTrend(trendRes.data)
@@ -39,10 +60,10 @@ export default function FinanceDashboardPage() {
             }
         }
         fetchData()
-    }, [user, router])
+    }, [user, router, filters])
 
     if (loading) return <div className="container" style={{ padding: '4rem', textAlign: 'center' }}><div className="spinner" /></div>
-    if (!user?.is_finance_admin) return null
+    if (!user?.is_finance_admin && !user?.is_superuser) return null
 
     return (
         <main style={{ background: '#faf9f6', minHeight: '100vh', padding: '2rem 0' }}>
@@ -52,6 +73,58 @@ export default function FinanceDashboardPage() {
                         💰 Finance Dashboard
                     </h1>
                     <p style={{ color: '#6b7280' }}>Platform financial overview and statistics</p>
+                </div>
+
+                {/* Filter Bar */}
+                <div className="card" style={{ padding: '1rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap', background: 'white' }}>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        {[
+                            { id: 'all', label: 'All Time' },
+                            { id: 'month', label: 'This Month' },
+                            { id: 'year', label: 'This Year' },
+                            { id: 'custom', label: 'Custom' }
+                        ].map((r) => (
+                            <button
+                                key={r.id}
+                                onClick={() => setFilters({ ...filters, range: r.id })}
+                                style={{
+                                    padding: '0.5rem 1rem',
+                                    borderRadius: '6px',
+                                    border: '1px solid #e5e7eb',
+                                    background: filters.range === r.id ? '#1e3a5f' : 'white',
+                                    color: filters.range === r.id ? 'white' : '#4b5563',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 500,
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s'
+                                }}
+                            >
+                                {r.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {filters.range === 'custom' && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginLeft: 'auto' }}>
+                            <input
+                                type="date"
+                                value={filters.start_date}
+                                onChange={(e) => setFilters({ ...filters, start_date: e.target.value })}
+                                className="input"
+                                style={{ padding: '0.4rem', fontSize: '0.875rem' }}
+                            />
+                            <span style={{ color: '#6b7280' }}>to</span>
+                            <input
+                                type="date"
+                                value={filters.end_date}
+                                onChange={(e) => setFilters({ ...filters, end_date: e.target.value })}
+                                className="input"
+                                style={{ padding: '0.4rem', fontSize: '0.875rem' }}
+                            />
+                        </div>
+                    )}
+
+                    {loading && <div className="spinner" style={{ width: '20px', height: '20px', marginLeft: 'auto' }} />}
                 </div>
 
                 {/* Overview Cards */}
