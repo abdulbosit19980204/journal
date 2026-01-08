@@ -14,10 +14,29 @@ class UserSubscriptionSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     subscription = UserSubscriptionSerializer(read_only=True)
+    
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'bio', 'institution', 'profile_picture', 'balance', 'subscription')
-        read_only_fields = ('is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'balance')
+        fields = (
+            'id', 'username', 'email', 'first_name', 'last_name', 
+            'is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 
+            'bio', 'institution', 'profile_picture', 'balance', 'subscription'
+        )
+
+    def get_fields(self):
+        fields = super().get_fields()
+        request = self.context.get('request')
+        
+        # Restricted fields
+        restricted = ['is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'balance']
+        
+        # If no request or user is not staff, make these fields read-only
+        if not request or not request.user.is_staff:
+            for field_name in restricted:
+                if field_name in fields:
+                    fields[field_name].read_only = True
+                    
+        return fields
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

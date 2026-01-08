@@ -81,87 +81,87 @@ export default function AdminUsersPage() {
                         <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '900px' }}>
                             <thead>
                                 <tr style={{ background: '#f9fafb', textAlign: 'left' }}>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('auth.username').toUpperCase()}</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('auth.email').toUpperCase()}</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>VERIFIED</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>STAFF</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>FINANCE</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>SUPERUSER</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>BALANCE</th>
-                                    <th style={{ padding: '1rem', fontSize: '0.75rem', color: '#6b7280', fontWeight: 500 }}>{t('common.actions').toUpperCase()}</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>{t('auth.username').toUpperCase()}</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>{t('auth.email').toUpperCase()}</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>VERIFIED</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>STAFF</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>FINANCE</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>SUPERUSER</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>BALANCE</th>
+                                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>{t('common.actions').toUpperCase()}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {users.map((user) => (
                                     <tr key={user.id} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                                        <td style={{ padding: '1rem' }}>
-                                            <div style={{ fontWeight: 500, color: '#1a1a1a' }}>{user.username}</div>
-                                            <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
+                                            <div style={{ fontWeight: 600, color: '#1a1a1a', fontSize: '0.875rem' }}>{user.username}</div>
+                                            <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
                                                 {user.first_name} {user.last_name}
                                             </div>
                                         </td>
-                                        <td style={{ padding: '1rem', color: '#4a4a4a', fontSize: '0.875rem' }}>{user.email || '-'}</td>
-                                        <td style={{ padding: '1rem' }}>
+                                        <td style={{ padding: '0.75rem 1rem', color: '#4a4a4a', fontSize: '0.8125rem' }}>{user.email || '-'}</td>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
                                             <span style={{
-                                                padding: '0.2rem 0.6rem',
-                                                borderRadius: '9999px',
-                                                fontSize: '0.7rem',
-                                                fontWeight: 600,
+                                                padding: '0.15rem 0.4rem',
+                                                borderRadius: '4px',
+                                                fontSize: '0.65rem',
+                                                fontWeight: 700,
                                                 background: user.is_verified ? '#d1fae5' : '#fee2e2',
                                                 color: user.is_verified ? '#065f46' : '#991b1b'
                                             }}>
-                                                {user.is_verified ? '✓' : '✗'}
+                                                {user.is_verified ? 'YES' : 'NO'}
                                             </span>
                                         </td>
-                                        <td style={{ padding: '1rem' }}>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
                                             <span style={{
-                                                padding: '0.2rem 0.6rem',
-                                                borderRadius: '9999px',
-                                                fontSize: '0.7rem',
-                                                fontWeight: 600,
+                                                padding: '0.15rem 0.4rem',
+                                                borderRadius: '4px',
+                                                fontSize: '0.65rem',
+                                                fontWeight: 700,
                                                 background: user.is_staff ? '#dbeafe' : '#f3f4f6',
                                                 color: user.is_staff ? '#1e40af' : '#374151'
                                             }}>
-                                                {user.is_staff ? '✓' : '✗'}
+                                                {user.is_staff ? 'YES' : 'NO'}
                                             </span>
                                         </td>
-                                        <td style={{ padding: '1rem' }}>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
                                             <span style={{
-                                                padding: '0.2rem 0.6rem',
-                                                borderRadius: '9999px',
-                                                fontSize: '0.7rem',
-                                                fontWeight: 600,
+                                                padding: '0.15rem 0.4rem',
+                                                borderRadius: '4px',
+                                                fontSize: '0.65rem',
+                                                fontWeight: 700,
                                                 background: user.is_finance_admin ? '#fef3c7' : '#f3f4f6',
                                                 color: user.is_finance_admin ? '#92400e' : '#374151'
                                             }}>
-                                                {user.is_finance_admin ? '💰' : '✗'}
+                                                {user.is_finance_admin ? 'YES' : 'NO'}
                                             </span>
                                         </td>
-                                        <td style={{ padding: '1rem' }}>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
                                             <span style={{
-                                                padding: '0.2rem 0.6rem',
-                                                borderRadius: '9999px',
-                                                fontSize: '0.7rem',
-                                                fontWeight: 600,
+                                                padding: '0.15rem 0.4rem',
+                                                borderRadius: '4px',
+                                                fontSize: '0.65rem',
+                                                fontWeight: 700,
                                                 background: user.is_superuser ? '#e0e7ff' : '#f3f4f6',
                                                 color: user.is_superuser ? '#3730a3' : '#374151'
                                             }}>
-                                                {user.is_superuser ? '⭐' : '✗'}
+                                                {user.is_superuser ? 'SUPER' : 'NO'}
                                             </span>
                                         </td>
-                                        <td style={{ padding: '1rem', fontWeight: 600, color: '#059669' }}>${user.balance || '0.00'}</td>
-                                        <td style={{ padding: '1rem' }}>
+                                        <td style={{ padding: '0.75rem 1rem', fontWeight: 700, color: '#059669', fontSize: '0.875rem' }}>${user.balance || '0.00'}</td>
+                                        <td style={{ padding: '0.75rem 1rem' }}>
                                             <button
                                                 onClick={() => handleEditUser(user)}
                                                 style={{
-                                                    padding: '0.5rem 1rem',
+                                                    padding: '0.4rem 0.8rem',
                                                     background: '#1e3a5f',
                                                     color: 'white',
                                                     border: 'none',
-                                                    borderRadius: '6px',
-                                                    fontSize: '0.8rem',
+                                                    borderRadius: '4px',
+                                                    fontSize: '0.75rem',
                                                     cursor: 'pointer',
-                                                    fontWeight: 500
+                                                    fontWeight: 600
                                                 }}
                                             >
                                                 Edit

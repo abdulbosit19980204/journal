@@ -179,60 +179,63 @@ export default function BillingBalancePage() {
                             </div>
                             <div style={{ overflowX: 'auto', overflowY: 'auto', maxHeight: '600px' }}>
                                 {transactions.length > 0 ? (
-                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
                                         <thead>
                                             <tr style={{ textAlign: 'left', background: '#f9fafb', color: '#6b7280' }}>
-                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.transaction_id')}</th>
-                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.date')}</th>
-                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.transaction_type')}</th>
-                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.status')}</th>
-                                                <th style={{ padding: '1rem 1.5rem' }}>{t('billing.description')}</th>
-                                                <th style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>{t('billing.amount')}</th>
-                                                <th style={{ padding: '1rem 1.5rem', textAlign: 'center' }}>Proof</th>
-                                                <th style={{ padding: '1rem 1.5rem' }}>Actions</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.transaction_id')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.date')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.transaction_type')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.status')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>{t('billing.description')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600, textAlign: 'right' }}>{t('billing.amount')}</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600, textAlign: 'center' }}>Proof</th>
+                                                <th style={{ padding: '0.75rem 1rem', fontWeight: 600 }}>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {transactions.map((tr) => (
                                                 <tr key={tr.id} style={{ borderTop: '1px solid #f3f4f6' }}>
-                                                    <td style={{ padding: '1rem 1.5rem', fontFamily: 'monospace', fontSize: '0.75rem', fontWeight: 600 }}>{tr.id}</td>
-                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                    <td style={{ padding: '0.75rem 1rem', fontFamily: 'monospace', fontSize: '0.7rem', color: '#6b7280' }}>{tr.id}</td>
+                                                    <td style={{ padding: '0.75rem 1rem', whiteSpace: 'nowrap' }}>
                                                         {new Date(tr.created_at).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
                                                     </td>
-                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                    <td style={{ padding: '0.75rem 1rem' }}>
                                                         <span style={{
-                                                            fontSize: '0.7rem',
-                                                            fontWeight: 600,
-                                                            padding: '0.25rem 0.5rem',
+                                                            fontSize: '0.65rem',
+                                                            fontWeight: 700,
+                                                            padding: '0.15rem 0.4rem',
                                                             borderRadius: '4px',
                                                             background: tr.type === 'TOP_UP' ? '#dcfce7' : tr.type === 'SUBSCRIPTION' ? '#fee2e2' : '#fef3c7',
-                                                            color: tr.type === 'TOP_UP' ? '#166534' : tr.type === 'SUBSCRIPTION' ? '#991b1b' : '#92400e'
+                                                            color: tr.type === 'TOP_UP' ? '#166534' : tr.type === 'SUBSCRIPTION' ? '#991b1b' : '#92400e',
+                                                            textTransform: 'uppercase'
                                                         }}>
                                                             {tr.type.replace('_', ' ')}
                                                         </span>
                                                     </td>
-                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                    <td style={{ padding: '0.75rem 1rem' }}>
                                                         <span style={{
-                                                            fontSize: '0.7rem',
-                                                            fontWeight: 600,
-                                                            padding: '0.25rem 0.5rem',
+                                                            fontSize: '0.65rem',
+                                                            fontWeight: 700,
+                                                            padding: '0.15rem 0.4rem',
                                                             borderRadius: '4px',
                                                             background: tr.status === 'COMPLETED' ? '#dcfce7' : tr.status === 'PENDING' ? '#e0f2fe' : '#fee2e2',
-                                                            color: tr.status === 'COMPLETED' ? '#166534' : tr.status === 'PENDING' ? '#075985' : '#991b1b'
+                                                            color: tr.status === 'COMPLETED' ? '#166534' : tr.status === 'PENDING' ? '#075985' : '#991b1b',
+                                                            textTransform: 'uppercase'
                                                         }}>
                                                             {t(`billing.status_${tr.status.toLowerCase()}`)}
                                                         </span>
                                                     </td>
-                                                    <td style={{ padding: '1rem 1.5rem', color: '#4b5563' }}>{tr.description}</td>
+                                                    <td style={{ padding: '0.75rem 1rem', color: '#4b5563', maxWidth: '250px' }}>{tr.description}</td>
                                                     <td style={{
-                                                        padding: '1rem 1.5rem',
+                                                        padding: '0.75rem 1rem',
                                                         textAlign: 'right',
                                                         fontWeight: 700,
+                                                        fontSize: '0.875rem',
                                                         color: parseFloat(tr.amount) >= 0 ? '#059669' : '#dc2626'
                                                     }}>
                                                         {parseFloat(tr.amount) >= 0 ? '+' : ''}{tr.amount}
                                                     </td>
-                                                    <td style={{ padding: '1rem 1.5rem', textAlign: 'center' }}>
+                                                    <td style={{ padding: '0.75rem 1rem', textAlign: 'center' }}>
                                                         {tr.receipt_image && (
                                                             <a
                                                                 href={resolveMediaUrl(tr.receipt_image)}
@@ -241,26 +244,21 @@ export default function BillingBalancePage() {
                                                                 style={{
                                                                     color: '#6366f1',
                                                                     textDecoration: 'none',
-                                                                    fontSize: '0.8rem',
+                                                                    fontSize: '0.75rem',
                                                                     fontWeight: 600,
                                                                     display: 'inline-flex',
                                                                     alignItems: 'center',
-                                                                    gap: '0.25rem'
+                                                                    gap: '0.2rem'
                                                                 }}
                                                             >
-                                                                📄 View Proof
+                                                                📄 Proof
                                                             </a>
                                                         )}
                                                     </td>
-                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                    <td style={{ padding: '0.75rem 1rem' }}>
                                                         {tr.admin_note && (
-                                                            <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
-                                                                <div style={{ fontStyle: 'italic', marginBottom: '0.25rem' }}>"{tr.admin_note}"</div>
-                                                                {tr.decided_at && (
-                                                                    <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>
-                                                                        Decided: {new Date(tr.decided_at).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
-                                                                    </div>
-                                                                )}
+                                                            <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>
+                                                                <div style={{ fontStyle: 'italic', maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={tr.admin_note}>"{tr.admin_note}"</div>
                                                             </div>
                                                         )}
                                                     </td>
