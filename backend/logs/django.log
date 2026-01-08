@@ -12428,3 +12428,18 @@ ERROR 2026-01-08 14:50:08,933 log "GET /api/submissions/9/certificate/?lang=uz H
 INFO 2026-01-08 14:50:16,020 log "GET /api/submissions/9/ HTTP/1.1" 200 621
 INFO 2026-01-08 14:50:16,031 log "GET /api/auth/me/ HTTP/1.1" 200 438
 INFO 2026-01-08 14:53:46,116 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 14:53:50,077 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2026-01-08 14:53:50,086 log "GET /api/auth/me/ HTTP/1.1" 200 517
+INFO 2026-01-08 14:53:50,187 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 14:53:50,199 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 14:53:55,754 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 14:53:55,755 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 14:53:55,763 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 14:53:55,763 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 14:53:56,256 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 14:53:58,233 log "OPTIONS /api/submissions/9/ HTTP/1.1" 200 0
+INFO 2026-01-08 14:53:58,233 log "OPTIONS /api/submissions/9/ HTTP/1.1" 200 0
+INFO 2026-01-08 14:53:58,243 log "GET /api/submissions/9/ HTTP/1.1" 200 621
+INFO 2026-01-08 14:53:58,252 log "GET /api/submissions/9/ HTTP/1.1" 200 621
+INFO 2026-01-08 14:54:00,949 log "OPTIONS /api/submissions/9/certificate/?lang=en HTTP/1.1" 200 0
+INFO 2026-01-08 14:54:01,071 log "GET /api/submissions/9/certificate/?lang=en HTTP/1.1" 200 48911
