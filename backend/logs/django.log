@@ -15590,3 +15590,12 @@ INFO 2026-01-08 16:42:25,238 log "GET /api/auth/me/ HTTP/1.1" 200 482
 INFO 2026-01-08 16:42:25,240 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
 INFO 2026-01-08 16:42:55,541 log "POST /api/reviews/ HTTP/1.1" 201 224
 INFO 2026-01-08 16:42:55,553 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:44:13,587 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:44:13,592 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:44:18,368 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:44:18,371 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:44:20,876 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2026-01-08 16:44:21,536 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:45:49,273 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:46:03,601 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2026-01-08 16:46:03,913 autoreload Watching for file changes with StatReloader

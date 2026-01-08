@@ -17,6 +17,9 @@ export default function ArticleDetailPage() {
     const [loading, setLoading] = useState(true)
     const [critique, setCritique] = useState("")
     const [submittingReview, setSubmittingReview] = useState(false)
+    const [editingReviewId, setEditingReviewId] = useState<number | null>(null)
+    const [editCritique, setEditCritique] = useState("")
+    const [updatingReview, setUpdatingReview] = useState(false)
 
     useEffect(() => {
         if (id) {
@@ -37,15 +40,53 @@ export default function ArticleDetailPage() {
                 article: article.id,
                 critique: critique
             })
-            // Refresh article to get new reviews
-            const res = await api.get(`/submissions/${id}/`)
-            setArticle(res.data)
+            refreshArticle()
             setCritique("")
             toast.success(t('articles.review_success') || "Critique submitted successfully!")
         } catch (err: any) {
             toast.error(err.response?.data?.detail || "Failed to submit critique")
         } finally {
             setSubmittingReview(false)
+        }
+    }
+
+    const refreshArticle = async () => {
+        try {
+            const res = await api.get(`/submissions/${id}/`)
+            setArticle(res.data)
+        } catch (err) {
+            console.error("Failed to refresh article", err)
+        }
+    }
+
+    const handleDeleteReview = async (reviewId: number) => {
+        if (!window.confirm(t('articles.confirm_delete') || "Are you sure you want to delete this critique?")) return
+
+        try {
+            await api.delete(`/reviews/${reviewId}/`)
+            toast.success(t('articles.delete_success') || "Critique deleted successfully!")
+            refreshArticle()
+        } catch (err: any) {
+            toast.error(err.response?.data?.detail || "Failed to delete critique")
+        }
+    }
+
+    const handleEditSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!editCritique.trim()) return
+
+        setUpdatingReview(true)
+        try {
+            await api.patch(`/reviews/${editingReviewId}/`, {
+                critique: editCritique
+            })
+            toast.success(t('articles.update_success') || "Critique updated successfully!")
+            setEditingReviewId(null)
+            refreshArticle()
+        } catch (err: any) {
+            toast.error(err.response?.data?.detail || "Failed to update critique")
+        } finally {
+            setUpdatingReview(false)
         }
     }
 
@@ -381,14 +422,74 @@ export default function ArticleDetailPage() {
                                 {article.reviews.map((rev: any) => (
                                     <div key={rev.id} style={{ background: '#fafafa', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #c9a227' }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', alignItems: 'start' }}>
-                                            <div style={{ fontWeight: 600, color: '#1e3a5f' }}>{rev.expert_name}</div>
-                                            <div style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
-                                                {new Date(rev.created_at).toLocaleDateString(locale)}
+                                            <div>
+                                                <div style={{ fontWeight: 600, color: '#1e3a5f' }}>{rev.expert_name}</div>
+                                                <div style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
+                                                    {new Date(rev.created_at).toLocaleDateString(locale)}
+                                                </div>
                                             </div>
+                                            {(user?.id === rev.expert || user?.is_superuser) && (
+                                                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                                    <button
+                                                        onClick={() => {
+                                                            setEditingReviewId(rev.id);
+                                                            setEditCritique(rev.critique);
+                                                        }}
+                                                        style={{ background: 'none', border: 'none', color: '#6366f1', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 500 }}
+                                                    >
+                                                        {t('articles.edit') || 'Edit'}
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleDeleteReview(rev.id)}
+                                                        style={{ background: 'none', border: 'none', color: '#ef4444', fontSize: '0.85rem', cursor: 'pointer', fontWeight: 500 }}
+                                                    >
+                                                        {t('articles.delete') || 'Delete'}
+                                                    </button>
+                                                </div>
+                                            )}
                                         </div>
-                                        <div style={{ color: '#4b5563', lineHeight: 1.6, fontSize: '1rem', whiteSpace: 'pre-wrap' }}>
-                                            {rev.critique}
-                                        </div>
+
+                                        {editingReviewId === rev.id ? (
+                                            <form onSubmit={handleEditSubmit} style={{ marginTop: '1rem' }}>
+                                                <textarea
+                                                    value={editCritique}
+                                                    onChange={(e) => setEditCritique(e.target.value)}
+                                                    required
+                                                    style={{
+                                                        width: '100%',
+                                                        minHeight: '120px',
+                                                        padding: '0.75rem',
+                                                        borderRadius: '6px',
+                                                        border: '1px solid #ddd',
+                                                        marginBottom: '0.75rem',
+                                                        fontSize: '0.95rem',
+                                                        fontFamily: 'inherit'
+                                                    }}
+                                                />
+                                                <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setEditingReviewId(null)}
+                                                        className="btn"
+                                                        style={{ padding: '0.4rem 1rem', fontSize: '0.85rem' }}
+                                                    >
+                                                        {t('articles.cancel') || 'Cancel'}
+                                                    </button>
+                                                    <button
+                                                        type="submit"
+                                                        disabled={updatingReview}
+                                                        className="btn btn-primary"
+                                                        style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', background: '#c9a227', borderColor: '#c9a227' }}
+                                                    >
+                                                        {updatingReview ? '...' : (t('articles.save') || 'Save')}
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        ) : (
+                                            <div style={{ color: '#4b5563', lineHeight: 1.6, fontSize: '1rem', whiteSpace: 'pre-wrap' }}>
+                                                {rev.critique}
+                                            </div>
+                                        )}
                                     </div>
                                 ))}
                             </div>

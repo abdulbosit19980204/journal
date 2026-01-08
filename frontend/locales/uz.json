@@ -216,7 +216,17 @@
     "critique_placeholder": "Professional taqrizingizni shu yerga yozing...",
     "submit_critique": "Taqrizni yuborish",
     "review_success": "Taqriz muvaffaqiyatli yuborildi!",
-    "already_reviewed": "Siz ushbu maqolaga allaqachon taqriz yozgansiz."
+    "already_reviewed": "Siz ushbu maqolaga allaqachon taqriz yozgansiz.",
+    "read_full_text": "To'liq matnni o'qish",
+    "read_desc": "Ushbu maqolaning to'liq matnini onlayn ko'rishingiz yoki qurilmangizga yuklab olishingiz mumkin.",
+    "view_pdf": "PDF ko'rish",
+    "edit": "Tahrirlash",
+    "delete": "O'chirish",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "confirm_delete": "Ushbu taqrizni o'chirishni tasdiqlaysizmi?",
+    "delete_success": "Taqriz o'chirildi!",
+    "update_success": "Taqriz yangilandi!"
   },
   "pricing": {
     "title": "Narxlar rejalari",

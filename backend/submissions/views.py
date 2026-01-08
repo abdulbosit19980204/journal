@@ -50,7 +50,11 @@ class ArticleSerializer(serializers.ModelSerializer):
 class ArticleReviewViewSet(viewsets.ModelViewSet):
     queryset = ArticleReview.objects.all()
     serializer_class = ArticleReviewSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_permissions(self):
+        if self.action in ['update', 'partial_update', 'destroy']:
+            return [permissions.IsAuthenticated()]
+        return super().get_permissions()
 
     def perform_create(self, serializer):
         if not self.request.user.is_expert:
@@ -64,6 +68,20 @@ class ArticleReviewViewSet(viewsets.ModelViewSet):
             raise ValidationError("You have already submitted a critique for this article.")
             
         serializer.save(expert=self.request.user)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.expert != request.user and not request.user.is_superuser:
+            from rest_framework.exceptions import PermissionDenied
+            raise PermissionDenied("You do not have permission to edit this critique.")
+        return super().update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.expert != request.user and not request.user.is_superuser:
+            from rest_framework.exceptions import PermissionDenied
+            raise PermissionDenied("You do not have permission to delete this critique.")
+        return super().destroy(request, *args, **kwargs)
 
     def get_queryset(self):
         article_id = self.request.query_params.get('article')
