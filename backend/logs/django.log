@@ -15563,3 +15563,30 @@ INFO 2026-01-08 16:40:53,309 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
 INFO 2026-01-08 16:40:53,320 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
 INFO 2026-01-08 16:41:37,966 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
 INFO 2026-01-08 16:41:38,311 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:41:54,218 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:41:54,218 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:41:59,003 log "GET /media/submissions/manuscripts/1503fcbd-b162-4fce-9d82-60916f8b6af5_pByRZGB.pdf HTTP/1.1" 200 318547
+INFO 2026-01-08 16:42:00,006 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:00,010 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:00,015 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:00,026 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:01,785 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:42:01,789 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:01,808 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:42:01,818 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:01,818 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:01,832 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:01,834 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:01,836 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:03,805 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:42:03,816 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:03,820 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:03,832 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:42:03,832 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:03,839 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:03,846 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:03,846 log "GET /api/auth/me/ HTTP/1.1" 200 561
+INFO 2026-01-08 16:42:25,238 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:42:25,240 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:42:55,541 log "POST /api/reviews/ HTTP/1.1" 201 224
+INFO 2026-01-08 16:42:55,553 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
