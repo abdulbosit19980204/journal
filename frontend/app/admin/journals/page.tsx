@@ -134,7 +134,11 @@ export default function AdminJournalsPage() {
                                     <ReactQuill
                                         theme="snow"
                                         value={formData.description_en}
-                                        onChange={(val) => setFormData({ ...formData, description_en: val })}
+                                        onChange={(val) => {
+                                            if (val !== formData.description_en) {
+                                                setFormData(prev => ({ ...prev, description_en: val }))
+                                            }
+                                        }}
                                         style={{ background: 'white', marginBottom: '1rem' }}
                                     />
                                 </div>
@@ -154,7 +158,11 @@ export default function AdminJournalsPage() {
                                         <ReactQuill
                                             theme="snow"
                                             value={formData.description_uz}
-                                            onChange={(val) => setFormData({ ...formData, description_uz: val })}
+                                            onChange={(val) => {
+                                                if (val !== formData.description_uz) {
+                                                    setFormData(prev => ({ ...prev, description_uz: val }))
+                                                }
+                                            }}
                                             style={{ background: 'white', marginBottom: '1rem' }}
                                         />
                                     </div>
@@ -163,7 +171,11 @@ export default function AdminJournalsPage() {
                                         <ReactQuill
                                             theme="snow"
                                             value={formData.description_ru}
-                                            onChange={(val) => setFormData({ ...formData, description_ru: val })}
+                                            onChange={(val) => {
+                                                if (val !== formData.description_ru) {
+                                                    setFormData(prev => ({ ...prev, description_ru: val }))
+                                                }
+                                            }}
                                             style={{ background: 'white', marginBottom: '1rem' }}
                                         />
                                     </div>

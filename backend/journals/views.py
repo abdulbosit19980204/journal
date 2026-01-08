@@ -7,7 +7,6 @@ from .serializers import JournalSerializer, IssueSerializer
 class JournalViewSet(viewsets.ModelViewSet):
     queryset = Journal.objects.all()
     serializer_class = JournalSerializer
-    lookup_field = 'slug'  # Allow lookup by slug instead of id
     
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:

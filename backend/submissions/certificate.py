@@ -158,7 +158,7 @@ def generate_certificate_pdf(article, lang='en'):
     # 5. In Journal
     c.setFont(FONT_NAME, 14)
     c.setFillColor(colors.gray)
-    c.drawCentredString(width / 2, height - 145*mm, t['in_journal'])
+    c.drawCentredString(width / 2, height - 138*mm, t['in_journal'])
     
     # Journal Name Logic
     journal_name = getattr(article.journal, f'name_{lang}', article.journal.name_en)
@@ -170,13 +170,13 @@ def generate_certificate_pdf(article, lang='en'):
     
     # Text Wrapping for Journal Name
     j_name_upper = journal_name.upper()
-    if len(j_name_upper) > 45:
-        c.setFont(FONT_NAME, 18) # Slightly smaller font for multi-line
+    if len(j_name_upper) > 40:
+        c.setFont(FONT_NAME, 16) # Slightly smaller font for multi-line
         words = j_name_upper.split(' ')
         lines = []
         current_line = []
         for w in words:
-            if len(" ".join(current_line + [w])) < 50: # Char limit per line
+            if len(" ".join(current_line + [w])) < 45: # Char limit per line
                 current_line.append(w)
             else:
                 lines.append(" ".join(current_line))
@@ -185,11 +185,11 @@ def generate_certificate_pdf(article, lang='en'):
             lines.append(" ".join(current_line))
             
         # Draw lines centered
-        start_y = height - 155*mm
-        for i, line in enumerate(lines):
-            c.drawCentredString(width / 2, start_y - (i * 8*mm), line)
+        start_y = height - 148*mm
+        for i, line in enumerate(lines[:2]): # Limit to 2 lines as requested
+            c.drawCentredString(width / 2, start_y - (i * 7*mm), line)
     else:
-        c.drawCentredString(width / 2, height - 157*mm, j_name_upper)
+        c.drawCentredString(width / 2, height - 150*mm, j_name_upper)
 
     # 6. Footer Info - Publication Details
     footer_y = 35*mm
@@ -230,7 +230,7 @@ def generate_certificate_pdf(article, lang='en'):
     qr_img = ImageReader(qr._img)
     
     qr_size = 35*mm
-    qr_x = width - 45*mm
+    qr_x = width - 65*mm # Moved further left to avoid border
     qr_y = 25*mm
     c.drawImage(qr_img, qr_x, qr_y, width=qr_size, height=qr_size)
     c.setFillColor(blue_color)
