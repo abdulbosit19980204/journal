@@ -207,7 +207,9 @@
     "download_desc": "Get the full article in PDF format to read offline.",
     "download_file": "Download File",
     "read_online": "Read Online",
-    "full_text_view": "Full Text View"
+    "full_text_view": "Full Text View",
+    "certificate": "Publication Certificate",
+    "certificate_desc": "Download the official certificate of publication."
   },
   "pricing": {
     "title": "Pricing Plans",

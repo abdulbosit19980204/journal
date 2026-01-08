@@ -207,7 +207,9 @@
     "download_desc": "Oflayn o'qish uchun to'liq maqolani PDF formatida yuklab oling.",
     "download_file": "Faylni yuklab olish",
     "read_online": "Onlayn o'qish",
-    "full_text_view": "To'liq matnni ko'rish"
+    "full_text_view": "To'liq matnni ko'rish",
+    "certificate": "Nashr Sertifikati",
+    "certificate_desc": "Rasmiy nashr sertifikatini yuklab oling."
   },
   "pricing": {
     "title": "Narxlar rejalari",
