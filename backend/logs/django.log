@@ -15599,3 +15599,36 @@ INFO 2026-01-08 16:44:21,536 autoreload Watching for file changes with StatReloa
 INFO 2026-01-08 16:45:49,273 autoreload Watching for file changes with StatReloader
 INFO 2026-01-08 16:46:03,601 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
 INFO 2026-01-08 16:46:03,913 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:46:06,401 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:46:27,969 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:46:33,860 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2026-01-08 16:46:33,869 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:46:34,016 log "GET /api/submissions/ HTTP/1.1" 200 9200
+INFO 2026-01-08 16:46:34,048 log "GET /api/submissions/ HTTP/1.1" 200 9200
+INFO 2026-01-08 16:46:38,512 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:46:38,516 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:46:38,522 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:46:38,524 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:46:39,013 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7844
+INFO 2026-01-08 16:46:43,298 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:46:43,311 log "GET /api/submissions/6/ HTTP/1.1" 200 3614
+INFO 2026-01-08 16:47:23,865 log "OPTIONS /api/reviews/4/ HTTP/1.1" 200 0
+INFO 2026-01-08 16:47:23,880 log "PATCH /api/reviews/4/ HTTP/1.1" 200 313
+INFO 2026-01-08 16:47:23,893 log "GET /api/submissions/6/ HTTP/1.1" 200 3703
+INFO 2026-01-08 16:48:16,374 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:16,388 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:16,401 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7933
+INFO 2026-01-08 16:48:16,429 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7933
+INFO 2026-01-08 16:48:18,972 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:18,973 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:48:18,978 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:18,982 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:48:19,489 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7933
+INFO 2026-01-08 16:48:20,414 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 16:48:20,420 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 16:48:23,128 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:23,137 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:26,285 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:26,291 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:48:26,310 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7933
+INFO 2026-01-08 16:48:26,333 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7933
