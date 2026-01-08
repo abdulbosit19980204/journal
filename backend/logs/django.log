@@ -12649,3 +12649,26 @@ INFO 2026-01-08 15:16:15,130 log "GET /api/auth/me/ HTTP/1.1" 200 517
 INFO 2026-01-08 15:16:15,902 log "GET /api/auth/me/ HTTP/1.1" 200 438
 INFO 2026-01-08 15:16:15,903 log "GET /api/submissions/6/ HTTP/1.1" 200 3377
 INFO 2026-01-08 15:16:18,054 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:16:20,045 log "GET /api/auth/me/ HTTP/1.1" 200 517
+INFO 2026-01-08 15:16:20,046 log "GET /api/submissions/8/ HTTP/1.1" 200 626
+INFO 2026-01-08 15:16:22,389 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:16:22,389 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:16:22,396 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:16:22,400 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:16:22,894 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:16:24,693 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:16:24,693 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:16:24,693 log "GET /api/auth/me/ HTTP/1.1" 200 517
+INFO 2026-01-08 15:16:25,200 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:16:46,101 log "OPTIONS /api/auth/public/profiles/3/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:16:46,101 log "OPTIONS /api/auth/public/profiles/3/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:16:46,110 log "GET /api/auth/public/profiles/3/ HTTP/1.1" 200 538
+INFO 2026-01-08 15:16:46,118 log "OPTIONS /api/submissions/?author=3&status=PUBLISHED HTTP/1.1" 200 0
+INFO 2026-01-08 15:16:46,121 log "GET /api/auth/public/profiles/3/ HTTP/1.1" 200 538
+INFO 2026-01-08 15:16:46,131 log "GET /api/submissions/?author=3&status=PUBLISHED HTTP/1.1" 200 4628
+INFO 2026-01-08 15:16:46,145 log "GET /api/submissions/?author=3&status=PUBLISHED HTTP/1.1" 200 4628
+INFO 2026-01-08 15:18:21,522 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:18:21,522 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:18:21,528 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:18:21,530 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:18:22,026 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
