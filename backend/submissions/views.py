@@ -56,6 +56,13 @@ class ArticleReviewViewSet(viewsets.ModelViewSet):
         if not self.request.user.is_expert:
             from rest_framework.exceptions import PermissionDenied
             raise PermissionDenied("Only expert users can write critiques.")
+        
+        # Check if user already reviewed this article
+        article_id = self.request.data.get('article')
+        if ArticleReview.objects.filter(article=article_id, expert=self.request.user).exists():
+            from rest_framework.exceptions import ValidationError
+            raise ValidationError("You have already submitted a critique for this article.")
+            
         serializer.save(expert=self.request.user)
 
     def get_queryset(self):

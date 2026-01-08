@@ -215,7 +215,8 @@
     "write_critique": "Ekspert taqrizini yuborish",
     "critique_placeholder": "Professional taqrizingizni shu yerga yozing...",
     "submit_critique": "Taqrizni yuborish",
-    "review_success": "Taqriz muvaffaqiyatli yuborildi!"
+    "review_success": "Taqriz muvaffaqiyatli yuborildi!",
+    "already_reviewed": "Siz ushbu maqolaga allaqachon taqriz yozgansiz."
   },
   "pricing": {
     "title": "Narxlar rejalari",

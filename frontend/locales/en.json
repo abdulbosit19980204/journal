@@ -215,7 +215,8 @@
     "write_critique": "Submit an Expert Critique",
     "critique_placeholder": "Write your professional critique here...",
     "submit_critique": "Post Critique",
-    "review_success": "Critique submitted successfully!"
+    "review_success": "Critique submitted successfully!",
+    "already_reviewed": "You have already submitted a critique for this article."
   },
   "pricing": {
     "title": "Pricing Plans",

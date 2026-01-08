@@ -15548,3 +15548,18 @@ INFO 2026-01-08 16:39:08,277 log "POST /api/reviews/ HTTP/1.1" 201 157
 INFO 2026-01-08 16:39:08,289 log "GET /api/submissions/9/ HTTP/1.1" 200 990
 INFO 2026-01-08 16:39:58,222 autoreload D:\coding\journal\backend\submissions\models.py changed, reloading.
 INFO 2026-01-08 16:39:58,612 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:40:13,508 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:40:13,508 log "GET /api/submissions/9/ HTTP/1.1" 200 990
+INFO 2026-01-08 16:40:29,269 log "POST /api/reviews/ HTTP/1.1" 201 154
+INFO 2026-01-08 16:40:29,283 log "GET /api/submissions/9/ HTTP/1.1" 200 1145
+INFO 2026-01-08 16:40:40,430 log "GET /api/auth/me/ HTTP/1.1" 200 482
+INFO 2026-01-08 16:40:40,435 log "GET /api/submissions/9/ HTTP/1.1" 200 1145
+INFO 2026-01-08 16:40:47,192 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:40:47,193 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:40:47,199 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:40:47,201 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:40:47,680 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7977
+INFO 2026-01-08 16:40:53,309 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:40:53,320 log "GET /api/submissions/6/ HTTP/1.1" 200 3390
+INFO 2026-01-08 16:41:37,966 autoreload D:\coding\journal\backend\submissions\views.py changed, reloading.
+INFO 2026-01-08 16:41:38,311 autoreload Watching for file changes with StatReloader

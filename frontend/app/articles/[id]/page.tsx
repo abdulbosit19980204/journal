@@ -399,41 +399,52 @@ export default function ArticleDetailPage() {
                         )}
 
                         {/* Expert Review Form */}
-                        {user?.is_expert && (
-                            <div style={{ background: '#fffbeb', padding: '2rem', borderRadius: '12px', border: '1px solid #fef3c7' }}>
-                                <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#92400e', marginBottom: '1rem' }}>
-                                    {t('articles.write_critique') || 'Submit an Expert Critique'}
-                                </h3>
-                                <form onSubmit={handleReviewSubmit}>
-                                    <textarea
-                                        value={critique}
-                                        onChange={(e) => setCritique(e.target.value)}
-                                        placeholder={t('articles.critique_placeholder') || "Write your professional critique here..."}
-                                        required
-                                        style={{
-                                            width: '100%',
-                                            minHeight: '150px',
-                                            padding: '1rem',
-                                            borderRadius: '8px',
-                                            border: '1px solid #fcd34d',
-                                            marginBottom: '1rem',
-                                            fontSize: '1rem',
-                                            fontFamily: 'inherit'
-                                        }}
-                                    />
-                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                        <button
-                                            type="submit"
-                                            disabled={submittingReview}
-                                            className="btn btn-primary"
-                                            style={{ background: '#c9a227', borderColor: '#c9a227', minWidth: '150px' }}
-                                        >
-                                            {submittingReview ? "..." : (t('articles.submit_critique') || 'Post Critique')}
-                                        </button>
+                        {user?.is_expert && (() => {
+                            const hasReviewed = article.reviews?.some((r: any) => r.expert === user.id);
+                            if (hasReviewed) {
+                                return (
+                                    <div style={{ background: '#f0f9ff', padding: '1.5rem', borderRadius: '12px', border: '1px solid #bae6fd', color: '#0369a1', textAlign: 'center' }}>
+                                        <span style={{ marginRight: '0.5rem' }}>ℹ️</span>
+                                        {t('articles.already_reviewed') || 'You have already submitted a critique for this article.'}
                                     </div>
-                                </form>
-                            </div>
-                        )}
+                                );
+                            }
+                            return (
+                                <div style={{ background: '#fffbeb', padding: '2rem', borderRadius: '12px', border: '1px solid #fef3c7' }}>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#92400e', marginBottom: '1rem' }}>
+                                        {t('articles.write_critique') || 'Submit an Expert Critique'}
+                                    </h3>
+                                    <form onSubmit={handleReviewSubmit}>
+                                        <textarea
+                                            value={critique}
+                                            onChange={(e) => setCritique(e.target.value)}
+                                            placeholder={t('articles.critique_placeholder') || "Write your professional critique here..."}
+                                            required
+                                            style={{
+                                                width: '100%',
+                                                minHeight: '150px',
+                                                padding: '1rem',
+                                                borderRadius: '8px',
+                                                border: '1px solid #fcd34d',
+                                                marginBottom: '1rem',
+                                                fontSize: '1rem',
+                                                fontFamily: 'inherit'
+                                            }}
+                                        />
+                                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                            <button
+                                                type="submit"
+                                                disabled={submittingReview}
+                                                className="btn btn-primary"
+                                                style={{ background: '#c9a227', borderColor: '#c9a227', minWidth: '150px' }}
+                                            >
+                                                {submittingReview ? "..." : (t('articles.submit_critique') || 'Post Critique')}
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            );
+                        })()}
                     </div>
                 </div>
             </div >
