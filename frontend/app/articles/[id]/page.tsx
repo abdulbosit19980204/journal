@@ -178,7 +178,9 @@ export default function ArticleDetailPage() {
                                 fontFamily: "'Georgia', serif",
                                 textAlign: 'justify',
                                 maxWidth: '800px',
-                                margin: '0 auto'
+                                margin: '0 auto',
+                                wordBreak: 'break-word',
+                                overflowWrap: 'break-word'
                             }}
                             dangerouslySetInnerHTML={{ __html: article.abstract }}
                         />
@@ -266,76 +268,76 @@ export default function ArticleDetailPage() {
                         </div>
                     )}
 
-            {/* Full Text / PDF Viewer */}
-            <div id="full-text">
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-                    <h2 style={{
-                        fontSize: '1.5rem',
-                        fontWeight: 700,
-                        color: '#1e3a5f',
-                        fontFamily: "'Playfair Display', serif",
-                        margin: 0
-                    }}>
-                        {t('articles.read_online') || 'Read Online'}
-                    </h2>
-                    {article.manuscript_file && (
-                        <a
-                            href={resolveMediaUrl(article.manuscript_file)}
-                            download
-                            className="btn btn-primary"
-                            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                        >
-                            <span>📥</span> {t('articles.download_full_text')}
-                        </a>
-                    )}
-                </div>
-
-                {article.manuscript_file ? (
-                    <div style={{
-                        background: '#f1f5f9',
-                        borderRadius: '8px',
-                        overflow: 'hidden',
-                        border: '1px solid #e2e8f0',
-                        padding: '4rem',
-                        textAlign: 'center'
-                    }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1.5rem', opacity: 0.7 }}>📄</div>
-                        <h3 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.read_full_text')}</h3>
-                        <p style={{ color: '#64748b', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-                            {t('articles.read_desc') || "You can view the full text of this article online or download it to your device."}
-                        </p>
-                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                            <a
-                                href={resolveMediaUrl(article.manuscript_file)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-primary"
-                            >
-                                {t('articles.view_pdf') || "View PDF"}
-                            </a>
-                            <a
-                                href={resolveMediaUrl(article.manuscript_file)}
-                                download
-                                className="btn btn-outline"
-                            >
-                                {t('articles.download_file')}
-                            </a>
+                    {/* Full Text / PDF Viewer */}
+                    <div id="full-text">
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                            <h2 style={{
+                                fontSize: '1.5rem',
+                                fontWeight: 700,
+                                color: '#1e3a5f',
+                                fontFamily: "'Playfair Display', serif",
+                                margin: 0
+                            }}>
+                                {t('articles.read_online') || 'Read Online'}
+                            </h2>
+                            {article.manuscript_file && (
+                                <a
+                                    href={resolveMediaUrl(article.manuscript_file)}
+                                    download
+                                    className="btn btn-primary"
+                                    style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                                >
+                                    <span>📥</span> {t('articles.download_full_text')}
+                                </a>
+                            )}
                         </div>
+
+                        {article.manuscript_file ? (
+                            <div style={{
+                                background: '#f1f5f9',
+                                borderRadius: '8px',
+                                overflow: 'hidden',
+                                border: '1px solid #e2e8f0',
+                                padding: '4rem',
+                                textAlign: 'center'
+                            }}>
+                                <div style={{ fontSize: '3rem', marginBottom: '1.5rem', opacity: 0.7 }}>📄</div>
+                                <h3 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.read_full_text')}</h3>
+                                <p style={{ color: '#64748b', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
+                                    {t('articles.read_desc') || "You can view the full text of this article online or download it to your device."}
+                                </p>
+                                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                                    <a
+                                        href={resolveMediaUrl(article.manuscript_file)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-primary"
+                                    >
+                                        {t('articles.view_pdf') || "View PDF"}
+                                    </a>
+                                    <a
+                                        href={resolveMediaUrl(article.manuscript_file)}
+                                        download
+                                        className="btn btn-outline"
+                                    >
+                                        {t('articles.download_file')}
+                                    </a>
+                                </div>
+                            </div>
+                        ) : (
+                            <div style={{
+                                padding: '4rem',
+                                textAlign: 'center',
+                                background: '#f8fafc',
+                                borderRadius: '8px',
+                                border: '2px dashed #e2e8f0'
+                            }}>
+                                <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.5 }}>📄</div>
+                                <p style={{ color: '#64748b' }}>{t('articles.pdf_not_available')}</p>
+                            </div>
+                        )}
                     </div>
-                ) : (
-                    <div style={{
-                        padding: '4rem',
-                        textAlign: 'center',
-                        background: '#f8fafc',
-                        borderRadius: '8px',
-                        border: '2px dashed #e2e8f0'
-                    }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.5 }}>📄</div>
-                        <p style={{ color: '#64748b' }}>{t('articles.pdf_not_available')}</p>
-                    </div>
-                )}
-            </div>
-        </div>
+                </div>
             </div >
         </main >
     )

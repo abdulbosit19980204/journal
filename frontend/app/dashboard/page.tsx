@@ -143,9 +143,48 @@ export default function DashboardPage() {
                                                 </span>
                                             </td>
                                             <td style={{ padding: '1rem 1.5rem' }}>
-                                                <Link href={`/dashboard/submissions/${sub.id}`} style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem' }}>
-                                                    {t('dashboard.view_details')}
-                                                </Link>
+                                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                                    <Link href={`/dashboard/submissions/${sub.id}`} style={{ color: '#1e3a5f', fontWeight: 500, fontSize: '0.875rem' }}>
+                                                        {t('dashboard.view_details')}
+                                                    </Link>
+                                                    {sub.status === 'PUBLISHED' && (
+                                                        <div style={{ display: 'flex', gap: '0.25rem', marginTop: '0.25rem' }}>
+                                                            {['en', 'uz', 'ru'].map(lang => (
+                                                                <button
+                                                                    key={lang}
+                                                                    onClick={async () => {
+                                                                        try {
+                                                                            const res = await api.get(`/submissions/${sub.id}/certificate/?lang=${lang}`, { responseType: 'blob' });
+                                                                            const url = window.URL.createObjectURL(new Blob([res.data]));
+                                                                            const link = document.createElement('a');
+                                                                            link.href = url;
+                                                                            link.setAttribute('download', `Certificate_${sub.id}_${lang}.pdf`);
+                                                                            document.body.appendChild(link);
+                                                                            link.click();
+                                                                            link.remove();
+                                                                        } catch (e) {
+                                                                            alert("Download failed");
+                                                                        }
+                                                                    }}
+                                                                    style={{
+                                                                        background: '#f0fdf4',
+                                                                        border: '1px solid #dcfce7',
+                                                                        borderRadius: '4px',
+                                                                        padding: '0.15rem 0.35rem',
+                                                                        fontSize: '0.7rem',
+                                                                        color: '#166534',
+                                                                        cursor: 'pointer',
+                                                                        fontWeight: 600,
+                                                                        textTransform: 'uppercase'
+                                                                    }}
+                                                                    title={`Download certificate in ${lang.toUpperCase()}`}
+                                                                >
+                                                                    🎓 {lang}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}
