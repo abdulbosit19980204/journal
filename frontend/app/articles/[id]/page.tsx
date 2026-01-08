@@ -211,77 +211,132 @@ export default function ArticleDetailPage() {
                         </div>
                     )}
 
-                    {/* Full Text / PDF Viewer */}
-                    <div id="full-text">
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-                            <h2 style={{
-                                fontSize: '1.5rem',
-                                fontWeight: 700,
-                                color: '#1e3a5f',
-                                fontFamily: "'Playfair Display', serif",
-                                margin: 0
-                            }}>
-                                {t('articles.read_online') || 'Read Online'}
-                            </h2>
-                            {article.manuscript_file && (
-                                <a
-                                    href={resolveMediaUrl(article.manuscript_file)}
-                                    download
-                                    className="btn btn-primary"
-                                    style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-                                >
-                                    <span>📥</span> {t('articles.download_full_text')}
-                                </a>
-                            )}
-                        </div>
-
-                        {article.manuscript_file ? (
-                            <div style={{
-                                background: '#f1f5f9',
-                                borderRadius: '8px',
-                                overflow: 'hidden',
-                                border: '1px solid #e2e8f0'
-                            }}>
-                                {/* PDF Viewer using Google Docs Viewer for universal support, or native object */}
-                                {/* Using native object/iframe is better for privacy and direct PDF rendering if strictly PDF */}
-                                <object
-                                    data={resolveMediaUrl(article.manuscript_file)}
-                                    type="application/pdf"
-                                    width="100%"
-                                    height="800px"
-                                    style={{ display: 'block' }}
-                                >
-                                    {/* Fallback for mobile or no-pdf-support */}
-                                    <div style={{ padding: '4rem', textAlign: 'center' }}>
-                                        <p style={{ marginBottom: '1.5rem', color: '#64748b' }}>
-                                            {t('articles.pdf_not_available')}
-                                        </p>
-                                        <a
-                                            href={resolveMediaUrl(article.manuscript_file)}
-                                            className="btn btn-primary"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                    {/* Certificate Section */}
+                    {article.status === 'PUBLISHED' && (
+                        <div style={{ marginBottom: '3rem', background: '#f0fdf4', padding: '1.5rem', borderRadius: '8px', border: '1px solid #dcfce7' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#166534', marginBottom: '0.5rem' }}>
+                                        {t('articles.certificate') || 'Publication Certificate'}
+                                    </h3>
+                                    <p style={{ color: '#15803d', fontSize: '0.95rem' }}>
+                                        {t('articles.certificate_desc') || 'Download the official certificate of publication.'}
+                                    </p>
+                                </div>
+                                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                    {[
+                                        { lang: 'en', label: 'English' },
+                                        { lang: 'uz', label: 'O\'zbek' },
+                                        { lang: 'ru', label: 'Русский' }
+                                    ].map((opt) => (
+                                        <button
+                                            key={opt.lang}
+                                            onClick={async () => {
+                                                try {
+                                                    const res = await api.get(`/submissions/${article.id}/certificate/?lang=${opt.lang}`, { responseType: 'blob' });
+                                                    const url = window.URL.createObjectURL(new Blob([res.data]));
+                                                    const link = document.createElement('a');
+                                                    link.href = url;
+                                                    link.setAttribute('download', `Certificate_${article.id}_${opt.lang}.pdf`);
+                                                    document.body.appendChild(link);
+                                                    link.click();
+                                                    link.remove();
+                                                } catch (err) {
+                                                    console.error(err);
+                                                    alert("Error downloading certificate");
+                                                }
+                                            }}
+                                            className="btn"
+                                            style={{
+                                                background: 'white',
+                                                border: '1px solid #166534',
+                                                color: '#166534',
+                                                padding: '0.5rem 1rem',
+                                                fontSize: '0.9rem',
+                                                borderRadius: '6px',
+                                                cursor: 'pointer',
+                                                fontWeight: 500
+                                            }}
                                         >
-                                            {t('articles.download_file')}
-                                        </a>
-                                    </div>
-                                </object>
+                                            {opt.label}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
-                        ) : (
-                            <div style={{
-                                padding: '4rem',
-                                textAlign: 'center',
-                                background: '#f8fafc',
-                                borderRadius: '8px',
-                                border: '2px dashed #e2e8f0'
-                            }}>
-                                <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.5 }}>📄</div>
-                                <p style={{ color: '#64748b' }}>{t('articles.pdf_not_available')}</p>
-                            </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
+
+            {/* Full Text / PDF Viewer */}
+            <div id="full-text">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                    <h2 style={{
+                        fontSize: '1.5rem',
+                        fontWeight: 700,
+                        color: '#1e3a5f',
+                        fontFamily: "'Playfair Display', serif",
+                        margin: 0
+                    }}>
+                        {t('articles.read_online') || 'Read Online'}
+                    </h2>
+                    {article.manuscript_file && (
+                        <a
+                            href={resolveMediaUrl(article.manuscript_file)}
+                            download
+                            className="btn btn-primary"
+                            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                        >
+                            <span>📥</span> {t('articles.download_full_text')}
+                        </a>
+                    )}
                 </div>
+
+                {article.manuscript_file ? (
+                    <div style={{
+                        background: '#f1f5f9',
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                        border: '1px solid #e2e8f0',
+                        padding: '4rem',
+                        textAlign: 'center'
+                    }}>
+                        <div style={{ fontSize: '3rem', marginBottom: '1.5rem', opacity: 0.7 }}>📄</div>
+                        <h3 style={{ color: '#1e3a5f', marginBottom: '1rem' }}>{t('articles.read_full_text')}</h3>
+                        <p style={{ color: '#64748b', marginBottom: '2rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
+                            {t('articles.read_desc') || "You can view the full text of this article online or download it to your device."}
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                            <a
+                                href={resolveMediaUrl(article.manuscript_file)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-primary"
+                            >
+                                {t('articles.view_pdf') || "View PDF"}
+                            </a>
+                            <a
+                                href={resolveMediaUrl(article.manuscript_file)}
+                                download
+                                className="btn btn-outline"
+                            >
+                                {t('articles.download_file')}
+                            </a>
+                        </div>
+                    </div>
+                ) : (
+                    <div style={{
+                        padding: '4rem',
+                        textAlign: 'center',
+                        background: '#f8fafc',
+                        borderRadius: '8px',
+                        border: '2px dashed #e2e8f0'
+                    }}>
+                        <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.5 }}>📄</div>
+                        <p style={{ color: '#64748b' }}>{t('articles.pdf_not_available')}</p>
+                    </div>
+                )}
             </div>
-        </main>
+        </div>
+            </div >
+        </main >
     )
 }

@@ -122,6 +122,73 @@ export default function PublicProfilePage() {
                                                 {new Date(article.updated_at).toLocaleDateString(locale)}
                                             </span>
                                         </div>
+
+                                        {/* Certificate Actions for Profile */}
+                                        {article.status === 'PUBLISHED' && (
+                                            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #f1f5f9', display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                                                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#166534', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                                                    🎓 {t('articles.certificate') || 'Certificate'}:
+                                                </span>
+                                                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                                    {['en', 'uz', 'ru'].map(lang => (
+                                                        <button
+                                                            key={lang}
+                                                            onClick={async () => {
+                                                                try {
+                                                                    const res = await api.get(`/submissions/${article.id}/certificate/?lang=${lang}`, { responseType: 'blob' });
+                                                                    const url = window.URL.createObjectURL(new Blob([res.data]));
+                                                                    const link = document.createElement('a');
+                                                                    link.href = url;
+                                                                    link.setAttribute('download', `Certificate_${article.id}_${lang}.pdf`);
+                                                                    document.body.appendChild(link);
+                                                                    link.click();
+                                                                    link.remove();
+                                                                } catch (e) {
+                                                                    alert("Download failed");
+                                                                }
+                                                            }}
+                                                            style={{
+                                                                background: 'none',
+                                                                border: '1px solid #dcfce7',
+                                                                borderRadius: '4px',
+                                                                padding: '0.25rem 0.5rem',
+                                                                fontSize: '0.75rem',
+                                                                color: '#166534',
+                                                                cursor: 'pointer',
+                                                                fontWeight: 600,
+                                                                textTransform: 'uppercase'
+                                                            }}
+                                                            title={`Download in ${lang.toUpperCase()}`}
+                                                        >
+                                                            {lang}
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                                <div style={{ marginLeft: 'auto', display: 'flex', gap: '0.5rem' }}>
+                                                    <button
+                                                        onClick={() => {
+                                                            const url = `${window.location.origin}/articles/${article.id}`; // Share Article URL mostly better
+                                                            // OR direct certificate link? User said "share certificate". Use Article link as it has context + download.
+                                                            navigator.clipboard.writeText(url);
+                                                            alert("Link copied!");
+                                                        }}
+                                                        style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.2rem' }}
+                                                        title="Copy Link"
+                                                    >
+                                                        🔗
+                                                    </button>
+                                                    <a
+                                                        href={`https://t.me/share/url?url=${encodeURIComponent(`${window.location.origin}/articles/${article.id}`)}&text=${encodeURIComponent(`Check out my publication certificate: ${article.title}`)}`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        style={{ textDecoration: 'none', fontSize: '1.2rem' }}
+                                                        title="Share on Telegram"
+                                                    >
+                                                        ✈️
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 ))
                             ) : (

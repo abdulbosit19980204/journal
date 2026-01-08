@@ -191,3 +191,35 @@ class SubmissionViewSet(viewsets.ModelViewSet):
         article.save()
         return Response({'status': 'Withdrawn'})
 
+    @action(detail=True, methods=['get'])
+    def certificate(self, request, pk=None):
+        """
+        Download Publication Certificate for the article.
+        GET /api/submissions/{id}/certificate/?lang=uz|ru|en
+        """
+        article = self.get_object()
+        
+        # Only allow certificate for published articles
+        if article.status != 'PUBLISHED':
+             return Response(
+                 {'error': 'Certificate is available only for published articles.'}, 
+                 status=status.HTTP_400_BAD_REQUEST
+             )
+        
+        # Public or Author? 
+        # Usually public verification is fine, but download might be restricted?
+        # Let's allow anyone to download the certificate for a PUBLISHED article.
+        
+        lang = request.query_params.get('lang', 'en')
+        if lang not in ['en', 'ru', 'uz']:
+            lang = 'en'
+            
+        from .certificate import generate_certificate_pdf
+        from django.http import FileResponse
+        
+        buffer = generate_certificate_pdf(article, lang=lang)
+        
+        filename = f"Certificate_{article.id}_{lang}.pdf"
+        response = FileResponse(buffer, as_attachment=True, filename=filename)
+        return response
+
