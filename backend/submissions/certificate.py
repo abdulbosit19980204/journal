@@ -191,24 +191,28 @@ def generate_certificate_pdf(article, lang='en'):
     else:
         c.drawCentredString(width / 2, height - 157*mm, j_name_upper)
 
-    # 6. Footer Info
-    footer_y = 40*mm
+    # 6. Footer Info - Publication Details
+    footer_y = 35*mm
     
-    # Date (Left)
-    c.setFont(FONT_NAME, 12)
+    c.setFont(FONT_NAME, 11)
     c.setFillColor(colors.black)
+    
+    # Left: Publication Date
     date_str = article.created_at.strftime("%d.%m.%Y")
-    c.drawString(40*mm, footer_y, f"{t['date']}: {date_str}")
+    c.drawString(30*mm, footer_y, f"{t['date']}: {date_str}")
     
-    # Signature (Center)
-    c.setStrokeColor(colors.black)
-    c.setLineWidth(0.5)
-    c.line(width/2 - 30*mm, footer_y, width/2 + 30*mm, footer_y)
-    c.setFont(FONT_NAME, 10)
-    c.setFillColor(colors.gray)
-    c.drawCentredString(width / 2, footer_y - 5*mm, t['signed'])
+    # Center: Volume, Issue, Pages (if available)
+    if article.issue:
+        c.setFont(FONT_NAME, 10)
+        c.setFillColor(blue_color)
+        issue_text = f"Vol. {article.issue.volume}, No. {article.issue.number} ({article.issue.year})"
+        if article.page_range:
+            issue_text += f" • pp. {article.page_range}"
+        c.drawCentredString(width / 2, footer_y, issue_text)
     
-    # 7. QR Code (Right)
+    # Right side will have QR code (moved from bottom)
+    
+    # 7. QR Code (Right side, larger and more prominent)
     # Robust URL Generation
     base_url = "http://localhost:3000"
     if hasattr(settings, 'CSRF_TRUSTED_ORIGINS') and len(settings.CSRF_TRUSTED_ORIGINS) > 0:
@@ -225,12 +229,13 @@ def generate_certificate_pdf(article, lang='en'):
     from reportlab.lib.utils import ImageReader
     qr_img = ImageReader(qr._img)
     
-    qr_size = 30*mm
-    # Position shifted slightly up/right
-    c.drawImage(qr_img, width - 40*mm - qr_size, 30*mm, width=qr_size, height=qr_size)
+    qr_size = 35*mm
+    qr_x = width - 45*mm
+    qr_y = 25*mm
+    c.drawImage(qr_img, qr_x, qr_y, width=qr_size, height=qr_size)
     c.setFillColor(blue_color)
     c.setFont(FONT_NAME, 8)
-    c.drawCentredString(width - 40*mm - qr_size/2, 26*mm, t['verify'])
+    c.drawCentredString(qr_x + qr_size/2, qr_y - 5*mm, t['verify'])
 
     c.showPage()
     c.save()

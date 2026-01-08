@@ -24,6 +24,19 @@ export default function PublishedArticlesPage() {
         author: searchParams.get("author") || ""
     })
 
+    // Load view mode from localStorage on mount
+    useEffect(() => {
+        const savedViewMode = localStorage.getItem('articlesViewMode') as 'list' | 'card' | null
+        if (savedViewMode) {
+            setViewMode(savedViewMode)
+        }
+    }, [])
+
+    // Save view mode to localStorage when it changes
+    useEffect(() => {
+        localStorage.setItem('articlesViewMode', viewMode)
+    }, [viewMode])
+
     useEffect(() => {
         // Fetch Journals for filter
         api.get("/journals/").then(res => setJournals(res.data)).catch(console.error)
@@ -316,121 +329,121 @@ export default function PublishedArticlesPage() {
                     {articles.length > 0 ? (
                         viewMode === 'list' ? (
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            {articles.map((article) => (
-                                <article key={article.id} className="card" style={{ padding: '2rem' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '2rem' }}>
-                                        <div style={{ flex: 1 }}>
-                                            <div style={{ marginBottom: '0.75rem' }}>
-                                                <span style={{
-                                                    padding: '0.2rem 0.6rem',
-                                                    background: '#fef3c7',
-                                                    color: '#92400e',
-                                                    borderRadius: '9999px',
-                                                    fontSize: '0.7rem',
-                                                    fontWeight: 600
-                                                }}>
-                                                    {tStatus(article.status)}
-                                                </span>
-                                                <span style={{ color: '#6b7280', fontSize: '0.875rem', marginLeft: '1rem' }}>
-                                                    {t('articles.published_in')} #{article.journal}
-                                                </span>
-                                            </div>
-
-                                            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
-                                                {article.title}
-                                            </h2>
-
-                                            <div
-                                                style={{
-                                                    color: '#4a4a4a',
-                                                    lineHeight: '1.6',
-                                                    marginBottom: '1rem',
-                                                    display: '-webkit-box',
-                                                    WebkitLineClamp: 3,
-                                                    WebkitBoxOrient: 'vertical',
-                                                    overflow: 'hidden',
-                                                    fontSize: '0.95rem',
-                                                    height: '4.6rem' // 3 lines * 1.6 * 0.95 ~= 4.56 + padding
-                                                }}
-                                            >
-                                                {stripHtml(article.abstract)}
-                                            </div>
-
-                                            {article.keywords && (
-                                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-                                                    {article.keywords.split(',').map((kw: string, i: number) => (
-                                                        <span key={i} style={{
-                                                            padding: '0.2rem 0.6rem',
-                                                            background: '#e0e7ff',
-                                                            color: '#3730a3',
-                                                            borderRadius: '9999px',
-                                                            fontSize: '0.75rem'
-                                                        }}>
-                                                            {kw.trim()}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
-
-                                            <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
-                                                {t('articles.by')}{' '}
-                                                {article.author_name ? (
-                                                    <Link href={`/profile/${article.author}`} style={{ color: '#1e3a5f', fontWeight: 600, textDecoration: 'none' }} className="hover-gold">
-                                                        {article.author_name}
-                                                    </Link>
-                                                ) : (
-                                                    <span style={{ color: '#1e3a5f', fontWeight: 500 }}>#{article.author}</span>
-                                                )}
-                                                {article.journal_name && (
-                                                    <span style={{ marginLeft: '0.5rem' }}>
-                                                        • {t('articles.published_in')}{' '}
-                                                        <Link
-                                                            href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
-                                                            style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 500 }}
-                                                        >
-                                                            {article.journal_name}
-                                                            {article.issue_info && `, Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})`}
-                                                        </Link>
+                                {articles.map((article) => (
+                                    <article key={article.id} className="card" style={{ padding: '2rem' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '2rem' }}>
+                                            <div style={{ flex: 1 }}>
+                                                <div style={{ marginBottom: '0.75rem' }}>
+                                                    <span style={{
+                                                        padding: '0.2rem 0.6rem',
+                                                        background: '#fef3c7',
+                                                        color: '#92400e',
+                                                        borderRadius: '9999px',
+                                                        fontSize: '0.7rem',
+                                                        fontWeight: 600
+                                                    }}>
+                                                        {tStatus(article.status)}
                                                     </span>
-                                                )}
-                                                <span style={{ marginLeft: '0.5rem' }}>
-                                                    • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
-                                                </span>
-                                            </div>
-                                        </div>
+                                                    <span style={{ color: '#6b7280', fontSize: '0.875rem', marginLeft: '1rem' }}>
+                                                        {t('articles.published_in')} #{article.journal}
+                                                    </span>
+                                                </div>
 
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                                            <Link
-                                                href={`/articles/${article.id}`}
-                                                className="btn btn-primary"
-                                                style={{ textAlign: 'center', whiteSpace: 'nowrap' }}
-                                            >
-                                                {t('articles.read_more')}
-                                            </Link>
-                                            {article.manuscript_file && (
-                                                <a
-                                                    href={resolveMediaUrl(article.manuscript_file)}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    download
+                                                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e3a5f', marginBottom: '0.75rem', fontFamily: "'Playfair Display', serif" }}>
+                                                    {article.title}
+                                                </h2>
+
+                                                <div
                                                     style={{
-                                                        padding: '0.75rem 1.5rem',
-                                                        border: '1px solid #1e3a5f',
-                                                        color: '#1e3a5f',
-                                                        borderRadius: '8px',
-                                                        textAlign: 'center',
-                                                        fontSize: '0.875rem',
-                                                        fontWeight: 500
+                                                        color: '#4a4a4a',
+                                                        lineHeight: '1.6',
+                                                        marginBottom: '1rem',
+                                                        display: '-webkit-box',
+                                                        WebkitLineClamp: 3,
+                                                        WebkitBoxOrient: 'vertical',
+                                                        overflow: 'hidden',
+                                                        fontSize: '0.95rem',
+                                                        height: '4.6rem' // 3 lines * 1.6 * 0.95 ~= 4.56 + padding
                                                     }}
                                                 >
-                                                    {t('articles.download_pdf')}
-                                                </a>
-                                            )}
+                                                    {stripHtml(article.abstract)}
+                                                </div>
+
+                                                {article.keywords && (
+                                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+                                                        {article.keywords.split(',').map((kw: string, i: number) => (
+                                                            <span key={i} style={{
+                                                                padding: '0.2rem 0.6rem',
+                                                                background: '#e0e7ff',
+                                                                color: '#3730a3',
+                                                                borderRadius: '9999px',
+                                                                fontSize: '0.75rem'
+                                                            }}>
+                                                                {kw.trim()}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                )}
+
+                                                <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>
+                                                    {t('articles.by')}{' '}
+                                                    {article.author_name ? (
+                                                        <Link href={`/profile/${article.author}`} style={{ color: '#1e3a5f', fontWeight: 600, textDecoration: 'none' }} className="hover-gold">
+                                                            {article.author_name}
+                                                        </Link>
+                                                    ) : (
+                                                        <span style={{ color: '#1e3a5f', fontWeight: 500 }}>#{article.author}</span>
+                                                    )}
+                                                    {article.journal_name && (
+                                                        <span style={{ marginLeft: '0.5rem' }}>
+                                                            • {t('articles.published_in')}{' '}
+                                                            <Link
+                                                                href={article.issue_info ? `/journals/${article.journal_slug}/issue/${article.issue_info.id}` : `/journals/${article.journal_slug}`}
+                                                                style={{ color: '#c9a227', textDecoration: 'none', fontWeight: 500 }}
+                                                            >
+                                                                {article.journal_name}
+                                                                {article.issue_info && `, Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})`}
+                                                            </Link>
+                                                        </span>
+                                                    )}
+                                                    <span style={{ marginLeft: '0.5rem' }}>
+                                                        • {new Date(article.updated_at || article.created_at).toLocaleDateString(locale)}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                                <Link
+                                                    href={`/articles/${article.id}`}
+                                                    className="btn btn-primary"
+                                                    style={{ textAlign: 'center', whiteSpace: 'nowrap' }}
+                                                >
+                                                    {t('articles.read_more')}
+                                                </Link>
+                                                {article.manuscript_file && (
+                                                    <a
+                                                        href={resolveMediaUrl(article.manuscript_file)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        download
+                                                        style={{
+                                                            padding: '0.75rem 1.5rem',
+                                                            border: '1px solid #1e3a5f',
+                                                            color: '#1e3a5f',
+                                                            borderRadius: '8px',
+                                                            textAlign: 'center',
+                                                            fontSize: '0.875rem',
+                                                            fontWeight: 500
+                                                        }}
+                                                    >
+                                                        {t('articles.download_pdf')}
+                                                    </a>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                                    </article>
+                                ))}
+                            </div>
                         ) : (
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '2rem' }}>
                                 {articles.map((article) => (
