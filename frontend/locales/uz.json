@@ -209,7 +209,13 @@
     "read_online": "Onlayn o'qish",
     "full_text_view": "To'liq matnni ko'rish",
     "certificate": "Nashr Sertifikati",
-    "certificate_desc": "Rasmiy nashr sertifikatini yuklab oling."
+    "certificate_desc": "Rasmiy nashr sertifikatini yuklab oling.",
+    "critiques": "Ekspert taqrizlari",
+    "no_critiques": "Ushbu maqola uchun hali ekspert taqrizlari mavjud emas.",
+    "write_critique": "Ekspert taqrizini yuborish",
+    "critique_placeholder": "Professional taqrizingizni shu yerga yozing...",
+    "submit_critique": "Taqrizni yuborish",
+    "review_success": "Taqriz muvaffaqiyatli yuborildi!"
   },
   "pricing": {
     "title": "Narxlar rejalari",

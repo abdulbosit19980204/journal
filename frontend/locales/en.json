@@ -209,7 +209,13 @@
     "read_online": "Read Online",
     "full_text_view": "Full Text View",
     "certificate": "Publication Certificate",
-    "certificate_desc": "Download the official certificate of publication."
+    "certificate_desc": "Download the official certificate of publication.",
+    "critiques": "Expert Critiques",
+    "no_critiques": "No expert critiques available for this article yet.",
+    "write_critique": "Submit an Expert Critique",
+    "critique_placeholder": "Write your professional critique here...",
+    "submit_critique": "Post Critique",
+    "review_success": "Critique submitted successfully!"
   },
   "pricing": {
     "title": "Pricing Plans",

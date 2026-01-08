@@ -12,6 +12,7 @@ interface User {
     is_staff: boolean
     is_superuser: boolean
     is_finance_admin: boolean
+    is_expert: boolean
     profile_picture: string | null
     balance: string
     subscription: {

@@ -36,3 +36,16 @@ class Article(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.status})"
+
+class ArticleReview(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='reviews')
+    expert = models.ForeignKey(User, on_delete=models.CASCADE, related_name='expert_reviews')
+    critique = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        unique_together = ['article', 'expert']
+
+    def __str__(self):
+        return f"Review for {self.article.title} by {self.expert.username}"

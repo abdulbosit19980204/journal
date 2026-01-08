@@ -12,6 +12,7 @@ class User(AbstractUser):
     profile_picture = models.ImageField(upload_to='profiles/', blank=True, null=True)
     balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     is_finance_admin = models.BooleanField(default=False, help_text="Finance admin access")
+    is_expert = models.BooleanField(default=False, help_text="Expert user who can write article critiques")
 
     def __str__(self):
         return self.username

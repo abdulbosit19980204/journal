@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useEffect, useState } from "react"
@@ -7,12 +6,17 @@ import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { resolveMediaUrl } from "@/lib/utils"
+import { useAuth } from "@/lib/auth-context"
+import { toast } from "sonner"
 
 export default function ArticleDetailPage() {
     const { t, tStatus, locale } = useI18n()
     const { id } = useParams()
+    const { user } = useAuth()
     const [article, setArticle] = useState<any>(null)
     const [loading, setLoading] = useState(true)
+    const [critique, setCritique] = useState("")
+    const [submittingReview, setSubmittingReview] = useState(false)
 
     useEffect(() => {
         if (id) {
@@ -22,6 +26,28 @@ export default function ArticleDetailPage() {
                 .finally(() => setLoading(false))
         }
     }, [id])
+
+    const handleReviewSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        if (!critique.trim()) return
+
+        setSubmittingReview(true)
+        try {
+            await api.post("/reviews/", {
+                article: article.id,
+                critique: critique
+            })
+            // Refresh article to get new reviews
+            const res = await api.get(`/submissions/${id}/`)
+            setArticle(res.data)
+            setCritique("")
+            toast.success(t('articles.review_success') || "Critique submitted successfully!")
+        } catch (err: any) {
+            toast.error(err.response?.data?.detail || "Failed to submit critique")
+        } finally {
+            setSubmittingReview(false)
+        }
+    }
 
     if (loading) {
         return (
@@ -60,7 +86,7 @@ export default function ArticleDetailPage() {
                     right: 0,
                     height: '100%',
                     opacity: 0.1,
-                    backgroundImage: 'url(/pattern.png)', // Placeholder for texture
+                    backgroundImage: 'url(/pattern.png)',
                     backgroundSize: 'cover'
                 }} />
 
@@ -269,7 +295,7 @@ export default function ArticleDetailPage() {
                     )}
 
                     {/* Full Text / PDF Viewer */}
-                    <div id="full-text">
+                    <div id="full-text" style={{ marginBottom: '4rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
                             <h2 style={{
                                 fontSize: '1.5rem',
@@ -334,6 +360,78 @@ export default function ArticleDetailPage() {
                             }}>
                                 <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.5 }}>📄</div>
                                 <p style={{ color: '#64748b' }}>{t('articles.pdf_not_available')}</p>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Reviews / Critiques Section */}
+                    <div id="reviews" style={{ borderTop: '1px solid #f3f4f6', paddingTop: '3rem' }}>
+                        <h2 style={{
+                            fontSize: '1.5rem',
+                            fontWeight: 700,
+                            color: '#1e3a5f',
+                            marginBottom: '2rem',
+                            fontFamily: "'Playfair Display', serif"
+                        }}>
+                            {t('articles.critiques') || 'Expert Critiques'}
+                        </h2>
+
+                        {article.reviews && article.reviews.length > 0 ? (
+                            <div style={{ display: 'grid', gap: '1.5rem', marginBottom: '3rem' }}>
+                                {article.reviews.map((rev: any) => (
+                                    <div key={rev.id} style={{ background: '#fafafa', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #c9a227' }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', alignItems: 'start' }}>
+                                            <div style={{ fontWeight: 600, color: '#1e3a5f' }}>{rev.expert_name}</div>
+                                            <div style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
+                                                {new Date(rev.created_at).toLocaleDateString(locale)}
+                                            </div>
+                                        </div>
+                                        <div style={{ color: '#4b5563', lineHeight: 1.6, fontSize: '1rem', whiteSpace: 'pre-wrap' }}>
+                                            {rev.critique}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div style={{ padding: '2rem', textAlign: 'center', background: '#f9fafb', borderRadius: '8px', color: '#6b7280', marginBottom: '3rem' }}>
+                                {t('articles.no_critiques') || 'No expert critiques available for this article yet.'}
+                            </div>
+                        )}
+
+                        {/* Expert Review Form */}
+                        {user?.is_expert && (
+                            <div style={{ background: '#fffbeb', padding: '2rem', borderRadius: '12px', border: '1px solid #fef3c7' }}>
+                                <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#92400e', marginBottom: '1rem' }}>
+                                    {t('articles.write_critique') || 'Submit an Expert Critique'}
+                                </h3>
+                                <form onSubmit={handleReviewSubmit}>
+                                    <textarea
+                                        value={critique}
+                                        onChange={(e) => setCritique(e.target.value)}
+                                        placeholder={t('articles.critique_placeholder') || "Write your professional critique here..."}
+                                        required
+                                        style={{
+                                            width: '100%',
+                                            minHeight: '150px',
+                                            padding: '1rem',
+                                            borderRadius: '8px',
+                                            border: '1px solid #fcd34d',
+                                            marginBottom: '1rem',
+                                            fontSize: '1rem',
+                                            fontFamily: 'inherit'
+                                        }}
+                                    />
+                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                        <button
+                                            type="submit"
+                                            disabled={submittingReview}
+                                            className="btn btn-primary"
+                                            style={{ background: '#c9a227', borderColor: '#c9a227', minWidth: '150px' }}
+                                        >
+                                            {submittingReview ? "..." : (t('articles.submit_critique') || 'Post Critique')}
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         )}
                     </div>

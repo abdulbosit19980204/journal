@@ -3,16 +3,25 @@ from rest_framework import serializers, viewsets, permissions, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.utils import timezone
-from .models import Article
-from journals.models import Journal
-from billing.models import UserSubscription, WalletTransaction
-from decimal import Decimal
+from .models import Article, ArticleReview
+
+class ArticleReviewSerializer(serializers.ModelSerializer):
+    expert_name = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = ArticleReview
+        fields = ('id', 'article', 'expert', 'expert_name', 'critique', 'created_at')
+        read_only_fields = ('expert', 'created_at')
+
+    def get_expert_name(self, obj):
+        return obj.expert.get_full_name() or obj.expert.username
 
 class ArticleSerializer(serializers.ModelSerializer):
     author_name = serializers.SerializerMethodField()
     journal_name = serializers.SerializerMethodField()
     journal_slug = serializers.SerializerMethodField()
     issue_info = serializers.SerializerMethodField()
+    reviews = ArticleReviewSerializer(many=True, read_only=True)
     
     class Meta:
         model = Article
@@ -37,6 +46,23 @@ class ArticleSerializer(serializers.ModelSerializer):
                 "year": obj.issue.year
             }
         return None
+
+class ArticleReviewViewSet(viewsets.ModelViewSet):
+    queryset = ArticleReview.objects.all()
+    serializer_class = ArticleReviewSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def perform_create(self, serializer):
+        if not self.request.user.is_expert:
+            from rest_framework.exceptions import PermissionDenied
+            raise PermissionDenied("Only expert users can write critiques.")
+        serializer.save(expert=self.request.user)
+
+    def get_queryset(self):
+        article_id = self.request.query_params.get('article')
+        if article_id:
+            return self.queryset.filter(article_id=article_id)
+        return self.queryset
 
 class SubmissionViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer

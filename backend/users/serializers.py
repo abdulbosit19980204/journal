@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'id', 'username', 'email', 'first_name', 'last_name', 
-            'is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 
+            'is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'is_expert',
             'bio', 'institution', 'profile_picture', 'balance', 'subscription'
         )
 
@@ -28,7 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         
         # Restricted fields
-        restricted = ['is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'balance']
+        restricted = ['is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'is_expert', 'balance']
         
         # If no request or user is not staff, make these fields read-only
         if not request or not request.user.is_staff:

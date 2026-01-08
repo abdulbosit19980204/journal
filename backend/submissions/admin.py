@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Article
+from .models import Article, ArticleReview
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
+    # ... (unchanged)
     list_display = ('title', 'author', 'journal', 'status', 'language', 'submitted_at')
     list_filter = ('status', 'journal', 'language')
     search_fields = ('title', 'abstract', 'author__username', 'keywords')
@@ -51,3 +52,10 @@ class ArticleAdmin(admin.ModelAdmin):
     def mark_as_under_review(self, request, queryset):
         updated = queryset.update(status='UNDER_REVIEW')
         self.message_user(request, f'{updated} article(s) marked as UNDER_REVIEW.')
+
+@admin.register(ArticleReview)
+class ArticleReviewAdmin(admin.ModelAdmin):
+    list_display = ('article', 'expert', 'created_at')
+    list_filter = ('created_at', 'expert')
+    search_fields = ('article__title', 'expert__username', 'critique')
+    readonly_fields = ('created_at',)
