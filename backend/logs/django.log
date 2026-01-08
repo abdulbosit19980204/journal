@@ -14935,3 +14935,37 @@ INFO 2026-01-08 16:24:30,358 log "GET /api/auth/me/ HTTP/1.1" 200 543
 INFO 2026-01-08 16:24:30,363 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
 INFO 2026-01-08 16:24:31,357 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
 INFO 2026-01-08 16:24:32,813 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 16:24:34,611 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:24:34,618 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:24:34,618 log "GET /api/auth/me/ HTTP/1.1" 200 463
+INFO 2026-01-08 16:24:34,812 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 16:24:38,656 log "GET /api/submissions/6/ HTTP/1.1" 200 3377
+INFO 2026-01-08 16:24:38,665 log "GET /api/submissions/6/ HTTP/1.1" 200 3377
+INFO 2026-01-08 16:24:41,351 log "GET /api/submissions/6/certificate/?lang=uz HTTP/1.1" 200 52997
+INFO 2026-01-08 16:25:02,207 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:25:02,208 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:25:02,216 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 16:25:02,216 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:25:02,707 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 16:25:05,818 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 16:25:08,923 log "OPTIONS /api/issues/3/ HTTP/1.1" 200 0
+INFO 2026-01-08 16:25:08,927 log "OPTIONS /api/issues/3/ HTTP/1.1" 200 0
+INFO 2026-01-08 16:25:08,944 log "GET /api/issues/3/ HTTP/1.1" 200 278
+INFO 2026-01-08 16:25:08,951 log "GET /api/issues/3/ HTTP/1.1" 200 278
+INFO 2026-01-08 16:25:08,951 log "OPTIONS /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 0
+INFO 2026-01-08 16:25:08,963 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 1281
+INFO 2026-01-08 16:25:08,975 log "GET /api/submissions/?issue=3&status=PUBLISHED HTTP/1.1" 200 1281
+INFO 2026-01-08 16:25:09,287 log "GET /media/issues/files/Lesson_2__Phrase_bank_wNscyLF.pdf HTTP/1.1" 200 153865
+INFO 2026-01-08 16:25:14,229 log "OPTIONS /api/journals/yoshlar_plyus/ HTTP/1.1" 200 0
+INFO 2026-01-08 16:25:14,229 log "OPTIONS /api/journals/yoshlar_plyus/ HTTP/1.1" 200 0
+WARNING 2026-01-08 16:25:14,247 log Not Found: /api/journals/yoshlar_plyus/
+WARNING 2026-01-08 16:25:14,247 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 404 23
+WARNING 2026-01-08 16:25:14,251 log Not Found: /api/journals/yoshlar_plyus/
+WARNING 2026-01-08 16:25:14,252 log "GET /api/journals/yoshlar_plyus/ HTTP/1.1" 404 23
+INFO 2026-01-08 16:25:17,771 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:25:17,786 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:25:17,795 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 16:25:17,815 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 16:25:21,830 log "GET /api/journals/ HTTP/1.1" 200 3150
+INFO 2026-01-08 16:25:21,837 log "GET /api/auth/me/ HTTP/1.1" 200 463
+INFO 2026-01-08 16:25:21,854 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
