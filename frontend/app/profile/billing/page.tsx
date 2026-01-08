@@ -177,7 +177,7 @@ export default function BillingBalancePage() {
                             <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid #f3f4f6' }}>
                                 <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#1e3a5f' }}>{t('billing.my_receipts')}</h3>
                             </div>
-                            <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                            <div style={{ overflowX: 'auto', overflowY: 'auto', maxHeight: '600px' }}>
                                 {transactions.length > 0 ? (
                                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
                                         <thead>
@@ -188,6 +188,8 @@ export default function BillingBalancePage() {
                                                 <th style={{ padding: '1rem 1.5rem' }}>{t('billing.status')}</th>
                                                 <th style={{ padding: '1rem 1.5rem' }}>{t('billing.description')}</th>
                                                 <th style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>{t('billing.amount')}</th>
+                                                <th style={{ padding: '1rem 1.5rem', textAlign: 'center' }}>Proof</th>
+                                                <th style={{ padding: '1rem 1.5rem' }}>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -229,6 +231,38 @@ export default function BillingBalancePage() {
                                                         color: parseFloat(tr.amount) >= 0 ? '#059669' : '#dc2626'
                                                     }}>
                                                         {parseFloat(tr.amount) >= 0 ? '+' : ''}{tr.amount}
+                                                    </td>
+                                                    <td style={{ padding: '1rem 1.5rem', textAlign: 'center' }}>
+                                                        {tr.receipt_image && (
+                                                            <a
+                                                                href={resolveMediaUrl(tr.receipt_image)}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                style={{
+                                                                    color: '#6366f1',
+                                                                    textDecoration: 'none',
+                                                                    fontSize: '0.8rem',
+                                                                    fontWeight: 600,
+                                                                    display: 'inline-flex',
+                                                                    alignItems: 'center',
+                                                                    gap: '0.25rem'
+                                                                }}
+                                                            >
+                                                                📄 View Proof
+                                                            </a>
+                                                        )}
+                                                    </td>
+                                                    <td style={{ padding: '1rem 1.5rem' }}>
+                                                        {tr.admin_note && (
+                                                            <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
+                                                                <div style={{ fontStyle: 'italic', marginBottom: '0.25rem' }}>"{tr.admin_note}"</div>
+                                                                {tr.decided_at && (
+                                                                    <div style={{ fontSize: '0.7rem', color: '#9ca3af' }}>
+                                                                        Decided: {new Date(tr.decided_at).toLocaleDateString(locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US')}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        )}
                                                     </td>
                                                 </tr>
                                             ))}

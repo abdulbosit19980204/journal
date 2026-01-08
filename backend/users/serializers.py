@@ -16,8 +16,8 @@ class UserSerializer(serializers.ModelSerializer):
     subscription = UserSubscriptionSerializer(read_only=True)
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'is_verified', 'is_staff', 'is_superuser', 'bio', 'institution', 'profile_picture', 'balance', 'subscription')
-        read_only_fields = ('is_verified', 'is_staff', 'is_superuser', 'balance')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'bio', 'institution', 'profile_picture', 'balance', 'subscription')
+        read_only_fields = ('is_verified', 'is_staff', 'is_superuser', 'is_finance_admin', 'balance')
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

@@ -148,7 +148,20 @@ export default function PublishedArticlesPage() {
                     alignItems: 'end'
                 }}>
                     <div style={{ fontSize: '0.8rem', color: '#8b7c5b' }}>
-                        <strong style={{ display: 'block', color: '#5d4037', marginBottom: '0.2rem' }}>{article.author_name}</strong>
+                        <Link 
+                            href={`/profile/${article.author}`}
+                            style={{ 
+                                display: 'block', 
+                                color: '#5d4037', 
+                                marginBottom: '0.2rem',
+                                fontWeight: 700,
+                                textDecoration: 'none',
+                                transition: 'color 0.2s'
+                            }}
+                            className="hover-gold"
+                        >
+                            {article.author_name}
+                        </Link>
                         {article.issue_info ? `Vol ${article.issue_info.volume}, No ${article.issue_info.number} (${article.issue_info.year})` : article.year}
                     </div>
                     <Link href={`/articles/${article.id}`} style={{

@@ -12672,3 +12672,1499 @@ INFO 2026-01-08 15:18:21,522 log "GET /api/journals/ HTTP/1.1" 200 2967
 INFO 2026-01-08 15:18:21,528 log "GET /api/issues/years/ HTTP/1.1" 200 6
 INFO 2026-01-08 15:18:21,530 log "GET /api/journals/ HTTP/1.1" 200 2967
 INFO 2026-01-08 15:18:22,026 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:19:53,537 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:19:53,539 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:19:53,540 log "GET /api/auth/me/ HTTP/1.1" 200 517
+INFO 2026-01-08 15:19:54,046 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:19:57,482 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:19:57,493 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:19:57,504 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:19:57,523 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:20:00,275 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:20:00,288 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:20:07,301 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:07,307 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:07,322 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:20:07,342 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:20:30,144 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:30,144 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:20:30,153 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:30,153 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:20:30,650 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:20:41,311 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:41,317 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:42,694 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:42,694 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:20:42,702 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:20:42,703 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:20:43,198 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:20:49,587 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:20:49,594 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:20:52,488 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:20:52,488 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:20:52,488 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:20:52,489 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:20:52,502 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:20:52,502 log "GET /api/billing/transactions/ HTTP/1.1" 200 616
+INFO 2026-01-08 15:20:52,509 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:20:52,510 log "GET /api/billing/transactions/ HTTP/1.1" 200 616
+INFO 2026-01-08 15:21:14,827 log "OPTIONS /api/admin-receipts/users_list/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,827 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,827 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,828 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,828 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,829 log "OPTIONS /api/admin-receipts/users_list/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:14,841 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 291
+INFO 2026-01-08 15:21:14,844 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 78
+INFO 2026-01-08 15:21:14,853 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 291
+INFO 2026-01-08 15:21:14,853 log "GET /api/admin-receipts/ HTTP/1.1" 200 2905
+INFO 2026-01-08 15:21:14,865 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 78
+INFO 2026-01-08 15:21:14,866 log "GET /api/admin-receipts/ HTTP/1.1" 200 2905
+INFO 2026-01-08 15:21:33,049 log "OPTIONS /api/admin-receipts/9/approve/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:21:33,064 log "POST /api/admin-receipts/9/approve/ HTTP/1.1" 200 44
+INFO 2026-01-08 15:21:33,077 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:21:33,082 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:21:33,092 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:22:45,444 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:22:45,446 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:22:45,446 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:22:45,454 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:22:46,452 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:22:46,452 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:22:46,460 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:22:46,461 log "GET /api/issues/years/ HTTP/1.1" 200 6
+INFO 2026-01-08 15:22:46,944 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:22:53,040 log "GET /api/auth/public/profiles/3/ HTTP/1.1" 200 540
+INFO 2026-01-08 15:22:53,052 log "GET /api/auth/public/profiles/3/ HTTP/1.1" 200 540
+INFO 2026-01-08 15:22:53,065 log "GET /api/submissions/?author=3&status=PUBLISHED HTTP/1.1" 200 4628
+INFO 2026-01-08 15:22:53,079 log "GET /api/submissions/?author=3&status=PUBLISHED HTTP/1.1" 200 4628
+INFO 2026-01-08 15:23:39,185 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:23:39,186 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:23:39,188 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:23:39,198 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:23:39,200 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:23:39,202 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:23:39,214 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:23:39,236 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:23:40,273 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:23:40,278 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:23:40,292 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:23:40,292 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:23:40,294 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:23:40,308 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:23:42,121 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:23:42,123 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:23:42,124 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:23:42,139 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:23:42,141 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:23:42,141 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:23:42,156 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:23:42,176 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:23:45,155 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:23:45,155 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:23:45,166 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:23:45,169 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:23:45,169 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:23:45,182 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:26:09,570 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:26:09,574 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:26:09,574 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:26:41,795 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:26:41,800 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:26:41,802 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:26:41,809 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:27:43,090 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:27:43,092 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:27:43,096 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:27:43,101 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:27:55,844 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:28:01,565 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:28:01,565 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:28:01,571 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:28:01,579 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:28:01,748 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:28:01,754 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:28:01,754 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:28:17,946 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:28:17,952 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:28:18,712 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:28:18,721 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:28:18,728 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:28:18,747 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:28:21,870 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:28:21,893 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:28:26,803 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:28:26,811 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:28:29,325 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:28:29,331 log "GET /api/plans/ HTTP/1.1" 200 465
+INFO 2026-01-08 15:28:32,459 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:28:32,484 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:28:44,782 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:28:44,789 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:28:44,798 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:28:44,800 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:28:44,800 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:28:44,813 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:28:51,147 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:28:51,147 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:28:51,147 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:28:51,147 log "OPTIONS /api/admin-receipts/users_list/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:28:51,162 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:28:51,168 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:28:51,168 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:28:51,175 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:28:51,550 log "GET /media/profiles/photo_2025-04-04_09-38-11.jpg HTTP/1.1" 200 46798
+INFO 2026-01-08 15:29:02,239 log "GET /admin HTTP/1.1" 301 0
+INFO 2026-01-08 15:29:02,271 log "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-01-08 15:29:02,314 log "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4080
+INFO 2026-01-08 15:29:02,349 log "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-01-08 15:29:02,349 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-01-08 15:29:02,350 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-01-08 15:29:02,350 log "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-01-08 15:29:02,351 log "GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+INFO 2026-01-08 15:29:02,352 log "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-01-08 15:29:02,394 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-01-08 15:29:02,512 log Not Found: /favicon.ico
+WARNING 2026-01-08 15:29:02,513 log "GET /favicon.ico HTTP/1.1" 404 4002
+INFO 2026-01-08 15:29:13,618 log "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-01-08 15:29:13,646 log "GET /admin/ HTTP/1.1" 200 17927
+INFO 2026-01-08 15:29:13,677 log "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-01-08 15:29:13,690 log "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 689
+INFO 2026-01-08 15:29:13,691 log "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+INFO 2026-01-08 15:29:13,691 log "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-01-08 15:29:21,002 log "GET /admin/users/user/ HTTP/1.1" 200 19799
+INFO 2026-01-08 15:29:21,035 log "GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+INFO 2026-01-08 15:29:21,037 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-01-08 15:29:21,037 log "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-01-08 15:29:21,037 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-01-08 15:29:21,042 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-01-08 15:29:21,043 log "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2026-01-08 15:29:21,044 log "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-01-08 15:29:21,048 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:29:21,049 log "GET /static/admin/img/search.svg HTTP/1.1" 200 607
+INFO 2026-01-08 15:29:21,050 log "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 645
+INFO 2026-01-08 15:29:21,051 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-01-08 15:29:21,052 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-01-08 15:29:21,064 log "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-01-08 15:29:21,065 log "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+INFO 2026-01-08 15:29:21,079 log "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+INFO 2026-01-08 15:29:21,079 log "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+INFO 2026-01-08 15:29:21,080 log "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+INFO 2026-01-08 15:29:23,690 log "GET /admin/users/user/1/change/ HTTP/1.1" 200 33146
+INFO 2026-01-08 15:29:23,714 log "GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+INFO 2026-01-08 15:29:23,723 log "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2026-01-08 15:29:23,724 log "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 16428
+INFO 2026-01-08 15:29:23,724 log "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19698
+INFO 2026-01-08 15:29:23,726 log "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-01-08 15:29:23,726 log "GET /static/admin/js/calendar.js HTTP/1.1" 200 9159
+INFO 2026-01-08 15:29:23,729 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:29:23,730 log "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+INFO 2026-01-08 15:29:23,734 log "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-01-08 15:29:23,791 log "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 2387
+INFO 2026-01-08 15:29:23,791 log "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112
+INFO 2026-01-08 15:29:23,791 log "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805
+INFO 2026-01-08 15:29:36,104 log "GET /admin/billing/billingconfig/ HTTP/1.1" 200 15879
+INFO 2026-01-08 15:29:36,133 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:29:37,032 log "GET /admin/billing/invoice/ HTTP/1.1" 200 20873
+INFO 2026-01-08 15:29:37,062 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:29:43,934 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:29:43,937 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:29:43,937 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:29:44,858 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:29:44,859 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:29:44,860 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:29:51,107 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:29:51,109 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:29:51,109 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:29:51,265 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:29:51,270 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:29:51,271 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:29:51,271 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:29:59,032 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:29:59,034 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:29:59,035 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:30:00,412 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:00,412 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:00,412 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:00,426 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:30:00,426 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:30:00,428 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:30:00,745 log "GET /media/profiles/f25b50d8-4d66-486a-a89b-436b44df74e5.png HTTP/1.1" 200 223912
+INFO 2026-01-08 15:30:26,594 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:30:26,595 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:30:26,598 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:30:26,601 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:30:29,699 log "GET /api/journals/ HTTP/1.1" 200 2967
+INFO 2026-01-08 15:30:29,709 log "GET /api/submissions/?status=PUBLISHED HTTP/1.1" 200 7375
+INFO 2026-01-08 15:30:29,721 log "GET /media/journals/covers/Times_Journal_Front_4_Jun_08.jpg HTTP/1.1" 200 32785
+INFO 2026-01-08 15:30:29,724 log "GET /media/journals/covers/The_New_York_Times_January_13_2024.png HTTP/1.1" 200 188679
+INFO 2026-01-08 15:30:29,726 log "GET /media/journals/covers/images.jpg HTTP/1.1" 200 11138
+INFO 2026-01-08 15:30:39,413 log "OPTIONS /api/auth/token/ HTTP/1.1" 200 0
+WARNING 2026-01-08 15:30:40,038 log Unauthorized: /api/auth/token/
+WARNING 2026-01-08 15:30:40,039 log "POST /api/auth/token/ HTTP/1.1" 401 63
+WARNING 2026-01-08 15:30:42,483 log Unauthorized: /api/auth/token/
+WARNING 2026-01-08 15:30:42,484 log "POST /api/auth/token/ HTTP/1.1" 401 63
+INFO 2026-01-08 15:30:43,982 log "POST /api/auth/token/ HTTP/1.1" 200 489
+INFO 2026-01-08 15:30:43,986 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:43,990 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:30:43,999 log "GET /media/profiles/f25b50d8-4d66-486a-a89b-436b44df74e5.png HTTP/1.1" 200 223912
+INFO 2026-01-08 15:30:44,120 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:44,120 log "OPTIONS /api/submissions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:44,137 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:30:44,148 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:30:47,851 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:30:47,879 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:30:47,892 log "GET /api/submissions/ HTTP/1.1" 200 4628
+INFO 2026-01-08 15:30:52,415 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:52,415 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:52,415 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:52,417 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:30:52,428 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:30:52,432 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:30:52,436 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:30:52,438 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:31:18,308 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:31:18,308 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:31:18,308 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:31:18,322 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:31:18,324 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:31:18,325 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:31:18,337 log "GET /media/profiles/f25b50d8-4d66-486a-a89b-436b44df74e5.png HTTP/1.1" 200 223912
+INFO 2026-01-08 15:31:27,232 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:31:27,236 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:31:27,238 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:31:27,245 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:32:01,202 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:32:01,210 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:32:01,210 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:32:32,793 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:32:38,843 basehttp - Broken pipe from ('127.0.0.1', 56345)
+INFO 2026-01-08 15:32:38,844 basehttp - Broken pipe from ('127.0.0.1', 61419)
+INFO 2026-01-08 15:32:38,849 basehttp - Broken pipe from ('127.0.0.1', 61256)
+INFO 2026-01-08 15:32:38,856 basehttp - Broken pipe from ('127.0.0.1', 61726)
+INFO 2026-01-08 15:32:38,971 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:32:38,971 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:32:38,972 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:32:39,394 log "OPTIONS /api/admin-receipts/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:39,396 log "OPTIONS /api/admin-receipts/stats/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:39,398 log "OPTIONS /api/admin-receipts/users_list/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:39,399 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:39,413 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:32:39,419 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:32:39,425 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:32:39,433 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:32:39,791 log "GET /media/profiles/photo_2025-04-04_09-38-11.jpg HTTP/1.1" 200 46798
+INFO 2026-01-08 15:32:42,966 log "OPTIONS /api/billing/config/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:42,966 log "OPTIONS /api/auth/me/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:42,967 log "OPTIONS /api/billing/transactions/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:32:42,980 log "GET /api/billing/config/ HTTP/1.1" 200 373
+INFO 2026-01-08 15:32:42,984 log "GET /api/auth/me/ HTTP/1.1" 200 519
+INFO 2026-01-08 15:32:42,984 log "GET /api/billing/transactions/ HTTP/1.1" 200 619
+INFO 2026-01-08 15:32:43,301 log "GET /media/profiles/f25b50d8-4d66-486a-a89b-436b44df74e5.png HTTP/1.1" 200 223912
+INFO 2026-01-08 15:34:40,889 log "GET /api/admin-receipts/ HTTP/1.1" 200 2954
+INFO 2026-01-08 15:34:40,893 log "GET /api/admin-receipts/stats/ HTTP/1.1" 200 77
+INFO 2026-01-08 15:34:40,898 log "GET /api/admin-receipts/users_list/ HTTP/1.1" 200 293
+INFO 2026-01-08 15:34:40,906 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:34:43,691 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:34:43,717 log "GET /api/submissions/ HTTP/1.1" 200 8705
+INFO 2026-01-08 15:34:45,433 autoreload D:\coding\journal\backend\users\models.py changed, reloading.
+INFO 2026-01-08 15:34:46,109 autoreload Watching for file changes with StatReloader
+ERROR 2026-01-08 15:34:48,706 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,707 log Internal Server Error: /api/auth/me/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,707 log Internal Server Error: /api/journals/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,708 log Internal Server Error: /api/plans/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,747 log "GET /api/submissions/ HTTP/1.1" 500 26006
+ERROR 2026-01-08 15:34:48,748 log "GET /api/auth/me/ HTTP/1.1" 500 25975
+ERROR 2026-01-08 15:34:48,757 log "GET /api/journals/ HTTP/1.1" 500 25988
+ERROR 2026-01-08 15:34:48,763 log "GET /api/plans/ HTTP/1.1" 500 25972
+ERROR 2026-01-08 15:34:48,856 log Internal Server Error: /api/journals/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,883 log Internal Server Error: /api/plans/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,884 log "GET /api/journals/ HTTP/1.1" 500 25988
+ERROR 2026-01-08 15:34:48,896 log Internal Server Error: /api/auth/me/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,909 log Internal Server Error: /api/submissions/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:48,918 log "GET /api/plans/ HTTP/1.1" 500 25972
+ERROR 2026-01-08 15:34:48,928 log "GET /api/auth/me/ HTTP/1.1" 500 25975
+ERROR 2026-01-08 15:34:48,932 log "GET /api/submissions/ HTTP/1.1" 500 26006
+INFO 2026-01-08 15:34:51,927 log "OPTIONS /api/auth/users/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:34:51,928 log "OPTIONS /api/auth/users/ HTTP/1.1" 200 0
+ERROR 2026-01-08 15:34:51,961 log Internal Server Error: /api/auth/users/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:51,967 log "GET /api/auth/users/ HTTP/1.1" 500 25990
+ERROR 2026-01-08 15:34:51,995 log Internal Server Error: /api/auth/users/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 420, in initial
+    self.perform_authentication(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\views.py", line 330, in perform_authentication
+    request.user
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 232, in user
+    self._authenticate()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework\request.py", line 385, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 51, in authenticate
+    return self.get_user(validated_token), validated_token
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\rest_framework_simplejwt\authentication.py", line 132, in get_user
+    user = self.user_model.objects.get(**{api_settings.USER_ID_FIELD: user_id})
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:52,000 log "GET /api/auth/users/ HTTP/1.1" 500 25990
+INFO 2026-01-08 15:34:54,966 log "GET /admin/users/user/ HTTP/1.1" 302 0
+INFO 2026-01-08 15:34:54,988 log "GET /admin/login/?next=/admin/users/user/ HTTP/1.1" 200 4102
+INFO 2026-01-08 15:34:55,105 log "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-01-08 15:34:55,107 log "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-01-08 15:34:55,110 log "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-01-08 15:34:55,111 log "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-01-08 15:34:55,113 log "GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+INFO 2026-01-08 15:34:55,115 log "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-01-08 15:34:55,116 log "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-01-08 15:34:55,240 log Not Found: /favicon.ico
+WARNING 2026-01-08 15:34:55,241 log "GET /favicon.ico HTTP/1.1" 404 4002
+ERROR 2026-01-08 15:34:56,552 log Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 450, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 338, in full_clean
+    self._clean_form()
+    ~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 354, in _clean_form
+    cleaned_data = self.clean()
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\forms.py", line 349, in clean
+    self.user_cache = authenticate(
+                      ~~~~~~~~~~~~^
+        self.request, username=username, password=password
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:34:56,557 log "POST /admin/login/?next=/admin/users/user/ HTTP/1.1" 500 246876
+ERROR 2026-01-08 15:35:00,758 log Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: users_user.is_finance_admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\admin\sites.py", line 450, in login
+    return LoginView.as_view(**defaults)(request)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\views.py", line 89, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 206, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 201, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 338, in full_clean
+    self._clean_form()
+    ~~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\forms\forms.py", line 354, in _clean_form
+    cleaned_data = self.clean()
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\forms.py", line 349, in clean
+    self.user_cache = authenticate(
+                      ~~~~~~~~~~~~^
+        self.request, username=username, password=password
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 114, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\backends.py", line 65, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\contrib\auth\base_user.py", line 37, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    num = len(clone)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 372, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 2000, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\query.py", line 95, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1624, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\coding\journal\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: users_user.is_finance_admin
+ERROR 2026-01-08 15:35:00,765 log "POST /admin/login/?next=/admin/users/user/ HTTP/1.1" 500 246876
+INFO 2026-01-08 15:35:10,469 log "POST /admin/login/?next=/admin/users/user/ HTTP/1.1" 200 4270
+INFO 2026-01-08 15:35:12,734 log "POST /admin/login/?next=/admin/users/user/ HTTP/1.1" 200 4270
+INFO 2026-01-08 15:35:17,745 log "POST /admin/login/?next=/admin/users/user/ HTTP/1.1" 302 0
+INFO 2026-01-08 15:35:17,788 log "GET /admin/users/user/ HTTP/1.1" 200 19799
+INFO 2026-01-08 15:35:17,813 log "GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+INFO 2026-01-08 15:35:17,824 log "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-01-08 15:35:17,824 log "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2026-01-08 15:35:17,825 log "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-01-08 15:35:17,826 log "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2026-01-08 15:35:17,831 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:35:17,833 log "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-01-08 15:35:17,834 log "GET /static/admin/img/search.svg HTTP/1.1" 200 607
+INFO 2026-01-08 15:35:17,834 log "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-01-08 15:35:17,836 log "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 645
+INFO 2026-01-08 15:35:17,837 log "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-01-08 15:35:17,839 log "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-01-08 15:35:17,850 log "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-01-08 15:35:17,856 log "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+INFO 2026-01-08 15:35:17,861 log "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1761
+INFO 2026-01-08 15:35:17,861 log "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+INFO 2026-01-08 15:35:17,861 log "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+INFO 2026-01-08 15:35:17,862 log "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-01-08 15:35:26,302 log "GET /admin/users/user/1/change/ HTTP/1.1" 200 33146
+INFO 2026-01-08 15:35:26,325 log "GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+INFO 2026-01-08 15:35:26,336 log "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19698
+INFO 2026-01-08 15:35:26,336 log "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2026-01-08 15:35:26,337 log "GET /static/admin/js/calendar.js HTTP/1.1" 200 9159
+INFO 2026-01-08 15:35:26,337 log "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 16428
+INFO 2026-01-08 15:35:26,339 log "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-01-08 15:35:26,341 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:35:26,344 log "GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+INFO 2026-01-08 15:35:26,346 log "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-01-08 15:35:26,403 log "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 2387
+INFO 2026-01-08 15:35:26,403 log "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1112
+INFO 2026-01-08 15:35:26,404 log "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 805
+INFO 2026-01-08 15:35:42,620 log "GET /admin/users/user/1/change/ HTTP/1.1" 200 33146
+INFO 2026-01-08 15:35:42,643 log "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-08 15:35:45,352 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:35:45,358 log "GET /api/auth/users/ HTTP/1.1" 200 1569
+INFO 2026-01-08 15:35:51,951 log "OPTIONS /api/auth/users/3/ HTTP/1.1" 200 0
+INFO 2026-01-08 15:35:51,965 log "PATCH /api/auth/users/3/ HTTP/1.1" 200 540
+INFO 2026-01-08 15:36:01,197 log "GET /api/auth/me/ HTTP/1.1" 200 438
+INFO 2026-01-08 15:36:01,200 log "GET /api/auth/users/ HTTP/1.1" 200 1569
+INFO 2026-01-08 15:36:19,641 autoreload D:\coding\journal\backend\billing\urls.py changed, reloading.
+INFO 2026-01-08 15:36:19,995 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:37:07,810 autoreload D:\coding\journal\backend\users\serializers.py changed, reloading.
+INFO 2026-01-08 15:37:08,206 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:39:21,661 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:41:50,920 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:42:52,775 autoreload Watching for file changes with StatReloader
+INFO 2026-01-08 15:43:08,099 autoreload D:\coding\journal\backend\billing\finance_views.py changed, reloading.
+INFO 2026-01-08 15:43:08,438 autoreload Watching for file changes with StatReloader

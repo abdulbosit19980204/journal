@@ -85,6 +85,27 @@ export default function PublicProfilePage() {
                                 {profile.bio || t('profile.no_bio')}
                             </p>
                         </div>
+
+                        {/* Statistics Section */}
+                        <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '1.5rem', marginTop: '1.5rem' }}>
+                            <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1e3a5f', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                Statistics
+                            </h3>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '0.85rem', color: '#64748b' }}>📚 Publications</span>
+                                    <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1e3a5f' }}>{articles.length}</span>
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '0.85rem', color: '#64748b' }}>📊 Citations</span>
+                                    <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#c9a227' }}>-</span>
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '0.85rem', color: '#64748b' }}>🎯 h-index</span>
+                                    <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#059669' }}>-</span>
+                                </div>
+                            </div>
+                        </div>
                     </aside>
 
                     {/* Right Side: Publications */}
