@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import api from "@/lib/api"
 import { useI18n } from "@/lib/i18n"
 import { resolveMediaUrl, stripHtml } from "@/lib/utils"
 
-export default function PublishedArticlesPage() {
+function PublishedArticlesPageContent() {
     const { t, tStatus, locale } = useI18n()
     const [viewMode, setViewMode] = useState<'list' | 'card'>('list')
     const searchParams = useSearchParams()
@@ -475,5 +475,17 @@ export default function PublishedArticlesPage() {
                 </div>
             </section>
         </main>
+    )
+}
+
+export default function PublishedArticlesPage() {
+    return (
+        <Suspense fallback={
+            <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="spinner" />
+            </div>
+        }>
+            <PublishedArticlesPageContent />
+        </Suspense>
     )
 }
